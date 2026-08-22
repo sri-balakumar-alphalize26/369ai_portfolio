@@ -1,0 +1,167 @@
+[
+  {
+    "slug": "vending-machines-203",
+    "name": "Vending Machines",
+    "count": 14
+  },
+  {
+    "slug": "robots-204",
+    "name": "Robots",
+    "count": 8
+  },
+  {
+    "slug": "smart-banking-219",
+    "name": "Smart Banking",
+    "count": 8
+  },
+  {
+    "slug": "smart-banking-cdm-218",
+    "name": "CDM",
+    "count": 8
+  },
+  {
+    "slug": "barcode-scanner-67",
+    "name": "Barcode Scanner",
+    "count": 7
+  },
+  {
+    "slug": "barcode-scanner-2d-barcode-scanner-68",
+    "name": "2D Barcode Scanner",
+    "count": 7
+  },
+  {
+    "slug": "pos-machines-59",
+    "name": "POS Machines",
+    "count": 6
+  },
+  {
+    "slug": "thermal-receipt-printer-62",
+    "name": "Thermal Receipt Printer",
+    "count": 5
+  },
+  {
+    "slug": "barcode-label-printer-64",
+    "name": "Barcode Label Printer",
+    "count": 5
+  },
+  {
+    "slug": "kiosk-214",
+    "name": "Kiosk",
+    "count": 5
+  },
+  {
+    "slug": "pos-machines-all-in-one-pos-60",
+    "name": "All-In-One POS",
+    "count": 4
+  },
+  {
+    "slug": "thermal-receipt-printer-80mm-thermal-printer-84",
+    "name": "80mm Thermal Printer",
+    "count": 4
+  },
+  {
+    "slug": "robots-mobile-robot-platform-209",
+    "name": "Mobile Robot Platform",
+    "count": 4
+  },
+  {
+    "slug": "barcode-label-printer-desktop-label-printer-65",
+    "name": "Desktop Label Printer",
+    "count": 3
+  },
+  {
+    "slug": "barcode-scanner-wireless-barcode-scanner-73",
+    "name": "Wireless Barcode Scanner",
+    "count": 3
+  },
+  {
+    "slug": "customer-display-75",
+    "name": "Customer Display",
+    "count": 3
+  },
+  {
+    "slug": "money-counting-machine-80",
+    "name": "Money Counting Machine",
+    "count": 3
+  },
+  {
+    "slug": "thermal-receipt-printer-bluetooth-printer-63",
+    "name": "Bluetooth Printer",
+    "count": 2
+  },
+  {
+    "slug": "barcode-label-printer-portable-label-print-69",
+    "name": "Portable Label Print",
+    "count": 2
+  },
+  {
+    "slug": "barcode-scanner-handheld-barcode-scanner-74",
+    "name": "Handheld Barcode Scanner",
+    "count": 2
+  },
+  {
+    "slug": "cash-drawer-71",
+    "name": "Cash Drawer",
+    "count": 2
+  },
+  {
+    "slug": "data-terminal-72",
+    "name": "Data Terminal",
+    "count": 2
+  },
+  {
+    "slug": "inkjet-printer-79",
+    "name": "Inkjet Printer",
+    "count": 2
+  },
+  {
+    "slug": "electronic-weightscale-81",
+    "name": "Electronic Weightscale",
+    "count": 2
+  },
+  {
+    "slug": "barcode-scanner-desktop-barcode-scanner-76",
+    "name": "Desktop Barcode Scanner",
+    "count": 1
+  },
+  {
+    "slug": "barcode-scanner-omnidirectional-barcode-scanner-77",
+    "name": "Omnidirectional Barcode Scanner",
+    "count": 1
+  },
+  {
+    "slug": "pos-monitor-78",
+    "name": "POS Monitor",
+    "count": 1
+  },
+  {
+    "slug": "floor-display-stand-43-inch-82",
+    "name": "Floor Display Stand (43 inch)",
+    "count": 1
+  },
+  {
+    "slug": "android-menu-display-stand-101-inch-83",
+    "name": "Android Menu Display Stand (10.1 inch)",
+    "count": 1
+  },
+  {
+    "slug": "robots-concierge-robot-205",
+    "name": "Concierge Robot",
+    "count": 1
+  },
+  {
+    "slug": "robots-reception-robot-206",
+    "name": "Reception Robot",
+    "count": 1
+  },
+  {
+    "slug": "robots-delivery-robot-207",
+    "name": "Delivery Robot",
+    "count": 1
+  },
+  {
+    "slug": "robots-patrol-robot-208",
+    "name": "Patrol Robot",
+    "count": 1
+  }
+]
