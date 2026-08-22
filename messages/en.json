@@ -1,0 +1,502 @@
+{
+  "meta": {
+    "locale": "English",
+    "region": "Global",
+    "siteTitle": "369AI — Intelligent POS, ERP & Automation"
+  },
+  "nav": {
+    "home": "Home",
+    "whatWeDo": "What We Do",
+    "solutions": "Solutions",
+    "services": "Services",
+    "products": "Products",
+    "shop": "Hardware",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "inquiry": "Inquiry Basket",
+    "search": "Search",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language",
+    "featuredTitle": "Explore the next generation",
+    "featuredBody": "Intelligent POS, ERP and automation built for retail, hospitality and unmanned operations.",
+    "featuredCta": "See all solutions",
+    "software": "Software",
+    "hardware": "Hardware",
+    "softwareBlurb": "ERP modules, POS features, mobile apps and desktop software.",
+    "hardwareBlurb": "POS terminals, printers, scanners, kiosks, vending machines and robots."
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "viewDetails": "View details",
+    "addToInquiry": "Add to Inquiry",
+    "addedToInquiry": "Added",
+    "requestQuote": "Request a Quote",
+    "talkToSales": "Talk to Sales",
+    "getStarted": "Get Started",
+    "seeAll": "See all",
+    "backToShop": "Back to hardware",
+    "priceOnRequest": "Price on request",
+    "loading": "Loading"
+  },
+  "home": {
+    "heroEyebrow": "Intelligent POS, ERP & Automation",
+    "heroTitle": "Explore the next generation",
+    "heroBody": "369AI builds intelligent Point-of-Sale, ERP and automation systems that help retail, food service and hospitality businesses operate smarter, faster and more efficiently.",
+    "heroPrimary": "Explore solutions",
+    "heroSecondary": "Talk to our team",
+    "aboutEyebrow": "About 369AI",
+    "aboutTitle": "Technology that drives efficiency, accuracy and growth",
+    "aboutBody": "369AI is a leading provider of intelligent Point-of-Sale and IT infrastructure solutions, committed to empowering businesses with technology that drives efficiency, accuracy and growth. Established with a mission to simplify operations and enhance customer experiences, we deliver modern, scalable and industry-specific POS systems tailored for retail, food service and hospitality sectors.",
+    "aboutBody2": "Our expertise extends beyond POS — offering smart integrations, advanced analytics and seamless connectivity to help businesses make informed decisions in real time. With a strong presence in Oman and beyond, we pride ourselves on delivering unmatched reliability, personalized service and 24/7 technical support.",
+    "pillarsTitle": "One connected platform",
+    "pillarsBody": "Every part of the 369AI stack talks to every other part — so your counter, your warehouse and your back office all see the same numbers.",
+    "servicesEyebrow": "Our Services",
+    "servicesTitle": "Delivering excellence across every service",
+    "statsTitle": "Trusted by businesses across four countries",
+    "techTitle": "Technologies We Work With",
+    "techBody": "Our expertise spans modern platforms, devices and cloud services to deliver reliable, connected solutions.",
+    "partnersTitle": "Trusted Partners",
+    "faqTitle": "Frequently asked questions",
+    "faqBody": "Answers to what businesses ask us most. Still unsure? Our team replies within 24 hours.",
+    "ctaTitle": "Ready to modernize your operations?",
+    "ctaBody": "Tell us what you run today and we will show you exactly what changes. No obligation, no pressure.",
+    "ctaPrimary": "Request a quote",
+    "ctaSecondary": "Browse hardware",
+    "leadershipTitle": "From our leadership",
+    "leadershipBody": "Talks on business, mind management and building 369AI across four countries — straight from our own channel."
+  },
+  "pillars": {
+    "ai": {
+      "title": "AI-Driven Insights & Automation",
+      "body": "AI for smarter data and automated decisions."
+    },
+    "pos": {
+      "title": "Smart POS & Retail Systems",
+      "body": "Sync sales, stock and customers in real time."
+    },
+    "iot": {
+      "title": "IoT-Enabled Vending & Smart Devices",
+      "body": "Smart vending, cloud controlled."
+    },
+    "erp": {
+      "title": "ERP & Business Management Integration",
+      "body": "One platform. Every department. Unified."
+    }
+  },
+  "stats": {
+    "cities": "Cities Covered",
+    "clients": "Happy Clients",
+    "uptime": "System Uptime",
+    "devices": "POS Devices Delivered"
+  },
+  "services": {
+    "eyebrow": "Our Services",
+    "title": "Delivering excellence across every service",
+    "body": "From the counter to the cloud, we cover the whole stack — and we stay with you after go-live.",
+    "iot": {
+      "title": "IoT-Enabled Vending & Smart Devices",
+      "lead": "Manage your vending machines and smart devices remotely through cloud-based monitoring and automation.",
+      "body": "With a single, intuitive platform, you gain real-time visibility into performance, inventory and energy usage — no matter where you are. Automated alerts and intelligent controls help reduce downtime, cut costs and streamline operations, while remote access ensures you are always in command."
+    },
+    "pos": {
+      "title": "Smart POS & Retail Systems",
+      "lead": "Transform your business efficiency with intelligent POS solutions that unify billing, inventory and customer management.",
+      "body": "Go beyond transactions with advanced analytics, automated reporting and integrated loyalty programs that empower your teams, delight your customers and maximize profitability. Whether you are managing a single store or scaling across multiple locations, our cloud-driven platform ensures agility, transparency and control."
+    },
+    "erp": {
+      "title": "ERP & Business Management Integration",
+      "lead": "Unify every department — sales, accounts, HR and inventory — under one powerful ERP platform.",
+      "body": "By bringing all your core business functions together in a single, integrated system, you eliminate silos and ensure seamless collaboration across teams. Real-time data sharing empowers smarter decision-making, while automated workflows reduce manual effort and errors."
+    },
+    "ai": {
+      "title": "AI-Driven Insights & Automation",
+      "lead": "Leverage artificial intelligence to analyze data, predict trends and automate decision-making.",
+      "body": "With AI-driven insights, your organization can transform raw information into actionable strategies, uncover hidden patterns and anticipate market shifts before they happen. Predictive analytics empower smarter planning, while automation streamlines repetitive tasks and reduces human error."
+    },
+    "cloud": {
+      "title": "Secure Cloud Infrastructure",
+      "lead": "Access your systems anywhere with enterprise-grade security and reliable cloud performance.",
+      "body": "Empower your workforce with the freedom to connect from any location, while sensitive data remains protected by advanced encryption and compliance standards. With enterprise-grade safeguards, your operations stay secure against evolving threats, and performance stays consistent even during peak demand."
+    },
+    "support": {
+      "title": "Professional Support & Maintenance",
+      "lead": "Enjoy dedicated after-sales service and 24/7 technical support to keep your systems running smoothly.",
+      "body": "Our commitment does not end at installation — we stand by you with continuous assistance, ensuring your operations remain efficient and uninterrupted. With round-the-clock technical support, expert guidance is always a call or click away, minimizing downtime and resolving issues before they impact performance."
+    }
+  },
+  "solutions": {
+    "eyebrow": "Solutions",
+    "title": "Empowering Businesses Through Smart Innovation",
+    "body": "At 369AI we combine intelligence, automation and connectivity to revolutionize the way businesses operate. Our suite of solutions — ERP, Smart Locks, Robotics, POS and Vending Machines — delivers seamless integration between hardware and software. From real-time insights to automated operations, we help companies enhance efficiency, improve security and create smarter customer experiences.",
+    "erp": {
+      "title": "ERP Solutions",
+      "tagline": "Empower your business with intelligence.",
+      "body": "Reimagine the way your business operates with our intelligent ERP platform — built to unify every department and process under one digital ecosystem. From accounting, HR and inventory to CRM and sales, our ERP gives you real-time visibility and complete control. Powered by automation and AI insights, it simplifies operations, improves decision-making and helps you grow faster with accuracy and confidence."
+    },
+    "pos": {
+      "title": "369AI POS Solutions",
+      "tagline": "Fast. Reliable. Connected.",
+      "body": "Meet the future of retail and service management with our next-generation 369AI POS System. Designed for speed, simplicity and accuracy, it connects directly with your ERP for real-time sales, inventory and accounting updates. Whether you are managing a single counter or a multi-branch business, enjoy seamless billing, barcode scanning, multi-payment options and cloud-based reporting — all in one modern interface."
+    },
+    "robotics": {
+      "title": "Robotics & Automation",
+      "tagline": "Automation that thinks for you.",
+      "body": "Unlock new levels of efficiency with our AI-powered robotic and automation solutions. From product dispensing and warehouse management to smart manufacturing and vending automation, our robots integrate with ERP and IoT systems to deliver precision, consistency and real-time coordination. By reducing human error and repetitive tasks, we help businesses operate smarter and faster than ever before."
+    },
+    "locks": {
+      "title": "Smart Lock Systems",
+      "tagline": "Security meets intelligence.",
+      "body": "Redefine security with our IoT-based Smart Locks designed for modern businesses. Integrated with ERP and mobile apps, these locks provide centralized access control, live monitoring and digital authorization for users and locations. Perfect for warehouses, offices and vending systems — ensuring every access is secure, recorded and controlled in real time."
+    },
+    "vending": {
+      "title": "Smart Vending Machine Solutions",
+      "tagline": "Automated. Intelligent. Always connected.",
+      "body": "Experience the future of unmanned retail through our Smart Vending Machines powered by AI, IoT and ERP integration. Manage products, track stock and monitor performance remotely — all while offering customers an effortless buying experience through touchless, card or QR-based payments. Designed for efficiency and 24/7 operation, it is the perfect blend of innovation, convenience and business intelligence."
+    }
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "title": "Explore how 369AI transforms innovation into intelligent business automation",
+    "intro": "369AI is a forward-thinking technology company dedicated to delivering intelligent, scalable and future-ready software solutions that empower businesses to operate smarter, faster and more efficiently. We specialize in AI-driven automation, ERP implementation, custom software development and advanced business intelligence tools designed to transform organizations into modern digital enterprises.",
+    "intro2": "Our mission is simple: to simplify complex business operations through innovative technology and intelligent automation. We combine deep industry knowledge with cutting-edge AI capabilities to build solutions that not only solve today's challenges but also prepare businesses for tomorrow's opportunities.",
+    "intro3": "We are also a trusted provider of ERP solutions, offering end-to-end implementation, customization, integration and support services. From finance and sales to inventory, manufacturing, POS, HR and custom business applications, we help companies streamline processes and achieve operational excellence.",
+    "featuresTitle": "Features that set us apart",
+    "innovation": {
+      "title": "Innovation First",
+      "body": "We continuously explore new technologies, AI models and automation trends to ensure our clients stay ahead in a competitive market."
+    },
+    "client": {
+      "title": "Client-Centric Approach",
+      "body": "Every solution is tailored to meet the unique requirements of each business, ensuring maximum efficiency and value."
+    },
+    "quality": {
+      "title": "Quality & Reliability",
+      "body": "Our solutions are designed for performance, security and long-term scalability."
+    },
+    "support": {
+      "title": "Continuous Support",
+      "body": "We provide ongoing support, maintenance and training to help our clients get the most out of their digital systems."
+    },
+    "missionTitle": "Our Mission",
+    "missionBody": "At 369AI we take pride in our unwavering commitment to excellence and customer satisfaction. With a team of passionate and skilled professionals, we are dedicated to providing top-tier assistance across computer sales, printer servicing, CCTV installation, computer networking and data recovery.",
+    "visionTitle": "Our Vision",
+    "visionBody": "369AI envisions becoming a global leader in advanced technological solutions, shaping a future where technology enhances every aspect of life. Through continuous innovation and adaptation, we strive to pioneer the digital landscape, exceed customer expectations and foster a culture of improvement. With a strong global presence, we aim to be a trusted symbol of reliability, driving societal progress and positive impact.",
+    "everythingTitle": "Everything you need",
+    "everythingBody": "Two decades of hands-on experience, backed by manufacturing scale and a service team that answers.",
+    "e1": {
+      "title": "20+ Years in Vending & Retail Automation",
+      "body": "Two decades of hands-on industry experience, from hardware to software."
+    },
+    "e2": {
+      "title": "Professional After-Sales Service Team",
+      "body": "Dedicated engineers and support specialists for fast, reliable resolution."
+    },
+    "e3": {
+      "title": "Large-Scale Production Capacity",
+      "body": "Stable supply with strict QA — ready for pilots and nationwide rollouts."
+    },
+    "e4": {
+      "title": "International-Standard Assembly Line",
+      "body": "Built under rigorous processes to ensure quality and consistency."
+    },
+    "e5": {
+      "title": "Free Remote Management System",
+      "body": "Monitor, update and control devices anywhere — no extra license fees."
+    },
+    "e6": {
+      "title": "Service Promise: 1-Year Warranty",
+      "body": "Standard 12-month coverage, with extended warranty options available."
+    }
+  },
+  "products": {
+    "eyebrow": "Products",
+    "title": "Streamline your operations with 369AI's ERP modules",
+    "body": "From sales to service — comprehensive modules to manage your entire business.",
+    "posTitle": "Powerful features of 369AI POS",
+    "posBody": "Everything you need to run your business efficiently, all in one system.",
+    "howTitle": "How it works",
+    "howBody": "Get started in four easy steps.",
+    "modulesTitle": "ERP Modules",
+    "modules": {
+      "m1": {
+        "t": "Online Sales Order",
+        "b": "Simplify online shopping with an intuitive order management system: product catalogs, customer registration, cart management, secure payments and automatic invoicing."
+      },
+      "m2": {
+        "t": "Service Management",
+        "b": "Let customers schedule and manage repairs and installations, track service history, handle invoicing and automate scheduling based on technician availability."
+      },
+      "m3": {
+        "t": "Customer Relationship Management",
+        "b": "Manage customer interactions, track leads, automate follow-ups and segment customers for targeted marketing — boosting sales and satisfaction."
+      },
+      "m4": {
+        "t": "Vehicle Tracking",
+        "b": "Real-time GPS tracking for your fleet with geofencing, vehicle history and maintenance alerts, helping you optimise routes."
+      },
+      "m5": {
+        "t": "Asset Tracking",
+        "b": "Monitor machinery, office equipment and supplies with lifecycle management, location tracking, depreciation and maintenance scheduling."
+      },
+      "m6": {
+        "t": "Vehicle Maintenance",
+        "b": "Manage fleet maintenance schedules, service records, parts usage and upcoming service alerts to minimise downtime."
+      },
+      "m7": {
+        "t": "Attendance Management",
+        "b": "Track attendance with clock-in/clock-out, manage leave requests and absenteeism, and generate detailed payroll reports."
+      },
+      "m8": {
+        "t": "Product Enquiry & Market Updates",
+        "b": "Track customer inquiries, manage product details and stay responsive to market trends and competitor analysis."
+      },
+      "m9": {
+        "t": "Feedback and Complaints",
+        "b": "Manage feedback and complaints through a ticketing system that resolves issues and tracks progress."
+      },
+      "m10": {
+        "t": "Auto Auditing & Cash Collection",
+        "b": "Automate cash transaction recording with a full audit trail, cash-flow tracking and reporting for error-free cash management."
+      },
+      "m11": {
+        "t": "Purchase Requisition & Logistics",
+        "b": "Streamline procurement across requisitions, approvals, logistics and supplier tracking."
+      },
+      "m12": {
+        "t": "Supplier App",
+        "b": "Manage supplier information, track orders, handle payments and streamline communication."
+      },
+      "m13": {
+        "t": "Currency Profit",
+        "b": "Analyse currency fluctuations, calculate profit and loss from exchange-rate changes and manage foreign-exchange risk."
+      },
+      "m14": {
+        "t": "Stock Transactions",
+        "b": "Track inventory movements — goods received, shipped and adjusted — keeping stock levels accurate."
+      },
+      "m15": {
+        "t": "Return Merchandise Authorization",
+        "b": "Manage returns and exchanges with a process that tracks returns, adjusts inventory and enforces return policies."
+      },
+      "m16": {
+        "t": "Credit Manager",
+        "b": "Track customer credit limits, monitor overdue payments and keep sales orders within approved limits."
+      },
+      "m17": {
+        "t": "Dismantle",
+        "b": "Manage dismantling of products and machinery into parts for resale or disposal, with full tracking and documentation."
+      },
+      "m18": {
+        "t": "Task Management",
+        "b": "Assign responsibilities, track progress and keep projects on time with organised workflows."
+      },
+      "m19": {
+        "t": "Stock Analysis Reports",
+        "b": "Detailed insight into inventory levels, stock turnover and product sales to optimise stock management."
+      },
+      "m20": {
+        "t": "Min & Max Quantity Management",
+        "b": "Set minimum and maximum stock levels to automate reordering and avoid overstocking."
+      },
+      "m21": {
+        "t": "Invoice Import & Export",
+        "b": "Import and export invoices in bulk via CSV and XML, integrating cleanly with accounting systems."
+      },
+      "m22": {
+        "t": "Business Intelligence",
+        "b": "Turn operational data into dashboards and forecasts your team can act on."
+      }
+    },
+    "pos": {
+      "f1": {
+        "t": "Smart POS Interface",
+        "b": "Fast, intuitive touchscreen billing for smooth transactions."
+      },
+      "f2": {
+        "t": "Inventory Sync",
+        "b": "Automatically updates stock after every sale to keep your inventory accurate."
+      },
+      "f3": {
+        "t": "AI Reports",
+        "b": "Track daily, weekly and monthly performance with actionable insights."
+      },
+      "f4": {
+        "t": "Payment Integration",
+        "b": "Accept cash, card, UPI and digital wallets seamlessly."
+      },
+      "f5": {
+        "t": "Cloud Access",
+        "b": "Manage your store anytime, anywhere with secure cloud connectivity."
+      },
+      "f6": {
+        "t": "Customer Management",
+        "b": "Keep track of loyalty points, purchase history and customer profiles."
+      }
+    },
+    "steps": {
+      "s1": {
+        "t": "Set up your shop",
+        "b": "Add store details, taxes and payment options."
+      },
+      "s2": {
+        "t": "Add your products",
+        "b": "Enter products, prices and stock levels."
+      },
+      "s3": {
+        "t": "Start billing",
+        "b": "Quickly process sales using the touchscreen interface."
+      },
+      "s4": {
+        "t": "Analyse reports",
+        "b": "Track sales, trends and customer insights."
+      }
+    },
+    "appsTitle": "Apps and desktop software",
+    "appsBody": "Beyond the browser — native mobile apps and Windows desktop applications that keep working when the connection does not.",
+    "apps": {
+      "a1": {
+        "t": "Mobile apps",
+        "b": "React Native apps for Android and iOS — sales, stock counts, approvals and service calls from the field."
+      },
+      "a2": {
+        "t": "Windows desktop",
+        "b": "Installable .exe applications for billing counters and back-office machines, built for speed on local hardware."
+      },
+      "a3": {
+        "t": "Offline-first",
+        "b": "Keep selling through a dropped connection; everything syncs back to the ERP once you are online again."
+      }
+    }
+  },
+  "shop": {
+    "eyebrow": "Hardware",
+    "title": "POS, printing, scanning and automation hardware",
+    "body": "Browse the full 369AI hardware range. Every item is available on request — add what you need to your inquiry basket and our team will come back with pricing.",
+    "allProducts": "All products",
+    "categories": "Categories",
+    "useCase": "By use case",
+    "searchPlaceholder": "Search by name or model number",
+    "resultsOne": "{count} product",
+    "resultsOther": "{count} products",
+    "noResults": "No products match that search.",
+    "clearFilters": "Clear filters",
+    "specifications": "Specifications",
+    "features": "Features",
+    "relatedTitle": "Related hardware",
+    "galleryAlt": "Product image {n}"
+  },
+  "useCases": {
+    "retail": "Retail Counter",
+    "hospitality": "Restaurant & Café",
+    "warehouse": "Warehouse & Logistics",
+    "unmanned": "Unmanned & Vending",
+    "banking": "Banking & Self-Service"
+  },
+  "inquiry": {
+    "title": "Your inquiry basket",
+    "body": "Review the items below and send them to our team. We reply to every inquiry within 24 hours.",
+    "empty": "Your inquiry basket is empty.",
+    "emptyCta": "Browse hardware",
+    "items": "Items",
+    "remove": "Remove",
+    "submit": "Send inquiry",
+    "submitting": "Sending…",
+    "successTitle": "Inquiry received",
+    "successBody": "Thank you — our team will be in touch within 24 hours.",
+    "errorTitle": "Something went wrong",
+    "errorBody": "We could not send your inquiry. Please try again, or reach us directly."
+  },
+  "contact": {
+    "eyebrow": "Contact Us",
+    "title": "We would love to hear from you",
+    "body": "Whether you have questions, feedback or need support, our team is here to help. Fill out the form and we aim to respond to all inquiries within 24 hours.",
+    "officesTitle": "Our offices",
+    "officesBody": "Six locations across four countries. Scan an office's QR code to open it directly in Google Maps.",
+    "scanForAddress": "Scan for directions",
+    "form": {
+      "name": "Your name",
+      "phone": "Phone number",
+      "email": "Your email",
+      "company": "Your company",
+      "subject": "Subject",
+      "message": "Your question",
+      "submit": "Submit",
+      "submitting": "Sending…",
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "successTitle": "Message sent",
+      "successBody": "Thank you for getting in touch. We aim to respond within 24 hours.",
+      "errorTitle": "Message not sent",
+      "errorBody": "Something went wrong. Please try again or contact us directly."
+    }
+  },
+  "faq": {
+    "q1": "Which industries do you build for?",
+    "a1": "Retail, food service and hospitality are our core sectors, alongside warehousing, banking self-service and unmanned retail. If you run a counter, a stockroom or a fleet of machines, we have deployed something close to your setup.",
+    "q2": "Do you supply hardware, software, or both?",
+    "a2": "Both, and they are designed to work together. You can take the full 369AI stack — POS terminals, printers, scanners and ERP — or just the hardware, integrated with the system you already run.",
+    "q3": "Can 369AI integrate with our existing ERP or accounting system?",
+    "a3": "Yes. Our POS and device platforms expose standard APIs and we routinely integrate with existing ERP, accounting and payment systems rather than asking you to replace them.",
+    "q4": "What support do you provide after installation?",
+    "a4": "24/7 technical support, a dedicated after-sales engineering team, and a standard 12-month warranty with extended options. Our free remote management system lets us monitor, update and troubleshoot devices without a site visit.",
+    "q5": "Which countries do you operate in?",
+    "a5": "We have offices in the USA, UAE, Oman (Ruwi, Salalah and Sohar) and India, and we support deployments across the wider region.",
+    "q6": "How do I get pricing?",
+    "a6": "Add the hardware you are interested in to your inquiry basket and send it to us, or contact our sales team directly. We quote per configuration, so pricing reflects what you actually need."
+  },
+  "assistant": {
+    "launcherLabel": "Ask 369AI",
+    "greeting": "Hi there! 👋 Questions about POS, ERP or hardware? Ask me anything — or talk to our team on WhatsApp.",
+    "title": "Ask 369AI",
+    "subtitle": "Answers about our products and services",
+    "placeholder": "Ask about POS, ERP, vending…",
+    "send": "Send",
+    "whatsapp": "Chat on WhatsApp",
+    "dismiss": "Dismiss",
+    "offline": "Our assistant is unavailable right now. Message our team on WhatsApp and we will reply within minutes.",
+    "error": "Sorry — something went wrong. Please try again or reach us on WhatsApp.",
+    "disclaimer": "AI assistant. Confirm important details with our team."
+  },
+  "footer": {
+    "connect": "Connect with us",
+    "contactUs": "Contact us",
+    "follow": "Follow us",
+    "usefulLinks": "Useful Links",
+    "offices": "Our offices",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved.",
+    "tagline": "Intelligent POS, ERP and automation for retail, hospitality and unmanned operations."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "body": "This page describes how 369AI collects, uses and protects the information you share with us."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "We could not find the page you were looking for.",
+    "cta": "Back to home"
+  },
+  "integrations": {
+    "title": "Every app you run.",
+    "titleAccent": "Every tool you use.",
+    "body": "Seven 369ai.Biz apps on one line, the tools they plug into on the other — all of it landing in a single core, with nothing re-typed in between.",
+    "appsChip": "369ai.Biz Apps",
+    "toolsChip": "Connects with",
+    "apps": {
+      "attendance": "Attendance",
+      "chats": "Chats",
+      "restaurant": "Restaurant",
+      "toolsRental": "Tools Rental",
+      "spa": "Spa",
+      "vanSale": "Van Sale",
+      "taskManager": "Task Manager",
+      "odoo": "Odoo ERP",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "payments": "Payment gateway",
+      "security": "Security"
+    }
+  }
+}
