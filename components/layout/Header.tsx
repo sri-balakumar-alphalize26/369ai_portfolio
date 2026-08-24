@@ -318,9 +318,9 @@ function MegaMenu({ base, onNavigate }: { base: string; onNavigate: () => void }
         // panel never touches the bar.
         'top-[calc(100%+1.75rem)]'
       )}
-      style={{ animation: 'word-rise .28s var(--ease-out-soft) both' }}
+      style={{ animation: 'glass-in .36s var(--ease-out-soft) both' }}
     >
-      <div className="grid gap-7 lg:grid-cols-4">
+      <div className="glass-stagger grid gap-7 lg:grid-cols-4">
         {columns.map((col) => (
           <div key={col.title}>
             <Link
@@ -386,7 +386,7 @@ function ProductsMenu({ base, onNavigate }: { base: string; onNavigate: () => vo
   return (
     <div
       className="glass-panel absolute start-1/2 top-[calc(100%+1.75rem)] z-50 w-[26rem] max-w-[calc(100vw-3rem)] -translate-x-1/2 rounded-2xl p-3 rtl:translate-x-1/2"
-      style={{ animation: 'word-rise .28s var(--ease-out-soft) both' }}
+      style={{ animation: 'glass-in .36s var(--ease-out-soft) both' }}
     >
       <ul className="space-y-1">
         {items.map(({ href, label, blurb, Icon }) => (

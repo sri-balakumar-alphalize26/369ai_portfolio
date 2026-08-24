@@ -37,12 +37,15 @@ export function SectionHeader({
   body,
   align = 'center',
   tone = 'light',
+  rule = false,
 }: {
   eyebrow?: string
-  title: string
+  title: React.ReactNode
   body?: string
   align?: 'center' | 'start'
   tone?: 'light' | 'dark'
+  /** Hairline drawing out from the eyebrow (the About-block treatment). */
+  rule?: boolean
 }) {
   return (
     <div
@@ -55,6 +58,7 @@ export function SectionHeader({
         <p
           className={cn(
             'mb-3 text-sm font-semibold uppercase tracking-[0.14em]',
+            rule && 'eyebrow-rule',
             tone === 'dark' ? 'text-brand-300' : 'text-brand-600'
           )}
         >

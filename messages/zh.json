@@ -64,7 +64,11 @@
     "ctaPrimary": "索取报价",
     "ctaSecondary": "浏览硬件",
     "leadershipTitle": "来自我们的管理层",
-    "leadershipBody": "关于经营、心智管理，以及在四个国家建立 369AI 的分享——来自我们自己的频道。"
+    "leadershipBody": "关于经营、心智管理，以及在四个国家建立 369AI 的分享——来自我们自己的频道。",
+    "aboutTitleLead": "以技术驱动",
+    "aboutWord1": "高效",
+    "aboutWord2": "精准",
+    "aboutWord3": "增长"
   },
   "pillars": {
     "ai": {

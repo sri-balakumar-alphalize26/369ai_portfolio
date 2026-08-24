@@ -64,7 +64,11 @@
     "ctaPrimary": "Angebot anfordern",
     "ctaSecondary": "Hardware ansehen",
     "leadershipTitle": "Von unserer Führung",
-    "leadershipBody": "Vorträge über Unternehmensführung, Mind Management und den Aufbau von 369AI in vier Ländern — von unserem eigenen Kanal."
+    "leadershipBody": "Vorträge über Unternehmensführung, Mind Management und den Aufbau von 369AI in vier Ländern — von unserem eigenen Kanal.",
+    "aboutTitleLead": "Technologie für mehr",
+    "aboutWord1": "Effizienz",
+    "aboutWord2": "Genauigkeit",
+    "aboutWord3": "Wachstum"
   },
   "pillars": {
     "ai": {

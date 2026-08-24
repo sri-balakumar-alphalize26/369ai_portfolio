@@ -19,7 +19,10 @@ import { Hero } from '@/components/home/Hero'
 import { Faq } from '@/components/home/Faq'
 import { LeadershipVideos } from '@/components/home/LeadershipVideos'
 import { AppIntegrations } from '@/components/home/AppIntegrations'
-import { PRODUCTS } from '@/lib/products'
+import { PRODUCTS, toCardData } from '@/lib/products'
+import { ConnectedPillars } from '@/components/home/ConnectedPillars'
+import { RotatingTitle } from '@/components/home/RotatingTitle'
+import { HardwareStrip } from '@/components/home/HardwareStrip'
 
 const PILLARS = [
   { key: 'ai', Icon: BrainCircuit },
@@ -56,21 +59,14 @@ export default async function HomePage({
       {/* ------------------------------------------------------------- Pillars */}
       <Section tone="alt">
         <SectionHeader title={t('pillarsTitle')} body={t('pillarsBody')} />
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {PILLARS.map(({ key, Icon }, i) => (
-            <Reveal as="li" key={key} delay={i * 70}>
-              <div className="card-glow h-full rounded-panel border border-surface-line bg-white p-7">
-                <span className="flex h-11 w-11 items-center justify-center rounded-card bg-brand-50 text-brand-600">
-                  <Icon className="h-5 w-5" aria-hidden />
-                </span>
-                <h3 className="mt-5 text-lg font-semibold">{tp(`${key}.title`)}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-slate-muted">
-                  {tp(`${key}.body`)}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </ul>
+        {/* The copy says every part talks to every other part; the connector
+            line + travelling pulse make the layout say it too. */}
+        <ConnectedPillars
+          items={PILLARS.map(({ key }) => ({
+            title: tp(`${key}.title`),
+            body: tp(`${key}.body`),
+          }))}
+        />
       </Section>
 
       {/* ------------------------------------------------------ App ecosystem */}
@@ -82,8 +78,15 @@ export default async function HomePage({
           <Reveal>
             <SectionHeader
               eyebrow={t('aboutEyebrow')}
-              title={t('aboutTitle')}
+              title={
+                <RotatingTitle
+                  full={t('aboutTitle')}
+                  lead={t('aboutTitleLead')}
+                  words={[t('aboutWord1'), t('aboutWord2'), t('aboutWord3')]}
+                />
+              }
               align="start"
+              rule
             />
           </Reveal>
           <Reveal delay={80}>
@@ -92,9 +95,11 @@ export default async function HomePage({
               <p>{t('aboutBody2')}</p>
               <Link
                 href={`${base}/about`}
-                className="inline-flex items-center gap-1.5 font-semibold text-brand-600 hover:underline"
+                className="learn-more inline-flex items-center gap-1.5 rounded-pill border border-surface-line px-5 py-2.5 font-semibold text-brand-600"
               >
-                {tc('learnMore')}
+                {/* span, not a bare text node — the sweep ::before is
+                    positioned, so it paints above unwrapped text */}
+                <span>{tc('learnMore')}</span>
                 <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
               </Link>
             </div>
@@ -156,31 +161,12 @@ export default async function HomePage({
             <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
           </ButtonLink>
         </div>
-        <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {PRODUCTS.filter((p) => p.images.length)
-            .slice(0, 8)
-            .map((p, i) => (
-              <Reveal as="li" key={p.slug} delay={i * 50}>
-                <Link
-                  href={`${base}/shop/${p.slug}`}
-                  className="card-glow group flex h-full flex-col overflow-hidden rounded-card border border-surface-line bg-white"
-                >
-                  <div className="flex aspect-square items-center justify-center bg-surface-alt p-5">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={p.images[0]}
-                      alt={p.name}
-                      loading="lazy"
-                      className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <p className="line-clamp-2 p-3.5 text-xs font-medium leading-snug text-slate-body">
-                    {p.name}
-                  </p>
-                </Link>
-              </Reveal>
-            ))}
-        </ul>
+        {/* Chip filtering with a FLIP reflow — 75 products is a catalogue,
+            not a strip of eight. */}
+        <HardwareStrip
+          items={PRODUCTS.filter((p) => p.images.length).map(toCardData)}
+          base={base}
+        />
       </Section>
 
       {/* ---------------------------------------------------------- Technology */}

@@ -64,7 +64,11 @@
     "ctaPrimary": "اطلب عرض سعر",
     "ctaSecondary": "تصفح الأجهزة",
     "leadershipTitle": "من قيادتنا",
-    "leadershipBody": "أحاديث عن الأعمال وإدارة العقل وبناء 369AI عبر أربع دول — من قناتنا الخاصة."
+    "leadershipBody": "أحاديث عن الأعمال وإدارة العقل وبناء 369AI عبر أربع دول — من قناتنا الخاصة.",
+    "aboutTitleLead": "تقنية تدفع نحو",
+    "aboutWord1": "الكفاءة",
+    "aboutWord2": "الدقة",
+    "aboutWord3": "النمو"
   },
   "pillars": {
     "ai": {

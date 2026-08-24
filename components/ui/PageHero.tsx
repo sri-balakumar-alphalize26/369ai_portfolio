@@ -34,21 +34,20 @@ export function PageHero({
           {eyebrow ? (
             <p
               className="mb-4 inline-flex rounded-pill border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-200 backdrop-blur"
-              style={{ animation: 'word-rise 0.6s var(--ease-out-soft) both' }}
+              style={{ animation: 'word-rise 0.5s var(--ease-out-soft) both' }}
             >
               {eyebrow}
             </p>
           ) : null}
-          <h1
-            className="text-3xl font-bold leading-[1.1] text-white sm:text-4xl lg:text-5xl"
-            style={{ animation: 'word-rise 0.7s var(--ease-out-soft) 0.08s both' }}
-          >
-            {title}
+          {/* Mask wipe: the line rises out of a clipped box. One line, not
+              per-word — titles are translated strings in seven locales. */}
+          <h1 className="hero-line text-3xl font-bold leading-[1.1] text-white sm:text-4xl lg:text-5xl">
+            <span className="hero-line-inner">{title}</span>
           </h1>
           {body ? (
             <p
               className="mt-5 text-lg leading-relaxed text-brand-100"
-              style={{ animation: 'word-rise 0.8s var(--ease-out-soft) 0.18s both' }}
+              style={{ animation: 'word-rise 0.8s var(--ease-out-soft) 0.45s both' }}
             >
               {body}
             </p>

@@ -103,7 +103,7 @@ export function LocaleSwitcher({
         <ul
           role="listbox"
           className="glass-panel absolute end-0 top-[calc(100%+1.75rem)] z-50 w-64 overflow-hidden rounded-2xl py-2"
-          style={{ animation: 'word-rise .28s var(--ease-out-soft) both' }}
+          style={{ animation: 'glass-in .36s var(--ease-out-soft) both' }}
         >
           {locales.map((l) => {
             const label = localeLabels[l]

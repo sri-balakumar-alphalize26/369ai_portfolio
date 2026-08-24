@@ -49,17 +49,17 @@ export default async function ServicesPage({
       <Section>
         <ul className="grid gap-6 lg:grid-cols-2">
           {SERVICES.map(({ key, Icon }, i) => (
-            <Reveal as="li" key={key} delay={i * 60}>
+            <Reveal as="li" key={key} delay={Math.floor(i / 2) * 150} className="svc-card">
               <article
                 id={key}
-                className="card-glow h-full scroll-mt-32 rounded-panel border border-surface-line bg-white p-8 transition-all duration-200 hover:-translate-y-1.5 hover:border-brand-400"
+                className="svc-card-inner card-glow h-full scroll-mt-32 rounded-panel border border-surface-line bg-white p-8"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-card bg-gradient-to-br from-brand-700 to-brand-500 text-white">
+                <span className="svc-icon flex h-12 w-12 items-center justify-center rounded-card bg-gradient-to-br from-brand-700 to-brand-500 text-white">
                   <Icon className="h-5 w-5" aria-hidden />
                 </span>
                 <h2 className="mt-6 text-xl font-bold">{t(`${key}.title`)}</h2>
                 <p className="mt-3 font-medium text-brand-600">{t(`${key}.lead`)}</p>
-                <p className="mt-4 leading-relaxed text-slate-muted">{t(`${key}.body`)}</p>
+                <p className="svc-body mt-4 leading-relaxed text-slate-muted">{t(`${key}.body`)}</p>
               </article>
             </Reveal>
           ))}

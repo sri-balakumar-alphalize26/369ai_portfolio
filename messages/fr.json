@@ -64,7 +64,11 @@
     "ctaPrimary": "Demander un devis",
     "ctaSecondary": "Parcourir le matériel",
     "leadershipTitle": "Par notre direction",
-    "leadershipBody": "Interventions sur l’entreprise, la gestion mentale et la construction de 369AI dans quatre pays — depuis notre propre chaîne."
+    "leadershipBody": "Interventions sur l’entreprise, la gestion mentale et la construction de 369AI dans quatre pays — depuis notre propre chaîne.",
+    "aboutTitleLead": "La technologie au service de",
+    "aboutWord1": "l'efficacité",
+    "aboutWord2": "la précision",
+    "aboutWord3": "la croissance"
   },
   "pillars": {
     "ai": {

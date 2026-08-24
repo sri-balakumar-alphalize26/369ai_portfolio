@@ -1,4 +1,5 @@
 import { TECH_ROWS, type Tech } from '@/content/technologies'
+import { MarqueeInView } from '@/components/ui/MarqueeInView'
 
 /**
  * "Technologies We Work With" — three stacked rows scrolling in alternating
@@ -8,21 +9,19 @@ import { TECH_ROWS, type Tech } from '@/content/technologies'
  */
 export function TechMarquee() {
   return (
-    <div className="relative space-y-4">
+    <MarqueeInView className="relative space-y-4">
       {TECH_ROWS.map((row, i) => (
         <MarqueeRow
           key={i}
           items={row}
           reverse={i % 2 === 1}
           // Slightly different speeds stop the rows marching in lockstep.
-          duration={44 + i * 7}
+          duration={26 + i * 4}
         />
       ))}
 
-      {/* Edge masks fade the strips in and out instead of cutting them off. */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-surface-alt to-transparent sm:w-28" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-surface-alt to-transparent sm:w-28" />
-    </div>
+      {/* Edge fade lives on .marquee-viewport as a mask now. */}
+    </MarqueeInView>
   )
 }
 
@@ -42,9 +41,17 @@ function MarqueeRow({
         data-direction={reverse ? 'reverse' : 'forward'}
         style={{ ['--marquee-duration' as string]: `${duration}s` }}
       >
-        {/* Tripled so the loop point is seamless. */}
-        {[...items, ...items, ...items].map((tech, i) => (
-          <TechChip key={`${tech.name}-${i}`} tech={tech} />
+        {/* Tripled so the loop point is seamless; copies 2-3 are hidden from
+            screen readers so nothing announces three times. */}
+        {items.map((tech) => (
+          <TechChip key={tech.name} tech={tech} />
+        ))}
+        {[1, 2].map((copy) => (
+          <div key={copy} aria-hidden className="contents">
+            {items.map((tech) => (
+              <TechChip key={`${tech.name}-${copy}`} tech={tech} />
+            ))}
+          </div>
         ))}
       </div>
     </div>

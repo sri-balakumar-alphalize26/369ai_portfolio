@@ -64,7 +64,11 @@
     "ctaPrimary": "Request a quote",
     "ctaSecondary": "Browse hardware",
     "leadershipTitle": "From our leadership",
-    "leadershipBody": "Talks on business, mind management and building 369AI across four countries — straight from our own channel."
+    "leadershipBody": "Talks on business, mind management and building 369AI across four countries — straight from our own channel.",
+    "aboutTitleLead": "Technology that drives",
+    "aboutWord1": "efficiency",
+    "aboutWord2": "accuracy",
+    "aboutWord3": "growth"
   },
   "pillars": {
     "ai": {

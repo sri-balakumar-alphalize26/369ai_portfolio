@@ -233,7 +233,7 @@ export function SearchMenu({ base }: { base: string }) {
       {open ? (
         <div
           className="glass-panel absolute end-0 top-[calc(100%+1.75rem)] z-50 w-[24rem] max-w-[calc(100vw-3rem)] overflow-hidden rounded-2xl"
-          style={{ animation: 'word-rise .28s var(--ease-out-soft) both' }}
+          style={{ animation: 'glass-in .36s var(--ease-out-soft) both' }}
         >
           <div className="relative border-b border-surface-line">
             <Search

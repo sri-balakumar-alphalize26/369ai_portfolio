@@ -55,8 +55,12 @@
 :root {
   /* Glass filter lists — kept in custom properties so the minifier cannot
      strip the inter-function spaces (see .glass-panel). */
-  --glass-filter: blur(96px) saturate(170%) brightness(1.15);
-  --glass-filter-bar: blur(48px) saturate(165%) brightness(1.2);
+  /* Reference-tuned glass: 22px blur keeps the backdrop alive as soft shapes,
+     175% saturation stops it greying out, and legibility comes from the TINT
+     (0.70-0.78 window) plus solid ink text — not from nuking the blur. No
+     brightness(): it washes the colour the saturation just rescued. */
+  --glass-filter: blur(22px) saturate(175%);
+  --glass-filter-bar: blur(18px) saturate(150%);
 
   color-scheme: light;
   --brand-gradient: linear-gradient(115deg, #006090 0%, #1890c0 45%, #30a8c0 70%, #60c0d8 100%);
@@ -248,11 +252,21 @@
   from { transform: translateX(-66.666%); }
   to   { transform: translateX(0); }
 }
+.marquee-viewport {
+  /* mask, not painted gradients — the fade works over any background */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
 .marquee-track {
   display: flex;
   width: max-content;
   animation: marquee-forward var(--marquee-duration, 40s) linear infinite;
+  /* paused until MarqueeInView flags the section visible — an infinite
+     animation off-screen still burns compositor cycles on mobile */
+  animation-play-state: paused;
 }
+/* must precede the hover rule: equal specificity, hover wins by order */
+[data-marquee-inview='true'] .marquee-track { animation-play-state: running; }
 .marquee-track[data-direction="reverse"] { animation-name: marquee-reverse; }
 .marquee-viewport:hover .marquee-track { animation-play-state: paused; }
 [dir="rtl"] .marquee-track { animation-name: marquee-reverse; }
@@ -313,6 +327,20 @@
    Respect the OS setting — no decorative motion at all.
    ================================================================== */
 @media (prefers-reduced-motion: reduce) {
+  .marquee-viewport {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .marquee-track { animation: none; }
+  .hero-line-inner { transform: none; animation: none; }
+  .svc-card[data-reveal] { transform: none; }
+  .pillars-connector { transform: scaleX(1); transition: none; }
+  .pillars-pulse { display: none; }
+  .stat-rule { transform: scaleX(1); transition: none; }
+  .stat-suffix,
+  .stat-label { opacity: 1; transform: none; transition: none; }
+
   html { scroll-behavior: auto; }
 
   .aurora-blob,
@@ -321,6 +349,9 @@
   .float-soft,
   .pulse-once,
   .yt-spin,
+  .glass-stagger > *,
+  .hero-line-inner,
+  .eyebrow-rule::after,
   .ring-pulse,
   .gradient-text,
   .word-rise > span,
@@ -415,6 +446,192 @@
   color: var(--color-ink);
 }
 
+/* Panels must never animate opacity or filter on themselves — Safari
+   flickers the blur mid-transition and Chrome can drop it. The pane slides;
+   its CONTENT fades, staggered per column. */
+@keyframes glass-in {
+  from { transform: translateY(-10px); }
+  to { transform: translateY(0); }
+}
+@keyframes glass-col-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.glass-stagger > * {
+  animation: glass-col-in 0.35s var(--ease-out-soft) both;
+}
+.glass-stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.glass-stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.glass-stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.glass-stagger > *:nth-child(4) { animation-delay: 0.2s; }
+
+/* ==================================================================
+   Services page — alternating slide-in + accent-bar hover.
+   ================================================================== */
+/* Cards slide in from alternating sides, staggered per ROW by the delay the
+   page passes to Reveal; more specific than the generic [data-reveal] rise. */
+.svc-card[data-reveal] { transform: translateX(-32px); }
+.svc-card:nth-child(even)[data-reveal] { transform: translateX(32px); }
+.svc-card[data-reveal='shown'] { transform: none; }
+
+.svc-card-inner { position: relative; overflow: hidden; }
+/* 3px accent bar growing top-to-bottom — the hover gesture on this page
+   (the homepage cards lift instead). ::after, not ::before — card-glow
+   already owns ::before for its gradient rim, and the two would merge. */
+.svc-card-inner::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-brand-500);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.svc-icon { transition: background-color 0.3s ease; }
+.svc-body { transition: color 0.35s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .svc-card-inner:hover::after { transform: scaleY(1); }
+  /* background-image:none, or the tile gradient beats the color */
+  .svc-card-inner:hover .svc-icon {
+    background-image: none;
+    background-color: var(--color-accent-500);
+  }
+  .svc-card-inner:hover .svc-body { color: var(--color-ink-soft); }
+}
+
+/* ==================================================================
+   Inner-page hero — heading mask wipe (badge -> line -> subtitle).
+   ================================================================== */
+.hero-line { overflow: hidden; }
+.hero-line-inner {
+  display: block;
+  transform: translateY(105%);
+  animation: hero-line-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+@keyframes hero-line-rise {
+  to { transform: translateY(0); }
+}
+
+/* ==================================================================
+   Stats band — rule draw + suffix pop + label rise.
+   ================================================================== */
+.stat-rule {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:
+    transform 0.7s var(--ease-out-soft),
+    background-color 0.3s ease,
+    height 0.3s ease;
+}
+[data-stats-run='true'] .stat-rule { transform: scaleX(1); }
+.stat-suffix {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.stat-label {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.4s ease 0.15s,
+    transform 0.4s var(--ease-out-soft) 0.15s;
+}
+.stat-done .stat-suffix { opacity: 1; transform: scale(1); }
+.stat-done .stat-label { opacity: 1; transform: none; }
+
+/* ==================================================================
+   "One connected platform" — connector line + travelling pulse.
+   ================================================================== */
+.pillars-stage { position: relative; }
+.pillars-grid > li { position: relative; z-index: 1; }
+.pillars-connector {
+  position: absolute;
+  top: 50px; /* icon tile centre: 28px card padding + half the 44px tile */
+  inset-inline: 8%;
+  height: 1.5px;
+  background: var(--color-surface-line);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[dir='rtl'] .pillars-connector { transform-origin: right; }
+.pillars-stage[data-inview='true'] .pillars-connector { transform: scaleX(1); }
+.pillars-pulse {
+  position: absolute;
+  top: 46px;
+  inset-inline-start: 8%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-brand-500);
+  opacity: 0;
+}
+/* transform-based (never left) so it stays on the compositor; distance is
+   measured in JS into --travel. Only animates while the stage is on screen. */
+.pillars-stage[data-inview='true'] .pillars-pulse {
+  animation: pillar-travel 2.6s cubic-bezier(0.45, 0, 0.55, 1) 1.1s infinite;
+}
+@keyframes pillar-travel {
+  0% { transform: translateX(0); opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { transform: translateX(var(--travel, 600px)); opacity: 0; }
+}
+.pillar-card { transition: opacity 0.3s ease, border-color 0.3s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .pillars-grid:hover .pillar-card { opacity: 0.45; }
+  .pillars-grid .pillar-card:hover { opacity: 1; border-color: var(--color-brand-400); }
+}
+
+/* ==================================================================
+   About block — rotating keyword slot, fill-sweep link, eyebrow rule.
+   ================================================================== */
+.rotate-slot {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.rotate-stack { display: block; }
+.learn-more {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+/* 101%, not 100% — subpixel rounding leaves a sliver otherwise */
+.learn-more::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-brand-600);
+  transform: translateY(101%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.learn-more > * { position: relative; z-index: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .learn-more:hover::before { transform: translateY(0); }
+  .learn-more:hover { color: #fff; border-color: var(--color-brand-600); }
+}
+.eyebrow-rule { display: flex; align-items: center; gap: 14px; }
+.eyebrow-rule::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: var(--color-surface-line);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: rule-draw 0.7s var(--ease-out-soft) 0.2s both;
+}
+[dir='rtl'] .eyebrow-rule::after { transform-origin: right; }
+@keyframes rule-draw {
+  to { transform: scaleX(1); }
+}
+
 /* ==================================================================
    Mega menu — liquid glass.
    ================================================================== */
@@ -438,19 +655,38 @@
      the whole declaration. var() payloads are emitted verbatim. */
   /* Slightly milkier than the page cards — with the blur live, this is what
      gives the HCL "lit glass" look instead of grey translucency. */
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.74);
   backdrop-filter: var(--glass-filter);
   /* The site's muted greys are tuned for solid white cards; on translucent
      glass over the dark hero they read as disabled placeholders. Utilities
      resolve their colors via these variables, so re-scoping them here darkens
      every secondary line in every dropdown (menu blurbs, office labels,
      search placeholder, locale names) one step, without touching markup. */
-  --color-slate-muted: #35495c;
-  --color-slate-faint: #5b7183;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  /* Solid hex only — rgba/opacity text on glass drifts with the backdrop.
+     Reference scale: soft ink measures ~5.9:1 on this tint over a dark hero. */
+  --color-slate-muted: #2b4353;
+  --color-slate-faint: #35495c;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  /* outer drop + inset specular top edge — the lit rim of a real pane */
   box-shadow:
-    0 28px 64px -24px rgba(4, 56, 79, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    0 22px 54px rgba(2, 20, 30, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+/* Diagonal sheen — the "liquid" read. Sits above the blur, below the content
+   (the pseudo paints before the panel's children, so no z-index needed). */
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    128deg,
+    rgba(255, 255, 255, 0.34) 0%,
+    rgba(255, 255, 255, 0.06) 42%,
+    rgba(255, 255, 255, 0) 68%
+  );
 }
 
 /* Backdrop-filter unsupported (older Firefox, some Android) — go solid so the
@@ -500,7 +736,7 @@
   inset: 0;
   z-index: -1;
   border-radius: inherit;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.62);
   backdrop-filter: var(--glass-filter-bar);
 }
 

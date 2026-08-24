@@ -10,6 +10,7 @@ import {
   viewLabel,
   type Video,
 } from '@/content/videos'
+import { MarqueeInView } from '@/components/ui/MarqueeInView'
 
 /**
  * Auto-scrolling video rail (right → left), same marquee mechanic as the
@@ -65,22 +66,32 @@ export function LeadershipVideos() {
   }
 
   return (
-    <div className="relative">
+    <MarqueeInView className="relative">
       <div className="marquee-viewport video-rail overflow-hidden py-4">
         <div
           className="marquee-track items-stretch"
           style={{ ['--marquee-duration' as string]: '65s' }}
         >
-          {/* Tripled so the -66.666% loop point is seamless. */}
-          {[...LEADERSHIP_VIDEOS, ...LEADERSHIP_VIDEOS, ...LEADERSHIP_VIDEOS].map((video, i) => (
-            <VideoCard key={`${video.id}-${i}`} video={video} onOpen={() => setActive(video)} />
+          {/* Tripled so the -66.666% loop point is seamless; copies 2-3 are
+              hidden from screen readers. */}
+          {LEADERSHIP_VIDEOS.map((video) => (
+            <VideoCard key={video.id} video={video} onOpen={() => setActive(video)} />
+          ))}
+          {[1, 2].map((copy) => (
+            <div key={copy} aria-hidden className="contents">
+              {LEADERSHIP_VIDEOS.map((video) => (
+                <VideoCard
+                  key={`${video.id}-${copy}`}
+                  video={video}
+                  onOpen={() => setActive(video)}
+                />
+              ))}
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Edge masks so cards fade out rather than being sliced off. */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-surface-alt to-transparent sm:w-24" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-surface-alt to-transparent sm:w-24" />
+      {/* Edge fade lives on .marquee-viewport as a mask now. */}
 
       <div className="mt-8 text-center">
         <a
@@ -97,7 +108,7 @@ export function LeadershipVideos() {
       </div>
 
       <Lightbox video={active} onClose={() => setActive(null)} />
-    </div>
+    </MarqueeInView>
   )
 }
 
