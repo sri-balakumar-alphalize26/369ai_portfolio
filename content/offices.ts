@@ -1,6 +1,9 @@
 /**
- * The six 369AI offices, transcribed from the footer of the old Odoo site.
- * `mapsQuery` is what gets encoded into each office's QR code.
+ * The six 369AI offices.
+ *
+ * Originally transcribed from the footer of the old Odoo site, then corrected
+ * against the offices' own business cards — which is where the second Ruwi
+ * number and Sohar's "Sohar Souq" come from.
  */
 export type Office = {
   id: string
@@ -8,7 +11,18 @@ export type Office = {
   countryCode: string
   city: string
   address: string[]
-  phone?: string
+  /**
+   * Display form, e.g. '+968 9792 3077'. Strip the separators for the tel:
+   * href. An array because Ruwi hands out two numbers.
+   */
+  phones?: string[]
+  /**
+   * What the office's QR code encodes — a Google Maps *search* query, not the
+   * postal address. Several of these offices sit on streets Maps only knows at
+   * district level, so the query leads with the nearest indexed landmark and
+   * keeps street/city/country after it: if Maps can't match the business name
+   * it still falls back to the right street rather than failing outright.
+   */
   mapsQuery: string
 }
 
@@ -31,8 +45,8 @@ export const OFFICES: Office[] = [
       'Industrial Area 17',
       'Sharjah, United Arab Emirates',
     ],
-    phone: '+971529454455',
-    mapsQuery: 'Industrial Area 17, Sharjah, United Arab Emirates',
+    phones: ['+971 52 945 4455'],
+    mapsQuery: 'Al Barakh Dates, Industrial Area 17, Sharjah, United Arab Emirates',
   },
   {
     id: 'oman-ruwi',
@@ -40,7 +54,7 @@ export const OFFICES: Office[] = [
     countryCode: 'om',
     city: 'Ruwi',
     address: ['Computer Street, Ruwi', 'P.O. Box 502, PC 118', 'Sultanate of Oman'],
-    phone: '+96897922924',
+    phones: ['+968 9792 3077', '+968 9792 2924'],
     mapsQuery: 'Computer Street, Ruwi, Muscat, Oman',
   },
   {
@@ -48,13 +62,16 @@ export const OFFICES: Office[] = [
     country: 'Oman',
     countryCode: 'om',
     city: 'Salalah',
+    // Both the old Odoo footer and the office's business card write this as
+    // "23 July Road", but Google Maps only resolves "23rd July Street" — and an
+    // address a visitor can paste into Maps beats one that matches the card.
     address: [
-      '23 July Road, near NBO',
+      '23rd July Street, near NBO',
       'Opposite Sultan Qaboos Mosque',
       'Salalah, Sultanate of Oman',
     ],
-    phone: '+96897923005',
-    mapsQuery: '23 July Road, Salalah, Oman',
+    phones: ['+968 9792 3005'],
+    mapsQuery: 'Sultan Qaboos Mosque, 23rd July Street, Salalah, Oman',
   },
   {
     id: 'oman-sohar',
@@ -63,35 +80,43 @@ export const OFFICES: Office[] = [
     city: 'Sohar',
     address: [
       'Al Hambar Street',
-      'Near Malabar Paris Restaurant',
+      'Sohar Souq, near Malabar Paris Restaurant',
       'Sohar, Sultanate of Oman',
     ],
-    phone: '+96897923155',
-    mapsQuery: 'Al Hambar Street, Sohar, Oman',
+    phones: ['+968 9792 3155'],
+    mapsQuery: 'Malabar Paris Restaurant, Al Hambar Street, Sohar, Oman',
   },
   {
     id: 'india-kollam',
     country: 'India',
     countryCode: 'in',
     city: 'Kollam, Kerala',
-    address: [
-      'Danat Building, opposite Reliance Petrol Pump',
-      'Chandanathope, Kollam',
-      'Kerala, India',
-    ],
-    phone: '+917025205503',
-    mapsQuery: 'Chandanathope, Kollam, Kerala, India',
+    address: ['Vadayattukotta Road', 'Chinnakada, Kollam 691001', 'Kerala, India'],
+    phones: ['+91 70252 05503'],
+    // The one office whose query is not landmark-anchored, deliberately: the
+    // road itself geocodes to an exact point, which beats the nearest indexed
+    // landmark (Chinnakada Clock Tower, ~250 m off on Beach Road). Note that
+    // "Chinnakada" and "Rd" both FAIL to geocode — only the full "Road" plus
+    // the 691001 PIN resolves — so do not "tidy" this back to the display
+    // wording above.
+    mapsQuery: 'Vadayattukotta Road, Kollam, Kerala 691001, India',
   },
 ]
 
+/** Site-wide contact. Call and WhatsApp both use the India number. */
 export const CONTACT = {
-  phone: '+971529454455',
-  phoneDisplay: '+971 52 945 4455',
-  email: 'info@369ai.biz',
-  whatsapp: '971529454455',
+  phone: '+917025205503',
+  phoneDisplay: '+91 70252 05503',
+  email: 'hr@alphalize.com',
+  whatsapp: '917025205503',
 } as const
 
 /** Google Maps deep link — the payload behind each office QR code. */
 export function mapsUrl(query: string) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`
+}
+
+/** '+968 9792 3077' -> '+96897923077', for a tel: href. */
+export function telHref(phone: string) {
+  return `tel:${phone.replace(/[^+\d]/g, '')}`
 }

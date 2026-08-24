@@ -2,7 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getTranslations, getLocale } from 'next-intl/server'
 import { Phone, Mail, MapPin } from 'lucide-react'
-import { OFFICES, CONTACT } from '@/content/offices'
+import { OFFICES, CONTACT, telHref, mapsUrl } from '@/content/offices'
+import { QrReveal } from '@/components/ui/QrReveal'
 
 /**
  * Brand marks as inline paths — lucide-react removed its brand icon set, and
@@ -39,6 +40,7 @@ const SOCIALS = [
 export async function Footer() {
   const t = await getTranslations('footer')
   const tNav = await getTranslations('nav')
+  const tContact = await getTranslations('contact')
   const locale = await getLocale()
   const base = `/${locale}`
 
@@ -120,7 +122,7 @@ export async function Footer() {
             <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-slate-faint">
               {t('usefulLinks')}
             </p>
-            <ul className="grid grid-cols-2 gap-y-2.5 text-sm">
+            <ul className="dim-siblings grid grid-cols-2 gap-y-2.5 text-sm">
               {links.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="transition-colors hover:text-brand-600">
@@ -144,21 +146,36 @@ export async function Footer() {
                   <MapPin className="h-4 w-4 shrink-0 text-brand-500" aria-hidden />
                   {office.country} — {office.city}
                 </p>
-                <address className="mt-2 not-italic leading-relaxed text-slate-muted">
-                  {office.address.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </address>
-                {office.phone ? (
-                  <a
-                    href={`tel:${office.phone}`}
-                    className="mt-1.5 inline-block font-medium text-brand-600 transition-colors hover:text-brand-800"
-                  >
-                    {office.phone}
-                  </a>
-                ) : null}
+
+                <div className="mt-2 flex items-start gap-4">
+                  <div className="min-w-0 flex-1">
+                    <address className="not-italic leading-relaxed text-slate-muted">
+                      {office.address.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </address>
+                    {office.phones?.map((phone) => (
+                      <a
+                        key={phone}
+                        href={telHref(phone)}
+                        className="mt-1.5 block font-medium text-brand-600 transition-colors hover:text-brand-800"
+                      >
+                        {phone}
+                      </a>
+                    ))}
+                  </div>
+
+                </div>
+
+                {/* QR on demand — hover or tap the chip. Only the contact
+                    page shows office QRs permanently. */}
+                <QrReveal
+                  url={mapsUrl(office.mapsQuery)}
+                  title={`369AI ${office.country} — ${office.city}`}
+                  label={tContact('scanForAddress')}
+                />
               </li>
             ))}
           </ul>
