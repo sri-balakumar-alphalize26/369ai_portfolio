@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { Search, X, ArrowRight, Tag } from 'lucide-react'
 import { PRODUCTS, CATEGORIES, categoryLabel } from '@/lib/products'
+import { signalRouteLoading } from '@/components/layout/RouteLoader'
 import { cn } from '@/lib/cn'
 
 const MAX_CATEGORIES = 3
@@ -181,6 +182,9 @@ export function SearchMenu({ base }: { base: string }) {
     setOpen(false)
     setQuery('')
     setHighlight(-1)
+    // Button-driven navigation — the document-level link listener in
+    // RouteLoader can't see it, so signal the loading overlay explicitly.
+    signalRouteLoading(href)
     router.push(href)
   }
 

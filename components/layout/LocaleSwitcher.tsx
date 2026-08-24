@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from 'next/navigation'
 import { Check, ChevronDown } from 'lucide-react'
 import { Flag } from '@/components/ui/Flag'
+import { LogoLoader } from '@/components/ui/LogoLoader'
 import { locales, localeLabels, type Locale } from '@/i18n/routing'
 import { cn } from '@/lib/cn'
 
@@ -157,8 +158,7 @@ export function LocaleSwitcher({
               aria-label={tc('loading')}
               className="fixed inset-0 z-[95] grid place-items-center bg-surface-alt/70 backdrop-blur-sm"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element -- animated SVG; embedded CSS animation must survive */}
-              <img src="/images/brand/369-loader.svg" alt="" width={64} height={64} />
+              <LogoLoader />
             </div>,
             document.body
           )
