@@ -41,6 +41,7 @@ export async function Footer() {
   const t = await getTranslations('footer')
   const tNav = await getTranslations('nav')
   const tContact = await getTranslations('contact')
+  const tCommon = await getTranslations('common')
   const locale = await getLocale()
   const base = `/${locale}`
 
@@ -69,7 +70,7 @@ export async function Footer() {
               className="h-12 w-auto"
             />
             <p className="mt-5 text-sm leading-relaxed text-slate-muted">{t('tagline')}</p>
-            <p className="mt-2 text-sm font-medium italic text-brand-600">Beyond control. Beyond growth.</p>
+            <p className="mt-2 text-sm font-medium italic text-brand-600">{tCommon('tagline')}</p>
 
             <div className="mt-6 space-y-3 text-sm">
               <a

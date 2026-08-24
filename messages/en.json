@@ -24,7 +24,10 @@
     "software": "Software",
     "hardware": "Hardware",
     "softwareBlurb": "ERP modules, POS features, mobile apps and desktop software.",
-    "hardwareBlurb": "POS terminals, printers, scanners, kiosks, vending machines and robots."
+    "hardwareBlurb": "POS terminals, printers, scanners, kiosks, vending machines and robots.",
+    "homeAria": "369ai.Biz home",
+    "mainNav": "Main",
+    "mobileNav": "Mobile"
   },
   "common": {
     "learnMore": "Learn more",
@@ -37,7 +40,8 @@
     "seeAll": "See all",
     "backToShop": "Back to hardware",
     "priceOnRequest": "Price on request",
-    "loading": "Loading"
+    "loading": "Loading",
+    "tagline": "Beyond control. Beyond growth."
   },
   "home": {
     "heroEyebrow": "Intelligent POS, ERP & Automation",
@@ -68,7 +72,11 @@
     "aboutTitleLead": "Technology that drives",
     "aboutWord1": "efficiency",
     "aboutWord2": "accuracy",
-    "aboutWord3": "growth"
+    "aboutWord3": "growth",
+    "heroAlt": "369AI platform: POS terminals, smart vending, smart locks, networking, AI-driven insights and secure cloud connected through one hub",
+    "hardwareEyebrow": "Hardware",
+    "hardwareTitle": "Built on equipment we supply and support",
+    "hardwareBody": "{count} POS terminals, printers, scanners, kiosks, vending machines and robots — all available on request."
   },
   "pillars": {
     "ai": {
@@ -127,7 +135,9 @@
       "title": "Professional Support & Maintenance",
       "lead": "Enjoy dedicated after-sales service and 24/7 technical support to keep your systems running smoothly.",
       "body": "Our commitment does not end at installation — we stand by you with continuous assistance, ensuring your operations remain efficient and uninterrupted. With round-the-clock technical support, expert guidance is always a call or click away, minimizing downtime and resolving issues before they impact performance."
-    }
+    },
+    "ctaTitle": "Every service backed by 24/7 support",
+    "ctaBody": "A dedicated after-sales team, free remote management and a 12-month warranty as standard."
   },
   "solutions": {
     "eyebrow": "Solutions",
@@ -157,7 +167,9 @@
       "title": "Smart Vending Machine Solutions",
       "tagline": "Automated. Intelligent. Always connected.",
       "body": "Experience the future of unmanned retail through our Smart Vending Machines powered by AI, IoT and ERP integration. Manage products, track stock and monitor performance remotely — all while offering customers an effortless buying experience through touchless, card or QR-based payments. Designed for efficiency and 24/7 operation, it is the perfect blend of innovation, convenience and business intelligence."
-    }
+    },
+    "ctaTitle": "Not sure which solution fits?",
+    "ctaBody": "Tell us what you run today and we will map it out with you — no obligation."
   },
   "about": {
     "eyebrow": "About Us",
@@ -371,7 +383,9 @@
         "t": "Offline-first",
         "b": "Keep selling through a dropped connection; everything syncs back to the ERP once you are online again."
       }
-    }
+    },
+    "ctaTitle": "Want a walkthrough of the modules you need?",
+    "ctaBody": "We will demo the exact configuration for your business — nothing you do not need."
   },
   "shop": {
     "eyebrow": "Hardware",
@@ -413,7 +427,10 @@
     "successTitle": "Inquiry received",
     "successBody": "Thank you — our team will be in touch within 24 hours.",
     "errorTitle": "Something went wrong",
-    "errorBody": "We could not send your inquiry. Please try again, or reach us directly."
+    "errorBody": "We could not send your inquiry. Please try again, or reach us directly.",
+    "dialogTitle": "Enquire about this product",
+    "close": "Close",
+    "replyNote": "We reply to every enquiry within 24 hours."
   },
   "contact": {
     "eyebrow": "Contact Us",
@@ -464,7 +481,15 @@
     "dismiss": "Dismiss",
     "offline": "Our assistant is unavailable right now. Message our team on WhatsApp and we will reply within minutes.",
     "error": "Sorry — something went wrong. Please try again or reach us on WhatsApp.",
-    "disclaimer": "AI assistant. Confirm important details with our team."
+    "disclaimer": "AI assistant. Confirm important details with our team.",
+    "contactTitle": "Contact 369AI",
+    "contactBody": "You can reach us on {phone} or at {email}. We have offices in the USA, UAE, Oman (Ruwi, Salalah and Sohar) and India, and we reply to enquiries within 24 hours.",
+    "pricingTitle": "Pricing",
+    "pricingBody": "We quote per configuration, so pricing reflects exactly what you need. Open any product and use \"Enquire about this product\", or contact our sales team — we respond within 24 hours.",
+    "hardwareTitle": "Hardware range",
+    "hardwareBody": "We supply {count} hardware products — POS terminals, thermal and label printers, barcode scanners, cash drawers, customer displays, kiosks, vending machines, robots and banking equipment.",
+    "whatsappPrefill": "Hello 369AI, I have a question about your products.",
+    "readMore": "Read more"
   },
   "footer": {
     "connect": "Connect with us",
@@ -506,5 +531,47 @@
       "payments": "Payment gateway",
       "security": "Security"
     }
+  },
+  "videos": {
+    "more": "More on our YouTube channel",
+    "opening": "Opening YouTube…",
+    "play": "Play {title}",
+    "close": "Close video",
+    "views": "{views} views"
+  },
+  "categories": {
+    "vending-machines-203": "Vending Machines",
+    "robots-204": "Robots",
+    "smart-banking-219": "Smart Banking",
+    "smart-banking-cdm-218": "CDM",
+    "barcode-scanner-67": "Barcode Scanner",
+    "barcode-scanner-2d-barcode-scanner-68": "2D Barcode Scanner",
+    "pos-machines-59": "POS Machines",
+    "thermal-receipt-printer-62": "Thermal Receipt Printer",
+    "barcode-label-printer-64": "Barcode Label Printer",
+    "kiosk-214": "Kiosk",
+    "pos-machines-all-in-one-pos-60": "All-In-One POS",
+    "thermal-receipt-printer-80mm-thermal-printer-84": "80mm Thermal Printer",
+    "robots-mobile-robot-platform-209": "Mobile Robot Platform",
+    "barcode-label-printer-desktop-label-printer-65": "Desktop Label Printer",
+    "barcode-scanner-wireless-barcode-scanner-73": "Wireless Barcode Scanner",
+    "customer-display-75": "Customer Display",
+    "money-counting-machine-80": "Money Counting Machine",
+    "thermal-receipt-printer-bluetooth-printer-63": "Bluetooth Printer",
+    "barcode-label-printer-portable-label-print-69": "Portable Label Print",
+    "barcode-scanner-handheld-barcode-scanner-74": "Handheld Barcode Scanner",
+    "cash-drawer-71": "Cash Drawer",
+    "data-terminal-72": "Data Terminal",
+    "inkjet-printer-79": "Inkjet Printer",
+    "electronic-weightscale-81": "Electronic Weightscale",
+    "barcode-scanner-desktop-barcode-scanner-76": "Desktop Barcode Scanner",
+    "barcode-scanner-omnidirectional-barcode-scanner-77": "Omnidirectional Barcode Scanner",
+    "pos-monitor-78": "POS Monitor",
+    "floor-display-stand-43-inch-82": "Floor Display Stand (43 inch)",
+    "android-menu-display-stand-101-inch-83": "Android Menu Display Stand (10.1 inch)",
+    "robots-concierge-robot-205": "Concierge Robot",
+    "robots-reception-robot-206": "Reception Robot",
+    "robots-delivery-robot-207": "Delivery Robot",
+    "robots-patrol-robot-208": "Patrol Robot"
   }
 }

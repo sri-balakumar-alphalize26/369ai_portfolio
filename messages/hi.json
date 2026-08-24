@@ -24,7 +24,10 @@
     "software": "सॉफ़्टवेयर",
     "hardware": "हार्डवेयर",
     "softwareBlurb": "ERP मॉड्यूल, POS सुविधाएं, मोबाइल ऐप्स और डेस्कटॉप सॉफ़्टवेयर।",
-    "hardwareBlurb": "POS टर्मिनल, प्रिंटर, स्कैनर, कियोस्क, वेंडिंग मशीन और रोबोट।"
+    "hardwareBlurb": "POS टर्मिनल, प्रिंटर, स्कैनर, कियोस्क, वेंडिंग मशीन और रोबोट।",
+    "homeAria": "369ai.Biz होम",
+    "mainNav": "मुख्य",
+    "mobileNav": "मोबाइल"
   },
   "common": {
     "learnMore": "और जानें",
@@ -37,7 +40,8 @@
     "seeAll": "सभी देखें",
     "backToShop": "हार्डवेयर पर वापस",
     "priceOnRequest": "कीमत अनुरोध पर",
-    "loading": "लोड हो रहा है"
+    "loading": "लोड हो रहा है",
+    "tagline": "नियंत्रण से आगे। विकास से आगे।"
   },
   "home": {
     "heroEyebrow": "बुद्धिमान POS, ERP और ऑटोमेशन",
@@ -47,8 +51,8 @@
     "heroSecondary": "हमारी टीम से बात करें",
     "aboutEyebrow": "369AI के बारे में",
     "aboutTitle": "ऐसी तकनीक जो दक्षता, सटीकता और वृद्धि लाती है",
-    "aboutBody": "369AI is a leading provider of intelligent Point-of-Sale and IT infrastructure solutions, committed to empowering businesses with technology that drives efficiency, accuracy and growth. Established with a mission to simplify operations and enhance customer experiences, we deliver modern, scalable and industry-specific POS systems tailored for retail, food service and hospitality sectors.",
-    "aboutBody2": "Our expertise extends beyond POS — offering smart integrations, advanced analytics and seamless connectivity to help businesses make informed decisions in real time. With a strong presence in Oman and beyond, we pride ourselves on delivering unmatched reliability, personalized service and 24/7 technical support.",
+    "aboutBody": "369AI बुद्धिमान पॉइंट-ऑफ-सेल और IT इन्फ्रास्ट्रक्चर समाधानों का अग्रणी प्रदाता है, जो व्यवसायों को ऐसी तकनीक से सशक्त बनाने के लिए प्रतिबद्ध है जो दक्षता, सटीकता और वृद्धि लाती है। संचालन को सरल बनाने और ग्राहक अनुभव बेहतर करने के मिशन के साथ स्थापित, हम रिटेल, फूड सर्विस और हॉस्पिटैलिटी क्षेत्रों के लिए आधुनिक, स्केलेबल और उद्योग-विशिष्ट POS सिस्टम प्रदान करते हैं।",
+    "aboutBody2": "हमारी विशेषज्ञता POS से आगे जाती है — स्मार्ट इंटीग्रेशन, उन्नत एनालिटिक्स और निर्बाध कनेक्टिविटी के साथ, ताकि व्यवसाय रीयल-टाइम में सूचित निर्णय ले सकें। ओमान और उसके बाहर मजबूत उपस्थिति के साथ, हमें बेजोड़ विश्वसनीयता, व्यक्तिगत सेवा और 24/7 तकनीकी सहायता प्रदान करने पर गर्व है।",
     "pillarsTitle": "एक जुड़ा हुआ प्लेटफ़ॉर्म",
     "pillarsBody": "369AI का हर हिस्सा दूसरे से जुड़ा है — ताकि आपका काउंटर, गोदाम और बैक ऑफ़िस एक ही आंकड़े देखें।",
     "servicesEyebrow": "हमारी सेवाएं",
@@ -68,7 +72,11 @@
     "aboutTitleLead": "तकनीक जो बढ़ाए",
     "aboutWord1": "दक्षता",
     "aboutWord2": "सटीकता",
-    "aboutWord3": "विकास"
+    "aboutWord3": "विकास",
+    "heroAlt": "369AI प्लेटफ़ॉर्म: POS टर्मिनल, स्मार्ट वेंडिंग, स्मार्ट लॉक, नेटवर्किंग, AI-आधारित अंतर्दृष्टि और सुरक्षित क्लाउड — सब एक हब से जुड़े",
+    "hardwareEyebrow": "हार्डवेयर",
+    "hardwareTitle": "ऐसे उपकरणों पर आधारित जिनकी आपूर्ति और सपोर्ट हम स्वयं करते हैं",
+    "hardwareBody": "{count} POS टर्मिनल, प्रिंटर, स्कैनर, कियोस्क, वेंडिंग मशीनें और रोबोट — सभी अनुरोध पर उपलब्ध।"
   },
   "pillars": {
     "ai": {
@@ -95,283 +103,289 @@
     "devices": "POS डिवाइस डिलीवर"
   },
   "services": {
-    "eyebrow": "Our Services",
-    "title": "Delivering excellence across every service",
-    "body": "From the counter to the cloud, we cover the whole stack — and we stay with you after go-live.",
+    "eyebrow": "हमारी सेवाएं",
+    "title": "हर सेवा में उत्कृष्टता",
+    "body": "काउंटर से क्लाउड तक, हम पूरा स्टैक कवर करते हैं — और गो-लाइव के बाद भी आपके साथ रहते हैं।",
     "iot": {
-      "title": "IoT-Enabled Vending & Smart Devices",
-      "lead": "Manage your vending machines and smart devices remotely through cloud-based monitoring and automation.",
-      "body": "With a single, intuitive platform, you gain real-time visibility into performance, inventory and energy usage — no matter where you are. Automated alerts and intelligent controls help reduce downtime, cut costs and streamline operations, while remote access ensures you are always in command."
+      "title": "IoT वेंडिंग और स्मार्ट डिवाइस",
+      "lead": "क्लाउड-आधारित मॉनिटरिंग और ऑटोमेशन के ज़रिए अपनी वेंडिंग मशीनों और स्मार्ट डिवाइसों को कहीं से भी प्रबंधित करें।",
+      "body": "एक ही सहज प्लेटफ़ॉर्म से आपको प्रदर्शन, इन्वेंट्री और ऊर्जा खपत की रीयल-टाइम जानकारी मिलती है — आप चाहे कहीं भी हों। स्वचालित अलर्ट और बुद्धिमान नियंत्रण डाउनटाइम घटाते हैं, लागत कम करते हैं और संचालन को सरल बनाते हैं, जबकि रिमोट एक्सेस से कमान हमेशा आपके हाथ में रहती है।"
     },
     "pos": {
-      "title": "Smart POS & Retail Systems",
-      "lead": "Transform your business efficiency with intelligent POS solutions that unify billing, inventory and customer management.",
-      "body": "Go beyond transactions with advanced analytics, automated reporting and integrated loyalty programs that empower your teams, delight your customers and maximize profitability. Whether you are managing a single store or scaling across multiple locations, our cloud-driven platform ensures agility, transparency and control."
+      "title": "स्मार्ट POS और रिटेल सिस्टम",
+      "lead": "बिलिंग, इन्वेंट्री और ग्राहक प्रबंधन को एक करने वाले बुद्धिमान POS समाधानों से अपने व्यवसाय की दक्षता बदल दें।",
+      "body": "उन्नत एनालिटिक्स, स्वचालित रिपोर्टिंग और एकीकृत लॉयल्टी प्रोग्राम के साथ लेन-देन से आगे बढ़ें — जो आपकी टीमों को सशक्त बनाते हैं, ग्राहकों को खुश रखते हैं और मुनाफ़ा बढ़ाते हैं। चाहे आप एक स्टोर चलाते हों या कई स्थानों पर विस्तार कर रहे हों, हमारा क्लाउड-आधारित प्लेटफ़ॉर्म चुस्ती, पारदर्शिता और नियंत्रण सुनिश्चित करता है।"
     },
     "erp": {
-      "title": "ERP & Business Management Integration",
-      "lead": "Unify every department — sales, accounts, HR and inventory — under one powerful ERP platform.",
-      "body": "By bringing all your core business functions together in a single, integrated system, you eliminate silos and ensure seamless collaboration across teams. Real-time data sharing empowers smarter decision-making, while automated workflows reduce manual effort and errors."
+      "title": "ERP और बिज़नेस मैनेजमेंट इंटीग्रेशन",
+      "lead": "बिक्री, अकाउंट्स, HR और इन्वेंट्री — हर विभाग को एक शक्तिशाली ERP प्लेटफ़ॉर्म पर एकीकृत करें।",
+      "body": "अपने सभी मुख्य व्यावसायिक कार्यों को एक एकीकृत सिस्टम में लाकर आप विभागों की दीवारें हटाते हैं और टीमों के बीच निर्बाध सहयोग सुनिश्चित करते हैं। रीयल-टाइम डेटा साझाकरण से बेहतर निर्णय संभव होते हैं, जबकि स्वचालित वर्कफ़्लो मैनुअल मेहनत और गलतियां घटाते हैं।"
     },
     "ai": {
-      "title": "AI-Driven Insights & Automation",
-      "lead": "Leverage artificial intelligence to analyze data, predict trends and automate decision-making.",
-      "body": "With AI-driven insights, your organization can transform raw information into actionable strategies, uncover hidden patterns and anticipate market shifts before they happen. Predictive analytics empower smarter planning, while automation streamlines repetitive tasks and reduces human error."
+      "title": "AI-आधारित अंतर्दृष्टि और ऑटोमेशन",
+      "lead": "डेटा का विश्लेषण करने, रुझानों का पूर्वानुमान लगाने और निर्णय स्वचालित करने के लिए आर्टिफ़िशियल इंटेलिजेंस का उपयोग करें।",
+      "body": "AI-आधारित अंतर्दृष्टि से आपका संगठन कच्ची जानकारी को कार्रवाई योग्य रणनीतियों में बदल सकता है, छिपे पैटर्न खोज सकता है और बाज़ार के बदलावों का पहले से अनुमान लगा सकता है। प्रेडिक्टिव एनालिटिक्स बेहतर योजना बनाने में मदद करता है, जबकि ऑटोमेशन दोहराए जाने वाले कार्यों को सरल बनाता है और मानवीय त्रुटि घटाता है।"
     },
     "cloud": {
-      "title": "Secure Cloud Infrastructure",
-      "lead": "Access your systems anywhere with enterprise-grade security and reliable cloud performance.",
-      "body": "Empower your workforce with the freedom to connect from any location, while sensitive data remains protected by advanced encryption and compliance standards. With enterprise-grade safeguards, your operations stay secure against evolving threats, and performance stays consistent even during peak demand."
+      "title": "सुरक्षित क्लाउड इन्फ्रास्ट्रक्चर",
+      "lead": "एंटरप्राइज़-स्तरीय सुरक्षा और भरोसेमंद क्लाउड प्रदर्शन के साथ अपने सिस्टम कहीं से भी एक्सेस करें।",
+      "body": "अपनी टीम को किसी भी स्थान से जुड़ने की आज़ादी दें, जबकि संवेदनशील डेटा उन्नत एन्क्रिप्शन और अनुपालन मानकों से सुरक्षित रहता है। एंटरप्राइज़-स्तरीय सुरक्षा उपायों से आपका संचालन बदलते खतरों के विरुद्ध सुरक्षित रहता है, और अधिकतम मांग के समय भी प्रदर्शन स्थिर बना रहता है।"
     },
     "support": {
-      "title": "Professional Support & Maintenance",
-      "lead": "Enjoy dedicated after-sales service and 24/7 technical support to keep your systems running smoothly.",
-      "body": "Our commitment does not end at installation — we stand by you with continuous assistance, ensuring your operations remain efficient and uninterrupted. With round-the-clock technical support, expert guidance is always a call or click away, minimizing downtime and resolving issues before they impact performance."
-    }
+      "title": "पेशेवर सपोर्ट और रखरखाव",
+      "lead": "समर्पित आफ़्टर-सेल्स सेवा और 24/7 तकनीकी सहायता के साथ अपने सिस्टम सुचारु रूप से चलाते रहें।",
+      "body": "हमारी प्रतिबद्धता इंस्टॉलेशन पर खत्म नहीं होती — हम निरंतर सहायता के साथ आपके साथ खड़े रहते हैं, ताकि आपका संचालन कुशल और निर्बाध बना रहे। चौबीसों घंटे तकनीकी सहायता के साथ विशेषज्ञ मार्गदर्शन बस एक कॉल या क्लिक की दूरी पर है — जिससे डाउनटाइम कम होता है और समस्याएं प्रदर्शन पर असर डालने से पहले ही हल हो जाती हैं।"
+    },
+    "ctaTitle": "हर सेवा के पीछे 24/7 सहायता",
+    "ctaBody": "समर्पित आफ़्टर-सेल्स टीम, निःशुल्क रिमोट मैनेजमेंट और मानक रूप से 12 महीने की वारंटी।"
   },
   "solutions": {
-    "eyebrow": "Solutions",
-    "title": "Empowering Businesses Through Smart Innovation",
-    "body": "At 369AI we combine intelligence, automation and connectivity to revolutionize the way businesses operate. Our suite of solutions — ERP, Smart Locks, Robotics, POS and Vending Machines — delivers seamless integration between hardware and software. From real-time insights to automated operations, we help companies enhance efficiency, improve security and create smarter customer experiences.",
+    "eyebrow": "समाधान",
+    "title": "स्मार्ट नवाचार से व्यवसायों का सशक्तिकरण",
+    "body": "369AI में हम बुद्धिमत्ता, ऑटोमेशन और कनेक्टिविटी को मिलाकर व्यवसायों के काम करने के तरीके में क्रांति लाते हैं। हमारे समाधान — ERP, स्मार्ट लॉक, रोबोटिक्स, POS और वेंडिंग मशीनें — हार्डवेयर और सॉफ़्टवेयर के बीच निर्बाध एकीकरण प्रदान करते हैं। रीयल-टाइम अंतर्दृष्टि से लेकर स्वचालित संचालन तक, हम कंपनियों को दक्षता बढ़ाने, सुरक्षा सुधारने और बेहतर ग्राहक अनुभव बनाने में मदद करते हैं।",
     "erp": {
-      "title": "ERP Solutions",
-      "tagline": "Empower your business with intelligence.",
-      "body": "Reimagine the way your business operates with our intelligent ERP platform — built to unify every department and process under one digital ecosystem. From accounting, HR and inventory to CRM and sales, our ERP gives you real-time visibility and complete control. Powered by automation and AI insights, it simplifies operations, improves decision-making and helps you grow faster with accuracy and confidence."
+      "title": "ERP समाधान",
+      "tagline": "बुद्धिमत्ता से अपने व्यवसाय को सशक्त बनाएं।",
+      "body": "हमारे बुद्धिमान ERP प्लेटफ़ॉर्म के साथ अपने व्यवसाय के काम करने के तरीके की नई कल्पना करें — जो हर विभाग और प्रक्रिया को एक डिजिटल इकोसिस्टम में एकीकृत करता है। अकाउंटिंग, HR और इन्वेंट्री से लेकर CRM और बिक्री तक, हमारा ERP आपको रीयल-टाइम दृश्यता और पूर्ण नियंत्रण देता है। ऑटोमेशन और AI अंतर्दृष्टि से संचालित, यह संचालन को सरल बनाता है, निर्णय बेहतर करता है और आपको सटीकता व आत्मविश्वास के साथ तेज़ी से बढ़ने में मदद करता है।"
     },
     "pos": {
-      "title": "369AI POS Solutions",
-      "tagline": "Fast. Reliable. Connected.",
-      "body": "Meet the future of retail and service management with our next-generation 369AI POS System. Designed for speed, simplicity and accuracy, it connects directly with your ERP for real-time sales, inventory and accounting updates. Whether you are managing a single counter or a multi-branch business, enjoy seamless billing, barcode scanning, multi-payment options and cloud-based reporting — all in one modern interface."
+      "title": "369AI POS समाधान",
+      "tagline": "तेज़। भरोसेमंद। कनेक्टेड।",
+      "body": "हमारे अगली पीढ़ी के 369AI POS सिस्टम के साथ रिटेल और सर्विस मैनेजमेंट के भविष्य से मिलिए। गति, सरलता और सटीकता के लिए बना यह सिस्टम रीयल-टाइम बिक्री, इन्वेंट्री और अकाउंटिंग अपडेट के लिए सीधे आपके ERP से जुड़ता है। चाहे आप एक काउंटर चलाते हों या मल्टी-ब्रांच व्यवसाय, निर्बाध बिलिंग, बारकोड स्कैनिंग, कई भुगतान विकल्प और क्लाउड-आधारित रिपोर्टिंग का लाभ उठाएं — सब एक आधुनिक इंटरफ़ेस में।"
     },
     "robotics": {
-      "title": "Robotics & Automation",
-      "tagline": "Automation that thinks for you.",
-      "body": "Unlock new levels of efficiency with our AI-powered robotic and automation solutions. From product dispensing and warehouse management to smart manufacturing and vending automation, our robots integrate with ERP and IoT systems to deliver precision, consistency and real-time coordination. By reducing human error and repetitive tasks, we help businesses operate smarter and faster than ever before."
+      "title": "रोबोटिक्स और ऑटोमेशन",
+      "tagline": "ऐसा ऑटोमेशन जो आपके लिए सोचता है।",
+      "body": "हमारे AI-संचालित रोबोटिक और ऑटोमेशन समाधानों से दक्षता के नए स्तर खोलें। उत्पाद डिस्पेंसिंग और वेयरहाउस मैनेजमेंट से लेकर स्मार्ट मैन्युफ़ैक्चरिंग और वेंडिंग ऑटोमेशन तक, हमारे रोबोट ERP और IoT सिस्टम से जुड़कर सटीकता, निरंतरता और रीयल-टाइम समन्वय प्रदान करते हैं। मानवीय त्रुटि और दोहराए जाने वाले काम घटाकर हम व्यवसायों को पहले से कहीं अधिक स्मार्ट और तेज़ बनाते हैं।"
     },
     "locks": {
-      "title": "Smart Lock Systems",
-      "tagline": "Security meets intelligence.",
-      "body": "Redefine security with our IoT-based Smart Locks designed for modern businesses. Integrated with ERP and mobile apps, these locks provide centralized access control, live monitoring and digital authorization for users and locations. Perfect for warehouses, offices and vending systems — ensuring every access is secure, recorded and controlled in real time."
+      "title": "स्मार्ट लॉक सिस्टम",
+      "tagline": "जहां सुरक्षा बुद्धिमत्ता से मिलती है।",
+      "body": "आधुनिक व्यवसायों के लिए बने हमारे IoT-आधारित स्मार्ट लॉक के साथ सुरक्षा को नए सिरे से परिभाषित करें। ERP और मोबाइल ऐप्स से एकीकृत ये लॉक उपयोगकर्ताओं और स्थानों के लिए केंद्रीकृत एक्सेस कंट्रोल, लाइव मॉनिटरिंग और डिजिटल अनुमति प्रदान करते हैं। गोदामों, कार्यालयों और वेंडिंग सिस्टम के लिए आदर्श — हर एक्सेस सुरक्षित, दर्ज और रीयल-टाइम में नियंत्रित।"
     },
     "vending": {
-      "title": "Smart Vending Machine Solutions",
-      "tagline": "Automated. Intelligent. Always connected.",
-      "body": "Experience the future of unmanned retail through our Smart Vending Machines powered by AI, IoT and ERP integration. Manage products, track stock and monitor performance remotely — all while offering customers an effortless buying experience through touchless, card or QR-based payments. Designed for efficiency and 24/7 operation, it is the perfect blend of innovation, convenience and business intelligence."
-    }
+      "title": "स्मार्ट वेंडिंग मशीन समाधान",
+      "tagline": "स्वचालित। बुद्धिमान। हमेशा कनेक्टेड।",
+      "body": "AI, IoT और ERP एकीकरण से संचालित हमारी स्मार्ट वेंडिंग मशीनों के साथ बिना कर्मचारी वाले रिटेल का भविष्य अनुभव करें। उत्पाद प्रबंधित करें, स्टॉक ट्रैक करें और प्रदर्शन दूर से मॉनिटर करें — साथ ही ग्राहकों को टचलेस, कार्ड या QR भुगतान के ज़रिए सहज खरीदारी का अनुभव दें। दक्षता और 24/7 संचालन के लिए बनी यह मशीन नवाचार, सुविधा और बिज़नेस इंटेलिजेंस का सटीक संगम है।"
+    },
+    "ctaTitle": "समझ नहीं आ रहा कौन सा समाधान सही रहेगा?",
+    "ctaBody": "बताइए आज आप क्या इस्तेमाल करते हैं और हम मिलकर पूरा खाका बनाएंगे — कोई बाध्यता नहीं।"
   },
   "about": {
-    "eyebrow": "About Us",
-    "title": "Explore how 369AI transforms innovation into intelligent business automation",
-    "intro": "369AI is a forward-thinking technology company dedicated to delivering intelligent, scalable and future-ready software solutions that empower businesses to operate smarter, faster and more efficiently. We specialize in AI-driven automation, ERP implementation, custom software development and advanced business intelligence tools designed to transform organizations into modern digital enterprises.",
-    "intro2": "Our mission is simple: to simplify complex business operations through innovative technology and intelligent automation. We combine deep industry knowledge with cutting-edge AI capabilities to build solutions that not only solve today's challenges but also prepare businesses for tomorrow's opportunities.",
-    "intro3": "We are also a trusted provider of ERP solutions, offering end-to-end implementation, customization, integration and support services. From finance and sales to inventory, manufacturing, POS, HR and custom business applications, we help companies streamline processes and achieve operational excellence.",
-    "featuresTitle": "Features that set us apart",
+    "eyebrow": "हमारे बारे में",
+    "title": "देखें कैसे 369AI नवाचार को बुद्धिमान बिज़नेस ऑटोमेशन में बदलता है",
+    "intro": "369AI एक दूरदर्शी तकनीकी कंपनी है, जो बुद्धिमान, स्केलेबल और भविष्य के लिए तैयार सॉफ़्टवेयर समाधान देने के लिए समर्पित है — ताकि व्यवसाय अधिक स्मार्ट, तेज़ और कुशलता से काम कर सकें। हम AI-आधारित ऑटोमेशन, ERP कार्यान्वयन, कस्टम सॉफ़्टवेयर डेवलपमेंट और उन्नत बिज़नेस इंटेलिजेंस टूल्स के विशेषज्ञ हैं, जो संगठनों को आधुनिक डिजिटल उद्यमों में बदलते हैं।",
+    "intro2": "हमारा मिशन सरल है: नवोन्मेषी तकनीक और बुद्धिमान ऑटोमेशन के ज़रिए जटिल व्यावसायिक संचालन को सरल बनाना। हम गहरी उद्योग समझ को अत्याधुनिक AI क्षमताओं से जोड़कर ऐसे समाधान बनाते हैं जो आज की चुनौतियां हल करने के साथ-साथ व्यवसायों को कल के अवसरों के लिए भी तैयार करते हैं।",
+    "intro3": "हम ERP समाधानों के विश्वसनीय प्रदाता भी हैं — एंड-टू-एंड कार्यान्वयन, कस्टमाइज़ेशन, एकीकरण और सपोर्ट सेवाओं के साथ। फ़ाइनेंस और बिक्री से लेकर इन्वेंट्री, मैन्युफ़ैक्चरिंग, POS, HR और कस्टम बिज़नेस ऐप्लिकेशन तक, हम कंपनियों को प्रक्रियाएं सरल बनाने और परिचालन उत्कृष्टता पाने में मदद करते हैं।",
+    "featuresTitle": "विशेषताएं जो हमें अलग बनाती हैं",
     "innovation": {
-      "title": "Innovation First",
-      "body": "We continuously explore new technologies, AI models and automation trends to ensure our clients stay ahead in a competitive market."
+      "title": "नवाचार सबसे पहले",
+      "body": "हम लगातार नई तकनीकों, AI मॉडलों और ऑटोमेशन रुझानों को परखते रहते हैं, ताकि हमारे ग्राहक प्रतिस्पर्धी बाज़ार में हमेशा आगे रहें।"
     },
     "client": {
-      "title": "Client-Centric Approach",
-      "body": "Every solution is tailored to meet the unique requirements of each business, ensuring maximum efficiency and value."
+      "title": "ग्राहक-केंद्रित दृष्टिकोण",
+      "body": "हर समाधान प्रत्येक व्यवसाय की विशिष्ट आवश्यकताओं के अनुसार तैयार किया जाता है, जिससे अधिकतम दक्षता और मूल्य सुनिश्चित होता है।"
     },
     "quality": {
-      "title": "Quality & Reliability",
-      "body": "Our solutions are designed for performance, security and long-term scalability."
+      "title": "गुणवत्ता और विश्वसनीयता",
+      "body": "हमारे समाधान प्रदर्शन, सुरक्षा और दीर्घकालिक स्केलेबिलिटी के लिए बनाए गए हैं।"
     },
     "support": {
-      "title": "Continuous Support",
-      "body": "We provide ongoing support, maintenance and training to help our clients get the most out of their digital systems."
+      "title": "निरंतर सहायता",
+      "body": "हम निरंतर सपोर्ट, रखरखाव और प्रशिक्षण प्रदान करते हैं, ताकि हमारे ग्राहक अपने डिजिटल सिस्टम का पूरा लाभ उठा सकें।"
     },
-    "missionTitle": "Our Mission",
-    "missionBody": "At 369AI we take pride in our unwavering commitment to excellence and customer satisfaction. With a team of passionate and skilled professionals, we are dedicated to providing top-tier assistance across computer sales, printer servicing, CCTV installation, computer networking and data recovery.",
-    "visionTitle": "Our Vision",
-    "visionBody": "369AI envisions becoming a global leader in advanced technological solutions, shaping a future where technology enhances every aspect of life. Through continuous innovation and adaptation, we strive to pioneer the digital landscape, exceed customer expectations and foster a culture of improvement. With a strong global presence, we aim to be a trusted symbol of reliability, driving societal progress and positive impact.",
-    "everythingTitle": "Everything you need",
-    "everythingBody": "Two decades of hands-on experience, backed by manufacturing scale and a service team that answers.",
+    "missionTitle": "हमारा मिशन",
+    "missionBody": "369AI में हमें उत्कृष्टता और ग्राहक संतुष्टि के प्रति अपनी अटूट प्रतिबद्धता पर गर्व है। उत्साही और कुशल पेशेवरों की टीम के साथ, हम कंप्यूटर बिक्री, प्रिंटर सर्विसिंग, CCTV इंस्टॉलेशन, कंप्यूटर नेटवर्किंग और डेटा रिकवरी में सर्वोच्च स्तर की सहायता देने के लिए समर्पित हैं।",
+    "visionTitle": "हमारा विज़न",
+    "visionBody": "369AI का लक्ष्य उन्नत तकनीकी समाधानों में वैश्विक अग्रणी बनना है — एक ऐसे भविष्य को आकार देना जहां तकनीक जीवन के हर पहलू को बेहतर बनाए। निरंतर नवाचार और अनुकूलन के ज़रिए हम डिजिटल परिदृश्य में अग्रणी बनने, ग्राहक अपेक्षाओं से आगे निकलने और सुधार की संस्कृति विकसित करने का प्रयास करते हैं। मजबूत वैश्विक उपस्थिति के साथ हम विश्वसनीयता का भरोसेमंद प्रतीक बनना चाहते हैं, जो सामाजिक प्रगति और सकारात्मक प्रभाव को आगे बढ़ाए।",
+    "everythingTitle": "आपकी हर ज़रूरत के लिए",
+    "everythingBody": "दो दशकों का व्यावहारिक अनुभव, मैन्युफ़ैक्चरिंग स्केल और एक ऐसी सर्विस टीम जो हमेशा जवाब देती है।",
     "e1": {
-      "title": "20+ Years in Vending & Retail Automation",
-      "body": "Two decades of hands-on industry experience, from hardware to software."
+      "title": "वेंडिंग और रिटेल ऑटोमेशन में 20+ वर्ष",
+      "body": "हार्डवेयर से सॉफ़्टवेयर तक, दो दशकों का व्यावहारिक उद्योग अनुभव।"
     },
     "e2": {
-      "title": "Professional After-Sales Service Team",
-      "body": "Dedicated engineers and support specialists for fast, reliable resolution."
+      "title": "पेशेवर आफ़्टर-सेल्स सर्विस टीम",
+      "body": "तेज़ और भरोसेमंद समाधान के लिए समर्पित इंजीनियर और सपोर्ट विशेषज्ञ।"
     },
     "e3": {
-      "title": "Large-Scale Production Capacity",
-      "body": "Stable supply with strict QA — ready for pilots and nationwide rollouts."
+      "title": "बड़े पैमाने की उत्पादन क्षमता",
+      "body": "सख्त गुणवत्ता जांच के साथ स्थिर आपूर्ति — पायलट से लेकर देशव्यापी रोलआउट तक तैयार।"
     },
     "e4": {
-      "title": "International-Standard Assembly Line",
-      "body": "Built under rigorous processes to ensure quality and consistency."
+      "title": "अंतरराष्ट्रीय मानक की असेंबली लाइन",
+      "body": "गुणवत्ता और एकरूपता सुनिश्चित करने के लिए कठोर प्रक्रियाओं के तहत निर्मित।"
     },
     "e5": {
-      "title": "Free Remote Management System",
-      "body": "Monitor, update and control devices anywhere — no extra license fees."
+      "title": "निःशुल्क रिमोट मैनेजमेंट सिस्टम",
+      "body": "कहीं से भी डिवाइस मॉनिटर, अपडेट और नियंत्रित करें — कोई अतिरिक्त लाइसेंस शुल्क नहीं।"
     },
     "e6": {
-      "title": "Service Promise: 1-Year Warranty",
-      "body": "Standard 12-month coverage, with extended warranty options available."
+      "title": "सेवा वचन: 1 वर्ष की वारंटी",
+      "body": "मानक 12 महीने की कवरेज, विस्तारित वारंटी विकल्पों के साथ।"
     }
   },
   "products": {
-    "eyebrow": "Products",
-    "title": "Streamline your operations with 369AI's ERP modules",
-    "body": "From sales to service — comprehensive modules to manage your entire business.",
-    "posTitle": "Powerful features of 369AI POS",
-    "posBody": "Everything you need to run your business efficiently, all in one system.",
-    "howTitle": "How it works",
-    "howBody": "Get started in four easy steps.",
-    "modulesTitle": "ERP Modules",
+    "eyebrow": "उत्पाद",
+    "title": "369AI के ERP मॉड्यूल से अपने संचालन को सरल बनाएं",
+    "body": "बिक्री से सर्विस तक — आपके पूरे व्यवसाय को संभालने वाले व्यापक मॉड्यूल।",
+    "posTitle": "369AI POS की शक्तिशाली विशेषताएं",
+    "posBody": "अपना व्यवसाय कुशलता से चलाने के लिए जो कुछ चाहिए, सब एक सिस्टम में।",
+    "howTitle": "यह कैसे काम करता है",
+    "howBody": "चार आसान चरणों में शुरुआत करें।",
+    "modulesTitle": "ERP मॉड्यूल",
     "modules": {
       "m1": {
-        "t": "Online Sales Order",
-        "b": "Simplify online shopping with an intuitive order management system: product catalogs, customer registration, cart management, secure payments and automatic invoicing."
+        "t": "ऑनलाइन सेल्स ऑर्डर",
+        "b": "सहज ऑर्डर मैनेजमेंट सिस्टम से ऑनलाइन खरीदारी सरल बनाएं: उत्पाद कैटलॉग, ग्राहक पंजीकरण, कार्ट प्रबंधन, सुरक्षित भुगतान और स्वचालित इनवॉइसिंग।"
       },
       "m2": {
-        "t": "Service Management",
-        "b": "Let customers schedule and manage repairs and installations, track service history, handle invoicing and automate scheduling based on technician availability."
+        "t": "सर्विस मैनेजमेंट",
+        "b": "ग्राहकों को मरम्मत और इंस्टॉलेशन शेड्यूल व प्रबंधित करने दें, सर्विस इतिहास ट्रैक करें, इनवॉइसिंग संभालें और तकनीशियन की उपलब्धता के अनुसार शेड्यूलिंग स्वचालित करें।"
       },
       "m3": {
-        "t": "Customer Relationship Management",
-        "b": "Manage customer interactions, track leads, automate follow-ups and segment customers for targeted marketing — boosting sales and satisfaction."
+        "t": "कस्टमर रिलेशनशिप मैनेजमेंट",
+        "b": "ग्राहक संवाद प्रबंधित करें, लीड ट्रैक करें, फ़ॉलो-अप स्वचालित करें और लक्षित मार्केटिंग के लिए ग्राहकों को वर्गीकृत करें — बिक्री और संतुष्टि दोनों बढ़ाएं।"
       },
       "m4": {
-        "t": "Vehicle Tracking",
-        "b": "Real-time GPS tracking for your fleet with geofencing, vehicle history and maintenance alerts, helping you optimise routes."
+        "t": "वाहन ट्रैकिंग",
+        "b": "जियोफ़ेंसिंग, वाहन इतिहास और रखरखाव अलर्ट के साथ अपने बेड़े की रीयल-टाइम GPS ट्रैकिंग — रूट बेहतर बनाने में मददगार।"
       },
       "m5": {
-        "t": "Asset Tracking",
-        "b": "Monitor machinery, office equipment and supplies with lifecycle management, location tracking, depreciation and maintenance scheduling."
+        "t": "एसेट ट्रैकिंग",
+        "b": "लाइफ़साइकल मैनेजमेंट, लोकेशन ट्रैकिंग, मूल्यह्रास और रखरखाव शेड्यूलिंग के साथ मशीनरी, कार्यालय उपकरण और सामग्री पर नज़र रखें।"
       },
       "m6": {
-        "t": "Vehicle Maintenance",
-        "b": "Manage fleet maintenance schedules, service records, parts usage and upcoming service alerts to minimise downtime."
+        "t": "वाहन रखरखाव",
+        "b": "डाउनटाइम कम करने के लिए बेड़े के रखरखाव शेड्यूल, सर्विस रिकॉर्ड, पुर्ज़ों के उपयोग और आगामी सर्विस अलर्ट प्रबंधित करें।"
       },
       "m7": {
-        "t": "Attendance Management",
-        "b": "Track attendance with clock-in/clock-out, manage leave requests and absenteeism, and generate detailed payroll reports."
+        "t": "उपस्थिति प्रबंधन",
+        "b": "क्लॉक-इन/क्लॉक-आउट से उपस्थिति ट्रैक करें, छुट्टी के अनुरोध और अनुपस्थिति प्रबंधित करें, और विस्तृत पेरोल रिपोर्ट बनाएं।"
       },
       "m8": {
-        "t": "Product Enquiry & Market Updates",
-        "b": "Track customer inquiries, manage product details and stay responsive to market trends and competitor analysis."
+        "t": "उत्पाद पूछताछ और बाज़ार अपडेट",
+        "b": "ग्राहक पूछताछ ट्रैक करें, उत्पाद विवरण प्रबंधित करें और बाज़ार के रुझानों व प्रतिस्पर्धी विश्लेषण पर सजग रहें।"
       },
       "m9": {
-        "t": "Feedback and Complaints",
-        "b": "Manage feedback and complaints through a ticketing system that resolves issues and tracks progress."
+        "t": "फ़ीडबैक और शिकायतें",
+        "b": "टिकटिंग सिस्टम से फ़ीडबैक और शिकायतें प्रबंधित करें, जो समस्याएं हल करता है और प्रगति ट्रैक करता है।"
       },
       "m10": {
-        "t": "Auto Auditing & Cash Collection",
-        "b": "Automate cash transaction recording with a full audit trail, cash-flow tracking and reporting for error-free cash management."
+        "t": "ऑटो ऑडिटिंग और कैश कलेक्शन",
+        "b": "पूर्ण ऑडिट ट्रेल, कैश-फ़्लो ट्रैकिंग और रिपोर्टिंग के साथ नकद लेन-देन की रिकॉर्डिंग स्वचालित करें — त्रुटि-मुक्त नकद प्रबंधन के लिए।"
       },
       "m11": {
-        "t": "Purchase Requisition & Logistics",
-        "b": "Streamline procurement across requisitions, approvals, logistics and supplier tracking."
+        "t": "परचेज़ रिक्विज़िशन और लॉजिस्टिक्स",
+        "b": "रिक्विज़िशन, अनुमोदन, लॉजिस्टिक्स और आपूर्तिकर्ता ट्रैकिंग — पूरी खरीद प्रक्रिया को सरल बनाएं।"
       },
       "m12": {
-        "t": "Supplier App",
-        "b": "Manage supplier information, track orders, handle payments and streamline communication."
+        "t": "सप्लायर ऐप",
+        "b": "आपूर्तिकर्ता जानकारी प्रबंधित करें, ऑर्डर ट्रैक करें, भुगतान संभालें और संवाद को सरल बनाएं।"
       },
       "m13": {
-        "t": "Currency Profit",
-        "b": "Analyse currency fluctuations, calculate profit and loss from exchange-rate changes and manage foreign-exchange risk."
+        "t": "करेंसी प्रॉफ़िट",
+        "b": "मुद्रा उतार-चढ़ाव का विश्लेषण करें, विनिमय दर में बदलाव से लाभ-हानि की गणना करें और विदेशी मुद्रा जोखिम प्रबंधित करें।"
       },
       "m14": {
-        "t": "Stock Transactions",
-        "b": "Track inventory movements — goods received, shipped and adjusted — keeping stock levels accurate."
+        "t": "स्टॉक लेन-देन",
+        "b": "इन्वेंट्री की आवाजाही ट्रैक करें — प्राप्त, भेजा गया और समायोजित माल — ताकि स्टॉक स्तर सटीक रहें।"
       },
       "m15": {
-        "t": "Return Merchandise Authorization",
-        "b": "Manage returns and exchanges with a process that tracks returns, adjusts inventory and enforces return policies."
+        "t": "रिटर्न मर्चेंडाइज़ ऑथराइज़ेशन",
+        "b": "ऐसी प्रक्रिया से रिटर्न और एक्सचेंज प्रबंधित करें जो रिटर्न ट्रैक करती है, इन्वेंट्री समायोजित करती है और रिटर्न नीतियां लागू करती है।"
       },
       "m16": {
-        "t": "Credit Manager",
-        "b": "Track customer credit limits, monitor overdue payments and keep sales orders within approved limits."
+        "t": "क्रेडिट मैनेजर",
+        "b": "ग्राहक क्रेडिट सीमाएं ट्रैक करें, बकाया भुगतान पर नज़र रखें और सेल्स ऑर्डर स्वीकृत सीमाओं के भीतर रखें।"
       },
       "m17": {
-        "t": "Dismantle",
-        "b": "Manage dismantling of products and machinery into parts for resale or disposal, with full tracking and documentation."
+        "t": "डिसमेंटल",
+        "b": "पुनर्विक्रय या निपटान के लिए उत्पादों और मशीनरी को पुर्ज़ों में अलग करने का प्रबंधन — पूर्ण ट्रैकिंग और दस्तावेज़ीकरण के साथ।"
       },
       "m18": {
-        "t": "Task Management",
-        "b": "Assign responsibilities, track progress and keep projects on time with organised workflows."
+        "t": "टास्क मैनेजमेंट",
+        "b": "ज़िम्मेदारियां सौंपें, प्रगति ट्रैक करें और व्यवस्थित वर्कफ़्लो से परियोजनाएं समय पर पूरी करें।"
       },
       "m19": {
-        "t": "Stock Analysis Reports",
-        "b": "Detailed insight into inventory levels, stock turnover and product sales to optimise stock management."
+        "t": "स्टॉक विश्लेषण रिपोर्ट",
+        "b": "स्टॉक प्रबंधन बेहतर बनाने के लिए इन्वेंट्री स्तर, स्टॉक टर्नओवर और उत्पाद बिक्री की विस्तृत जानकारी।"
       },
       "m20": {
-        "t": "Min & Max Quantity Management",
-        "b": "Set minimum and maximum stock levels to automate reordering and avoid overstocking."
+        "t": "न्यूनतम-अधिकतम मात्रा प्रबंधन",
+        "b": "स्वचालित रीऑर्डरिंग और ओवरस्टॉकिंग से बचने के लिए न्यूनतम और अधिकतम स्टॉक स्तर निर्धारित करें।"
       },
       "m21": {
-        "t": "Invoice Import & Export",
-        "b": "Import and export invoices in bulk via CSV and XML, integrating cleanly with accounting systems."
+        "t": "इनवॉइस आयात-निर्यात",
+        "b": "CSV और XML के ज़रिए थोक में इनवॉइस आयात-निर्यात करें, अकाउंटिंग सिस्टम से सहज एकीकरण के साथ।"
       },
       "m22": {
-        "t": "Business Intelligence",
-        "b": "Turn operational data into dashboards and forecasts your team can act on."
+        "t": "बिज़नेस इंटेलिजेंस",
+        "b": "परिचालन डेटा को ऐसे डैशबोर्ड और पूर्वानुमानों में बदलें जिन पर आपकी टीम कार्रवाई कर सके।"
       }
     },
     "pos": {
       "f1": {
-        "t": "Smart POS Interface",
-        "b": "Fast, intuitive touchscreen billing for smooth transactions."
+        "t": "स्मार्ट POS इंटरफ़ेस",
+        "b": "सहज लेन-देन के लिए तेज़ और आसान टचस्क्रीन बिलिंग।"
       },
       "f2": {
-        "t": "Inventory Sync",
-        "b": "Automatically updates stock after every sale to keep your inventory accurate."
+        "t": "इन्वेंट्री सिंक",
+        "b": "हर बिक्री के बाद स्टॉक अपने आप अपडेट होता है, ताकि आपकी इन्वेंट्री सटीक रहे।"
       },
       "f3": {
-        "t": "AI Reports",
-        "b": "Track daily, weekly and monthly performance with actionable insights."
+        "t": "AI रिपोर्ट",
+        "b": "कार्रवाई योग्य अंतर्दृष्टि के साथ दैनिक, साप्ताहिक और मासिक प्रदर्शन ट्रैक करें।"
       },
       "f4": {
-        "t": "Payment Integration",
-        "b": "Accept cash, card, UPI and digital wallets seamlessly."
+        "t": "पेमेंट इंटीग्रेशन",
+        "b": "नकद, कार्ड, UPI और डिजिटल वॉलेट — सब आसानी से स्वीकार करें।"
       },
       "f5": {
-        "t": "Cloud Access",
-        "b": "Manage your store anytime, anywhere with secure cloud connectivity."
+        "t": "क्लाउड एक्सेस",
+        "b": "सुरक्षित क्लाउड कनेक्टिविटी से अपना स्टोर कभी भी, कहीं से भी प्रबंधित करें।"
       },
       "f6": {
-        "t": "Customer Management",
-        "b": "Keep track of loyalty points, purchase history and customer profiles."
+        "t": "ग्राहक प्रबंधन",
+        "b": "लॉयल्टी पॉइंट, खरीद इतिहास और ग्राहक प्रोफ़ाइल पर नज़र रखें।"
       }
     },
     "steps": {
       "s1": {
-        "t": "Set up your shop",
-        "b": "Add store details, taxes and payment options."
+        "t": "अपनी दुकान सेट करें",
+        "b": "स्टोर विवरण, कर और भुगतान विकल्प जोड़ें।"
       },
       "s2": {
-        "t": "Add your products",
-        "b": "Enter products, prices and stock levels."
+        "t": "अपने उत्पाद जोड़ें",
+        "b": "उत्पाद, कीमतें और स्टॉक स्तर दर्ज करें।"
       },
       "s3": {
-        "t": "Start billing",
-        "b": "Quickly process sales using the touchscreen interface."
+        "t": "बिलिंग शुरू करें",
+        "b": "टचस्क्रीन इंटरफ़ेस से बिक्री तेज़ी से प्रोसेस करें।"
       },
       "s4": {
-        "t": "Analyse reports",
-        "b": "Track sales, trends and customer insights."
+        "t": "रिपोर्ट का विश्लेषण करें",
+        "b": "बिक्री, रुझान और ग्राहक अंतर्दृष्टि ट्रैक करें।"
       }
     },
-    "appsTitle": "Apps and desktop software",
-    "appsBody": "Beyond the browser — native mobile apps and Windows desktop applications that keep working when the connection does not.",
+    "appsTitle": "ऐप्स और डेस्कटॉप सॉफ़्टवेयर",
+    "appsBody": "ब्राउज़र से आगे — नेटिव मोबाइल ऐप्स और Windows डेस्कटॉप ऐप्लिकेशन, जो कनेक्शन टूटने पर भी काम करते रहते हैं।",
     "apps": {
       "a1": {
-        "t": "Mobile apps",
-        "b": "React Native apps for Android and iOS — sales, stock counts, approvals and service calls from the field."
+        "t": "मोबाइल ऐप्स",
+        "b": "Android और iOS के लिए React Native ऐप्स — फ़ील्ड से ही बिक्री, स्टॉक गिनती, अनुमोदन और सर्विस कॉल।"
       },
       "a2": {
-        "t": "Windows desktop",
-        "b": "Installable .exe applications for billing counters and back-office machines, built for speed on local hardware."
+        "t": "Windows डेस्कटॉप",
+        "b": "बिलिंग काउंटर और बैक-ऑफ़िस मशीनों के लिए इंस्टॉल होने वाले .exe ऐप्लिकेशन, लोकल हार्डवेयर पर तेज़ प्रदर्शन के लिए बने।"
       },
       "a3": {
-        "t": "Offline-first",
-        "b": "Keep selling through a dropped connection; everything syncs back to the ERP once you are online again."
+        "t": "ऑफ़लाइन-फ़र्स्ट",
+        "b": "कनेक्शन टूटने पर भी बिक्री जारी रखें; ऑनलाइन होते ही सब कुछ ERP से वापस सिंक हो जाता है।"
       }
-    }
+    },
+    "ctaTitle": "अपनी ज़रूरत के मॉड्यूल की वॉकथ्रू चाहिए?",
+    "ctaBody": "हम आपके व्यवसाय के लिए सटीक कॉन्फ़िगरेशन का डेमो देंगे — कुछ भी अनावश्यक नहीं।"
   },
   "shop": {
     "eyebrow": "हार्डवेयर",
@@ -403,17 +417,20 @@
   },
   "inquiry": {
     "title": "आपकी पूछताछ",
-    "body": "Review the items below and send them to our team. We reply to every inquiry within 24 hours.",
-    "empty": "Your inquiry basket is empty.",
-    "emptyCta": "Browse hardware",
-    "items": "Items",
-    "remove": "Remove",
+    "body": "नीचे दिए आइटम देखें और हमारी टीम को भेजें। हम हर पूछताछ का जवाब 24 घंटे में देते हैं।",
+    "empty": "आपकी पूछताछ सूची खाली है।",
+    "emptyCta": "हार्डवेयर देखें",
+    "items": "आइटम",
+    "remove": "हटाएं",
     "submit": "पूछताछ भेजें",
     "submitting": "भेजा जा रहा है…",
     "successTitle": "पूछताछ प्राप्त हुई",
     "successBody": "धन्यवाद — हमारी टीम 24 घंटे में संपर्क करेगी।",
     "errorTitle": "कुछ गड़बड़ हुई",
-    "errorBody": "पूछताछ नहीं भेजी जा सकी। फिर कोशिश करें या सीधे संपर्क करें।"
+    "errorBody": "पूछताछ नहीं भेजी जा सकी। फिर कोशिश करें या सीधे संपर्क करें।",
+    "dialogTitle": "इस उत्पाद के बारे में पूछताछ करें",
+    "close": "बंद करें",
+    "replyNote": "हम हर पूछताछ का जवाब 24 घंटे में देते हैं।"
   },
   "contact": {
     "eyebrow": "संपर्क करें",
@@ -440,18 +457,18 @@
     }
   },
   "faq": {
-    "q1": "Which industries do you build for?",
-    "a1": "Retail, food service and hospitality are our core sectors, alongside warehousing, banking self-service and unmanned retail. If you run a counter, a stockroom or a fleet of machines, we have deployed something close to your setup.",
-    "q2": "Do you supply hardware, software, or both?",
-    "a2": "Both, and they are designed to work together. You can take the full 369AI stack — POS terminals, printers, scanners and ERP — or just the hardware, integrated with the system you already run.",
-    "q3": "Can 369AI integrate with our existing ERP or accounting system?",
-    "a3": "Yes. Our POS and device platforms expose standard APIs and we routinely integrate with existing ERP, accounting and payment systems rather than asking you to replace them.",
-    "q4": "What support do you provide after installation?",
-    "a4": "24/7 technical support, a dedicated after-sales engineering team, and a standard 12-month warranty with extended options. Our free remote management system lets us monitor, update and troubleshoot devices without a site visit.",
-    "q5": "Which countries do you operate in?",
-    "a5": "We have offices in the USA, UAE, Oman (Ruwi, Salalah and Sohar) and India, and we support deployments across the wider region.",
-    "q6": "How do I get pricing?",
-    "a6": "Add the hardware you are interested in to your inquiry basket and send it to us, or contact our sales team directly. We quote per configuration, so pricing reflects what you actually need."
+    "q1": "आप किन उद्योगों के लिए समाधान बनाते हैं?",
+    "a1": "रिटेल, फूड सर्विस और हॉस्पिटैलिटी हमारे मुख्य क्षेत्र हैं, साथ ही वेयरहाउसिंग, बैंकिंग सेल्फ़-सर्विस और बिना कर्मचारी वाला रिटेल भी। अगर आप कोई काउंटर, स्टॉकरूम या मशीनों का बेड़ा चलाते हैं, तो हमने आपके जैसे सेटअप के बहुत करीब कुछ ज़रूर लगाया है।",
+    "q2": "क्या आप हार्डवेयर देते हैं, सॉफ़्टवेयर, या दोनों?",
+    "a2": "दोनों, और वे साथ काम करने के लिए ही बने हैं। आप पूरा 369AI स्टैक ले सकते हैं — POS टर्मिनल, प्रिंटर, स्कैनर और ERP — या सिर्फ़ हार्डवेयर, जो आपके मौजूदा सिस्टम से एकीकृत हो जाए।",
+    "q3": "क्या 369AI हमारे मौजूदा ERP या अकाउंटिंग सिस्टम से जुड़ सकता है?",
+    "a3": "हां। हमारे POS और डिवाइस प्लेटफ़ॉर्म मानक API प्रदान करते हैं और हम नियमित रूप से मौजूदा ERP, अकाउंटिंग और भुगतान सिस्टम से एकीकरण करते हैं — आपसे उन्हें बदलने को नहीं कहते।",
+    "q4": "इंस्टॉलेशन के बाद आप क्या सहायता देते हैं?",
+    "a4": "24/7 तकनीकी सहायता, समर्पित आफ़्टर-सेल्स इंजीनियरिंग टीम और मानक 12 महीने की वारंटी, विस्तारित विकल्पों के साथ। हमारा निःशुल्क रिमोट मैनेजमेंट सिस्टम हमें बिना साइट विज़िट के डिवाइस मॉनिटर, अपडेट और ठीक करने देता है।",
+    "q5": "आप किन देशों में काम करते हैं?",
+    "a5": "हमारे कार्यालय अमेरिका, UAE, ओमान (रूवी, सलालाह और सोहार) और भारत में हैं, और हम व्यापक क्षेत्र में डिप्लॉयमेंट सपोर्ट करते हैं।",
+    "q6": "मुझे कीमत कैसे मिलेगी?",
+    "a6": "जिस हार्डवेयर में रुचि है उसे अपनी पूछताछ सूची में जोड़कर हमें भेजें, या सीधे हमारी सेल्स टीम से संपर्क करें। हम हर कॉन्फ़िगरेशन के अनुसार कोटेशन देते हैं, इसलिए कीमत वही दर्शाती है जो आपको वास्तव में चाहिए।"
   },
   "assistant": {
     "launcherLabel": "369AI से पूछें",
@@ -464,7 +481,15 @@
     "dismiss": "बंद करें",
     "offline": "सहायक अभी उपलब्ध नहीं है। WhatsApp पर संदेश भेजें, हम मिनटों में जवाब देंगे।",
     "error": "क्षमा करें — कुछ गड़बड़ हुई। फिर कोशिश करें या WhatsApp पर संपर्क करें।",
-    "disclaimer": "AI सहायक। महत्वपूर्ण जानकारी हमारी टीम से पुष्टि करें।"
+    "disclaimer": "AI सहायक। महत्वपूर्ण जानकारी हमारी टीम से पुष्टि करें।",
+    "contactTitle": "369AI से संपर्क करें",
+    "contactBody": "आप हमसे {phone} पर या {email} पर संपर्क कर सकते हैं। हमारे कार्यालय अमेरिका, UAE, ओमान (रूवी, सलालाह और सोहार) और भारत में हैं, और हम पूछताछ का जवाब 24 घंटे में देते हैं।",
+    "pricingTitle": "कीमत",
+    "pricingBody": "हम हर कॉन्फ़िगरेशन के अनुसार कोटेशन देते हैं, इसलिए कीमत वही दर्शाती है जो आपको वास्तव में चाहिए। कोई भी उत्पाद खोलकर \"इस उत्पाद के बारे में पूछताछ करें\" चुनें, या हमारी सेल्स टीम से संपर्क करें — हम 24 घंटे में जवाब देते हैं।",
+    "hardwareTitle": "हार्डवेयर रेंज",
+    "hardwareBody": "हम {count} हार्डवेयर उत्पाद उपलब्ध कराते हैं — POS टर्मिनल, थर्मल और लेबल प्रिंटर, बारकोड स्कैनर, कैश ड्रॉअर, कस्टमर डिस्प्ले, कियोस्क, वेंडिंग मशीनें, रोबोट और बैंकिंग उपकरण।",
+    "whatsappPrefill": "नमस्ते 369AI, मुझे आपके उत्पादों के बारे में एक सवाल पूछना है।",
+    "readMore": "और पढ़ें"
   },
   "footer": {
     "connect": "हमसे जुड़ें",
@@ -500,11 +525,53 @@
       "spa": "स्पा",
       "vanSale": "वैन सेल",
       "taskManager": "टास्क मैनेजर",
-      "odoo": "Odoo ERP",
-      "whatsapp": "WhatsApp",
+      "odoo": "ओडू ईआरपी",
+      "whatsapp": "व्हाट्सऐप",
       "email": "ईमेल",
       "payments": "पेमेंट गेटवे",
       "security": "सुरक्षा"
     }
+  },
+  "videos": {
+    "more": "और वीडियो हमारे YouTube चैनल पर",
+    "opening": "YouTube खोला जा रहा है…",
+    "play": "{title} चलाएं",
+    "close": "वीडियो बंद करें",
+    "views": "{views} बार देखा गया"
+  },
+  "categories": {
+    "vending-machines-203": "वेंडिंग मशीनें",
+    "robots-204": "रोबोट",
+    "smart-banking-219": "स्मार्ट बैंकिंग",
+    "smart-banking-cdm-218": "CDM",
+    "barcode-scanner-67": "बारकोड स्कैनर",
+    "barcode-scanner-2d-barcode-scanner-68": "2D बारकोड स्कैनर",
+    "pos-machines-59": "POS मशीनें",
+    "thermal-receipt-printer-62": "थर्मल रसीद प्रिंटर",
+    "barcode-label-printer-64": "बारकोड लेबल प्रिंटर",
+    "kiosk-214": "कियोस्क",
+    "pos-machines-all-in-one-pos-60": "ऑल-इन-वन POS",
+    "thermal-receipt-printer-80mm-thermal-printer-84": "80mm थर्मल प्रिंटर",
+    "robots-mobile-robot-platform-209": "मोबाइल रोबोट प्लेटफ़ॉर्म",
+    "barcode-label-printer-desktop-label-printer-65": "डेस्कटॉप लेबल प्रिंटर",
+    "barcode-scanner-wireless-barcode-scanner-73": "वायरलेस बारकोड स्कैनर",
+    "customer-display-75": "कस्टमर डिस्प्ले",
+    "money-counting-machine-80": "नोट गिनने की मशीन",
+    "thermal-receipt-printer-bluetooth-printer-63": "ब्लूटूथ प्रिंटर",
+    "barcode-label-printer-portable-label-print-69": "पोर्टेबल लेबल प्रिंटर",
+    "barcode-scanner-handheld-barcode-scanner-74": "हैंडहेल्ड बारकोड स्कैनर",
+    "cash-drawer-71": "कैश ड्रॉअर",
+    "data-terminal-72": "डेटा टर्मिनल",
+    "inkjet-printer-79": "इंकजेट प्रिंटर",
+    "electronic-weightscale-81": "इलेक्ट्रॉनिक तराज़ू",
+    "barcode-scanner-desktop-barcode-scanner-76": "डेस्कटॉप बारकोड स्कैनर",
+    "barcode-scanner-omnidirectional-barcode-scanner-77": "ओमनी-डायरेक्शनल बारकोड स्कैनर",
+    "pos-monitor-78": "POS मॉनिटर",
+    "floor-display-stand-43-inch-82": "फ़्लोर डिस्प्ले स्टैंड (43 इंच)",
+    "android-menu-display-stand-101-inch-83": "Android मेन्यू डिस्प्ले स्टैंड (10.1 इंच)",
+    "robots-concierge-robot-205": "कंसीयज़ रोबोट",
+    "robots-reception-robot-206": "रिसेप्शन रोबोट",
+    "robots-delivery-robot-207": "डिलीवरी रोबोट",
+    "robots-patrol-robot-208": "गश्ती रोबोट"
   }
 }

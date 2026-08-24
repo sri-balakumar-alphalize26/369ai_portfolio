@@ -24,7 +24,10 @@
     "software": "软件",
     "hardware": "硬件",
     "softwareBlurb": "ERP 模块、POS 功能、移动应用与桌面软件。",
-    "hardwareBlurb": "POS 终端、打印机、扫描器、自助终端、售货机与机器人。"
+    "hardwareBlurb": "POS 终端、打印机、扫描器、自助终端、售货机与机器人。",
+    "homeAria": "369ai.Biz 首页",
+    "mainNav": "主导航",
+    "mobileNav": "移动端导航"
   },
   "common": {
     "learnMore": "了解更多",
@@ -37,7 +40,8 @@
     "seeAll": "查看全部",
     "backToShop": "返回硬件",
     "priceOnRequest": "价格面议",
-    "loading": "加载中"
+    "loading": "加载中",
+    "tagline": "超越掌控，超越增长。"
   },
   "home": {
     "heroEyebrow": "智能 POS、ERP 与自动化",
@@ -47,8 +51,8 @@
     "heroSecondary": "联系我们的团队",
     "aboutEyebrow": "关于 369AI",
     "aboutTitle": "驱动效率、精准与增长的技术",
-    "aboutBody": "369AI is a leading provider of intelligent Point-of-Sale and IT infrastructure solutions, committed to empowering businesses with technology that drives efficiency, accuracy and growth. Established with a mission to simplify operations and enhance customer experiences, we deliver modern, scalable and industry-specific POS systems tailored for retail, food service and hospitality sectors.",
-    "aboutBody2": "Our expertise extends beyond POS — offering smart integrations, advanced analytics and seamless connectivity to help businesses make informed decisions in real time. With a strong presence in Oman and beyond, we pride ourselves on delivering unmatched reliability, personalized service and 24/7 technical support.",
+    "aboutBody": "369AI 是智能销售点与 IT 基础设施解决方案的领先提供商，致力于以驱动效率、精准与增长的技术为企业赋能。我们以简化运营、提升客户体验为使命，为零售、餐饮与酒店行业提供现代、可扩展且贴合行业需求的 POS 系统。",
+    "aboutBody2": "我们的专长不止于 POS——还提供智能集成、高级分析与无缝互联，帮助企业实时做出明智决策。凭借在阿曼及更广区域的深厚布局，我们以无可比拟的可靠性、个性化服务与 7×24 小时技术支持为傲。",
     "pillarsTitle": "一个互联平台",
     "pillarsBody": "369AI 的每个环节彼此互通——收银台、仓库与后台看到的是同一组数据。",
     "servicesEyebrow": "我们的服务",
@@ -68,7 +72,11 @@
     "aboutTitleLead": "以技术驱动",
     "aboutWord1": "高效",
     "aboutWord2": "精准",
-    "aboutWord3": "增长"
+    "aboutWord3": "增长",
+    "heroAlt": "369AI 平台：POS 终端、智能售货、智能锁、网络、AI 驱动的洞察与安全云，通过一个中枢互联互通",
+    "hardwareEyebrow": "硬件",
+    "hardwareTitle": "建立在我们自己供应与维护的设备之上",
+    "hardwareBody": "{count} 款 POS 终端、打印机、扫描器、自助终端、自动售货机与机器人——全部可按需供应。"
   },
   "pillars": {
     "ai": {
@@ -95,300 +103,306 @@
     "devices": "已交付 POS 设备"
   },
   "services": {
-    "eyebrow": "Our Services",
-    "title": "Delivering excellence across every service",
-    "body": "From the counter to the cloud, we cover the whole stack — and we stay with you after go-live.",
+    "eyebrow": "我们的服务",
+    "title": "每项服务都追求卓越",
+    "body": "从收银台到云端，我们覆盖完整的技术栈——上线之后，我们依然与您同行。",
     "iot": {
-      "title": "IoT-Enabled Vending & Smart Devices",
-      "lead": "Manage your vending machines and smart devices remotely through cloud-based monitoring and automation.",
-      "body": "With a single, intuitive platform, you gain real-time visibility into performance, inventory and energy usage — no matter where you are. Automated alerts and intelligent controls help reduce downtime, cut costs and streamline operations, while remote access ensures you are always in command."
+      "title": "物联网售货机与智能设备",
+      "lead": "通过云端监控与自动化，远程管理您的售货机与智能设备。",
+      "body": "借助一个直观统一的平台，无论身在何处，您都能实时掌握设备运行、库存与能耗情况。自动告警与智能控制帮助减少停机、降低成本、简化运营，远程访问让您始终掌控全局。"
     },
     "pos": {
-      "title": "Smart POS & Retail Systems",
-      "lead": "Transform your business efficiency with intelligent POS solutions that unify billing, inventory and customer management.",
-      "body": "Go beyond transactions with advanced analytics, automated reporting and integrated loyalty programs that empower your teams, delight your customers and maximize profitability. Whether you are managing a single store or scaling across multiple locations, our cloud-driven platform ensures agility, transparency and control."
+      "title": "智能 POS 与零售系统",
+      "lead": "以统一收银、库存与客户管理的智能 POS 解决方案，全面提升您的经营效率。",
+      "body": "不止于交易——高级分析、自动报表与集成会员体系，为团队赋能、让客户满意并最大化盈利。无论您经营单店还是拓展多门店，我们的云端平台都能确保敏捷、透明与可控。"
     },
     "erp": {
-      "title": "ERP & Business Management Integration",
-      "lead": "Unify every department — sales, accounts, HR and inventory — under one powerful ERP platform.",
-      "body": "By bringing all your core business functions together in a single, integrated system, you eliminate silos and ensure seamless collaboration across teams. Real-time data sharing empowers smarter decision-making, while automated workflows reduce manual effort and errors."
+      "title": "ERP 与企业管理集成",
+      "lead": "将销售、财务、人力与库存等所有部门统一到一个强大的 ERP 平台。",
+      "body": "将所有核心业务功能整合到一个一体化系统中，打破信息孤岛，确保团队间无缝协作。实时数据共享支撑更明智的决策，自动化工作流则减少人工操作与差错。"
     },
     "ai": {
-      "title": "AI-Driven Insights & Automation",
-      "lead": "Leverage artificial intelligence to analyze data, predict trends and automate decision-making.",
-      "body": "With AI-driven insights, your organization can transform raw information into actionable strategies, uncover hidden patterns and anticipate market shifts before they happen. Predictive analytics empower smarter planning, while automation streamlines repetitive tasks and reduces human error."
+      "title": "AI 驱动的洞察与自动化",
+      "lead": "借助人工智能分析数据、预测趋势并实现决策自动化。",
+      "body": "借助 AI 驱动的洞察，您的组织可以将原始信息转化为可执行的策略，发现隐藏规律，并在市场变化发生之前提前预判。预测分析支持更聪明的规划，自动化则简化重复性任务并减少人为差错。"
     },
     "cloud": {
-      "title": "Secure Cloud Infrastructure",
-      "lead": "Access your systems anywhere with enterprise-grade security and reliable cloud performance.",
-      "body": "Empower your workforce with the freedom to connect from any location, while sensitive data remains protected by advanced encryption and compliance standards. With enterprise-grade safeguards, your operations stay secure against evolving threats, and performance stays consistent even during peak demand."
+      "title": "安全云基础设施",
+      "lead": "以企业级安全与可靠的云端性能，随时随地访问您的系统。",
+      "body": "让员工可以从任何地点自由接入，同时以先进的加密技术与合规标准保护敏感数据。企业级防护让您的运营免受不断演变的威胁，即使在需求高峰期，性能也始终稳定。"
     },
     "support": {
-      "title": "Professional Support & Maintenance",
-      "lead": "Enjoy dedicated after-sales service and 24/7 technical support to keep your systems running smoothly.",
-      "body": "Our commitment does not end at installation — we stand by you with continuous assistance, ensuring your operations remain efficient and uninterrupted. With round-the-clock technical support, expert guidance is always a call or click away, minimizing downtime and resolving issues before they impact performance."
-    }
+      "title": "专业支持与维护",
+      "lead": "专属售后服务与 7×24 小时技术支持，确保您的系统平稳运行。",
+      "body": "我们的承诺不止于安装——我们持续为您提供协助，确保运营高效、不间断。全天候技术支持让专家指导随叫随到，最大限度减少停机时间，并在问题影响业绩之前将其解决。"
+    },
+    "ctaTitle": "每项服务都有 7×24 小时支持保障",
+    "ctaBody": "专属售后团队、免费远程管理系统，以及标配 12 个月质保。"
   },
   "solutions": {
-    "eyebrow": "Solutions",
-    "title": "Empowering Businesses Through Smart Innovation",
-    "body": "At 369AI we combine intelligence, automation and connectivity to revolutionize the way businesses operate. Our suite of solutions — ERP, Smart Locks, Robotics, POS and Vending Machines — delivers seamless integration between hardware and software. From real-time insights to automated operations, we help companies enhance efficiency, improve security and create smarter customer experiences.",
+    "eyebrow": "解决方案",
+    "title": "以智能创新赋能企业",
+    "body": "在 369AI，我们将智能、自动化与互联互通相结合，革新企业的运营方式。我们的解决方案套件——ERP、智能锁、机器人、POS 与自动售货机——实现软硬件的无缝集成。从实时洞察到自动化运营，我们帮助企业提升效率、增强安全，并创造更智能的客户体验。",
     "erp": {
-      "title": "ERP Solutions",
-      "tagline": "Empower your business with intelligence.",
-      "body": "Reimagine the way your business operates with our intelligent ERP platform — built to unify every department and process under one digital ecosystem. From accounting, HR and inventory to CRM and sales, our ERP gives you real-time visibility and complete control. Powered by automation and AI insights, it simplifies operations, improves decision-making and helps you grow faster with accuracy and confidence."
+      "title": "ERP 解决方案",
+      "tagline": "以智能赋能您的企业。",
+      "body": "借助我们的智能 ERP 平台，重新构想企业的运营方式——它将每个部门与流程统一到一个数字生态之中。从财务、人力、库存到 CRM 与销售，我们的 ERP 让您实时可见、全面掌控。依托自动化与 AI 洞察，它简化运营、优化决策，助您以精准与信心更快成长。"
     },
     "pos": {
-      "title": "369AI POS Solutions",
-      "tagline": "Fast. Reliable. Connected.",
-      "body": "Meet the future of retail and service management with our next-generation 369AI POS System. Designed for speed, simplicity and accuracy, it connects directly with your ERP for real-time sales, inventory and accounting updates. Whether you are managing a single counter or a multi-branch business, enjoy seamless billing, barcode scanning, multi-payment options and cloud-based reporting — all in one modern interface."
+      "title": "369AI POS 解决方案",
+      "tagline": "快速。可靠。互联。",
+      "body": "我们的新一代 369AI POS 系统，带您走进零售与服务管理的未来。它以速度、简洁与精准为设计核心，直接对接您的 ERP，实时更新销售、库存与财务数据。无论您经营单个收银台还是多分店业务，都能在一个现代界面中享受顺畅收银、条码扫描、多种支付方式与云端报表。"
     },
     "robotics": {
-      "title": "Robotics & Automation",
-      "tagline": "Automation that thinks for you.",
-      "body": "Unlock new levels of efficiency with our AI-powered robotic and automation solutions. From product dispensing and warehouse management to smart manufacturing and vending automation, our robots integrate with ERP and IoT systems to deliver precision, consistency and real-time coordination. By reducing human error and repetitive tasks, we help businesses operate smarter and faster than ever before."
+      "title": "机器人与自动化",
+      "tagline": "会为您思考的自动化。",
+      "body": "借助我们的 AI 机器人与自动化解决方案，开启效率新高度。从商品分发、仓储管理到智能制造与售货自动化，我们的机器人与 ERP 及物联网系统深度集成，实现精准、稳定与实时协同。通过减少人为差错与重复劳动，我们帮助企业以前所未有的方式更聪明、更快速地运营。"
     },
     "locks": {
-      "title": "Smart Lock Systems",
-      "tagline": "Security meets intelligence.",
-      "body": "Redefine security with our IoT-based Smart Locks designed for modern businesses. Integrated with ERP and mobile apps, these locks provide centralized access control, live monitoring and digital authorization for users and locations. Perfect for warehouses, offices and vending systems — ensuring every access is secure, recorded and controlled in real time."
+      "title": "智能锁系统",
+      "tagline": "安全与智能的结合。",
+      "body": "以面向现代企业的物联网智能锁重新定义安全。这些智能锁与 ERP 及移动应用集成，为不同用户与场所提供集中化的门禁控制、实时监控与数字授权。非常适合仓库、办公室与售货系统——确保每一次进出都安全、留痕并被实时管控。"
     },
     "vending": {
-      "title": "Smart Vending Machine Solutions",
-      "tagline": "Automated. Intelligent. Always connected.",
-      "body": "Experience the future of unmanned retail through our Smart Vending Machines powered by AI, IoT and ERP integration. Manage products, track stock and monitor performance remotely — all while offering customers an effortless buying experience through touchless, card or QR-based payments. Designed for efficiency and 24/7 operation, it is the perfect blend of innovation, convenience and business intelligence."
-    }
+      "title": "智能售货机解决方案",
+      "tagline": "自动化。智能化。始终在线。",
+      "body": "通过融合 AI、物联网与 ERP 的智能售货机，体验无人零售的未来。远程管理商品、跟踪库存并监控运营状况，同时以无接触、刷卡或扫码支付为顾客带来轻松的购买体验。专为高效与全天候运营而设计，是创新、便利与商业智能的完美结合。"
+    },
+    "ctaTitle": "不确定哪种方案适合您？",
+    "ctaBody": "告诉我们您现在使用的系统，我们将与您一起规划——无需任何承诺。"
   },
   "about": {
-    "eyebrow": "About Us",
-    "title": "Explore how 369AI transforms innovation into intelligent business automation",
-    "intro": "369AI is a forward-thinking technology company dedicated to delivering intelligent, scalable and future-ready software solutions that empower businesses to operate smarter, faster and more efficiently. We specialize in AI-driven automation, ERP implementation, custom software development and advanced business intelligence tools designed to transform organizations into modern digital enterprises.",
-    "intro2": "Our mission is simple: to simplify complex business operations through innovative technology and intelligent automation. We combine deep industry knowledge with cutting-edge AI capabilities to build solutions that not only solve today's challenges but also prepare businesses for tomorrow's opportunities.",
-    "intro3": "We are also a trusted provider of ERP solutions, offering end-to-end implementation, customization, integration and support services. From finance and sales to inventory, manufacturing, POS, HR and custom business applications, we help companies streamline processes and achieve operational excellence.",
-    "featuresTitle": "Features that set us apart",
+    "eyebrow": "关于我们",
+    "title": "探索 369AI 如何将创新转化为智能业务自动化",
+    "intro": "369AI 是一家具有前瞻视野的科技公司，致力于提供智能、可扩展且面向未来的软件解决方案，帮助企业更聪明、更快速、更高效地运营。我们专注于 AI 驱动的自动化、ERP 实施、定制软件开发与先进的商业智能工具，助力组织转型为现代数字化企业。",
+    "intro2": "我们的使命很简单：通过创新技术与智能自动化，简化复杂的业务运营。我们将深厚的行业经验与前沿的 AI 能力相结合，打造的解决方案不仅能解决今天的挑战，也为企业迎接明天的机遇做好准备。",
+    "intro3": "我们同时是值得信赖的 ERP 解决方案提供商，提供端到端的实施、定制、集成与支持服务。从财务、销售到库存、生产、POS、人力资源与定制业务应用，我们帮助企业理顺流程，实现卓越运营。",
+    "featuresTitle": "让我们与众不同的特质",
     "innovation": {
-      "title": "Innovation First",
-      "body": "We continuously explore new technologies, AI models and automation trends to ensure our clients stay ahead in a competitive market."
+      "title": "创新为先",
+      "body": "我们持续探索新技术、AI 模型与自动化趋势，确保客户在竞争激烈的市场中始终领先。"
     },
     "client": {
-      "title": "Client-Centric Approach",
-      "body": "Every solution is tailored to meet the unique requirements of each business, ensuring maximum efficiency and value."
+      "title": "以客户为中心",
+      "body": "每个解决方案都根据每家企业的独特需求量身定制，确保效率与价值最大化。"
     },
     "quality": {
-      "title": "Quality & Reliability",
-      "body": "Our solutions are designed for performance, security and long-term scalability."
+      "title": "品质与可靠",
+      "body": "我们的解决方案专为性能、安全与长期可扩展性而设计。"
     },
     "support": {
-      "title": "Continuous Support",
-      "body": "We provide ongoing support, maintenance and training to help our clients get the most out of their digital systems."
+      "title": "持续支持",
+      "body": "我们提供持续的支持、维护与培训，帮助客户充分发挥数字化系统的价值。"
     },
-    "missionTitle": "Our Mission",
-    "missionBody": "At 369AI we take pride in our unwavering commitment to excellence and customer satisfaction. With a team of passionate and skilled professionals, we are dedicated to providing top-tier assistance across computer sales, printer servicing, CCTV installation, computer networking and data recovery.",
-    "visionTitle": "Our Vision",
-    "visionBody": "369AI envisions becoming a global leader in advanced technological solutions, shaping a future where technology enhances every aspect of life. Through continuous innovation and adaptation, we strive to pioneer the digital landscape, exceed customer expectations and foster a culture of improvement. With a strong global presence, we aim to be a trusted symbol of reliability, driving societal progress and positive impact.",
-    "everythingTitle": "Everything you need",
-    "everythingBody": "Two decades of hands-on experience, backed by manufacturing scale and a service team that answers.",
+    "missionTitle": "我们的使命",
+    "missionBody": "在 369AI，我们以对卓越与客户满意的坚定承诺为荣。凭借一支充满热情、技艺精湛的专业团队，我们致力于在电脑销售、打印机维修、监控安装、计算机网络与数据恢复等领域提供一流的服务。",
+    "visionTitle": "我们的愿景",
+    "visionBody": "369AI 立志成为先进技术解决方案的全球领导者，塑造一个技术让生活方方面面更美好的未来。通过持续创新与不断适应，我们努力引领数字化格局，超越客户期望，并培育持续改进的文化。凭借强大的全球布局，我们希望成为可靠性的可信象征，推动社会进步与积极影响。",
+    "everythingTitle": "您需要的一切",
+    "everythingBody": "二十年一线实践经验，加上规模化制造能力，以及一支有问必答的服务团队。",
     "e1": {
-      "title": "20+ Years in Vending & Retail Automation",
-      "body": "Two decades of hands-on industry experience, from hardware to software."
+      "title": "20 余年售货与零售自动化经验",
+      "body": "从硬件到软件，二十年一线行业实践经验。"
     },
     "e2": {
-      "title": "Professional After-Sales Service Team",
-      "body": "Dedicated engineers and support specialists for fast, reliable resolution."
+      "title": "专业售后服务团队",
+      "body": "专属工程师与支持专家，快速可靠地解决问题。"
     },
     "e3": {
-      "title": "Large-Scale Production Capacity",
-      "body": "Stable supply with strict QA — ready for pilots and nationwide rollouts."
+      "title": "大规模生产能力",
+      "body": "严格质检、供应稳定——从试点到全国部署皆可从容应对。"
     },
     "e4": {
-      "title": "International-Standard Assembly Line",
-      "body": "Built under rigorous processes to ensure quality and consistency."
+      "title": "国际标准装配线",
+      "body": "依照严谨流程生产，确保品质与一致性。"
     },
     "e5": {
-      "title": "Free Remote Management System",
-      "body": "Monitor, update and control devices anywhere — no extra license fees."
+      "title": "免费远程管理系统",
+      "body": "随时随地监控、更新与管控设备——无需额外授权费用。"
     },
     "e6": {
-      "title": "Service Promise: 1-Year Warranty",
-      "body": "Standard 12-month coverage, with extended warranty options available."
+      "title": "服务承诺：一年质保",
+      "body": "标配 12 个月质保，另有延保选项可选。"
     }
   },
   "products": {
-    "eyebrow": "Products",
-    "title": "Streamline your operations with 369AI's ERP modules",
-    "body": "From sales to service — comprehensive modules to manage your entire business.",
-    "posTitle": "Powerful features of 369AI POS",
-    "posBody": "Everything you need to run your business efficiently, all in one system.",
-    "howTitle": "How it works",
-    "howBody": "Get started in four easy steps.",
-    "modulesTitle": "ERP Modules",
+    "eyebrow": "产品",
+    "title": "用 369AI 的 ERP 模块理顺您的运营",
+    "body": "从销售到服务——用全面的模块管理您的整个业务。",
+    "posTitle": "369AI POS 的强大功能",
+    "posBody": "高效经营所需的一切，尽在一个系统。",
+    "howTitle": "使用流程",
+    "howBody": "四个简单步骤，轻松上手。",
+    "modulesTitle": "ERP 模块",
     "modules": {
       "m1": {
-        "t": "Online Sales Order",
-        "b": "Simplify online shopping with an intuitive order management system: product catalogs, customer registration, cart management, secure payments and automatic invoicing."
+        "t": "在线销售订单",
+        "b": "用直观的订单管理系统简化在线购物：商品目录、客户注册、购物车管理、安全支付与自动开票。"
       },
       "m2": {
-        "t": "Service Management",
-        "b": "Let customers schedule and manage repairs and installations, track service history, handle invoicing and automate scheduling based on technician availability."
+        "t": "服务管理",
+        "b": "让客户自助预约并管理维修与安装，跟踪服务历史，处理开票，并根据技术人员的空闲情况自动排程。"
       },
       "m3": {
-        "t": "Customer Relationship Management",
-        "b": "Manage customer interactions, track leads, automate follow-ups and segment customers for targeted marketing — boosting sales and satisfaction."
+        "t": "客户关系管理",
+        "b": "管理客户互动、跟踪销售线索、自动跟进并细分客户以开展精准营销——提升销售与满意度。"
       },
       "m4": {
-        "t": "Vehicle Tracking",
-        "b": "Real-time GPS tracking for your fleet with geofencing, vehicle history and maintenance alerts, helping you optimise routes."
+        "t": "车辆追踪",
+        "b": "为车队提供实时 GPS 定位，支持电子围栏、车辆历史与保养提醒，帮助您优化路线。"
       },
       "m5": {
-        "t": "Asset Tracking",
-        "b": "Monitor machinery, office equipment and supplies with lifecycle management, location tracking, depreciation and maintenance scheduling."
+        "t": "资产追踪",
+        "b": "监控机器设备、办公设备与耗材，覆盖生命周期管理、位置追踪、折旧与保养排程。"
       },
       "m6": {
-        "t": "Vehicle Maintenance",
-        "b": "Manage fleet maintenance schedules, service records, parts usage and upcoming service alerts to minimise downtime."
+        "t": "车辆保养",
+        "b": "管理车队保养计划、维修记录、配件使用与保养到期提醒，最大限度减少停运时间。"
       },
       "m7": {
-        "t": "Attendance Management",
-        "b": "Track attendance with clock-in/clock-out, manage leave requests and absenteeism, and generate detailed payroll reports."
+        "t": "考勤管理",
+        "b": "通过上下班打卡跟踪考勤，管理请假与缺勤，并生成详细的薪资报表。"
       },
       "m8": {
-        "t": "Product Enquiry & Market Updates",
-        "b": "Track customer inquiries, manage product details and stay responsive to market trends and competitor analysis."
+        "t": "产品询价与市场动态",
+        "b": "跟踪客户询价、管理产品信息，并及时响应市场趋势与竞品分析。"
       },
       "m9": {
-        "t": "Feedback and Complaints",
-        "b": "Manage feedback and complaints through a ticketing system that resolves issues and tracks progress."
+        "t": "反馈与投诉",
+        "b": "通过工单系统管理反馈与投诉，解决问题并跟踪处理进度。"
       },
       "m10": {
-        "t": "Auto Auditing & Cash Collection",
-        "b": "Automate cash transaction recording with a full audit trail, cash-flow tracking and reporting for error-free cash management."
+        "t": "自动稽核与现金归集",
+        "b": "自动记录现金交易，提供完整审计轨迹、现金流跟踪与报表，实现零差错的现金管理。"
       },
       "m11": {
-        "t": "Purchase Requisition & Logistics",
-        "b": "Streamline procurement across requisitions, approvals, logistics and supplier tracking."
+        "t": "采购申请与物流",
+        "b": "打通采购申请、审批、物流与供应商跟踪，简化整个采购流程。"
       },
       "m12": {
-        "t": "Supplier App",
-        "b": "Manage supplier information, track orders, handle payments and streamline communication."
+        "t": "供应商应用",
+        "b": "管理供应商信息、跟踪订单、处理付款并简化沟通。"
       },
       "m13": {
-        "t": "Currency Profit",
-        "b": "Analyse currency fluctuations, calculate profit and loss from exchange-rate changes and manage foreign-exchange risk."
+        "t": "汇率损益",
+        "b": "分析汇率波动，计算汇率变动带来的损益，并管理外汇风险。"
       },
       "m14": {
-        "t": "Stock Transactions",
-        "b": "Track inventory movements — goods received, shipped and adjusted — keeping stock levels accurate."
+        "t": "库存交易",
+        "b": "跟踪库存流转——收货、发货与调整——保持库存数据始终准确。"
       },
       "m15": {
-        "t": "Return Merchandise Authorization",
-        "b": "Manage returns and exchanges with a process that tracks returns, adjusts inventory and enforces return policies."
+        "t": "退货授权管理",
+        "b": "用一套跟踪退货、调整库存并执行退货政策的流程，管理退换货。"
       },
       "m16": {
-        "t": "Credit Manager",
-        "b": "Track customer credit limits, monitor overdue payments and keep sales orders within approved limits."
+        "t": "信用管理",
+        "b": "跟踪客户信用额度，监控逾期付款，确保销售订单不超出核准额度。"
       },
       "m17": {
-        "t": "Dismantle",
-        "b": "Manage dismantling of products and machinery into parts for resale or disposal, with full tracking and documentation."
+        "t": "拆解管理",
+        "b": "管理将产品与设备拆解为零部件以便转售或处置的过程，全程可追踪、有据可查。"
       },
       "m18": {
-        "t": "Task Management",
-        "b": "Assign responsibilities, track progress and keep projects on time with organised workflows."
+        "t": "任务管理",
+        "b": "分配职责、跟踪进度，用有序的工作流让项目按时交付。"
       },
       "m19": {
-        "t": "Stock Analysis Reports",
-        "b": "Detailed insight into inventory levels, stock turnover and product sales to optimise stock management."
+        "t": "库存分析报表",
+        "b": "深入洞察库存水平、周转率与商品销售情况，优化库存管理。"
       },
       "m20": {
-        "t": "Min & Max Quantity Management",
-        "b": "Set minimum and maximum stock levels to automate reordering and avoid overstocking."
+        "t": "最小/最大库存管理",
+        "b": "设定最小与最大库存水平，自动触发补货并避免积压。"
       },
       "m21": {
-        "t": "Invoice Import & Export",
-        "b": "Import and export invoices in bulk via CSV and XML, integrating cleanly with accounting systems."
+        "t": "发票导入导出",
+        "b": "通过 CSV 与 XML 批量导入导出发票，与财务系统无缝对接。"
       },
       "m22": {
-        "t": "Business Intelligence",
-        "b": "Turn operational data into dashboards and forecasts your team can act on."
+        "t": "商业智能",
+        "b": "将运营数据转化为团队可以据以行动的仪表盘与预测。"
       }
     },
     "pos": {
       "f1": {
-        "t": "Smart POS Interface",
-        "b": "Fast, intuitive touchscreen billing for smooth transactions."
+        "t": "智能 POS 界面",
+        "b": "快速直观的触屏收银，交易顺畅无阻。"
       },
       "f2": {
-        "t": "Inventory Sync",
-        "b": "Automatically updates stock after every sale to keep your inventory accurate."
+        "t": "库存同步",
+        "b": "每笔销售后自动更新库存，确保数据始终准确。"
       },
       "f3": {
-        "t": "AI Reports",
-        "b": "Track daily, weekly and monthly performance with actionable insights."
+        "t": "AI 报表",
+        "b": "跟踪每日、每周与每月业绩，获得可执行的洞察。"
       },
       "f4": {
-        "t": "Payment Integration",
-        "b": "Accept cash, card, UPI and digital wallets seamlessly."
+        "t": "支付集成",
+        "b": "无缝支持现金、银行卡、UPI 与数字钱包。"
       },
       "f5": {
-        "t": "Cloud Access",
-        "b": "Manage your store anytime, anywhere with secure cloud connectivity."
+        "t": "云端访问",
+        "b": "通过安全的云端连接，随时随地管理您的门店。"
       },
       "f6": {
-        "t": "Customer Management",
-        "b": "Keep track of loyalty points, purchase history and customer profiles."
+        "t": "客户管理",
+        "b": "跟踪会员积分、购买历史与客户档案。"
       }
     },
     "steps": {
       "s1": {
-        "t": "Set up your shop",
-        "b": "Add store details, taxes and payment options."
+        "t": "设置您的店铺",
+        "b": "添加门店信息、税率与支付方式。"
       },
       "s2": {
-        "t": "Add your products",
-        "b": "Enter products, prices and stock levels."
+        "t": "添加您的商品",
+        "b": "录入商品、价格与库存。"
       },
       "s3": {
-        "t": "Start billing",
-        "b": "Quickly process sales using the touchscreen interface."
+        "t": "开始收银",
+        "b": "使用触屏界面快速处理销售。"
       },
       "s4": {
-        "t": "Analyse reports",
-        "b": "Track sales, trends and customer insights."
+        "t": "分析报表",
+        "b": "跟踪销售、趋势与客户洞察。"
       }
     },
-    "appsTitle": "Apps and desktop software",
-    "appsBody": "Beyond the browser — native mobile apps and Windows desktop applications that keep working when the connection does not.",
+    "appsTitle": "应用与桌面软件",
+    "appsBody": "不止于浏览器——原生移动应用与 Windows 桌面程序，即使网络中断也能继续工作。",
     "apps": {
       "a1": {
-        "t": "Mobile apps",
-        "b": "React Native apps for Android and iOS — sales, stock counts, approvals and service calls from the field."
+        "t": "移动应用",
+        "b": "面向 Android 与 iOS 的 React Native 应用——在外勤即可完成销售、盘点、审批与服务工单。"
       },
       "a2": {
-        "t": "Windows desktop",
-        "b": "Installable .exe applications for billing counters and back-office machines, built for speed on local hardware."
+        "t": "Windows 桌面",
+        "b": "可安装的 .exe 程序，面向收银台与后台电脑，为本地硬件的极速体验而生。"
       },
       "a3": {
-        "t": "Offline-first",
-        "b": "Keep selling through a dropped connection; everything syncs back to the ERP once you are online again."
+        "t": "离线优先",
+        "b": "断网也能继续销售；恢复联网后，一切自动同步回 ERP。"
       }
-    }
+    },
+    "ctaTitle": "想看看您需要的模块如何运作？",
+    "ctaBody": "我们会按您的业务演示对应的配置——绝不推销您不需要的功能。"
   },
   "shop": {
-    "eyebrow": "Hardware",
-    "title": "POS, printing, scanning and automation hardware",
-    "body": "Browse the full 369AI hardware range. Every item is available on request — add what you need to your inquiry basket and our team will come back with pricing.",
-    "allProducts": "All products",
-    "categories": "Categories",
-    "useCase": "By use case",
-    "searchPlaceholder": "Search by name or model number",
-    "resultsOne": "{count} product",
-    "resultsOther": "{count} products",
-    "noResults": "No products match that search.",
-    "clearFilters": "Clear filters",
-    "specifications": "Specifications",
-    "features": "Features",
-    "relatedTitle": "Related hardware",
-    "galleryAlt": "Product image {n}",
+    "eyebrow": "硬件",
+    "title": "POS、打印、扫描与自动化硬件",
+    "body": "浏览 369AI 全系列硬件。所有产品均可按需供应——将所需产品加入询价清单，我们的团队会尽快回复报价。",
+    "allProducts": "全部产品",
+    "categories": "产品分类",
+    "useCase": "按使用场景",
+    "searchPlaceholder": "按名称或型号搜索",
+    "resultsOne": "{count} 款产品",
+    "resultsOther": "{count} 款产品",
+    "noResults": "没有符合该搜索条件的产品。",
+    "clearFilters": "清除筛选",
+    "specifications": "规格参数",
+    "features": "产品特性",
+    "relatedTitle": "相关硬件",
+    "galleryAlt": "产品图片 {n}",
     "popular": "全球热门",
     "prevImage": "上一张图片",
     "nextImage": "下一张图片",
@@ -402,56 +416,59 @@
     "banking": "银行自助服务"
   },
   "inquiry": {
-    "title": "Your inquiry basket",
-    "body": "Review the items below and send them to our team. We reply to every inquiry within 24 hours.",
-    "empty": "Your inquiry basket is empty.",
-    "emptyCta": "Browse hardware",
-    "items": "Items",
-    "remove": "Remove",
-    "submit": "Send inquiry",
-    "submitting": "Sending…",
-    "successTitle": "Inquiry received",
-    "successBody": "Thank you — our team will be in touch within 24 hours.",
-    "errorTitle": "Something went wrong",
-    "errorBody": "We could not send your inquiry. Please try again, or reach us directly."
+    "title": "您的询价清单",
+    "body": "请确认以下产品并发送给我们的团队。所有询价我们都会在 24 小时内回复。",
+    "empty": "您的询价清单是空的。",
+    "emptyCta": "浏览硬件",
+    "items": "产品",
+    "remove": "移除",
+    "submit": "发送询价",
+    "submitting": "发送中…",
+    "successTitle": "询价已收到",
+    "successBody": "感谢您的询价——我们的团队将在 24 小时内与您联系。",
+    "errorTitle": "出了点问题",
+    "errorBody": "询价发送失败。请重试，或直接与我们联系。",
+    "dialogTitle": "咨询此产品",
+    "close": "关闭",
+    "replyNote": "所有咨询我们都会在 24 小时内回复。"
   },
   "contact": {
-    "eyebrow": "Contact Us",
-    "title": "We would love to hear from you",
-    "body": "Whether you have questions, feedback or need support, our team is here to help. Fill out the form and we aim to respond to all inquiries within 24 hours.",
-    "officesTitle": "Our offices",
-    "officesBody": "Six locations across four countries. Scan an office's QR code to open it directly in Google Maps.",
-    "scanForAddress": "Scan for directions",
+    "eyebrow": "联系我们",
+    "title": "期待听到您的声音",
+    "body": "无论您有疑问、反馈还是需要支持，我们的团队都随时为您服务。填写表单，我们会尽力在 24 小时内回复所有咨询。",
+    "officesTitle": "我们的办公室",
+    "officesBody": "横跨四个国家的六个办公地点。扫描办公室的二维码，即可直接在 Google 地图中打开位置。",
+    "scanForAddress": "扫码获取路线",
     "form": {
-      "name": "Your name",
-      "phone": "Phone number",
-      "email": "Your email",
-      "company": "Your company",
-      "subject": "Subject",
-      "message": "Your question",
-      "submit": "Submit",
-      "submitting": "Sending…",
-      "required": "This field is required",
-      "invalidEmail": "Please enter a valid email address",
-      "successTitle": "Message sent",
-      "successBody": "Thank you for getting in touch. We aim to respond within 24 hours.",
-      "errorTitle": "Message not sent",
-      "errorBody": "Something went wrong. Please try again or contact us directly."
+      "name": "您的姓名",
+      "phone": "电话号码",
+      "email": "您的邮箱",
+      "company": "您的公司",
+      "subject": "主题",
+      "message": "您的问题",
+      "submit": "提交",
+      "submitting": "发送中…",
+      "required": "此项为必填",
+      "invalidEmail": "请输入有效的邮箱地址",
+      "successTitle": "消息已发送",
+      "successBody": "感谢您的来信。我们会尽力在 24 小时内回复。",
+      "errorTitle": "消息未发送",
+      "errorBody": "出了点问题。请重试或直接与我们联系。"
     }
   },
   "faq": {
-    "q1": "Which industries do you build for?",
-    "a1": "Retail, food service and hospitality are our core sectors, alongside warehousing, banking self-service and unmanned retail. If you run a counter, a stockroom or a fleet of machines, we have deployed something close to your setup.",
-    "q2": "Do you supply hardware, software, or both?",
-    "a2": "Both, and they are designed to work together. You can take the full 369AI stack — POS terminals, printers, scanners and ERP — or just the hardware, integrated with the system you already run.",
-    "q3": "Can 369AI integrate with our existing ERP or accounting system?",
-    "a3": "Yes. Our POS and device platforms expose standard APIs and we routinely integrate with existing ERP, accounting and payment systems rather than asking you to replace them.",
-    "q4": "What support do you provide after installation?",
-    "a4": "24/7 technical support, a dedicated after-sales engineering team, and a standard 12-month warranty with extended options. Our free remote management system lets us monitor, update and troubleshoot devices without a site visit.",
-    "q5": "Which countries do you operate in?",
-    "a5": "We have offices in the USA, UAE, Oman (Ruwi, Salalah and Sohar) and India, and we support deployments across the wider region.",
-    "q6": "How do I get pricing?",
-    "a6": "Add the hardware you are interested in to your inquiry basket and send it to us, or contact our sales team directly. We quote per configuration, so pricing reflects what you actually need."
+    "q1": "你们服务哪些行业？",
+    "a1": "零售、餐饮与酒店是我们的核心行业，同时涵盖仓储、银行自助服务与无人零售。无论您经营的是收银台、仓库还是一批设备，我们都部署过与您场景相近的方案。",
+    "q2": "你们提供硬件、软件，还是两者都有？",
+    "a2": "两者都有，而且它们本就为协同工作而设计。您可以采用完整的 369AI 全套方案——POS 终端、打印机、扫描器与 ERP——也可以只采购硬件，与您现有的系统集成。",
+    "q3": "369AI 能与我们现有的 ERP 或财务系统集成吗？",
+    "a3": "可以。我们的 POS 与设备平台提供标准 API，我们经常与现有的 ERP、财务与支付系统集成，而不是要求您替换它们。",
+    "q4": "安装之后你们提供哪些支持？",
+    "a4": "7×24 小时技术支持、专属售后工程团队，以及标配 12 个月质保并可延保。我们的免费远程管理系统可以远程监控、更新与排障，无需上门。",
+    "q5": "你们在哪些国家开展业务？",
+    "a5": "我们在美国、阿联酋、阿曼（鲁维、塞拉莱与苏哈尔）和印度设有办公室，并支持更广区域内的部署。",
+    "q6": "如何获取报价？",
+    "a6": "将您感兴趣的硬件加入询价清单发送给我们，或直接联系我们的销售团队。我们按配置报价，价格只反映您真正需要的部分。"
   },
   "assistant": {
     "launcherLabel": "询问 369AI",
@@ -464,7 +481,15 @@
     "dismiss": "关闭",
     "offline": "助手暂时不可用。请通过 WhatsApp 联系我们，几分钟内即可回复。",
     "error": "抱歉，出现了问题。请重试或通过 WhatsApp 联系我们。",
-    "disclaimer": "AI 助手。重要信息请与我们的团队确认。"
+    "disclaimer": "AI 助手。重要信息请与我们的团队确认。",
+    "contactTitle": "联系 369AI",
+    "contactBody": "您可以拨打 {phone} 或发送邮件至 {email} 联系我们。我们在美国、阿联酋、阿曼（鲁维、塞拉莱与苏哈尔）和印度设有办公室，并会在 24 小时内回复咨询。",
+    "pricingTitle": "价格说明",
+    "pricingBody": "我们按配置报价，价格只反映您真正需要的部分。打开任意产品并使用“咨询此产品”，或联系我们的销售团队——我们会在 24 小时内回复。",
+    "hardwareTitle": "硬件产品线",
+    "hardwareBody": "我们供应 {count} 款硬件产品——POS 终端、热敏与标签打印机、条码扫描器、钱箱、客显屏、自助终端、自动售货机、机器人与银行设备。",
+    "whatsappPrefill": "您好 369AI，我想咨询你们的产品。",
+    "readMore": "阅读更多"
   },
   "footer": {
     "connect": "与我们联系",
@@ -506,5 +531,47 @@
       "payments": "支付网关",
       "security": "安全"
     }
+  },
+  "videos": {
+    "more": "更多内容请访问我们的 YouTube 频道",
+    "opening": "正在打开 YouTube…",
+    "play": "播放 {title}",
+    "close": "关闭视频",
+    "views": "{views} 次观看"
+  },
+  "categories": {
+    "vending-machines-203": "自动售货机",
+    "robots-204": "机器人",
+    "smart-banking-219": "智能银行设备",
+    "smart-banking-cdm-218": "CDM 存款机",
+    "barcode-scanner-67": "条码扫描器",
+    "barcode-scanner-2d-barcode-scanner-68": "2D 条码扫描器",
+    "pos-machines-59": "POS 机",
+    "thermal-receipt-printer-62": "热敏小票打印机",
+    "barcode-label-printer-64": "条码标签打印机",
+    "kiosk-214": "自助终端",
+    "pos-machines-all-in-one-pos-60": "一体式 POS",
+    "thermal-receipt-printer-80mm-thermal-printer-84": "80mm 热敏打印机",
+    "robots-mobile-robot-platform-209": "移动机器人平台",
+    "barcode-label-printer-desktop-label-printer-65": "桌面标签打印机",
+    "barcode-scanner-wireless-barcode-scanner-73": "无线条码扫描器",
+    "customer-display-75": "客显屏",
+    "money-counting-machine-80": "点钞机",
+    "thermal-receipt-printer-bluetooth-printer-63": "蓝牙打印机",
+    "barcode-label-printer-portable-label-print-69": "便携标签打印机",
+    "barcode-scanner-handheld-barcode-scanner-74": "手持条码扫描器",
+    "cash-drawer-71": "钱箱",
+    "data-terminal-72": "数据采集终端",
+    "inkjet-printer-79": "喷墨打印机",
+    "electronic-weightscale-81": "电子秤",
+    "barcode-scanner-desktop-barcode-scanner-76": "桌面条码扫描器",
+    "barcode-scanner-omnidirectional-barcode-scanner-77": "全向条码扫描器",
+    "pos-monitor-78": "POS 显示器",
+    "floor-display-stand-43-inch-82": "落地广告机（43 英寸）",
+    "android-menu-display-stand-101-inch-83": "安卓菜单显示屏（10.1 英寸）",
+    "robots-concierge-robot-205": "礼宾机器人",
+    "robots-reception-robot-206": "接待机器人",
+    "robots-delivery-robot-207": "配送机器人",
+    "robots-patrol-robot-208": "巡逻机器人"
   }
 }

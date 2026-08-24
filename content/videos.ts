@@ -30,12 +30,13 @@ export const LEADERSHIP_VIDEOS: Video[] = [
   { id: '10-iIL1DIpM', title: 'Mind Management — Part 6', note: 'Corporate training', views: 1037 },
 ]
 
-/** Compact view label: 2090 -> "2.1K views". */
+/**
+ * Compact view count: 2090 -> "2.1K". The word "views" is locale text and
+ * lives in the message catalogs (videos.views), rendered by the component.
+ */
 export function viewLabel(views?: number) {
   if (!views) return null
-  return views >= 1000
-    ? `${(views / 1000).toFixed(1).replace(/\.0$/, '')}K views`
-    : `${views} views`
+  return views >= 1000 ? `${(views / 1000).toFixed(1).replace(/\.0$/, '')}K` : `${views}`
 }
 
 /** Kept for a future "Company moments" rail. */

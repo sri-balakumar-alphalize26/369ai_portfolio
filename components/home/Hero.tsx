@@ -10,6 +10,7 @@ const ROTATING = ['POS', 'ERP', 'Automation', 'Retail', 'Vending', 'Robotics']
 
 export function Hero({ base }: { base: string }) {
   const t = useTranslations('home')
+  const tc = useTranslations('common')
   const heroRef = useRef<HTMLElement>(null)
 
   return (
@@ -104,7 +105,7 @@ export function Hero({ base }: { base: string }) {
             className="mt-9 text-sm italic text-brand-200/70"
             style={{ animation: 'word-rise 0.8s var(--ease-out-soft) 0.8s both' }}
           >
-            Beyond control. Beyond growth.
+            {tc('tagline')}
           </p>
         </div>
 
@@ -115,7 +116,7 @@ export function Hero({ base }: { base: string }) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/brand/hub-dark.svg"
-            alt="369AI platform: POS terminals, smart vending, smart locks, networking, AI-driven insights and secure cloud connected through one hub"
+            alt={t('heroAlt')}
             width={1600}
             height={1160}
             className="h-auto w-full"

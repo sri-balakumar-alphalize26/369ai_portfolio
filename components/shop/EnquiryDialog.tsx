@@ -45,13 +45,17 @@ export function EnquiryDialog({
     }
   }, [open, onClose])
 
-  // Reset when reopened for another product.
-  useEffect(() => {
+  // Reset when reopened for another product — render-phase adjustment
+  // keyed on (open, product), per React's reset-on-prop-change pattern.
+  const dialogKey = open ? product : null
+  const [prevKey, setPrevKey] = useState<string | null>(dialogKey)
+  if (prevKey !== dialogKey) {
+    setPrevKey(dialogKey)
     if (open) {
       setStatus('idle')
       setErrors({})
     }
-  }, [open, product])
+  }
 
   if (!open) return null
 
@@ -94,13 +98,13 @@ export function EnquiryDialog({
       >
         <div className="flex items-start justify-between gap-4 border-b border-surface-line bg-surface-alt px-6 py-5">
           <div>
-            <h2 className="text-lg font-bold">Enquire about this product</h2>
+            <h2 className="text-lg font-bold">{ti('dialogTitle')}</h2>
             <p className="mt-1 text-sm text-slate-muted">{product}</p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close"
+            aria-label={ti('close')}
             className="rounded p-1.5 text-slate-muted transition-colors hover:bg-white hover:text-ink"
           >
             <X className="h-5 w-5" aria-hidden />
@@ -117,7 +121,7 @@ export function EnquiryDialog({
               onClick={onClose}
               className="mt-6 rounded-pill bg-gradient-to-r from-brand-700 to-brand-500 px-6 py-2.5 text-sm font-semibold text-white"
             >
-              Close
+              {ti('close')}
             </button>
           </div>
         ) : (
@@ -190,7 +194,7 @@ export function EnquiryDialog({
             </button>
 
             <p className="text-center text-xs text-slate-faint">
-              We reply to every enquiry within 24 hours.
+              {ti('replyNote')}
             </p>
           </form>
         )}

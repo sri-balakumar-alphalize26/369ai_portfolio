@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
-import type { ProductCardData } from '@/lib/products'
+import { categoryLabel, type ProductCardData } from '@/lib/products'
 import { cn } from '@/lib/cn'
 
 /** Arrow hit area: hidden until hover on a mouse, always shown without one. */
@@ -34,6 +34,7 @@ export function ProductCard({
   className?: string
 }) {
   const t = useTranslations('shop')
+  const tCat = useTranslations('categories')
   const [index, setIndex] = useState(0)
 
   const category = product.categories[0]
@@ -116,7 +117,7 @@ export function ProductCard({
       <div className="flex flex-1 flex-col border-t border-surface-line p-5">
         {category ? (
           <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">
-            {category}
+            {categoryLabel(category, tCat)}
           </p>
         ) : null}
         <h3 className="mt-2 text-sm font-semibold leading-snug text-ink">

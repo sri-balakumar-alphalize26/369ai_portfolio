@@ -55,28 +55,28 @@ export function Assistant() {
       {
         id: 'contact',
         keywords: ['contact', 'phone', 'email', 'call', 'reach', 'address', 'office', 'location'],
-        title: 'Contact 369AI',
-        body: `You can reach us on ${CONTACT.phoneDisplay} or at ${CONTACT.email}. We have offices in the USA, UAE, Oman (Ruwi, Salalah and Sohar) and India, and we reply to enquiries within 24 hours.`,
+        title: t('contactTitle'),
+        body: t('contactBody', { phone: CONTACT.phoneDisplay, email: CONTACT.email }),
         href: `${base}/contact`,
       },
       {
         id: 'pricing',
         keywords: ['price', 'pricing', 'cost', 'quote', 'quotation', 'how much', 'budget'],
-        title: 'Pricing',
-        body: 'We quote per configuration, so pricing reflects exactly what you need. Open any product and use "Enquire about this product", or contact our sales team — we respond within 24 hours.',
+        title: t('pricingTitle'),
+        body: t('pricingBody'),
         href: `${base}/shop`,
       },
       {
         id: 'hardware',
         keywords: ['hardware', 'catalogue', 'catalog', 'products', 'buy', 'shop', 'range'],
-        title: 'Hardware range',
-        body: `We supply ${PRODUCTS.length} hardware products — POS terminals, thermal and label printers, barcode scanners, cash drawers, customer displays, kiosks, vending machines, robots and banking equipment.`,
+        title: t('hardwareTitle'),
+        body: t('hardwareBody', { count: PRODUCTS.length }),
         href: `${base}/shop`,
       },
     ]
 
     return [...faq, ...services, ...solutions, ...extras]
-  }, [tFaq, tSrv, tSol, base])
+  }, [t, tFaq, tSrv, tSol, base])
 
   const productIndex = useMemo(
     () =>
@@ -141,7 +141,7 @@ export function Assistant() {
   }
 
   const whatsappHref = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(
-    'Hello 369AI, I have a question about your products.'
+    t('whatsappPrefill')
   )}`
 
   return (
@@ -211,7 +211,7 @@ export function Assistant() {
                   {m.text}
                 </p>
               ) : (
-                <BotMessage key={i} answer={m.answer!} base={base} />
+                <BotMessage key={i} answer={m.answer!} />
               )
             )}
           </div>
@@ -252,7 +252,7 @@ export function Assistant() {
   )
 }
 
-function BotMessage({ answer, base }: { answer: Answer; base: string }) {
+function BotMessage({ answer }: { answer: Answer }) {
   const t = useTranslations('assistant')
   const whatsappHref = `https://wa.me/${CONTACT.whatsapp}`
 
@@ -284,7 +284,7 @@ function BotMessage({ answer, base }: { answer: Answer; base: string }) {
           href={answer.href}
           className="mt-2.5 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:underline"
         >
-          Read more
+          {t('readMore')}
           <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
         </Link>
       ) : null}

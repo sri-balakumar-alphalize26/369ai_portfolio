@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { Search, X, ArrowRight, Tag } from 'lucide-react'
-import { PRODUCTS, CATEGORIES } from '@/lib/products'
+import { PRODUCTS, CATEGORIES, categoryLabel } from '@/lib/products'
 import { cn } from '@/lib/cn'
 
 const MAX_CATEGORIES = 3
@@ -94,6 +94,7 @@ export function SearchMenu({ base }: { base: string }) {
   const t = useTranslations('shop')
   const tNav = useTranslations('nav')
   const tc = useTranslations('common')
+  const tCat = useTranslations('categories')
   const router = useRouter()
 
   const [open, setOpen] = useState(false)
@@ -280,7 +281,7 @@ export function SearchMenu({ base }: { base: string }) {
                           )}
                         >
                           <Tag className="h-4 w-4 shrink-0 text-brand-500" aria-hidden />
-                          <span className="flex-1 font-medium">{row.name}</span>
+                          <span className="flex-1 font-medium">{categoryLabel(row.name, tCat)}</span>
                           <span className="text-xs text-slate-faint">{row.count}</span>
                         </button>
                       </li>

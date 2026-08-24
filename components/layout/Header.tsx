@@ -20,7 +20,7 @@ import { LocaleSwitcher } from './LocaleSwitcher'
 import { PhoneMenu } from './PhoneMenu'
 import { SearchMenu } from './SearchMenu'
 import { CONTACT } from '@/content/offices'
-import { CATEGORIES } from '@/lib/products'
+import { CATEGORIES, categoryLabel } from '@/lib/products'
 import { cn } from '@/lib/cn'
 
 const NAV_ITEM =
@@ -47,10 +47,15 @@ export function Header() {
 
   const base = `/${locale}`
 
-  useEffect(() => {
+  // Close any open menu when navigation changes the path — done as a
+  // render-phase adjustment (the React-endorsed "reset state on prop change"
+  // pattern), not an effect, so there is no cascaded second render.
+  const [prevPath, setPrevPath] = useState(pathname)
+  if (prevPath !== pathname) {
+    setPrevPath(pathname)
     setOpenMenu(null)
     setMobileOpen(false)
-  }, [pathname])
+  }
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -134,7 +139,7 @@ export function Header() {
         )}
         data-scrolled={scrolled}
       >
-        <Link href={base} className="flex shrink-0 items-center" aria-label="369ai.Biz home">
+        <Link href={base} className="flex shrink-0 items-center" aria-label={t('homeAria')}>
           <Image
             src="/images/brand/logo-369ai.png"
             alt="369ai.Biz"
@@ -149,7 +154,7 @@ export function Header() {
         <nav
           ref={megaRef}
           className="hidden flex-1 items-center justify-center gap-0.5 lg:flex"
-          aria-label="Main"
+          aria-label={t('mainNav')}
         >
           {/* What We Do — full mega panel */}
           <div
@@ -275,6 +280,7 @@ function MegaMenu({ base, onNavigate }: { base: string; onNavigate: () => void }
   const t = useTranslations('nav')
   const tSol = useTranslations('solutions')
   const tSrv = useTranslations('services')
+  const tCat = useTranslations('categories')
 
   const columns = [
     {
@@ -303,7 +309,7 @@ function MegaMenu({ base, onNavigate }: { base: string; onNavigate: () => void }
       title: t('shop'),
       href: `${base}/shop`,
       items: CATEGORIES.slice(0, 5).map((c) => ({
-        label: c.name,
+        label: categoryLabel(c.name, tCat),
         href: `${base}/shop?category=${encodeURIComponent(c.name)}`,
       })),
     },
@@ -425,7 +431,12 @@ function MobilePanel({
   const t = useTranslations('nav')
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    // rAF rather than a bare set: the gate exists only to skip SSR (no
+    // document to portal into), and this way the effect body stays async.
+    const id = requestAnimationFrame(() => setMounted(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
   if (!mounted) return null
 
   /**
@@ -460,7 +471,7 @@ function MobilePanel({
           </button>
         </div>
 
-        <nav className="flex-1 overflow-y-auto px-5 py-6" aria-label="Mobile">
+        <nav className="flex-1 overflow-y-auto px-5 py-6" aria-label={t('mobileNav')}>
           <ul className="space-y-1">
             {[{ href: base, label: t('home') }, ...links].map((l) => (
               <li key={l.href}>

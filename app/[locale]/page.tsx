@@ -151,9 +151,9 @@ export default async function HomePage({
       <Section>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
-            eyebrow="Hardware"
-            title="Built on equipment we supply and support"
-            body={`${PRODUCTS.length} POS terminals, printers, scanners, kiosks, vending machines and robots — all available on request.`}
+            eyebrow={t('hardwareEyebrow')}
+            title={t('hardwareTitle')}
+            body={t('hardwareBody', { count: PRODUCTS.length })}
             align="start"
           />
           <ButtonLink href={`${base}/shop`} variant="primary">

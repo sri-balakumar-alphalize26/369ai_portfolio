@@ -21,6 +21,23 @@ export type Category = {
 export const PRODUCTS = productsData as unknown as Product[]
 export const CATEGORIES = categoriesData as unknown as Category[]
 
+const CATEGORY_SLUG_BY_NAME = new Map(CATEGORIES.map((c) => [c.name, c.slug]))
+
+/**
+ * Localized display label for a category. Category identity — URL params,
+ * product.categories, filter matching — stays the English name everywhere;
+ * this maps a name to its `categories.<slug>` message for display only.
+ * Pass a `useTranslations('categories')` t; unknown names fall back to the
+ * English name rather than throwing on a missing key.
+ */
+export function categoryLabel(
+  name: string,
+  t: { (key: string): string; has(key: string): boolean }
+) {
+  const slug = CATEGORY_SLUG_BY_NAME.get(name)
+  return slug && t.has(slug) ? t(slug) : name
+}
+
 /**
  * Use-case grouping layered on top of the raw Odoo categories.
  * Buyers who know their business but not the part number navigate this way

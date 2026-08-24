@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
 /**
@@ -320,7 +321,7 @@ export function AppIntegrations() {
           <div className="core" id="core">
             <div className="card">
               <span className="ring"></span><span className="ring b"></span>
-              <img src="/images/brand/logo-369ai.png" width={353} height={334} alt="369ai.Biz" />
+              <Image src="/images/brand/logo-369ai.png" width={353} height={334} alt="369ai.Biz" />
             </div>
           </div>
         </div>

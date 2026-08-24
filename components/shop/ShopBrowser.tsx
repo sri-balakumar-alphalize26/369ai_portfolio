@@ -5,7 +5,7 @@ import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { Search, X, SlidersHorizontal } from 'lucide-react'
 import { ProductCard } from '@/components/shop/ProductCard'
-import { USE_CASES, type ProductCardData, type UseCaseId } from '@/lib/products'
+import { USE_CASES, categoryLabel, type ProductCardData, type UseCaseId } from '@/lib/products'
 import { cn } from '@/lib/cn'
 
 type CategoryOption = { name: string; count: number }
@@ -32,6 +32,7 @@ export function ShopBrowser({
   const t = useTranslations('shop')
   const tc = useTranslations('common')
   const tu = useTranslations('useCases')
+  const tCat = useTranslations('categories')
 
   const router = useRouter()
   const pathname = usePathname()
@@ -108,7 +109,7 @@ export function ShopBrowser({
             {t('categories')}
           </span>
           <span className="text-xs font-normal text-slate-faint">
-            {category ?? t('allProducts')}
+            {category ? categoryLabel(category, tCat) : t('allProducts')}
           </span>
         </button>
 
@@ -145,7 +146,7 @@ export function ShopBrowser({
                         : 'text-slate-body hover:bg-surface-alt'
                     )}
                   >
-                    <span>{c.name}</span>
+                    <span>{categoryLabel(c.name, tCat)}</span>
                     <span className="text-xs text-slate-faint">{c.count}</span>
                   </button>
                 </li>

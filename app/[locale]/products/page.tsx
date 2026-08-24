@@ -136,10 +136,10 @@ export default async function ProductsPage({
         <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-start">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-bold text-white sm:text-3xl">
-              Want a walkthrough of the modules you need?
+              {t('ctaTitle')}
             </h2>
             <p className="mt-3 text-brand-100">
-              We will demo the exact configuration for your business — nothing you do not need.
+              {t('ctaBody')}
             </p>
           </div>
           <ButtonLink href={`${base}/contact`} variant="accent" size="lg">

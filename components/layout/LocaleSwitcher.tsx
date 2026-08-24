@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-import { useLocale } from 'next-intl'
+import { useState, useRef, useEffect, useTransition } from 'react'
+import { createPortal } from 'react-dom'
+import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from 'next/navigation'
 import { Check, ChevronDown } from 'lucide-react'
 import { Flag } from '@/components/ui/Flag'
@@ -24,7 +25,9 @@ export function LocaleSwitcher({
   const locale = useLocale() as Locale
   const pathname = usePathname()
   const router = useRouter()
+  const tc = useTranslations('common')
   const [open, setOpen] = useState(false)
+  const [isPending, startTransition] = useTransition()
   const wrapRef = useRef<HTMLDivElement>(null)
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -59,7 +62,9 @@ export function LocaleSwitcher({
     // pathname always starts with the current locale segment; swap it in place.
     const rest = pathname.replace(new RegExp(`^/${locale}`), '') || '/'
     setOpen(false)
-    router.push(`/${next}${rest}`)
+    // Inside a transition so isPending tracks the navigation — the spinner
+    // overlay below stays up until the new locale's page has committed.
+    startTransition(() => router.push(`/${next}${rest}`))
   }
 
   const current = localeLabels[locale]
@@ -138,6 +143,26 @@ export function LocaleSwitcher({
           })}
         </ul>
       ) : null}
+
+      {/* Language-switch feedback: brand spinner over a frosted page while the
+          new locale streams in. Portaled to <body> — the header ancestors use
+          transforms, which would otherwise turn position:fixed into
+          position-relative-to-the-bar. Driven purely by isPending, so it
+          clears itself the moment the navigation commits. */}
+      {isPending
+        ? createPortal(
+            <div
+              role="status"
+              aria-live="polite"
+              aria-label={tc('loading')}
+              className="fixed inset-0 z-[95] grid place-items-center bg-surface-alt/70 backdrop-blur-sm"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element -- animated SVG; embedded CSS animation must survive */}
+              <img src="/images/brand/369-loader.svg" alt="" width={64} height={64} />
+            </div>,
+            document.body
+          )
+        : null}
     </div>
   )
 }

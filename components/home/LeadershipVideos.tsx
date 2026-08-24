@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Play, X } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import {
   LEADERSHIP_VIDEOS,
   YOUTUBE_CHANNEL,
@@ -23,6 +24,7 @@ import { MarqueeInView } from '@/components/ui/MarqueeInView'
  */
 export function LeadershipVideos() {
   const [active, setActive] = useState<Video | null>(null)
+  const tv = useTranslations('videos')
 
   /** Feedback while the channel opens in its new tab — decorative, not a gate. */
   const [opening, setOpening] = useState(false)
@@ -103,7 +105,7 @@ export function LeadershipVideos() {
           className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:underline"
         >
           {opening ? <span className="yt-spin" aria-hidden /> : <YouTubeMark />}
-          {opening ? 'Opening YouTube…' : 'More on our YouTube channel'}
+          {opening ? tv('opening') : tv('more')}
         </a>
       </div>
 
@@ -113,12 +115,14 @@ export function LeadershipVideos() {
 }
 
 function VideoCard({ video, onOpen }: { video: Video; onOpen: () => void }) {
+  const tv = useTranslations('videos')
+  const views = viewLabel(video.views)
   return (
     <div className="video-card mx-2.5 w-[19rem] shrink-0 sm:w-[22rem]">
       <button
         type="button"
         onClick={onOpen}
-        aria-label={`Play ${video.title}`}
+        aria-label={tv('play', { title: video.title })}
         className="group block w-full overflow-hidden rounded-panel border border-surface-line bg-white text-start shadow-sm"
       >
         <span className="relative block aspect-video bg-brand-950">
@@ -139,8 +143,8 @@ function VideoCard({ video, onOpen }: { video: Video; onOpen: () => void }) {
           <span className="block truncate font-semibold text-ink">{video.title}</span>
           <span className="mt-1 block text-sm text-slate-muted">
             {video.note}
-            {video.note && viewLabel(video.views) ? ' · ' : ''}
-            {viewLabel(video.views)}
+            {video.note && views ? ' · ' : ''}
+            {views ? tv('views', { views }) : null}
           </span>
         </span>
       </button>
@@ -149,6 +153,7 @@ function VideoCard({ video, onOpen }: { video: Video; onOpen: () => void }) {
 }
 
 function Lightbox({ video, onClose }: { video: Video | null; onClose: () => void }) {
+  const tv = useTranslations('videos')
   // Escape closes; the page behind is locked while it is open.
   useEffect(() => {
     if (!video) return
@@ -164,6 +169,8 @@ function Lightbox({ video, onClose }: { video: Video | null; onClose: () => void
   }, [video, onClose])
 
   if (!video) return null
+
+  const views = viewLabel(video.views)
 
   return (
     <div
@@ -186,7 +193,7 @@ function Lightbox({ video, onClose }: { video: Video | null; onClose: () => void
         <button
           type="button"
           onClick={onClose}
-          aria-label="Close video"
+          aria-label={tv('close')}
           className="absolute -top-11 end-0 flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-white ring-1 ring-inset ring-white/25 transition-colors hover:bg-white/25"
         >
           <X className="h-5 w-5" aria-hidden />
@@ -208,8 +215,8 @@ function Lightbox({ video, onClose }: { video: Video | null; onClose: () => void
           <p className="text-lg font-semibold text-white">{video.title}</p>
           <p className="mt-1 text-sm text-brand-200">
             {video.note}
-            {video.note && viewLabel(video.views) ? ' · ' : ''}
-            {viewLabel(video.views)}
+            {video.note && views ? ' · ' : ''}
+            {views ? tv('views', { views }) : null}
           </p>
         </div>
       </div>

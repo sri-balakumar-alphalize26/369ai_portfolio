@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { ScanBarcode, Network, BrainCircuit, Boxes, Cloud, Headset } from 'lucide-react'
-import { Section, SectionHeader } from '@/components/ui/Section'
+import { Section } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { ButtonLink } from '@/components/ui/Button'
 import { PageHero } from '@/components/ui/PageHero'
@@ -70,10 +70,10 @@ export default async function ServicesPage({
         <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-start">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-bold text-white sm:text-3xl">
-              Every service backed by 24/7 support
+              {t('ctaTitle')}
             </h2>
             <p className="mt-3 text-brand-100">
-              A dedicated after-sales team, free remote management and a 12-month warranty as standard.
+              {t('ctaBody')}
             </p>
           </div>
           <ButtonLink href={`${base}/contact`} variant="accent" size="lg">
