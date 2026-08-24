@@ -15,15 +15,20 @@ export function Flag({ locale, className = 'h-4 w-6' }: { locale: Locale; classN
   }
 
   switch (locale) {
-    // English — shown as "Global", so a globe rather than one country's flag.
+    // English — shown as "Global": a bare globe symbol, deliberately NOT in a
+    // flag-style rectangle. It inherits currentColor, so it reads as an icon
+    // beside the flags rather than as one more country.
     case 'en':
       return (
-        <svg {...common}>
-          <rect width="24" height="16" fill="#0078a8" />
-          <g fill="none" stroke="#eaf6fb" strokeWidth="1.1">
-            <circle cx="12" cy="8" r="5.2" />
-            <ellipse cx="12" cy="8" rx="2.1" ry="5.2" />
-            <path d="M6.9 8h10.2M7.9 5.2h8.2M7.9 10.8h8.2" />
+        <svg
+          viewBox="0 0 24 16"
+          className={`${className} shrink-0`}
+          aria-hidden
+        >
+          <g fill="none" stroke="currentColor" strokeWidth="1.2">
+            <circle cx="12" cy="8" r="6" />
+            <ellipse cx="12" cy="8" rx="2.4" ry="6" />
+            <path d="M6.1 8h11.8M7 4.8h10M7 11.2h10" />
           </g>
         </svg>
       )

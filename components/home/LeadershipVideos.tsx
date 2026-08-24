@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Play, X } from 'lucide-react'
 import {
   LEADERSHIP_VIDEOS,
@@ -23,6 +23,47 @@ import {
 export function LeadershipVideos() {
   const [active, setActive] = useState<Video | null>(null)
 
+  /** Feedback while the channel opens in its new tab — decorative, not a gate. */
+  const [opening, setOpening] = useState(false)
+  const linkRef = useRef<HTMLAnchorElement>(null)
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  // One attention pulse when the link scrolls ~60% into view, then never again.
+  useEffect(() => {
+    const el = linkRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('pulse-once')
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.6 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // Reset the loading state after a beat, and immediately when the page is
+  // restored from the back/forward cache.
+  useEffect(() => {
+    function onPageShow(e: PageTransitionEvent) {
+      if (e.persisted) setOpening(false)
+    }
+    window.addEventListener('pageshow', onPageShow)
+    return () => {
+      window.removeEventListener('pageshow', onPageShow)
+      if (resetTimer.current) clearTimeout(resetTimer.current)
+    }
+  }, [])
+
+  function onOpenChannel() {
+    setOpening(true)
+    if (resetTimer.current) clearTimeout(resetTimer.current)
+    resetTimer.current = setTimeout(() => setOpening(false), 4000)
+  }
+
   return (
     <div className="relative">
       <div className="marquee-viewport video-rail overflow-hidden py-4">
@@ -43,13 +84,15 @@ export function LeadershipVideos() {
 
       <div className="mt-8 text-center">
         <a
+          ref={linkRef}
           href={YOUTUBE_CHANNEL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={onOpenChannel}
           className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:underline"
         >
-          <YouTubeMark />
-          More on our YouTube channel
+          {opening ? <span className="yt-spin" aria-hidden /> : <YouTubeMark />}
+          {opening ? 'Opening YouTube…' : 'More on our YouTube channel'}
         </a>
       </div>
 

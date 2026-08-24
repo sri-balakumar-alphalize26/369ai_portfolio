@@ -246,7 +246,21 @@ export function AppIntegrations() {
               <div className="rail" id="railB">
 
                 <div className="node" style={{ animationDelay: '1.05s' }}>
-                  <div className="tile"><span className="word">odoo</span></div>
+                  <div className="tile">
+                    {/* Odoo wordmark, drawn rather than imported so it matches
+                        every other tile here (all inline SVG) and stays crisp
+                        at any tile size. Wide viewBox: the mark is ~4:1. */}
+                    <svg viewBox="0 0 89 26" className="odoo-mark">
+                      <g fill="none" strokeWidth="5.4">
+                        <circle cx="13" cy="16" r="7.4" stroke="#A0538F" />
+                        <circle cx="34" cy="16" r="7.4" stroke="#949497" />
+                        <circle cx="55" cy="16" r="7.4" stroke="#949497" />
+                        <circle cx="76" cy="16" r="7.4" stroke="#949497" />
+                      </g>
+                      {/* the ascender that turns the second ring into a "d" */}
+                      <rect x="38.7" y="1" width="5.4" height="16" rx="2.7" fill="#949497" />
+                    </svg>
+                  </div>
                   <span className="label">{t('apps.odoo')}</span>
                 </div>
 

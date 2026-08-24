@@ -53,6 +53,11 @@
 }
 
 :root {
+  /* Glass filter lists — kept in custom properties so the minifier cannot
+     strip the inter-function spaces (see .glass-panel). */
+  --glass-filter: blur(96px) saturate(170%) brightness(1.15);
+  --glass-filter-bar: blur(48px) saturate(165%) brightness(1.2);
+
   color-scheme: light;
   --brand-gradient: linear-gradient(115deg, #006090 0%, #1890c0 45%, #30a8c0 70%, #60c0d8 100%);
 }
@@ -208,6 +213,26 @@
 }
 
 /* ---- Pulsing ring -------------------------------------------------- */
+/* One-shot attention pulse — added by IntersectionObserver when the YouTube
+   link first scrolls into view, so it runs exactly once. */
+@keyframes pulse-once {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+.pulse-once { animation: pulse-once 0.9s var(--ease-out-soft) 1; }
+
+/* 16px ring spinner shown while the YouTube channel opens in its tab. */
+@keyframes yt-spin { to { transform: rotate(360deg); } }
+.yt-spin {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-brand-200, #b5d4f4);
+  border-top-color: var(--color-brand-600, #0b57d0);
+  border-radius: 50%;
+  animation: yt-spin 0.7s linear infinite;
+}
+
 @keyframes ring-pulse {
   0%   { transform: scale(0.85); opacity: 0.7; }
   100% { transform: scale(1.5); opacity: 0; }
@@ -294,6 +319,8 @@
   .dot-grid,
   .marquee-track,
   .float-soft,
+  .pulse-once,
+  .yt-spin,
   .ring-pulse,
   .gradient-text,
   .word-rise > span,
@@ -377,6 +404,17 @@
   opacity: 0;
 }
 
+/* Hovering one link in a list dims its siblings (the claude.com footer
+   pattern): the list's hover state fades every link, then the hovered link
+   restores itself. No JS, and an untouched list keeps its normal colors. */
+.dim-siblings:hover :is(a, button) {
+  color: var(--color-slate-faint);
+  transition: color 0.15s ease;
+}
+.dim-siblings:hover :is(a, button):hover {
+  color: var(--color-ink);
+}
+
 /* ==================================================================
    Mega menu — liquid glass.
    ================================================================== */
@@ -385,10 +423,30 @@
      is behind bleeds through as a soft colour wash.
      The trick that makes it readable over BOTH the dark hero and white content
      is brightness() in the backdrop filter — it lifts a dark backdrop before
-     the translucent white sits on top, so dark text always keeps contrast. */
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(64px) saturate(165%) brightness(1.22);
-  -webkit-backdrop-filter: blur(64px) saturate(165%) brightness(1.22);
+     the translucent white sits on top, so dark text always keeps contrast.
+
+     These three values are a balance, not free parameters. Too much alpha or
+     brightness and the panel goes opaque — it still blurs the backdrop, you
+     just cannot SEE that it did, which is what it looked like before. Too
+     little and dark text loses contrast over the dark hero. Unlike HCL these panels can
+     sit over sharp TEXT (a panel can open over the mega-menu), so the blur
+     must fully destroy letterforms behind — 64px does, 40px did not. 0.72
+     alpha keeps a visible colour wash without the bleed-through. */
+  /* The filter list is defined as a custom property (see :root) because the
+     CSS minifier removes the spaces between filter functions, producing
+     "blur(96px)saturate(170%)" — which the browser rejects, silently dropping
+     the whole declaration. var() payloads are emitted verbatim. */
+  /* Slightly milkier than the page cards — with the blur live, this is what
+     gives the HCL "lit glass" look instead of grey translucency. */
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: var(--glass-filter);
+  /* The site's muted greys are tuned for solid white cards; on translucent
+     glass over the dark hero they read as disabled placeholders. Utilities
+     resolve their colors via these variables, so re-scoping them here darkens
+     every secondary line in every dropdown (menu blurbs, office labels,
+     search placeholder, locale names) one step, without touching markup. */
+  --color-slate-muted: #35495c;
+  --color-slate-faint: #5b7183;
   border: 1px solid rgba(255, 255, 255, 0.55);
   box-shadow:
     0 28px 64px -24px rgba(4, 56, 79, 0.45),
@@ -421,14 +479,29 @@
 }
 
 
-/* The floating capsule — same tinted glass as the panels. */
+/* The floating capsule — same tinted glass as the panels.
+
+   The glass lives on a ::before, NOT on .capsule-bar itself, and that is
+   load-bearing: an element with backdrop-filter becomes a "backdrop root",
+   and any descendant's backdrop-filter can then only sample content inside
+   it — never the page behind. The dropdown panels are descendants of the
+   bar, so with the filter on the bar they blurred nothing and rendered as
+   flat white (the "not like HCL" bug). On a pseudo-element the bar itself
+   stays filter-free and the panels sample the real page. */
 .capsule-bar {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(48px) saturate(165%) brightness(1.2);
-  -webkit-backdrop-filter: blur(48px) saturate(165%) brightness(1.2);
+  position: relative;
   box-shadow:
     0 10px 34px -14px rgba(4, 56, 79, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.capsule-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: var(--glass-filter-bar);
 }
 
 .capsule-bar[data-scrolled='true'] {
@@ -438,7 +511,7 @@
 }
 
 @supports not (backdrop-filter: blur(1px)) {
-  .capsule-bar {
+  .capsule-bar::before {
     background: #ffffff;
   }
 }
@@ -510,7 +583,8 @@
   opacity:0;
   animation:riseIn .7s cubic-bezier(.22,.9,.3,1) forwards;
 }
-.integrations .chip.muted{color:var(--ink);background:rgba(91,107,127,.10)}
+/* "Connects with" — orange, matching the accent used for the tool-side wires. */
+.integrations .chip.muted{color:var(--orange);background:rgba(244,123,32,.10)}
 
 /* ── stage ── */
 .integrations .stage{
@@ -562,7 +636,10 @@
   place-items:center;
   transition:transform .35s cubic-bezier(.2,.8,.3,1), box-shadow .35s ease;
 }
-.integrations .tile svg, .integrations .tile .word{
+.integrations .tile svg, .integrations .tile svg.odoo-mark{
+  width:74%;height:auto;
+}
+.integrations .tile .word{
   width:56%;height:56%;
   animation:bob 5.4s ease-in-out infinite;
 }

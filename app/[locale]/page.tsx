@@ -121,7 +121,7 @@ export default async function HomePage({
             <Reveal as="li" key={key} delay={i * 70}>
               <Link
                 href={`${base}/services#${key}`}
-                className="card-glow flex h-full flex-col rounded-panel border border-surface-line bg-white p-7"
+                className="card-glow flex h-full flex-col rounded-panel border border-surface-line bg-white p-7 transition-all duration-200 hover:-translate-y-1.5 hover:border-brand-400 active:translate-y-0"
               >
                 <span className="flex h-11 w-11 items-center justify-center rounded-card bg-accent-50 text-accent-600">
                   <Icon className="h-5 w-5" aria-hidden />

@@ -30,6 +30,11 @@ export function Reveal({
         if (!entry.isIntersecting) return
         el.setAttribute('data-reveal', 'shown')
         observer.disconnect()
+        // The stagger delay has done its job once the entrance finishes;
+        // clearing it keeps any later transition on this element immediate.
+        window.setTimeout(() => {
+          el.style.transitionDelay = '0ms'
+        }, delay + 700)
       },
       { rootMargin: '0px 0px -70px 0px', threshold: 0.05 }
     )

@@ -52,7 +52,7 @@ export default async function ServicesPage({
             <Reveal as="li" key={key} delay={i * 60}>
               <article
                 id={key}
-                className="card-glow h-full scroll-mt-32 rounded-panel border border-surface-line bg-white p-8"
+                className="card-glow h-full scroll-mt-32 rounded-panel border border-surface-line bg-white p-8 transition-all duration-200 hover:-translate-y-1.5 hover:border-brand-400"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-card bg-gradient-to-br from-brand-700 to-brand-500 text-white">
                   <Icon className="h-5 w-5" aria-hidden />
