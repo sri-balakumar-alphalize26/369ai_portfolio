@@ -39,7 +39,7 @@ export const USE_CASES = [
 
 export type UseCaseId = (typeof USE_CASES)[number]['id']
 
-export function useCasesFor(product: Product): UseCaseId[] {
+export function productUseCases(product: Product): UseCaseId[] {
   const haystack = product.categories.join(' ').toLowerCase()
   return USE_CASES.filter((u) => u.match.some((m) => haystack.includes(m))).map((u) => u.id)
 }
@@ -72,4 +72,35 @@ export function hasDetail(product: Product) {
   return Boolean(
     product.description || product.features.length || Object.keys(product.specs).length
   )
+}
+
+/**
+ * How many photos a grid card will cycle through. Not a payload limit — the
+ * paths gzip to almost nothing — but a legibility one: four products carry 11
+ * photos and one carries 16, and that many dots in a card is unreadable. The
+ * full set is still shown by the gallery on the product page.
+ */
+export const CARD_IMAGES = 6
+
+/**
+ * The slice of a product a grid card needs. The catalog carries specs,
+ * features and full descriptions for 75 SKUs — far more than a listing has to
+ * ship to the browser, so the client-side browser only ever receives this.
+ */
+export type ProductCardData = {
+  slug: string
+  name: string
+  categories: string[]
+  useCases: UseCaseId[]
+  images: string[]
+}
+
+export function toCardData(product: Product): ProductCardData {
+  return {
+    slug: product.slug,
+    name: product.name,
+    categories: product.categories,
+    useCases: productUseCases(product),
+    images: product.images.slice(0, CARD_IMAGES),
+  }
 }

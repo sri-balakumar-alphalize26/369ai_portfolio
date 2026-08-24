@@ -384,7 +384,11 @@
     "specifications": "المواصفات",
     "features": "المزايا",
     "relatedTitle": "أجهزة ذات صلة",
-    "galleryAlt": "صورة المنتج {n}"
+    "galleryAlt": "صورة المنتج {n}",
+    "popular": "الأكثر استخداماً عالمياً",
+    "prevImage": "الصورة السابقة",
+    "nextImage": "الصورة التالية",
+    "viewFull": "عرض الصورة كاملة"
   },
   "useCases": {
     "retail": "كاونتر التجزئة",

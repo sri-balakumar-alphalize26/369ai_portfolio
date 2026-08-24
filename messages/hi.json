@@ -384,7 +384,11 @@
     "specifications": "विनिर्देश",
     "features": "विशेषताएं",
     "relatedTitle": "संबंधित हार्डवेयर",
-    "galleryAlt": "उत्पाद छवि {n}"
+    "galleryAlt": "उत्पाद छवि {n}",
+    "popular": "दुनिया भर में लोकप्रिय",
+    "prevImage": "पिछली छवि",
+    "nextImage": "अगली छवि",
+    "viewFull": "पूरी छवि देखें"
   },
   "useCases": {
     "retail": "रिटेल काउंटर",

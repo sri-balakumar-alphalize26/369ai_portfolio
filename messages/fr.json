@@ -384,7 +384,11 @@
     "specifications": "Specifications",
     "features": "Features",
     "relatedTitle": "Related hardware",
-    "galleryAlt": "Product image {n}"
+    "galleryAlt": "Product image {n}",
+    "popular": "Populaire dans le monde",
+    "prevImage": "Image précédente",
+    "nextImage": "Image suivante",
+    "viewFull": "Voir l'image en entier"
   },
   "useCases": {
     "retail": "Caisse commerce",

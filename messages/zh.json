@@ -384,7 +384,11 @@
     "specifications": "Specifications",
     "features": "Features",
     "relatedTitle": "Related hardware",
-    "galleryAlt": "Product image {n}"
+    "galleryAlt": "Product image {n}",
+    "popular": "全球热门",
+    "prevImage": "上一张图片",
+    "nextImage": "下一张图片",
+    "viewFull": "查看完整图片"
   },
   "useCases": {
     "retail": "零售收银",

@@ -11,13 +11,14 @@ import {
   X,
   ChevronDown,
   ArrowRight,
-  Search,
   Phone,
   Mail,
   MonitorCog,
   Cpu,
 } from 'lucide-react'
 import { LocaleSwitcher } from './LocaleSwitcher'
+import { PhoneMenu } from './PhoneMenu'
+import { SearchMenu } from './SearchMenu'
 import { CONTACT } from '@/content/offices'
 import { CATEGORIES } from '@/lib/products'
 import { cn } from '@/lib/cn'
@@ -233,22 +234,14 @@ export function Header() {
           </Link>
         </nav>
 
-        {/* Right cluster: phone · search · language · contact */}
-        <div className="ms-auto flex shrink-0 items-center gap-1.5 sm:gap-2 lg:ms-0">
-          <a
-            href={`tel:${CONTACT.phone}`}
-            aria-label={CONTACT.phoneDisplay}
-            className="hidden h-9 w-9 items-center justify-center rounded-xl text-slate-muted transition-colors hover:bg-brand-50 hover:text-brand-700 xl:flex"
-          >
-            <Phone className="h-4 w-4" aria-hidden />
-          </a>
-          <Link
-            href={`${base}/shop`}
-            aria-label={t('search')}
-            className="hidden h-9 w-9 items-center justify-center rounded-xl text-slate-muted transition-colors hover:bg-brand-50 hover:text-brand-700 sm:flex"
-          >
-            <Search className="h-4 w-4" aria-hidden />
-          </Link>
+        {/* Right cluster: phone · search · language · contact. Entering it
+            closes any open mega-menu, so panels never stack. */}
+        <div
+          className="ms-auto flex shrink-0 items-center gap-1.5 sm:gap-2 lg:ms-0"
+          onMouseEnter={() => setOpenMenu(null)}
+        >
+          <PhoneMenu />
+          <SearchMenu base={base} />
 
           <LocaleSwitcher compact />
 

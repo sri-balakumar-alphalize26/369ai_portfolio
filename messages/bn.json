@@ -384,7 +384,11 @@
     "specifications": "Specifications",
     "features": "Features",
     "relatedTitle": "Related hardware",
-    "galleryAlt": "Product image {n}"
+    "galleryAlt": "Product image {n}",
+    "popular": "বিশ্বজুড়ে জনপ্রিয়",
+    "prevImage": "পূর্ববর্তী ছবি",
+    "nextImage": "পরবর্তী ছবি",
+    "viewFull": "সম্পূর্ণ ছবি দেখুন"
   },
   "useCases": {
     "retail": "খুচরা কাউন্টার",

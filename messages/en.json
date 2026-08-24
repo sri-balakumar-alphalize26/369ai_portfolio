@@ -384,7 +384,11 @@
     "specifications": "Specifications",
     "features": "Features",
     "relatedTitle": "Related hardware",
-    "galleryAlt": "Product image {n}"
+    "galleryAlt": "Product image {n}",
+    "popular": "Popular worldwide",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "viewFull": "View full image"
   },
   "useCases": {
     "retail": "Retail Counter",
