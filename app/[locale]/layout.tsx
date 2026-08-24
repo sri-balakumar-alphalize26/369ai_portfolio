@@ -80,14 +80,25 @@ export default async function LocaleLayout({
       dir={isRtl(locale) ? 'rtl' : 'ltr'}
       className={`${body.variable} ${display.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
-        <NextIntlClientProvider>
-          <ScrollProgress />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Assistant />
-        </NextIntlClientProvider>
+      <body className="min-h-full">
+        {/* First-visit loading screen. One opaque HTML island via
+            dangerouslySetInnerHTML: React never reconciles inside it, so the
+            parse-time script can add classes and remove the node without
+            triggering a hydration mismatch that would resurrect the loader
+            (which is exactly what happened when these were separate React
+            nodes). Style inline so it never waits on the stylesheet; the spin
+            and its reduced-motion handling live inside the SVG itself. */}
+        <div dangerouslySetInnerHTML={{ __html: "<style>#page-loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--color-surface-alt,#f4f9fc);transition:opacity .45s ease,visibility .45s}#page-loader.done{opacity:0;visibility:hidden}#page-loader .mark{display:block;transition:transform .45s ease}#page-loader.done .mark{transform:scale(.85)}@media (max-width:767px){#page-loader img{width:60px;height:60px}}@media (prefers-reduced-motion:reduce){#page-loader{transition-duration:1ms}#page-loader .mark{transition:none}}</style><div id=\"page-loader\" role=\"status\" aria-live=\"polite\" aria-label=\"Loading\"><span class=\"mark\"><img src=\"/images/brand/369-loader.svg\" alt=\"\" width=\"72\" height=\"72\"></span></div><script>(function(){var l=document.getElementById(\"page-loader\");if(!l)return;var seen=false;try{seen=!!sessionStorage.getItem(\"369:seen\")}catch(e){}if(seen){l.parentNode.removeChild(l);return}var done=false;function dismiss(){if(done)return;done=true;try{sessionStorage.setItem(\"369:seen\",\"1\")}catch(e){}l.classList.add(\"done\");var removed=false;function rm(){if(removed)return;removed=true;if(l.parentNode)l.parentNode.removeChild(l)}l.addEventListener(\"transitionend\",rm);setTimeout(rm,600)}if(document.readyState===\"complete\"){dismiss()}else{window.addEventListener(\"load\",dismiss)}setTimeout(dismiss,6000)})();</script>" }} />
+
+        <div id="app-root" className="flex min-h-full flex-col">
+          <NextIntlClientProvider>
+            <ScrollProgress />
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <Assistant />
+          </NextIntlClientProvider>
+        </div>
       </body>
     </html>
   )
