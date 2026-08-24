@@ -25,9 +25,21 @@ export function Reveal({
     const el = ref.current
     if (!el) return
 
+    // Failing closed here means invisible content — the worst outcome. If
+    // the observer never fires for an element that is actually on screen
+    // (edge cases, extensions), reveal it anyway. Guarded by a viewport
+    // check so below-fold sections still wait for their scroll entrance.
+    const backstop = window.setTimeout(() => {
+      const r = el.getBoundingClientRect()
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        el.setAttribute('data-reveal', 'shown')
+      }
+    }, 2500)
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return
+        window.clearTimeout(backstop)
         el.setAttribute('data-reveal', 'shown')
         observer.disconnect()
         // The stagger delay has done its job once the entrance finishes;
@@ -39,7 +51,10 @@ export function Reveal({
       { rootMargin: '0px 0px -70px 0px', threshold: 0.05 }
     )
     observer.observe(el)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      window.clearTimeout(backstop)
+    }
   }, [delay])
 
   return (

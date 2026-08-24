@@ -66,31 +66,45 @@ export default async function AboutPage({
       <PageHero eyebrow={t('eyebrow')} title={t('title')} />
 
       <Section>
-        <div className="mx-auto max-w-3xl space-y-5 text-[1.05rem] leading-relaxed text-slate-body">
-          <p>{t('intro')}</p>
-          <p>{t('intro2')}</p>
-          <p>{t('intro3')}</p>
-        </div>
+        {/* Paragraph-level stagger — the paragraph is the smallest unit worth
+            animating on dense copy; anything finer makes people wait to read.
+            360ms total across the three. */}
+        <Reveal className="about-prose">
+          <div className="mx-auto max-w-3xl space-y-5 text-[1.05rem] leading-relaxed text-slate-body">
+            <p>{t('intro')}</p>
+            <p>{t('intro2')}</p>
+            <p>{t('intro3')}</p>
+          </div>
+        </Reveal>
       </Section>
 
       {/* Mission & Vision */}
       <Section tone="alt">
-        <div className="grid gap-6 lg:grid-cols-2">
-          {[
-            { Icon: Target, title: t('missionTitle'), body: t('missionBody') },
-            { Icon: Eye, title: t('visionTitle'), body: t('visionBody') },
-          ].map(({ Icon, title, body }, i) => (
-            <Reveal key={title} delay={i * 80}>
-              <article className="card-glow h-full rounded-panel border border-surface-line bg-white p-8">
-                <span className="flex h-12 w-12 items-center justify-center rounded-card bg-accent-50 text-accent-600">
+        {/* A matched pair, animated as ONE gesture: Mission converges from
+            the left, Vision from the right, Vision running 100ms behind so
+            they read as linked. Four beats per card: land → icon pop → the
+            orange rule wipes across the top edge. No card-glow here — its
+            hover ::before would collide with the top-rule ::before, and the
+            converge is the treatment. */}
+        <Reveal className="mv-pair">
+          <div className="grid gap-6 lg:grid-cols-2">
+            {[
+              { Icon: Target, title: t('missionTitle'), body: t('missionBody') },
+              { Icon: Eye, title: t('visionTitle'), body: t('visionBody') },
+            ].map(({ Icon, title, body }) => (
+              <article
+                key={title}
+                className="mv-card h-full rounded-panel border border-surface-line bg-white p-8"
+              >
+                <span className="mv-ic flex h-12 w-12 items-center justify-center rounded-card bg-accent-50 text-accent-600">
                   <Icon className="h-5 w-5" aria-hidden />
                 </span>
                 <h2 className="mt-6 text-2xl font-bold">{title}</h2>
                 <p className="mt-4 leading-relaxed text-slate-muted">{body}</p>
               </article>
-            </Reveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </Section>
 
       {/* What sets us apart */}

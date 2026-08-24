@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { Search, X, SlidersHorizontal } from 'lucide-react'
@@ -9,6 +9,40 @@ import { USE_CASES, categoryLabel, type ProductCardData, type UseCaseId } from '
 import { cn } from '@/lib/cn'
 
 type CategoryOption = { name: string; count: number }
+
+/**
+ * Tweens the results count toward its target — "75 products" counting down
+ * to "7 products" confirms the filter worked; a snapped number is easy to
+ * miss. Skipped under reduced motion.
+ */
+function useTweenedCount(target: number) {
+  const [display, setDisplay] = useState(target)
+  const fromRef = useRef(target)
+  useEffect(() => {
+    const from = fromRef.current
+    if (from === target) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      fromRef.current = target
+      setDisplay(target)
+      return
+    }
+    const t0 = performance.now()
+    let raf = 0
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - t0) / 400)
+      const eased = 1 - Math.pow(1 - p, 3)
+      setDisplay(Math.round(from + (target - from) * eased))
+      if (p < 1) raf = requestAnimationFrame(tick)
+      else fromRef.current = target
+    }
+    raf = requestAnimationFrame(tick)
+    return () => {
+      cancelAnimationFrame(raf)
+      fromRef.current = target
+    }
+  }, [target])
+  return display
+}
 
 /**
  * The hardware catalog browser: free-text search, category list and use-case
@@ -93,6 +127,87 @@ export function ShopBrowser({
   }, [products, category, useCase, query])
 
   const filtered = Boolean(category || useCase || query.trim())
+  const shownCount = useTweenedCount(results.length)
+  const visibleSlugs = useMemo(() => new Set(results.map((r) => r.slug)), [results])
+
+  // Sliding category marker: one bar that GLIDES between sidebar items
+  // instead of a highlight blinking on and off — on a long category list
+  // it shows where you came from as well as where you are. transform, not
+  // top: compositor-only, and it tweens between items of different heights.
+  const catWrapRef = useRef<HTMLDivElement>(null)
+  const markRef = useRef<HTMLSpanElement>(null)
+  useEffect(() => {
+    const wrap = catWrapRef.current
+    const mark = markRef.current
+    if (!wrap || !mark) return
+    const move = () => {
+      const active = wrap.querySelector<HTMLElement>(
+        `[data-cat="${CSS.escape(category ?? 'all')}"]`
+      )
+      if (!active || !active.offsetParent) {
+        mark.style.opacity = '0'
+        return
+      }
+      const wb = wrap.getBoundingClientRect()
+      const b = active.getBoundingClientRect()
+      mark.style.opacity = '1'
+      mark.style.height = `${b.height - 4}px`
+      mark.style.transform = `translateY(${b.top - wb.top + 2}px)`
+    }
+    move()
+    document.fonts?.ready.then(move).catch(() => {})
+    window.addEventListener('resize', move)
+    return () => window.removeEventListener('resize', move)
+  }, [category, filtersOpen])
+
+  // FLIP reflow: on every filter/search change, surviving cards glide from
+  // their previous grid position to the new one instead of snapping — with
+  // 75 products it is the difference between "something changed" and "I can
+  // see what changed". Rects are captured after every commit, so the
+  // previous commit's layout is the FLIP "first" state.
+  const gridRef = useRef<HTMLUListElement>(null)
+  const flipRects = useRef(new Map<string, DOMRect>())
+  useLayoutEffect(() => {
+    const grid = gridRef.current
+    if (!grid) return
+    const prev = flipRects.current
+    const next = new Map<string, DOMRect>()
+    const items = Array.from(grid.querySelectorAll<HTMLElement>('li[data-slug]'))
+    for (const el of items) {
+      if (!el.classList.contains('hidden')) {
+        next.set(el.dataset.slug as string, el.getBoundingClientRect())
+      }
+    }
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      for (const el of items) {
+        const b = next.get(el.dataset.slug as string)
+        if (!b) continue // still hidden — nothing to do
+        const a = prev.get(el.dataset.slug as string)
+        if (!a) {
+          // Was hidden, now shown. A FLIP from its zero-rect would fly it
+          // in from a meaningless position — fade+scale in place instead.
+          el.classList.add('flip-enter')
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => el.classList.remove('flip-enter'))
+          })
+          continue
+        }
+        const dx = a.left - b.left
+        const dy = a.top - b.top
+        if (!dx && !dy) continue
+        // Freeze at the old position, then clear BOTH inline values so the
+        // stylesheet transition (on li[data-slug]) animates it home — no
+        // inline transition left behind to fight later opacity fades.
+        el.style.transition = 'none'
+        el.style.transform = `translate(${dx}px, ${dy}px)`
+        requestAnimationFrame(() => {
+          el.style.transition = ''
+          el.style.transform = ''
+        })
+      }
+    }
+    flipRects.current = next
+  })
 
   return (
     <div className="grid gap-10 lg:grid-cols-[16rem_1fr]">
@@ -118,40 +233,48 @@ export function ShopBrowser({
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-faint">
               {t('categories')}
             </p>
-            <ul className="space-y-0.5">
-              <li>
-                <button
-                  type="button"
-                  onClick={() => setCategory(null)}
-                  className={cn(
-                    'flex w-full items-center justify-between gap-2 rounded-card px-3 py-2 text-start text-sm transition-colors',
-                    !category
-                      ? 'bg-brand-50 font-semibold text-brand-700'
-                      : 'text-slate-body hover:bg-surface-alt'
-                  )}
-                >
-                  {t('allProducts')}
-                  <span className="text-xs text-slate-faint">{products.length}</span>
-                </button>
-              </li>
-              {categories.map((c) => (
-                <li key={c.name}>
+            {/* The active highlight is the single .cat-mark bar behind the
+                list, positioned by the effect above — buttons only change
+                text weight/colour so the bar can glide between them. */}
+            <div ref={catWrapRef} className="relative">
+              <span ref={markRef} aria-hidden className="cat-mark" />
+              <ul className="space-y-0.5">
+                <li>
                   <button
                     type="button"
-                    onClick={() => setCategory(c.name)}
+                    data-cat="all"
+                    onClick={() => setCategory(null)}
                     className={cn(
-                      'flex w-full items-center justify-between gap-2 rounded-card px-3 py-2 text-start text-sm transition-colors',
-                      category === c.name
-                        ? 'bg-brand-50 font-semibold text-brand-700'
+                      'relative flex w-full items-center justify-between gap-2 rounded-card px-3 py-2 text-start text-sm transition-colors',
+                      !category
+                        ? 'font-semibold text-brand-700'
                         : 'text-slate-body hover:bg-surface-alt'
                     )}
                   >
-                    <span>{categoryLabel(c.name, tCat)}</span>
-                    <span className="text-xs text-slate-faint">{c.count}</span>
+                    {t('allProducts')}
+                    <span className="text-xs text-slate-faint">{products.length}</span>
                   </button>
                 </li>
-              ))}
-            </ul>
+                {categories.map((c) => (
+                  <li key={c.name}>
+                    <button
+                      type="button"
+                      data-cat={c.name}
+                      onClick={() => setCategory(c.name)}
+                      className={cn(
+                        'relative flex w-full items-center justify-between gap-2 rounded-card px-3 py-2 text-start text-sm transition-colors',
+                        category === c.name
+                          ? 'font-semibold text-brand-700'
+                          : 'text-slate-body hover:bg-surface-alt'
+                      )}
+                    >
+                      <span>{categoryLabel(c.name, tCat)}</span>
+                      <span className="text-xs text-slate-faint">{c.count}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div>
@@ -201,10 +324,10 @@ export function ShopBrowser({
           </label>
 
           <div className="flex items-center gap-3">
-            <p className="text-sm text-slate-muted">
-              {results.length === 1
-                ? t('resultsOne', { count: results.length })
-                : t('resultsOther', { count: results.length })}
+            <p className="text-sm tabular-nums text-slate-muted">
+              {shownCount === 1
+                ? t('resultsOne', { count: shownCount })
+                : t('resultsOther', { count: shownCount })}
             </p>
             {filtered ? (
               <button
@@ -219,16 +342,26 @@ export function ShopBrowser({
           </div>
         </div>
 
-        {results.length ? (
-          <ul className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {results.map((p) => (
-              <li key={p.slug}>
-                <ProductCard product={p} base={base} viewLabel={tc('viewDetails')} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div className="mt-8 rounded-panel border border-dashed border-surface-line bg-white p-12 text-center">
+        {/* All 75 cards stay mounted; filters toggle visibility so the FLIP
+            effect can glide the survivors into their new positions. */}
+        <ul
+          ref={gridRef}
+          className={cn(
+            'shop-grid mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3',
+            !results.length && 'hidden'
+          )}
+        >
+          {products.map((p) => (
+            <li key={p.slug} data-slug={p.slug} className={cn(!visibleSlugs.has(p.slug) && 'hidden')}>
+              <ProductCard product={p} base={base} viewLabel={tc('viewDetails')} />
+            </li>
+          ))}
+        </ul>
+        {!results.length ? (
+          <div
+            className="mt-8 rounded-panel border border-dashed border-surface-line bg-white p-12 text-center"
+            style={{ animation: 'word-rise .3s var(--ease-out-soft) both' }}
+          >
             <p className="text-slate-muted">{t('noResults')}</p>
             <button
               type="button"
@@ -238,7 +371,7 @@ export function ShopBrowser({
               {t('clearFilters')}
             </button>
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   )

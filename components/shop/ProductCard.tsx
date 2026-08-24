@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
@@ -36,22 +36,34 @@ export function ProductCard({
   const t = useTranslations('shop')
   const tCat = useTranslations('categories')
   const [index, setIndex] = useState(0)
+  // Fades each shot in once decoded, so a half-painted image never flashes.
+  const [loaded, setLoaded] = useState(false)
+  // Once the visitor pages manually, the hover image-cycle stands down.
+  const touched = useRef(false)
 
   const category = product.categories[0]
   const images = product.images
   const many = images.length > 1
 
+  function show(i: number) {
+    setLoaded(false)
+    setIndex(i)
+  }
+
   /** Wraps, so paging past either end continues rather than dead-ending. */
   function step(delta: number, e: React.MouseEvent) {
     e.preventDefault()
     e.stopPropagation()
+    touched.current = true
+    setLoaded(false)
     setIndex((i) => (i + delta + images.length) % images.length)
   }
 
   function jumpTo(i: number, e: React.MouseEvent) {
     e.preventDefault()
     e.stopPropagation()
-    setIndex(i)
+    touched.current = true
+    show(i)
   }
 
   return (
@@ -60,6 +72,14 @@ export function ProductCard({
         'card-glow group relative flex h-full flex-col overflow-hidden rounded-panel border border-surface-line bg-white transition-all duration-200 hover:-translate-y-1 hover:border-brand-400',
         className
       )}
+      // Hardware benefits from a second angle: hovering shows shot #2, and
+      // leaving returns to the first — unless the visitor took over paging.
+      onMouseEnter={() => {
+        if (many && !touched.current) show(1)
+      }}
+      onMouseLeave={() => {
+        if (many && !touched.current && index !== 0) show(0)
+      }}
     >
       {/* Odoo shot these on white at every aspect ratio going, so contain
           rather than cover — cropping them crops the product. */}
@@ -71,7 +91,16 @@ export function ProductCard({
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             quality={70}
-            className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+            // Cached images can finish before React attaches onLoad — the ref
+            // checks .complete so a cache hit still fades in immediately.
+            ref={(el) => {
+              if (el?.complete) setLoaded(true)
+            }}
+            onLoad={() => setLoaded(true)}
+            className={cn(
+              'object-contain p-2 transition-all duration-300 group-hover:scale-105',
+              loaded ? 'opacity-100' : 'opacity-0'
+            )}
           />
         ) : null}
 

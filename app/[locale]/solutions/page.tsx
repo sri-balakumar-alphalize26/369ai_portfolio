@@ -51,32 +51,36 @@ export default async function SolutionsPage({
       <Section>
         <div className="space-y-20 lg:space-y-28">
           {SOLUTIONS.map(({ key, Icon }, i) => (
-            <Reveal key={key}>
+            <Reveal key={key} className="sol-row">
               <div
                 id={key}
                 className={`grid scroll-mt-32 items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
                   i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''
                 }`}
               >
-                <div>
+                <div className="sol-text">
                   <span className="flex h-14 w-14 items-center justify-center rounded-panel bg-gradient-to-br from-brand-700 to-brand-500 text-white shadow-lg shadow-cyan-900/20">
                     <Icon className="h-6 w-6" aria-hidden />
                   </span>
                   <h2 className="mt-6 text-2xl font-bold sm:text-3xl">{t(`${key}.title`)}</h2>
                   <p className="mt-2 text-lg font-semibold text-accent-600">
-                    {t(`${key}.tagline`)}
+                    <span className="sol-tagline">{t(`${key}.tagline`)}</span>
                   </p>
                   <p className="mt-5 text-[1.05rem] leading-relaxed text-slate-body">
                     {t(`${key}.body`)}
                   </p>
-                  <ButtonLink href={`${base}/contact`} variant="outline" className="mt-7">
-                    {tc('talkToSales')}
+                  {/* learn-more: same bottom-up fill sweep as the homepage
+                      "Learn more" pill, so the two read as one button system.
+                      Label wrapped in a span — the sweep ::before is
+                      positioned and would paint above an unwrapped text node. */}
+                  <ButtonLink href={`${base}/contact`} variant="outline" className="learn-more mt-7">
+                    <span>{tc('talkToSales')}</span>
                     <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
                   </ButtonLink>
                 </div>
 
                 {/* Abstract brand panel rather than stock photography. */}
-                <div className="relative aspect-[4/3] overflow-hidden rounded-panel bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
+                <div className="sol-panel relative aspect-[4/3] overflow-hidden rounded-panel bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
                   <div
                     aria-hidden
                     className="aurora-blob aurora-a absolute h-72 w-72 opacity-40"
@@ -89,8 +93,9 @@ export default async function SolutionsPage({
                   />
                   <div aria-hidden className="dot-grid absolute inset-0 opacity-50" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Icon className="h-24 w-24 text-white/25" aria-hidden />
+                    <Icon className="sol-ghost h-24 w-24 text-white/25" aria-hidden />
                   </div>
+                  <span aria-hidden className="sol-sweep" />
                 </div>
               </div>
             </Reveal>

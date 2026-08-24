@@ -335,8 +335,33 @@
   .marquee-track { animation: none; }
   .hero-line-inner { transform: none; animation: none; }
   .svc-card[data-reveal] { transform: none; }
-  .pillars-connector { transform: scaleX(1); transition: none; }
-  .pillars-pulse { display: none; }
+  .mod-card[data-reveal] { transform: none; }
+  .pos-card .pos-badge { transform: scale(1); transition: none; animation: none !important; }
+  .pos-card .pos-tick path { stroke-dashoffset: 0; animation: none !important; }
+  .app-card[data-reveal] { clip-path: none; transition: none; animation: none !important; }
+  .app-ic-phone::after, .app-arrow, .app-dot { animation: none !important; transition: none !important; }
+  .app-w1, .app-w2, .app-slash { transition: none !important; }
+  .how-step .how-num b { transform: none; transition: none; }
+  .how-step .how-arrow { opacity: 1; transform: none; transition: none; }
+  .svc-preview .svc-ic,
+  .svc-preview h3::after { transition: none; }
+  .qr-pop { transition: none; transform: none; }
+  .logo-loader .ll-water { animation: none; height: 60%; clip-path: none; }
+  .cat-mark { transition: none; }
+  .shop-grid > li { transition: none; }
+  .shop-grid > li.flip-enter { opacity: 1; transform: none; }
+  .about-prose p { opacity: 1; translate: none; transition: none; }
+  .mv-card { opacity: 1; transform: none; transition: none; }
+  .mv-card .mv-ic { transform: scale(1); transition: none; }
+  .mv-card::before { transform: scaleX(1); transition: none; }
+  .sol-row .sol-text,
+  .sol-row .sol-panel { opacity: 1; transform: none; transition: none; }
+  .sol-sweep, .sol-ghost { animation: none !important; }
+  .sol-tagline::after { transform: scaleX(1); transition: none; }
+  .rf-item, .rf-out, .rf-hub { opacity: 1; animation: none !important; }
+  .rf-line, .rf-branch { stroke-dashoffset: 0; animation: none !important; }
+  .connected-line { transform: scaleX(1); transition: none; }
+  .connected-pulse { display: none; }
   .stat-rule { transform: scaleX(1); transition: none; }
   .stat-suffix,
   .stat-label { opacity: 1; transform: none; transition: none; }
@@ -466,6 +491,493 @@
 .glass-stagger > *:nth-child(4) { animation-delay: 0.2s; }
 
 /* ==================================================================
+   Home services preview ("Delivering excellence across every service")
+   — hover polish: icon pop, accent underline wipe, richer shadow.
+   Entrance + stagger come from Reveal on the li; the lift lives on the
+   card link itself (hover:-translate-y) — different elements, so the
+   entrance and hover transforms can never collide.
+   ================================================================== */
+.svc-preview .svc-ic { transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.svc-preview h3 { position: relative; display: inline-block; }
+.svc-preview h3::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: var(--color-accent-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[dir='rtl'] .svc-preview h3::after { transform-origin: right; }
+.svc-preview .svc-lead { transition: color 0.3s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .svc-preview a:hover { box-shadow: 0 12px 28px rgba(15, 30, 46, 0.1); }
+  .svc-preview a:hover .svc-ic { transform: scale(1.12) rotate(-6deg); }
+  [dir='rtl'] .svc-preview a:hover .svc-ic { transform: scale(1.12) rotate(6deg); }
+  .svc-preview a:hover h3::after { transform: scaleX(1); }
+  .svc-preview a:hover .svc-lead { color: var(--color-slate-body); }
+}
+
+/* ==================================================================
+   Products — "client requirements to outputs" flow. Client-supplied
+   animation rebuilt in components/products/RequirementsFlow.tsx; the
+   stage is a fixed 680px canvas that scales down as one unit.
+   ================================================================== */
+.rf-stage {
+  position: relative;
+  width: 680px;
+  height: 258px;
+  background: var(--color-surface-alt);
+  border-radius: 12px;
+  overflow: hidden;
+  transform-origin: top left;
+}
+/* The client mock reserved its top 60px for a heading; the page supplies
+   its own SectionHeader instead, so everything shifts up and crops. */
+.rf-shift { position: absolute; left: 0; top: -60px; width: 680px; height: 318px; }
+.rf-item, .rf-out, .rf-hub { opacity: 0; }
+.rf-item { position: absolute; width: 74px; text-align: center; }
+.rf-box {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--color-surface-line);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rf-label { margin-top: 7px; font-size: 11px; line-height: 1.25; color: var(--color-slate-body); }
+.rf-out {
+  position: absolute;
+  left: 510px;
+  width: 160px;
+  height: 46px;
+  background: #fff;
+  border: 1px solid var(--color-surface-line);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 14px;
+}
+.rf-hub {
+  position: absolute;
+  left: 386px;
+  top: 126px;
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border: 1px solid var(--color-surface-line);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.rf-line { stroke-dasharray: 640; stroke-dashoffset: 640; }
+.rf-branch { stroke-dasharray: 150; stroke-dashoffset: 150; }
+@keyframes rf-pop { from { opacity: 0; transform: translateY(12px) scale(0.9); } to { opacity: 1; transform: none; } }
+@keyframes rf-slide { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: none; } }
+@keyframes rf-draw { to { stroke-dashoffset: 0; } }
+@keyframes rf-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
+.rf-stage.run .rf-item { animation: rf-pop 0.55s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+.rf-stage.run .rf-out { animation: rf-slide 0.5s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+.rf-stage.run .rf-hub {
+  animation:
+    rf-pop 0.6s cubic-bezier(0.2, 0.8, 0.3, 1) 1.05s both,
+    rf-pulse 3s ease-in-out 1.8s infinite;
+}
+.rf-stage.run .rf-line { animation: rf-draw 1.3s ease-out 0.45s both; }
+.rf-stage.run .rf-branch { animation: rf-draw 0.7s ease-out 1.65s both; }
+
+/* ==================================================================
+   About page — intro prose stagger + Mission/Vision mirrored converge.
+   Prose: paragraph-level fade-up, 120ms apart — the paragraph is the
+   smallest unit worth animating on dense copy. Uses the `translate`
+   property so it can never collide with a transform. Mission/Vision:
+   the pair converges from opposite sides as one gesture (Vision 100ms
+   behind), then per card: icon pops (+560ms), orange rule wipes across
+   the top edge (+620ms). overflow:hidden clips the rule to the
+   rounded corners.
+   ================================================================== */
+.about-prose[data-reveal] { opacity: 1; transform: none; }
+.about-prose p {
+  opacity: 0;
+  translate: 0 12px;
+  transition: opacity 0.55s ease, translate 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.about-prose[data-reveal='shown'] p { opacity: 1; translate: 0 0; }
+.about-prose[data-reveal='shown'] p:nth-child(2) { transition-delay: 120ms; }
+.about-prose[data-reveal='shown'] p:nth-child(3) { transition-delay: 240ms; }
+
+.mv-pair[data-reveal] { opacity: 1; transform: none; }
+.mv-card {
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.42s ease, transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mv-card:nth-child(1) { transform: translateX(-26px); }
+.mv-card:nth-child(2) { transform: translateX(26px); }
+.mv-card .mv-ic {
+  transform: scale(0);
+  transition: transform 0.45s cubic-bezier(0.34, 1.6, 0.64, 1);
+}
+.mv-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  height: 2.5px;
+  width: 100%;
+  background: var(--color-accent-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[dir='rtl'] .mv-card::before { transform-origin: right; }
+.mv-pair[data-reveal='shown'] .mv-card { opacity: 1; transform: translateX(0); }
+.mv-pair[data-reveal='shown'] .mv-card:nth-child(2) { transition-delay: 100ms; }
+.mv-pair[data-reveal='shown'] .mv-card:nth-child(1) .mv-ic { transform: scale(1); transition-delay: 560ms; }
+.mv-pair[data-reveal='shown'] .mv-card:nth-child(2) .mv-ic { transform: scale(1); transition-delay: 660ms; }
+.mv-pair[data-reveal='shown'] .mv-card:nth-child(1)::before { transform: scaleX(1); transition-delay: 620ms; }
+.mv-pair[data-reveal='shown'] .mv-card:nth-child(2)::before { transform: scaleX(1); transition-delay: 720ms; }
+
+/* ==================================================================
+   Shop sidebar — sliding category marker. One bar glides between
+   items (components/shop/ShopBrowser.tsx positions it); height and
+   translateY are set from the measured active button, so it tweens
+   cleanly between items of different heights.
+   ================================================================== */
+.cat-mark {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 0;
+  border-radius: var(--radius-card);
+  background: var(--color-brand-50);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease;
+}
+/* FLIP home transition lives in the stylesheet (JS only freezes/clears
+   inline values), and newly-shown cards enter with a fade+scale. */
+.shop-grid > li {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+.shop-grid > li.flip-enter { opacity: 0; transform: scale(0.94); }
+
+/* ==================================================================
+   Mini water-fill logo loader — route transitions + locale switch.
+   Markup in components/ui/LogoLoader.tsx.
+   ================================================================== */
+.logo-loader { position: relative; display: block; width: 96px; height: 91px; }
+.logo-loader img { display: block; width: 96px; height: 91px; }
+.logo-loader .ll-ghost { filter: grayscale(1); opacity: 0.22; }
+.logo-loader .ll-water {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30%;
+  overflow: hidden;
+  clip-path: polygon(0 5%, 12% 0, 25% 5%, 37% 0, 50% 5%, 62% 0, 75% 5%, 87% 0, 100% 5%, 100% 100%, 0 100%);
+  animation:
+    ll-fill 2.6s ease-in-out infinite,
+    ll-ripple 1.2s ease-in-out infinite alternate;
+}
+.logo-loader .ll-water img { position: absolute; left: 0; bottom: 0; }
+@keyframes ll-fill { 0%, 100% { height: 12%; } 55% { height: 88%; } }
+@keyframes ll-ripple {
+  to { clip-path: polygon(0 0, 12% 5%, 25% 0, 37% 5%, 50% 0, 62% 5%, 75% 0, 87% 5%, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* ==================================================================
+   Footer QR popover — unfolds out of the chip's near corner.
+   ================================================================== */
+/* Origin at the corner nearest the chip: scaling from the centre reads as
+   "teleported in"; from the corner it reads as unfolding out of the button.
+   The easing overshoots slightly (1.4) — a pop, not a bounce. Kept mounted
+   and toggled via data-open so the close direction animates too. */
+.qr-pop {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.88);
+  transform-origin: bottom left;
+  transition:
+    opacity 0.2s ease,
+    transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1),
+    visibility 0.28s;
+}
+[dir='rtl'] .qr-pop { transform-origin: bottom right; }
+.qr-pop[data-open='true'] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+/* Caret welding the panel to the chip — a rotated square poking out of the
+   bottom edge, borders matching the panel ring so it reads as one shape. */
+.qr-pop::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  inset-inline-start: 24px;
+  width: 11px;
+  height: 11px;
+  background: #fff;
+  border-right: 1px solid var(--color-surface-line);
+  border-bottom: 1px solid var(--color-surface-line);
+  transform: rotate(45deg);
+}
+
+/* ==================================================================
+   Products page — ERP modules grid: scatter-pop reveal + quiet hover.
+   Cards scale and fade IN PLACE — nothing translates, so the 22-card
+   grid never looks like it is shuffling itself into position. Each
+   card has its own Reveal observer, so below-the-fold cards animate
+   as they arrive rather than finishing off-screen. Scatter delays are
+   set in the page markup.
+   ================================================================== */
+.mod-card[data-reveal] {
+  transform: scale(0.9);
+  transition-duration: 0.45s, 0.5s;
+}
+.mod-card[data-reveal='shown'] { transform: none; }
+.mod-card article { transition: border-color 0.28s ease, box-shadow 0.28s ease; }
+.mod-card .mod-num { transition: background-color 0.28s ease, color 0.28s ease; }
+.mod-card h3, .mod-card p { transition: color 0.25s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .mod-card:hover article {
+    border-color: var(--color-brand-400);
+    box-shadow: 0 6px 18px rgba(15, 30, 46, 0.07);
+  }
+  .mod-card:hover .mod-num { background: var(--color-brand-500); color: #fff; }
+  .mod-card:hover h3 { color: var(--color-brand-600); }
+  .mod-card:hover p { color: var(--color-slate-body); }
+}
+
+/* ==================================================================
+   Products page — How it works: relay reveal. Cards land 400ms apart
+   (Reveal inline delay), the connector arrow fires 250ms into each
+   gap so it reads as a handoff between arriving cards, and the big
+   number rolls up from behind its own baseline 130ms after its card.
+   Numbers and arrows have no hover states, so plain transition-delays
+   are safe here — nothing for a sticky delay to break.
+   ================================================================== */
+.how-step:nth-child(1) { --how-d: 0ms; }
+.how-step:nth-child(2) { --how-d: 400ms; }
+.how-step:nth-child(3) { --how-d: 800ms; }
+.how-step:nth-child(4) { --how-d: 1200ms; }
+/* height must equal line-height exactly — off by a pixel and the digits
+   sit off-baseline behind the mask. */
+.how-step .how-num { overflow: hidden; height: 48px; }
+.how-step .how-num b {
+  display: block;
+  line-height: 48px;
+  font-weight: inherit;
+  transform: translateY(105%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--how-d, 0ms) + 130ms);
+}
+.how-step[data-reveal='shown'] .how-num b { transform: translateY(0); }
+/* The arrow slides forward 7px — longer travel looks like it is being
+   thrown. Tailwind v4's rtl:rotate-180 is the separate `rotate`
+   property, which also flips this transform's direction under RTL. */
+.how-step .how-arrow {
+  opacity: 0;
+  transform: translateX(-7px);
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--how-d, 0ms) + 250ms);
+}
+.how-step[data-reveal='shown'] .how-arrow { opacity: 1; transform: translateX(0); }
+
+/* ==================================================================
+   Products page — Apps & desktop software: clip-wipe entrance + a
+   bespoke hover per icon. The card is REVEALED top-to-bottom (no fade,
+   no slide); each icon then animates its own meaning on hover — tap
+   ripple, install arrow, failing signal. Bespoke per-icon work only
+   pays off at this count: three cards, each with distinct meaning.
+   ================================================================== */
+.app-card:nth-child(1) { --app-d: 0ms; }
+.app-card:nth-child(2) { --app-d: 120ms; }
+.app-card:nth-child(3) { --app-d: 240ms; }
+/* Backstop: a zero-duration animation whose `to` frame forces the clip
+   open at 4s — if the reveal never fires for any reason, the worst
+   outcome must be "no animation", never three invisible cards. */
+.app-card[data-reveal] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+  clip-path: inset(100% 0 0 0);
+  animation: app-backstop 0s linear 4s forwards;
+}
+.app-card[data-reveal='shown'] {
+  clip-path: inset(0 0 0 0);
+  animation: app-wipe 0.65s cubic-bezier(0.16, 1, 0.3, 1) var(--app-d, 0ms) backwards;
+}
+@keyframes app-wipe { from { clip-path: inset(100% 0 0 0); } }
+@keyframes app-backstop { to { clip-path: inset(0 0 0 0); } }
+
+.app-ic { position: relative; }
+/* Phone: ripple ring expanding out of the tile + home dot pressing down —
+   together they read as a tap. */
+.app-ic-phone::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--color-accent-400);
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+}
+.app-dot { transition: transform 0.18s ease 0.12s; }
+/* Desktop: the download arrow falls into the monitor and repeats — it is
+   an installer, and it says so. */
+/* Offline: outer bars fail in sequence, then the slash strokes itself
+   across. Signal fails, then it's cut — the card's message in one gesture. */
+.app-w1, .app-w2 { transition: opacity 0.25s ease; }
+.app-slash {
+  stroke-dasharray: 26;
+  stroke-dashoffset: 26;
+  transition: stroke-dashoffset 0.45s ease-out;
+}
+@keyframes app-ripple {
+  0% { opacity: 0.55; transform: scale(0.7); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+@keyframes app-install {
+  0% { transform: translateY(-3px); opacity: 0; }
+  30% { opacity: 1; }
+  70% { transform: translateY(2px); opacity: 1; }
+  100% { transform: translateY(3px); opacity: 0; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .app-card:hover .app-ic-phone::after { animation: app-ripple 0.9s ease-out; }
+  .app-card:hover .app-dot { transform: translateY(1.5px); }
+  .app-card:hover .app-arrow { animation: app-install 1.1s ease-in-out infinite; }
+  .app-card:hover .app-w1 { opacity: 0.18; }
+  .app-card:hover .app-w2 { opacity: 0.18; transition-delay: 0.15s; }
+  .app-card:hover .app-slash { stroke-dashoffset: 0; transition-delay: 0.3s; }
+}
+
+/* ==================================================================
+   Products page — POS features: three-beat reveal. The card fades in
+   (Reveal, i*140ms inline), the badge pops with overshoot at +90ms,
+   the tick draws itself at +230ms — offsets that make it read as one
+   gesture, not three things firing at once. Badge/tick beats are CSS
+   ANIMATIONS, not transitions: animation-delay can never leak into
+   the hover transition (the classic sticky transition-delay trap).
+   ================================================================== */
+.pos-card:nth-child(1) { --pos-d: 0ms; }
+.pos-card:nth-child(2) { --pos-d: 140ms; }
+.pos-card:nth-child(3) { --pos-d: 280ms; }
+.pos-card:nth-child(4) { --pos-d: 420ms; }
+.pos-card:nth-child(5) { --pos-d: 560ms; }
+.pos-card:nth-child(6) { --pos-d: 700ms; }
+.pos-card article { transition: border-color 0.28s ease; }
+.pos-card .pos-badge { transform: scale(0); transition: transform 0.25s ease; }
+.pos-card .pos-tick path {
+  stroke: #fff;
+  stroke-width: 2.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* must be >= the path's length (getTotalLength() ≈ 20.6 for this tick) */
+  stroke-dasharray: 22;
+  stroke-dashoffset: 22;
+}
+.pos-card[data-reveal='shown'] .pos-badge {
+  transform: scale(1);
+  animation: pos-pop 0.42s cubic-bezier(0.34, 1.6, 0.64, 1) backwards;
+  animation-delay: calc(var(--pos-d, 0ms) + 90ms);
+}
+.pos-card[data-reveal='shown'] .pos-tick path {
+  stroke-dashoffset: 0;
+  animation: pos-tick 0.38s ease-out backwards;
+  animation-delay: calc(var(--pos-d, 0ms) + 230ms);
+}
+@keyframes pos-pop { from { transform: scale(0); } }
+@keyframes pos-tick { from { stroke-dashoffset: 22; } }
+/* Hover: a badge nudge and a border tint, nothing more — these cards
+   are not clickable, a lift would over-promise. (Must sit after the
+   shown rules: equal specificity, later wins.) */
+@media (hover: hover) and (pointer: fine) {
+  .pos-card:hover article { border-color: var(--color-brand-400); }
+  .pos-card:hover .pos-badge { transform: scale(1.1); }
+}
+
+/* ==================================================================
+   Solutions page — zigzag converge + panel light sweep + ghost float +
+   tagline underline wipe. Each row's halves slide in from opposite
+   edges and meet in the middle; direction flips per row (nth-child).
+   40px travel — larger reads as sliding furniture, small as settling.
+   ================================================================== */
+/* The Reveal wrapper only gates via data-reveal here — the halves carry
+   their own entrance, so neutralize the generic rise on the wrapper. */
+.sol-row[data-reveal] { opacity: 1; transform: none; }
+.sol-row .sol-text,
+.sol-row .sol-panel {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sol-row:nth-child(odd) .sol-text { transform: translateX(-40px); }
+.sol-row:nth-child(odd) .sol-panel { transform: translateX(40px); }
+.sol-row:nth-child(even) .sol-text { transform: translateX(40px); }
+.sol-row:nth-child(even) .sol-panel { transform: translateX(-40px); }
+.sol-row[data-reveal='shown'] .sol-text,
+.sol-row[data-reveal='shown'] .sol-panel { opacity: 1; transform: translateX(0); }
+.sol-row[data-reveal='shown'] .sol-panel { transition-delay: 0.1s; }
+
+/* One-shot light sweep across the dark panel, 450ms after the row lands —
+   a narrow rotated bar at 7% white, like a screen catching light. */
+.sol-sweep {
+  position: absolute;
+  top: -30%;
+  left: -40%;
+  width: 34px;
+  height: 170%;
+  background: #fff;
+  opacity: 0.07;
+  transform: rotate(18deg) translateX(-60px);
+  pointer-events: none;
+}
+.sol-row[data-reveal='shown'] .sol-sweep {
+  animation: sol-sweep 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.45s 1 forwards;
+}
+@keyframes sol-sweep { to { transform: rotate(18deg) translateX(680px); } }
+
+/* Ghost icon floats ±7px over 5s — barely perceptible, but the big panel
+   stops feeling like dead placeholder space. */
+@keyframes sol-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+.sol-ghost { animation: sol-float 5s ease-in-out infinite; }
+
+/* Accent underline wipes in under the tagline once the text has landed. */
+.sol-tagline { position: relative; display: inline-block; }
+.sol-tagline::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: var(--color-accent-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+}
+[dir='rtl'] .sol-tagline::after { transform-origin: right; }
+.sol-row[data-reveal='shown'] .sol-tagline::after { transform: scaleX(1); }
+
+/* ==================================================================
    Services page — alternating slide-in + accent-bar hover.
    ================================================================== */
 /* Cards slide in from alternating sides, staggered per ROW by the delay the
@@ -546,11 +1058,13 @@
 .stat-done .stat-label { opacity: 1; transform: none; }
 
 /* ==================================================================
-   "One connected platform" — connector line + travelling pulse.
+   Connected card rows (pillars, services preview) — a connector line +
+   travelling pulse behind a row of opaque cards. Markup lives in
+   components/ui/ConnectedStage.tsx.
    ================================================================== */
-.pillars-stage { position: relative; }
-.pillars-grid > li { position: relative; z-index: 1; }
-.pillars-connector {
+.connected-stage { position: relative; }
+.connected-grid > li { position: relative; z-index: 1; }
+.connected-line {
   position: absolute;
   top: 50px; /* icon tile centre: 28px card padding + half the 44px tile */
   inset-inline: 8%;
@@ -560,9 +1074,9 @@
   transform-origin: left;
   transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 }
-[dir='rtl'] .pillars-connector { transform-origin: right; }
-.pillars-stage[data-inview='true'] .pillars-connector { transform: scaleX(1); }
-.pillars-pulse {
+[dir='rtl'] .connected-line { transform-origin: right; }
+.connected-stage[data-inview='true'] .connected-line { transform: scaleX(1); }
+.connected-pulse {
   position: absolute;
   top: 46px;
   inset-inline-start: 8%;
@@ -574,19 +1088,25 @@
 }
 /* transform-based (never left) so it stays on the compositor; distance is
    measured in JS into --travel. Only animates while the stage is on screen. */
-.pillars-stage[data-inview='true'] .pillars-pulse {
-  animation: pillar-travel 2.6s cubic-bezier(0.45, 0, 0.55, 1) 1.1s infinite;
+.connected-stage[data-inview='true'] .connected-pulse {
+  animation: connected-travel 2.6s cubic-bezier(0.45, 0, 0.55, 1) 1.1s infinite;
 }
-@keyframes pillar-travel {
+@keyframes connected-travel {
   0% { transform: translateX(0); opacity: 0; }
   8% { opacity: 1; }
   92% { opacity: 1; }
   100% { transform: translateX(var(--travel, 600px)); opacity: 0; }
 }
-.pillar-card { transition: opacity 0.3s ease, border-color 0.3s ease; }
+/* Hover dim applies to the card's CONTENT, never the card element itself:
+   card opacity < 1 would make the white background translucent and reveal
+   the connector line running full-width behind the row (it relies on
+   opaque cards to stay hidden outside the gaps). */
+.pillar-card { transition: border-color 0.3s ease; }
+.pillar-card > * { transition: opacity 0.3s ease; }
 @media (hover: hover) and (pointer: fine) {
-  .pillars-grid:hover .pillar-card { opacity: 0.45; }
-  .pillars-grid .pillar-card:hover { opacity: 1; border-color: var(--color-brand-400); }
+  .pillars-grid:hover .pillar-card > * { opacity: 0.45; }
+  .pillars-grid .pillar-card:hover > * { opacity: 1; }
+  .pillars-grid .pillar-card:hover { border-color: var(--color-brand-400); }
 }
 
 /* ==================================================================

@@ -21,6 +21,7 @@ import { LeadershipVideos } from '@/components/home/LeadershipVideos'
 import { AppIntegrations } from '@/components/home/AppIntegrations'
 import { PRODUCTS, toCardData } from '@/lib/products'
 import { ConnectedPillars } from '@/components/home/ConnectedPillars'
+import { ConnectedStage } from '@/components/ui/ConnectedStage'
 import { RotatingTitle } from '@/components/home/RotatingTitle'
 import { HardwareStrip } from '@/components/home/HardwareStrip'
 
@@ -121,24 +122,29 @@ export default async function HomePage({
       {/* ------------------------------------------------------------- Services */}
       <Section tone="alt">
         <SectionHeader eyebrow={t('servicesEyebrow')} title={t('servicesTitle')} />
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {EXTRA_SERVICES.map(({ key, Icon }, i) => (
-            <Reveal as="li" key={key} delay={i * 70}>
-              <Link
-                href={`${base}/services#${key}`}
-                className="card-glow flex h-full flex-col rounded-panel border border-surface-line bg-white p-7 transition-all duration-200 hover:-translate-y-1.5 hover:border-brand-400 active:translate-y-0"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-card bg-accent-50 text-accent-600">
-                  <Icon className="h-5 w-5" aria-hidden />
-                </span>
-                <h3 className="mt-5 text-lg font-semibold">{ts(`${key}.title`)}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-slate-muted">
-                  {ts(`${key}.lead`)}
-                </p>
-              </Link>
-            </Reveal>
-          ))}
-        </ul>
+        {/* Same connector-line + pulse treatment as the pillars row — both
+            are four opaque p-7 cards with h-11 icon tiles, so the shared
+            stage geometry lines up with the icons here too. */}
+        <ConnectedStage className="mt-14">
+          <ul className="connected-grid svc-preview grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {EXTRA_SERVICES.map(({ key, Icon }, i) => (
+              <Reveal as="li" key={key} delay={i * 70}>
+                <Link
+                  href={`${base}/services#${key}`}
+                  className="card-glow flex h-full flex-col rounded-panel border border-surface-line bg-white p-7 transition-all duration-200 hover:-translate-y-1.5 hover:border-accent-400 active:translate-y-0"
+                >
+                  <span className="svc-ic flex h-11 w-11 items-center justify-center rounded-card bg-accent-50 text-accent-600">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </span>
+                  <h3 className="mt-5 text-lg font-semibold">{ts(`${key}.title`)}</h3>
+                  <p className="svc-lead mt-2.5 text-sm leading-relaxed text-slate-muted">
+                    {ts(`${key}.lead`)}
+                  </p>
+                </Link>
+              </Reveal>
+            ))}
+          </ul>
+        </ConnectedStage>
         <div className="mt-10 text-center">
           <ButtonLink href={`${base}/services`} variant="outline">
             {tc('seeAll')}
