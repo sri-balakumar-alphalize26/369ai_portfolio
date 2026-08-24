@@ -176,6 +176,7 @@ export async function Footer() {
                   url={mapsUrl(office.mapsQuery)}
                   title={`369AI ${office.country} — ${office.city}`}
                   label={tContact('scanForAddress')}
+                  mapsLabel={tContact('openInMaps')}
                 />
               </li>
             ))}

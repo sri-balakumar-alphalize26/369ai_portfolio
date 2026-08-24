@@ -439,6 +439,7 @@
     "officesTitle": "Our offices",
     "officesBody": "Six locations across four countries. Scan an office's QR code to open it directly in Google Maps.",
     "scanForAddress": "Scan for directions",
+    "openInMaps": "Open in Google Maps",
     "form": {
       "name": "Your name",
       "phone": "Phone number",
@@ -573,5 +574,23 @@
     "robots-reception-robot-206": "Reception Robot",
     "robots-delivery-robot-207": "Delivery Robot",
     "robots-patrol-robot-208": "Patrol Robot"
+  },
+  "builder": {
+    "title": "Client requirements to outputs",
+    "body": "Whatever logic the client asks for, we convert the idea into a usable solution.",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "qr": "QR scanning",
+    "payments": "Payments",
+    "access": "Smart access & locking",
+    "lockScreen": "Lock screen",
+    "attendance": "Attendance",
+    "gps": "GPS tracking",
+    "dashboards": "Dashboards",
+    "robots": "Service & ad robots",
+    "weBuildIt": "we build it",
+    "mobileApp": "Mobile app",
+    "webPortal": "Web portal",
+    "hardware": "Hardware"
   }
 }

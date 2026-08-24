@@ -439,6 +439,7 @@
     "officesTitle": "我们的办公室",
     "officesBody": "横跨四个国家的六个办公地点。扫描办公室的二维码，即可直接在 Google 地图中打开位置。",
     "scanForAddress": "扫码获取路线",
+    "openInMaps": "在 Google 地图中打开",
     "form": {
       "name": "您的姓名",
       "phone": "电话号码",
@@ -573,5 +574,23 @@
     "robots-reception-robot-206": "接待机器人",
     "robots-delivery-robot-207": "配送机器人",
     "robots-patrol-robot-208": "巡逻机器人"
+  },
+  "builder": {
+    "title": "从客户需求到成果交付",
+    "body": "无论客户提出什么逻辑，我们都能把想法变成可用的解决方案。",
+    "whatsapp": "WhatsApp",
+    "email": "电子邮件",
+    "qr": "二维码扫描",
+    "payments": "支付",
+    "access": "智能门禁与锁控",
+    "lockScreen": "锁屏",
+    "attendance": "考勤",
+    "gps": "GPS 定位",
+    "dashboards": "数据看板",
+    "robots": "服务与广告机器人",
+    "weBuildIt": "我们来实现",
+    "mobileApp": "移动应用",
+    "webPortal": "网页门户",
+    "hardware": "硬件"
   }
 }

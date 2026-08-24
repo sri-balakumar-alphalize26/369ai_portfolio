@@ -439,6 +439,7 @@
     "officesTitle": "Nos bureaux",
     "officesBody": "Six sites répartis dans quatre pays. Scannez le QR code d’un bureau pour l’ouvrir directement dans Google Maps.",
     "scanForAddress": "Scanner pour l’itinéraire",
+    "openInMaps": "Ouvrir dans Google Maps",
     "form": {
       "name": "Votre nom",
       "phone": "Numéro de téléphone",
@@ -573,5 +574,23 @@
     "robots-reception-robot-206": "Robot d’accueil",
     "robots-delivery-robot-207": "Robot de livraison",
     "robots-patrol-robot-208": "Robot de patrouille"
+  },
+  "builder": {
+    "title": "Des besoins client aux livrables",
+    "body": "Quelle que soit la logique demandée par le client, nous transformons l’idée en solution utilisable.",
+    "whatsapp": "WhatsApp",
+    "email": "E-mail",
+    "qr": "Scan QR",
+    "payments": "Paiements",
+    "access": "Accès intelligent et verrouillage",
+    "lockScreen": "Écran de verrouillage",
+    "attendance": "Pointage",
+    "gps": "Suivi GPS",
+    "dashboards": "Tableaux de bord",
+    "robots": "Robots de service et publicitaires",
+    "weBuildIt": "nous le construisons",
+    "mobileApp": "Application mobile",
+    "webPortal": "Portail web",
+    "hardware": "Matériel"
   }
 }

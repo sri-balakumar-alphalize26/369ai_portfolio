@@ -439,6 +439,7 @@
     "officesTitle": "Unsere Standorte",
     "officesBody": "Sechs Standorte in vier Ländern. Scannen Sie den QR-Code eines Standorts, um ihn direkt in Google Maps zu öffnen.",
     "scanForAddress": "Für Wegbeschreibung scannen",
+    "openInMaps": "In Google Maps öffnen",
     "form": {
       "name": "Ihr Name",
       "phone": "Telefonnummer",
@@ -573,5 +574,23 @@
     "robots-reception-robot-206": "Empfangsroboter",
     "robots-delivery-robot-207": "Lieferroboter",
     "robots-patrol-robot-208": "Patrouillenroboter"
+  },
+  "builder": {
+    "title": "Von Kundenanforderungen zum Ergebnis",
+    "body": "Welche Logik der Kunde auch verlangt — wir machen aus der Idee eine einsatzfähige Lösung.",
+    "whatsapp": "WhatsApp",
+    "email": "E-Mail",
+    "qr": "QR-Scan",
+    "payments": "Zahlungen",
+    "access": "Smarter Zugang & Verriegelung",
+    "lockScreen": "Sperrbildschirm",
+    "attendance": "Zeiterfassung",
+    "gps": "GPS-Ortung",
+    "dashboards": "Dashboards",
+    "robots": "Service- & Werberoboter",
+    "weBuildIt": "wir bauen es",
+    "mobileApp": "Mobile App",
+    "webPortal": "Webportal",
+    "hardware": "Hardware"
   }
 }
