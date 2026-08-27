@@ -24,10 +24,13 @@ function prefersReducedMotion() {
  * quiet label, and a hairline rule under each item.
  *
  * One observer on the whole band starts the show once at 40% visibility;
- * columns then land left to right 150ms apart, each with its own resolution
- * beat: number counts (eased rAF), the rule draws underneath, and only when
- * the number settles do the suffix pop and the label rise. Screen readers
- * hear the final value once via sr-only text, never the ticking number.
+ * columns then land left to right 150ms apart. Within a column, ONE eased
+ * progress value drives both the digits and the accent fill over the
+ * hairline — the same animation rendered twice, so they cannot drift apart
+ * (two separate animations at the same duration still desync: different
+ * curves, different start frames). Only when that value settles do the
+ * suffix pop and the label rise. Screen readers hear the final value once
+ * via sr-only text, never the ticking number.
  */
 export function StatsRow({ title }: { title: string }) {
   const t = useTranslations('stats')
@@ -54,11 +57,7 @@ export function StatsRow({ title }: { title: string }) {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <h2 className="text-center text-lg font-medium text-slate-muted">{title}</h2>
 
-        <dl
-          ref={ref}
-          data-stats-run={run}
-          className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
-        >
+        <dl ref={ref} className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
           {STATS.map((stat, i) => (
             <StatItem
               key={stat.key}
@@ -88,8 +87,9 @@ function StatItem({
   run: boolean
   delay: number
 }) {
+  const numRef = useRef<HTMLSpanElement>(null)
+  const fillRef = useRef<HTMLSpanElement>(null)
   // Under reduced motion everything renders settled from the first frame.
-  const [shown, setShown] = useState(() => (prefersReducedMotion() ? value : 0))
   const [done, setDone] = useState(prefersReducedMotion)
 
   useEffect(() => {
@@ -98,14 +98,17 @@ function StatItem({
 
     let frame = 0
     const timer = setTimeout(() => {
-      const duration = 1400
+      const duration = 1500
       const start = performance.now()
       const tick = (now: number) => {
-        const progress = Math.min((now - start) / duration, 1)
-        // easeOutExpo — sprints, then settles
-        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress)
-        setShown(Math.round(eased * value))
-        if (progress < 1) frame = requestAnimationFrame(tick)
+        const p = Math.min((now - start) / duration, 1)
+        const e = 1 - Math.pow(1 - p, 3) // easeOutCubic
+        // Digits and fill are written from the SAME eased value in the same
+        // frame — the one animation rendered twice, so they can't drift.
+        // Direct DOM writes, not state: 90 renders/frame buys nothing here.
+        if (numRef.current) numRef.current.textContent = String(Math.round(value * e))
+        if (fillRef.current) fillRef.current.style.width = `${(e * 100).toFixed(1)}%`
+        if (p < 1) frame = requestAnimationFrame(tick)
         else setDone(true)
       }
       frame = requestAnimationFrame(tick)
@@ -131,7 +134,7 @@ function StatItem({
           aria-hidden
           className="block text-4xl font-bold tabular-nums text-ink transition-colors duration-300 group-hover:text-brand-600 sm:text-5xl lg:text-6xl"
         >
-          {shown}
+          <span ref={numRef}>{done ? value : 0}</span>
           <span className="stat-suffix">{suffix}</span>
         </span>
       </dd>
@@ -141,12 +144,17 @@ function StatItem({
       >
         {label}
       </dt>
-      {/* Hairline rule: draws in with the count, thickens and turns blue on hover. */}
-      <span
-        aria-hidden
-        style={{ transitionDelay: undefined }}
-        className="stat-rule mt-4 block h-px w-full origin-left bg-surface-line group-hover:h-0.5 group-hover:bg-brand-500"
-      />
+      {/* The accent rides OVER the hairline track — slightly thicker (2px vs
+          1px) so it reads as filling the rule, not recolouring it. Width is
+          set by the same eased value as the digits. */}
+      <span aria-hidden className="relative mt-4 block h-0.5 w-full">
+        <span className="absolute inset-x-0 bottom-0 h-px bg-surface-line" />
+        <span
+          ref={fillRef}
+          className="stat-fill absolute bottom-0 start-0 h-0.5 rounded-full bg-brand-500"
+          style={{ width: done ? '100%' : '0%' }}
+        />
+      </span>
     </div>
   )
 }

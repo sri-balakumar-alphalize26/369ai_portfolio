@@ -5,16 +5,18 @@ import {
   HeartHandshake,
   ShieldCheck,
   LifeBuoy,
-  Factory,
-  Wrench,
+  Boxes,
+  Smartphone,
   MonitorCog,
-  BadgeCheck,
-  Clock,
+  Store,
+  Network,
   Target,
   Eye,
 } from 'lucide-react'
 import { Section, SectionHeader } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
+import { DeckReveal } from '@/components/ui/DeckReveal'
+import { RevealGroup } from '@/components/ui/RevealGroup'
 import { PageHero } from '@/components/ui/PageHero'
 import { StatsRow } from '@/components/home/StatsRow'
 import { locales } from '@/i18n/routing'
@@ -26,14 +28,15 @@ const DIFFERENTIATORS = [
   { key: 'support', Icon: LifeBuoy },
 ] as const
 
-/** "Everything you need" — laid out as a bento grid, not a uniform row. */
+/** "Everything you need" — six equal cards: two clean rows of three, no
+    ragged slot for the entrance animation to draw attention to. */
 const EVERYTHING = [
-  { key: 'e1', Icon: Clock, span: 'sm:col-span-2' },
-  { key: 'e2', Icon: Wrench, span: '' },
-  { key: 'e3', Icon: Factory, span: '' },
-  { key: 'e4', Icon: BadgeCheck, span: '' },
-  { key: 'e5', Icon: MonitorCog, span: 'sm:col-span-2' },
-  { key: 'e6', Icon: ShieldCheck, span: '' },
+  { key: 'e1', Icon: Boxes },
+  { key: 'e2', Icon: Smartphone },
+  { key: 'e3', Icon: MonitorCog },
+  { key: 'e4', Icon: Store },
+  { key: 'e5', Icon: Network },
+  { key: 'e6', Icon: ShieldCheck },
 ] as const
 
 export function generateStaticParams() {
@@ -107,12 +110,12 @@ export default async function AboutPage({
         </Reveal>
       </Section>
 
-      {/* What sets us apart */}
+      {/* What sets us apart — cards deal out of a centered deck (DeckReveal) */}
       <Section>
         <SectionHeader title={t('featuresTitle')} />
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {DIFFERENTIATORS.map(({ key, Icon }, i) => (
-            <Reveal as="li" key={key} delay={i * 60}>
+        <DeckReveal className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {DIFFERENTIATORS.map(({ key, Icon }) => (
+            <li key={key} className="deck-card">
               <div className="card-glow h-full rounded-panel border border-surface-line bg-white p-7">
                 <span className="flex h-11 w-11 items-center justify-center rounded-card bg-brand-50 text-brand-600">
                   <Icon className="h-5 w-5" aria-hidden />
@@ -122,21 +125,26 @@ export default async function AboutPage({
                   {t(`${key}.body`)}
                 </p>
               </div>
-            </Reveal>
+            </li>
           ))}
-        </ul>
+        </DeckReveal>
       </Section>
 
       <StatsRow title={th('statsTitle')} />
 
-      {/* Everything you need — bento */}
+      {/* Everything you need — cards drop in, icon tiles flood (RevealGroup) */}
       <Section tone="alt">
         <SectionHeader title={t('everythingTitle')} body={t('everythingBody')} />
-        <ul className="mt-14 grid gap-5 sm:grid-cols-3">
-          {EVERYTHING.map(({ key, Icon, span }, i) => (
-            <Reveal as="li" key={key} delay={i * 55} className={span}>
+        <RevealGroup className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {EVERYTHING.map(({ key, Icon }, i) => (
+            <li
+              key={key}
+              className="flood-card"
+              style={{ '--d': `${i * 100}ms` } as React.CSSProperties}
+            >
               <div className="card-glow flex h-full flex-col rounded-panel border border-surface-line bg-white p-7">
-                <span className="flex h-11 w-11 items-center justify-center rounded-card bg-gradient-to-br from-brand-700 to-brand-500 text-white">
+                <span className="icon-tile flex h-11 w-11 items-center justify-center rounded-card">
+                  <span className="flood" aria-hidden />
                   <Icon className="h-5 w-5" aria-hidden />
                 </span>
                 <h3 className="mt-5 text-lg font-semibold">{t(`${key}.title`)}</h3>
@@ -144,9 +152,9 @@ export default async function AboutPage({
                   {t(`${key}.body`)}
                 </p>
               </div>
-            </Reveal>
+            </li>
           ))}
-        </ul>
+        </RevealGroup>
       </Section>
     </>
   )

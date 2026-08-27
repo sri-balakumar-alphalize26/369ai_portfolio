@@ -362,7 +362,7 @@
   .rf-line, .rf-branch { stroke-dashoffset: 0; animation: none !important; }
   .connected-line { transform: scaleX(1); transition: none; }
   .connected-pulse { display: none; }
-  .stat-rule { transform: scaleX(1); transition: none; }
+  .stat-fill { width: 100% !important; }
   .stat-suffix,
   .stat-label { opacity: 1; transform: none; transition: none; }
 
@@ -1028,17 +1028,14 @@
 }
 
 /* ==================================================================
-   Stats band — rule draw + suffix pop + label rise.
+   Stats band — suffix pop + label rise. The count and the underline
+   fill are NOT here: both are written every frame from one shared
+   eased value in StatsRow.tsx (rAF, easeOutCubic), so they cannot
+   drift apart — two separate animations at the same duration still
+   desync (different curves, different start frames). The .stat-fill
+   accent (2px, brand) rides over the 1px hairline track; no
+   transition on it, its width IS the animation.
    ================================================================== */
-.stat-rule {
-  transform: scaleX(0);
-  transform-origin: left;
-  transition:
-    transform 0.7s var(--ease-out-soft),
-    background-color 0.3s ease,
-    height 0.3s ease;
-}
-[data-stats-run='true'] .stat-rule { transform: scaleX(1); }
 .stat-suffix {
   display: inline-block;
   opacity: 0;
@@ -1509,3 +1506,184 @@
   .integrations .wire-glow{display:none}
 }
 
+
+/* ==================================================================
+   OUR APPS — scroll-stacking cards (/[locale]/apps)
+   The habsy.ai mechanic: every card is sticky at the SAME top offset
+   inside a plain block container, so each new card slides up and
+   fully covers the one pinned beneath it. The container must NOT be
+   grid/flex — a sticky grid item's containing block is its own grid
+   area, which leaves it no room to pin at all. The covered card's
+   scale/brightness respond to --covered (0→1), measured in
+   AppsStack.tsx. Transform and filter only — GPU-friendly and
+   direction-agnostic, so RTL needs no overrides. Sticky stays on
+   under prefers-reduced-motion (it is scroll-anchored layout, not
+   motion); only the scale/dim response is switched off, and the JS
+   handler never attaches.
+   ================================================================== */
+.apps-stack{position:relative}
+.stack-card{
+  position:sticky;
+  /* Same for ALL cards (full cover); 6.5rem clears the capsule header. */
+  top:6.5rem;
+  transform-origin:center top;
+  transform:scale(calc(1 - 0.05 * var(--covered, 0)));
+  filter:brightness(calc(1 - 0.12 * var(--covered, 0)));
+}
+/* Scroll runway: card 1 sits pinned alone for ~40vh before card 2 arrives. */
+.stack-card + .stack-card{margin-top:clamp(8rem, 40vh, 24rem)}
+
+@media (prefers-reduced-motion:reduce){
+  .stack-card{transform:none!important;filter:none!important}
+}
+
+/* ==================================================================
+   ABOUT — deck fan-in ("Features that set us apart")
+   Cards start gathered at the grid's center like a fanned deck (each
+   card's travel is MEASURED into --dx by DeckReveal.tsx, so it works
+   at any column count) and deal out to their grid slots on reveal.
+   translate/rotate/scale as SEPARATE properties, not one transform —
+   that's what lets card-glow's hover transform compose cleanly
+   instead of colliding. The fan is ±2.6° per step: much past 4° it
+   stops reading as a deck and starts looking like broken layout.
+   ================================================================== */
+.deck-card{
+  opacity:0;
+  translate:var(--dx, 0px) 8px;
+  rotate:var(--rot, 0deg);
+  scale:.94;
+  transition:opacity .45s ease,
+             translate .72s cubic-bezier(.18,.9,.28,1),
+             rotate .72s cubic-bezier(.18,.9,.28,1),
+             scale .72s cubic-bezier(.18,.9,.28,1),
+             transform .3s ease;
+}
+.is-visible>.deck-card{opacity:1;translate:0 0;rotate:0deg;scale:1}
+
+@media (prefers-reduced-motion:reduce){
+  .deck-card{opacity:1!important;translate:none!important;rotate:none!important;scale:none!important;transition:none!important}
+}
+
+/* ==================================================================
+   ABOUT — "Everything you need": card drop + icon-tile flood.
+   One --d per card (inline, 100ms steps) drives all three beats —
+   card drop, flood, glyph flip — so there are no separate inline
+   delays to get left behind. The drop's bezier overshoots very
+   slightly (.2,.9,.3,1.06): six cards settling, not sliding to a
+   hard stop. The flood is a scaleY overlay inside the tile;
+   overflow:hidden clips it to the rounded corners, and the glyph's
+   colour flip lags the flood start so it changes while the fill is
+   behind it, not before. translate as its own property — card-glow's
+   hover transform composes instead of colliding.
+   ================================================================== */
+.flood-card{
+  opacity:0;
+  translate:0 -14px;
+  transition:opacity .4s ease var(--d, 0ms),
+             translate .6s cubic-bezier(.2,.9,.3,1.06) var(--d, 0ms),
+             transform .3s ease;
+}
+.is-visible>.flood-card{opacity:1;translate:0 0}
+
+.icon-tile{position:relative;overflow:hidden;background:var(--color-brand-50)}
+.icon-tile .flood{
+  position:absolute;inset:0;
+  background:var(--brand-gradient);
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform .55s cubic-bezier(.16,1,.3,1) calc(var(--d, 0ms) + 220ms);
+}
+.is-visible .icon-tile .flood{transform:scaleY(1)}
+.icon-tile svg{
+  position:relative;z-index:1;color:var(--color-brand-600);
+  transition:color .3s ease calc(var(--d, 0ms) + 400ms);
+}
+.is-visible .icon-tile svg{color:#fff}
+
+@media (prefers-reduced-motion:reduce){
+  .flood-card{opacity:1!important;translate:none!important;transition:none!important}
+  .icon-tile .flood{transform:none!important;transition:none!important}
+  .icon-tile svg{color:#fff!important;transition:none!important}
+}
+
+/* ==================================================================
+   OUR APPS — "What each app does": rail draw + bullet slide.
+   Each card's feature list reads as a checklist completing: a rail
+   (::before on .app-list) draws top to bottom while the bullets
+   slide in beside it, 80ms apart. Each dot punches a hole in the
+   rail with a ring in the card's background colour, so the line
+   appears to pass behind it. One --d per card drives every beat;
+   the stagger is by ROW PAIR (set inline as floor(i/2)*160ms) —
+   ten individually staggered cards would run 1.6s before the last
+   moved, pairs land together in five beats. Logical inset/padding
+   properties keep the rail on the correct side in RTL.
+   ================================================================== */
+.appd-card{
+  opacity:0;
+  translate:0 10px;
+  transition:opacity .45s ease var(--d, 0ms),
+             translate .55s cubic-bezier(.16,1,.3,1) var(--d, 0ms),
+             transform .3s ease;
+}
+.is-visible>.appd-card{opacity:1;translate:0 0}
+
+.app-list{position:relative;padding-inline-start:15px;list-style:none}
+.app-list::before{
+  content:"";position:absolute;inset-inline-start:3px;top:4px;bottom:4px;
+  width:1.5px;background:var(--color-surface-line);
+  transform:scaleY(0);transform-origin:top;
+  transition:transform .7s cubic-bezier(.16,1,.3,1) calc(var(--d, 0ms) + 180ms);
+}
+.is-visible .app-list::before{transform:scaleY(1)}
+
+.app-list li{
+  position:relative;
+  opacity:0;translate:-6px 0;
+  transition:opacity .35s ease,translate .4s cubic-bezier(.16,1,.3,1);
+}
+[dir='rtl'] .app-list li{translate:6px 0}
+.app-list li::before{
+  content:"";position:absolute;inset-inline-start:-15.5px;top:10px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--color-brand-500);
+  box-shadow:0 0 0 2.5px #fff; /* must match the card background */
+}
+.is-visible .app-list li{opacity:1;translate:0 0}
+.is-visible .app-list li:nth-child(1){transition-delay:calc(var(--d, 0ms) + 250ms)}
+.is-visible .app-list li:nth-child(2){transition-delay:calc(var(--d, 0ms) + 330ms)}
+.is-visible .app-list li:nth-child(3){transition-delay:calc(var(--d, 0ms) + 410ms)}
+
+@media (prefers-reduced-motion:reduce){
+  .appd-card,.app-list li{opacity:1!important;translate:none!important;transition:none!important}
+  .app-list::before{transform:none!important;transition:none!important}
+}
+
+/* ==================================================================
+   Magnetic CTA buttons — the accent button in each dark CTA band
+   drifts toward the pointer within a 110px radius at 30% of the
+   distance (Magnetic.tsx). The transition smooths both the follow
+   and the release snap-back at the radius edge; translate as its
+   own property, so the button's hover transform composes.
+   ================================================================== */
+.magnetic-inner{
+  transition:translate .3s cubic-bezier(.16,1,.3,1);
+  will-change:translate;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .magnetic-inner{translate:none!important;transition:none!important}
+}
+
+/* ==================================================================
+   FAQ — category swap. The question list remounts when a sidebar
+   category is picked (key={cat} in Faq.tsx); this entrance makes the
+   change read as a swap rather than a blink.
+   ================================================================== */
+.faq-swap{animation:faq-swap .35s var(--ease-out-soft) both}
+@keyframes faq-swap{
+  from{opacity:0;translate:0 8px}
+  to{opacity:1;translate:0 0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .faq-swap{animation:none}
+}

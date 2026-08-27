@@ -4,6 +4,7 @@ import { Database, ScanBarcode, Bot, Lock, Boxes, ArrowRight } from 'lucide-reac
 import { Section } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { ButtonLink } from '@/components/ui/Button'
+import { Magnetic } from '@/components/ui/Magnetic'
 import { PageHero } from '@/components/ui/PageHero'
 import { locales } from '@/i18n/routing'
 
@@ -113,9 +114,11 @@ export default async function SolutionsPage({
               {t('ctaBody')}
             </p>
           </div>
-          <ButtonLink href={`${base}/contact`} variant="accent" size="lg">
-            {tc('talkToSales')}
-          </ButtonLink>
+          <Magnetic>
+            <ButtonLink href={`${base}/contact`} variant="accent" size="lg">
+              {tc('talkToSales')}
+            </ButtonLink>
+          </Magnetic>
         </div>
       </Section>
     </>
