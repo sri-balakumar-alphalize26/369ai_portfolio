@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { MessageCircle, X, Send, ArrowUpRight } from 'lucide-react'
 import { PRODUCTS } from '@/lib/products'
 import { CONTACT } from '@/content/offices'
+import { FAQ_CATS } from '@/content/faq'
 import { findAnswer, type Entry, type Answer } from '@/lib/assistant-knowledge'
 import { cn } from '@/lib/cn'
 
@@ -31,11 +32,13 @@ export function Assistant() {
 
   // Everything the assistant is allowed to say, drawn from published copy.
   const knowledge = useMemo<Entry[]>(() => {
-    const faq = [1, 2, 3, 4, 5, 6].map((n) => ({
-      id: `faq-${n}`,
-      title: tFaq(`q${n}`),
-      body: tFaq(`a${n}`),
-    }))
+    const faq = FAQ_CATS.flatMap(({ key, count }) =>
+      Array.from({ length: count }, (_, i) => ({
+        id: `faq-${key}-${i + 1}`,
+        title: tFaq(`cats.${key}.q${i + 1}`),
+        body: tFaq(`cats.${key}.a${i + 1}`),
+      }))
+    )
 
     const services = ['pos', 'erp', 'ai', 'iot', 'cloud', 'support'].map((k) => ({
       id: `service-${k}`,
@@ -72,6 +75,17 @@ export function Assistant() {
         title: t('hardwareTitle'),
         body: t('hardwareBody', { count: PRODUCTS.length }),
         href: `${base}/shop`,
+      },
+      {
+        id: 'apps',
+        keywords: [
+          'app', 'apps', 'mobile', 'android', 'apk', 'application',
+          'attendance', 'chat', 'chats', 'restaurant', 'spa', 'van', 'rental',
+          'tools', 'price', 'checker', 'showroom', 'kpi', 'kra', 'alphalize',
+        ],
+        title: t('appsTitle'),
+        body: t('appsBody'),
+        href: `${base}/apps`,
       },
     ]
 

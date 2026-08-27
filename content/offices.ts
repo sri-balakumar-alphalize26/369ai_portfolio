@@ -28,6 +28,21 @@ export type Office = {
 
 export const OFFICES: Office[] = [
   {
+    id: 'india-kollam',
+    country: 'India',
+    countryCode: 'in',
+    city: 'Kollam, Kerala',
+    address: ['Vadayattukotta Road', 'Chinnakada, Kollam 691001', 'Kerala, India'],
+    phones: ['+91 70252 05503'],
+    // The one office whose query is not landmark-anchored, deliberately: the
+    // road itself geocodes to an exact point, which beats the nearest indexed
+    // landmark (Chinnakada Clock Tower, ~250 m off on Beach Road). Note that
+    // "Chinnakada" and "Rd" both FAIL to geocode — only the full "Road" plus
+    // the 691001 PIN resolves — so do not "tidy" this back to the display
+    // wording above.
+    mapsQuery: 'Vadayattukotta Road, Kollam, Kerala 691001, India',
+  },
+  {
     id: 'usa-clearwater',
     country: 'USA',
     countryCode: 'us',
@@ -85,21 +100,6 @@ export const OFFICES: Office[] = [
     ],
     phones: ['+968 9792 3155'],
     mapsQuery: 'Malabar Paris Restaurant, Al Hambar Street, Sohar, Oman',
-  },
-  {
-    id: 'india-kollam',
-    country: 'India',
-    countryCode: 'in',
-    city: 'Kollam, Kerala',
-    address: ['Vadayattukotta Road', 'Chinnakada, Kollam 691001', 'Kerala, India'],
-    phones: ['+91 70252 05503'],
-    // The one office whose query is not landmark-anchored, deliberately: the
-    // road itself geocodes to an exact point, which beats the nearest indexed
-    // landmark (Chinnakada Clock Tower, ~250 m off on Beach Road). Note that
-    // "Chinnakada" and "Rd" both FAIL to geocode — only the full "Road" plus
-    // the 691001 PIN resolves — so do not "tidy" this back to the display
-    // wording above.
-    mapsQuery: 'Vadayattukotta Road, Kollam, Kerala 691001, India',
   },
 ]
 

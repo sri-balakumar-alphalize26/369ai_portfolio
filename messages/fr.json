@@ -25,6 +25,8 @@
     "hardware": "Matériel",
     "softwareBlurb": "Modules ERP, fonctionnalités PDV, applications mobiles et logiciels de bureau.",
     "hardwareBlurb": "Terminaux PDV, imprimantes, scanners, bornes, distributeurs et robots.",
+    "apps": "Nos applications",
+    "appsBlurb": "Dix applications mobiles et des logiciels de bureau Windows, tous connectés à Odoo.",
     "homeAria": "Accueil 369ai.Biz",
     "mainNav": "Principale",
     "mobileNav": "Mobile"
@@ -199,30 +201,30 @@
     "visionTitle": "Notre vision",
     "visionBody": "369AI ambitionne de devenir un leader mondial des solutions technologiques avancées et de façonner un avenir où la technologie améliore chaque aspect de la vie. Par l’innovation et l’adaptation continues, nous voulons ouvrir la voie dans le paysage numérique, dépasser les attentes de nos clients et cultiver une culture du progrès. Forts d’une présence internationale solide, nous souhaitons incarner la fiabilité et contribuer au progrès de la société.",
     "everythingTitle": "Tout ce qu’il vous faut",
-    "everythingBody": "Vingt ans d’expérience de terrain, adossés à une capacité industrielle et à une équipe de service qui répond.",
+    "everythingBody": "Logiciels, applications, matériel et support — une seule équipe derrière tout cela.",
     "e1": {
-      "title": "Plus de 20 ans dans la distribution automatique et le commerce",
-      "body": "Deux décennies d’expérience de terrain, du matériel au logiciel."
+      "title": "Des logiciels maison pour toute l’entreprise",
+      "body": "ERP Odoo, PDV et dix applications mobiles — conçus, développés et pris en charge par notre propre équipe."
     },
     "e2": {
-      "title": "Équipe après-vente professionnelle",
-      "body": "Des ingénieurs et spécialistes support dédiés pour une résolution rapide et fiable."
+      "title": "Dix applications mobiles sur Odoo",
+      "body": "Présence, messagerie, KRA/KPI, restaurant, spa, locations, vente en tournée et plus encore — en production sur votre propre serveur."
     },
     "e3": {
-      "title": "Capacité de production à grande échelle",
-      "body": "Un approvisionnement stable avec un contrôle qualité strict — prêt pour les pilotes comme pour les déploiements nationaux."
+      "title": "Logiciels de bureau Windows",
+      "body": "Des applications .exe installables pour les comptoirs de caisse et les postes de back-office."
     },
     "e4": {
-      "title": "Ligne d’assemblage aux normes internationales",
-      "body": "Des processus rigoureux qui garantissent qualité et régularité."
+      "title": "Un catalogue matériel complet",
+      "body": "Terminaux PDV, imprimantes, scanners, bornes et distributeurs automatiques, assortis au logiciel."
     },
     "e5": {
-      "title": "Système de gestion à distance gratuit",
-      "body": "Surveillez, mettez à jour et pilotez vos appareils où que vous soyez — sans frais de licence supplémentaires."
+      "title": "Un cœur Odoo connecté",
+      "body": "Chaque application, caisse et appareil alimente le même ERP — une source unique de vérité pour toute l’entreprise."
     },
     "e6": {
-      "title": "Promesse de service : garantie 1 an",
-      "body": "Une couverture standard de 12 mois, avec des options d’extension de garantie."
+      "title": "Support 24h/24, 7j/7 et garantie",
+      "body": "Une équipe de service qui répond, avec une couverture standard de 12 mois."
     }
   },
   "products": {
@@ -387,6 +389,86 @@
     "ctaTitle": "Envie d’une démonstration des modules qu’il vous faut ?",
     "ctaBody": "Nous vous montrons la configuration exacte pour votre entreprise — rien de superflu."
   },
+  "appsPage": {
+    "eyebrow": "Nos applications",
+    "title": "Dix applications. Un back-office connecté.",
+    "body": "Chaque application mobile 369AI dialogue directement avec Odoo — présence, messagerie, ventes, locations et opérations en magasin alimentent le même cœur qui fait déjà tourner votre entreprise. Conçues en interne, déployées sur votre propre serveur, avec un support 24h/24 et 7j/7.",
+    "mobileChip": "10 applications Android · Connectées à Odoo",
+    "mobileTitle": "Applications mobiles",
+    "mobileBody": "Des applications Android conçues pour celles et ceux qui ne travaillent pas derrière un bureau — chacune se connecte à votre serveur Odoo et exploite les données de l’entreprise en temps réel.",
+    "desktopChip": "Windows · Hors ligne d’abord",
+    "desktopTitle": "Logiciels de bureau",
+    "desktopBody": "Des applications Windows .exe installables pour les comptoirs de caisse et les postes de back-office, pensées pour la rapidité sur du matériel local.",
+    "desktopF1": "S’exécute nativement sur le PC du comptoir — rapide même sur du matériel modeste.",
+    "desktopF2": "Continue de fonctionner malgré une coupure de connexion et se resynchronise avec l’ERP dès le retour en ligne.",
+    "desktopF3": "Installation et mises à jour assurées par notre équipe, avec un support 24h/24 et 7j/7.",
+    "detailTitle": "Ce que fait chaque application",
+    "detailBody": "Un tour d’horizon des dix applications — à quoi sert chacune et ce qu’elle gère au quotidien.",
+    "items": {
+      "alphalize": {
+        "tagline": "Tout le back-office Odoo dans une seule application.",
+        "f1": "Une quarantaine de flux Odoo — ventes, achats, stocks, paiements et validations — derrière un seul écran d’accueil.",
+        "f2": "Créez commandes et devis, et imprimez la facture directement depuis le téléphone.",
+        "f3": "Les trajets des chauffeurs sont suivis et convertis automatiquement en présence terrain."
+      },
+      "attendance": {
+        "tagline": "Pointez à l’arrivée et au départ, et demandez vos congés depuis le téléphone.",
+        "f1": "Pointage d’entrée et de sortie en un geste sur votre serveur Odoo.",
+        "f2": "Une vue mensuelle qui se construit au fil de votre travail.",
+        "f3": "Les demandes de congés créées et suivies dans la même application."
+      },
+      "chats": {
+        "tagline": "Une messagerie d’entreprise construite sur Odoo.",
+        "f1": "Fils de discussion, groupes, médias, sondages et réactions — le tout hébergé sur votre propre serveur.",
+        "f2": "Une identité liée à un numéro de téléphone plutôt qu’à une adresse e-mail.",
+        "f3": "Notes vocales et appels signalés via le même backend Odoo."
+      },
+      "kraKpi": {
+        "tagline": "Suivi des journées et des tâches par rapport aux objectifs KRA/KPI.",
+        "f1": "Les collaborateurs organisent leur journée selon les objectifs qui leur sont assignés.",
+        "f2": "Les administrateurs configurent les objectifs et attribuent le travail depuis la même application.",
+        "f3": "Les clients déposent leurs demandes et règlent leurs factures au même endroit."
+      },
+      "showroomCheck": {
+        "tagline": "La preuve planifiée qu’un showroom respecte l’agencement convenu.",
+        "f1": "Les administrateurs définissent le nombre de rondes par jour et la plage horaire de chacune.",
+        "f2": "Le personnel est guidé dans un parcours directionnel de la salle, photo par photo.",
+        "f3": "Le serveur compare chaque photo à la référence — une ronde manquée se voit."
+      },
+      "priceChecker": {
+        "tagline": "Un affichage dynamique qui devient vérificateur de prix dès qu’un code-barres est scanné.",
+        "f1": "Des bannières défilent à l’écran jusqu’à ce que quelqu’un scanne un produit.",
+        "f2": "Fonctionne sur une tablette avec sa caméra, ou sur un terminal PDV avec un lecteur USB.",
+        "f3": "Une seule version couvre les deux types de matériel."
+      },
+      "restaurant": {
+        "tagline": "Un PDV restaurant sur Odoo — tables, commandes et bons de cuisine.",
+        "f1": "Ouvrez une table, composez la commande depuis la grille de catégories, envoyez le bon en cuisine.",
+        "f2": "Imprime sur de vraies imprimantes réseau sans agent installé sur la caisse.",
+        "f3": "Fonctionne en anglais et en arabe, y compris la mise en page de droite à gauche."
+      },
+      "spa": {
+        "tagline": "Une borne d’accueil pour les visites sans rendez-vous, fonctionnant sans surveillance sur tablette.",
+        "f1": "Le client choisit une prestation et ne répond qu’aux questions qu’elle exige.",
+        "f2": "La décharge est signée directement sur la tablette.",
+        "f3": "La réservation arrive dans Odoo pour validation par la réception."
+      },
+      "toolManagement": {
+        "tagline": "Louez et récupérez outils et équipements depuis un téléphone.",
+        "f1": "Tarification à l’heure, à la journée, à la semaine ou au mois.",
+        "f2": "Sortie et retour du matériel avec une feuille de temps en continu.",
+        "f3": "Le coût de location est calculé pour vous."
+      },
+      "vanSale": {
+        "tagline": "Un PDV de vente en tournée — vendez depuis le véhicule en gardant des comptes justes.",
+        "f1": "Sélectionnez les produits, encaissez et imprimez un ticket à votre propre mise en page.",
+        "f2": "Rachetez du stock depuis la même application.",
+        "f3": "Chaque commande porte la position GPS où elle a été créée."
+      }
+    },
+    "ctaTitle": "Envie de les voir tourner sur les téléphones de votre équipe ?",
+    "ctaBody": "Dites-nous ce que vous utilisez aujourd’hui et nous vous montrerons les applications sur vos propres données — sans engagement."
+  },
   "shop": {
     "eyebrow": "Matériel",
     "title": "Matériel PDV, impression, lecture de codes-barres et automatisation",
@@ -458,18 +540,79 @@
     }
   },
   "faq": {
-    "q1": "Pour quels secteurs travaillez-vous ?",
-    "a1": "Le commerce de détail, la restauration et l’hôtellerie sont nos secteurs de cœur, aux côtés de la logistique, du libre-service bancaire et du commerce sans personnel. Si vous gérez une caisse, une réserve ou un parc de machines, nous avons déjà déployé un projet proche du vôtre.",
-    "q2": "Fournissez-vous le matériel, le logiciel, ou les deux ?",
-    "a2": "Les deux, et ils sont conçus pour fonctionner ensemble. Vous pouvez adopter la pile 369AI complète — terminaux PDV, imprimantes, scanners et ERP — ou seulement le matériel, intégré au système que vous utilisez déjà.",
-    "q3": "369AI peut-il s’intégrer à notre ERP ou à notre système comptable existant ?",
-    "a3": "Oui. Nos plateformes PDV et nos appareils exposent des API standard et nous nous intégrons régulièrement aux systèmes ERP, comptables et de paiement existants plutôt que de vous demander de les remplacer.",
-    "q4": "Quel support proposez-vous après l’installation ?",
-    "a4": "Un support technique 24h/24 et 7j/7, une équipe d’ingénieurs après-vente dédiée et une garantie standard de 12 mois avec options d’extension. Notre système de gestion à distance gratuit nous permet de surveiller, mettre à jour et dépanner les appareils sans visite sur site.",
-    "q5": "Dans quels pays êtes-vous présents ?",
-    "a5": "Nous avons des bureaux aux États-Unis, aux Émirats arabes unis, à Oman (Ruwi, Salalah et Sohar) et en Inde, et nous accompagnons des déploiements dans toute la région.",
-    "q6": "Comment obtenir un tarif ?",
-    "a6": "Ajoutez le matériel qui vous intéresse à votre panier de demandes et envoyez-le-nous, ou contactez directement notre équipe commerciale. Nous établissons un devis par configuration : le prix reflète exactement ce dont vous avez besoin."
+    "categoriesLabel": "Catégories de la FAQ",
+    "cats": {
+      "general": {
+        "title": "Général",
+        "q1": "Pour quels secteurs travaillez-vous ?",
+        "a1": "Le commerce de détail, la restauration et l’hôtellerie sont nos secteurs de cœur, aux côtés de la logistique, du libre-service bancaire et du commerce sans personnel. Si vous gérez une caisse, une réserve ou un parc de machines, nous avons déjà déployé un projet proche du vôtre.",
+        "q2": "Fournissez-vous le matériel, le logiciel, ou les deux ?",
+        "a2": "Les deux, et ils sont conçus pour fonctionner ensemble. Vous pouvez adopter la pile 369AI complète — terminaux PDV, imprimantes, scanners et ERP — ou seulement le matériel, intégré au système que vous utilisez déjà.",
+        "q3": "369AI peut-il s’intégrer à notre ERP ou à notre système comptable existant ?",
+        "a3": "Oui. Nos plateformes PDV et nos appareils exposent des API standard et nous nous intégrons régulièrement aux systèmes ERP, comptables et de paiement existants plutôt que de vous demander de les remplacer.",
+        "q4": "Quel support proposez-vous après l’installation ?",
+        "a4": "Un support technique 24h/24 et 7j/7, une équipe d’ingénieurs après-vente dédiée et une garantie standard de 12 mois avec options d’extension. Notre système de gestion à distance gratuit nous permet de surveiller, mettre à jour et dépanner les appareils sans visite sur site.",
+        "q5": "Dans quels pays êtes-vous présents ?",
+        "a5": "Nous avons des bureaux aux États-Unis, aux Émirats arabes unis, à Oman (Ruwi, Salalah et Sohar) et en Inde, et nous accompagnons des déploiements dans toute la région."
+      },
+      "apps": {
+        "title": "Applications mobiles",
+        "q1": "Sur quelles plateformes les applications fonctionnent-elles ?",
+        "a1": "Les dix applications sont développées en React Native et livrées aujourd’hui pour Android — présence, messagerie, suivi KRA/KPI, contrôles de showroom, vérification de prix, PDV restaurant, accueil spa, location d’outils, vente en tournée et tout le back-office ; les versions iOS sont disponibles sur demande.",
+        "q2": "Les applications ont-elles besoin d’Odoo pour fonctionner ?",
+        "a2": "Oui — chaque application se connecte à votre propre serveur Odoo et travaille sur les données réelles de l’entreprise : ventes, stocks et présences arrivent dans le même ERP que celui utilisé par le reste de la société.",
+        "q3": "Les applications peuvent-elles être adaptées à nos processus ?",
+        "a3": "Oui. Nous les développons et les maintenons en interne : écrans, champs et circuits de validation peuvent être adaptés à la façon de travailler de votre équipe.",
+        "q4": "Que se passe-t-il en cas de coupure de connexion ?",
+        "a4": "Les applications de vente permettent de poursuivre la vente et se resynchronisent avec l’ERP dès le retour de la connexion ; les fonctions en temps réel comme la messagerie se reconnectent automatiquement.",
+        "q5": "Comment les applications sont-elles installées ?",
+        "a5": "Elles sont déployées en privé sur vos appareils par notre équipe lors de la mise en place — pas via les boutiques d’applications publiques — et les mises à jour sont gérées pour vous."
+      },
+      "desktop": {
+        "title": "Logiciels de bureau",
+        "q1": "Qu’est-ce que le logiciel de bureau ?",
+        "a1": "Des applications Windows .exe installables pour les caisses et les postes de back-office, conçues pour la rapidité sur du matériel local.",
+        "q2": "Fonctionne-t-il sans Internet ?",
+        "a2": "Oui — il est conçu pour fonctionner d’abord hors ligne : vous continuez d’encaisser malgré une coupure et tout se resynchronise avec l’ERP dès le retour de la connexion.",
+        "q3": "Quelle est la configuration requise ?",
+        "a3": "N’importe quel PC Windows récent — le logiciel est conçu pour rester rapide sur le matériel modeste que l’on trouve aux vraies caisses.",
+        "q4": "Comment les mises à jour sont-elles gérées ?",
+        "a4": "Installées et mises à jour par notre équipe, avec un support 24h/24 et 7j/7 derrière — vous n’avez jamais à gérer les programmes d’installation vous-même."
+      },
+      "erp": {
+        "title": "Odoo & ERP",
+        "q1": "Mettez-vous en œuvre Odoo de bout en bout ?",
+        "a1": "Oui — modules, configuration, développements sur mesure, formation et mise en production, assurés par la même équipe interne qui développe nos applications.",
+        "q2": "Pouvons-nous conserver nos données en passant à Odoo ?",
+        "a2": "Oui. La migration des produits, des clients, des stocks et des soldes en cours fait partie de la mise en œuvre.",
+        "q3": "Odoo fonctionne-t-il sur notre propre serveur ou dans le cloud ?",
+        "a3": "Les deux — nous déployons sur votre propre serveur ou sur une instance cloud gérée ; vos données restent les vôtres dans les deux cas.",
+        "q4": "Quels modules couvrez-vous ?",
+        "a4": "Tout le back-office — ventes, achats, inventaire, comptabilité, RH et plus encore ; la page Logiciels liste les modules que nous déployons le plus."
+      },
+      "hardware": {
+        "title": "Matériel & boutique",
+        "q1": "Comment commander du matériel ?",
+        "a1": "Parcourez le catalogue Matériel, ajoutez des articles à votre panier de demandes et envoyez-le — notre équipe vous répond avec les prix et les disponibilités.",
+        "q2": "Le matériel fonctionnera-t-il avec le logiciel ?",
+        "a2": "Oui, c’est tout l’intérêt de la gamme : terminaux, imprimantes, scanners et bornes sont choisis et testés pour faire tourner notre PDV, notre ERP et nos applications.",
+        "q3": "Assurez-vous la livraison et l’installation ?",
+        "a3": "Oui — nous livrons, installons et configurons sur site, et notre équipe de support continue d’accompagner le déploiement ensuite.",
+        "q4": "Les appareils sont-ils garantis ?",
+        "a4": "Une garantie standard de 12 mois avec options d’extension, plus notre système de gestion à distance gratuit pour la surveillance et les mises à jour."
+      },
+      "pricing": {
+        "title": "Tarifs & formules",
+        "q1": "Comment obtenir un tarif ?",
+        "a1": "Ajoutez le matériel qui vous intéresse à votre panier de demandes et envoyez-le-nous, ou contactez directement notre équipe commerciale. Nous établissons un devis par configuration : le prix reflète exactement ce dont vous avez besoin.",
+        "q2": "Qu’est-ce qui influence le prix ?",
+        "a2": "La configuration — les modules, applications, appareils et le nombre de sites dont vous avez réellement besoin ; nous établissons un devis par configuration plutôt qu’un forfait unique.",
+        "q3": "Pouvons-nous le voir fonctionner avant d’acheter ?",
+        "a3": "Oui — dites-nous ce que vous utilisez aujourd’hui et nous ferons la démonstration de la configuration exacte sur vos propres données, sans engagement.",
+        "q4": "Y a-t-il des frais récurrents ?",
+        "a4": "Cela dépend de votre mode de déploiement ; le devis détaille les coûts ponctuels et récurrents pour qu’il n’y ait aucune surprise."
+      }
+    }
   },
   "assistant": {
     "launcherLabel": "Demander à 369AI",
@@ -489,6 +632,8 @@
     "pricingBody": "Nous établissons un devis par configuration : le prix reflète exactement ce dont vous avez besoin. Ouvrez un produit et utilisez « Demander des informations sur ce produit », ou contactez notre équipe commerciale — nous répondons sous 24 heures.",
     "hardwareTitle": "Gamme de matériel",
     "hardwareBody": "Nous proposons {count} produits matériels — terminaux PDV, imprimantes thermiques et à étiquettes, lecteurs de codes-barres, tiroirs-caisses, afficheurs clients, bornes, distributeurs automatiques, robots et équipements bancaires.",
+    "appsTitle": "Nos applications mobiles",
+    "appsBody": "Nous développons dix applications Android qui fonctionnent sur Odoo — présence, messagerie d’équipe, suivi KRA/KPI, contrôles de showroom, vérification de prix, PDV restaurant, accueil spa, location d’outils, vente en tournée et tout le back-office — ainsi que des logiciels de bureau Windows. Retrouvez-les toutes sur notre page Applications.",
     "whatsappPrefill": "Bonjour 369AI, j’ai une question sur vos produits.",
     "readMore": "Lire la suite"
   },

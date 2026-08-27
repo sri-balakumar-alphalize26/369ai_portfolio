@@ -25,6 +25,8 @@
     "hardware": "Hardware",
     "softwareBlurb": "ERP-Module, Kassenfunktionen, mobile Apps und Desktop-Software.",
     "hardwareBlurb": "Kassenterminals, Drucker, Scanner, Kioske, Automaten und Roboter.",
+    "apps": "Unsere Apps",
+    "appsBlurb": "Zehn mobile Apps und Windows-Desktop-Software, alle mit Odoo verbunden.",
     "homeAria": "369ai.Biz Startseite",
     "mainNav": "Hauptnavigation",
     "mobileNav": "Mobile Navigation"
@@ -199,30 +201,30 @@
     "visionTitle": "Unsere Vision",
     "visionBody": "369AI will ein weltweit führender Anbieter fortschrittlicher Technologielösungen werden und eine Zukunft gestalten, in der Technologie jeden Lebensbereich bereichert. Durch kontinuierliche Innovation und Anpassung wollen wir die digitale Landschaft prägen, Kundenerwartungen übertreffen und eine Kultur der ständigen Verbesserung fördern. Mit starker globaler Präsenz möchten wir ein verlässliches Symbol für Zuverlässigkeit sein, das gesellschaftlichen Fortschritt und positive Wirkung vorantreibt.",
     "everythingTitle": "Alles, was Sie brauchen",
-    "everythingBody": "Zwei Jahrzehnte Praxiserfahrung — gestützt auf Fertigungskapazität und ein Serviceteam, das antwortet.",
+    "everythingBody": "Software, Apps, Hardware und Support — ein Team hinter allem.",
     "e1": {
-      "title": "Über 20 Jahre Vending- und Handelsautomatisierung",
-      "body": "Zwei Jahrzehnte praktische Branchenerfahrung — von der Hardware bis zur Software."
+      "title": "Eigene Software für das gesamte Unternehmen",
+      "body": "Odoo ERP, Kasse und zehn mobile Apps — entworfen, entwickelt und betreut von unserem eigenen Team."
     },
     "e2": {
-      "title": "Professionelles After-Sales-Serviceteam",
-      "body": "Engagierte Techniker und Support-Spezialisten für schnelle, zuverlässige Lösungen."
+      "title": "Zehn mobile Apps auf Odoo",
+      "body": "Zeiterfassung, Chat, KRA/KPI, Restaurant, Spa, Verleih, Verkauf per Fahrzeug und mehr — live auf Ihrem eigenen Server."
     },
     "e3": {
-      "title": "Große Produktionskapazität",
-      "body": "Stabile Lieferfähigkeit mit strenger Qualitätssicherung — bereit für Pilotprojekte und landesweite Rollouts."
+      "title": "Windows-Desktop-Software",
+      "body": "Installierbare .exe-Anwendungen für Kassenplätze und Backoffice-Rechner."
     },
     "e4": {
-      "title": "Montagelinie nach internationalem Standard",
-      "body": "Gefertigt nach strengen Prozessen für gleichbleibende Qualität und Konsistenz."
+      "title": "Komplettes Hardware-Sortiment",
+      "body": "Kassenterminals, Drucker, Scanner, Kioske und Verkaufsautomaten — abgestimmt auf die Software."
     },
     "e5": {
-      "title": "Kostenloses Fernmanagement-System",
-      "body": "Geräte überall überwachen, aktualisieren und steuern — ohne zusätzliche Lizenzgebühren."
+      "title": "Ein vernetzter Odoo-Kern",
+      "body": "Jede App, jede Kasse und jedes Gerät speist dasselbe ERP — eine einzige Quelle der Wahrheit für das ganze Unternehmen."
     },
     "e6": {
-      "title": "Serviceversprechen: 1 Jahr Garantie",
-      "body": "12 Monate Standardgarantie, mit optionalen Garantieverlängerungen."
+      "title": "24/7-Support & Garantie",
+      "body": "Ein Serviceteam, das antwortet — mit 12 Monaten Standardgarantie."
     }
   },
   "products": {
@@ -387,6 +389,86 @@
     "ctaTitle": "Möchten Sie einen Rundgang durch die Module, die Sie brauchen?",
     "ctaBody": "Wir demonstrieren Ihnen genau die Konfiguration für Ihr Unternehmen — nichts, was Sie nicht brauchen."
   },
+  "appsPage": {
+    "eyebrow": "Unsere Apps",
+    "title": "Zehn Apps. Ein vernetztes Backoffice.",
+    "body": "Jede mobile App von 369AI spricht direkt mit Odoo — Zeiterfassung, Chat, Verkauf, Verleih und Filialbetrieb speisen denselben Kern, auf dem Ihr Unternehmen bereits läuft. Im eigenen Haus entwickelt, auf Ihrem eigenen Server betrieben, mit Support rund um die Uhr.",
+    "mobileChip": "10 Android-Apps · Mit Odoo verbunden",
+    "mobileTitle": "Mobile Apps",
+    "mobileBody": "Speziell entwickelte Android-Apps für alle, die nicht am Schreibtisch sitzen — jede meldet sich an Ihrem Odoo-Server an und arbeitet mit Live-Unternehmensdaten.",
+    "desktopChip": "Windows · Offline-first",
+    "desktopTitle": "Desktop-Software",
+    "desktopBody": "Installierbare Windows-.exe-Anwendungen für Kassenplätze und Backoffice-Rechner — auf Geschwindigkeit mit lokaler Hardware ausgelegt.",
+    "desktopF1": "Läuft nativ auf dem Kassen-PC — schnell selbst auf bescheidener Hardware.",
+    "desktopF2": "Arbeitet auch bei Verbindungsabbruch weiter und synchronisiert sich mit dem ERP, sobald Sie wieder online sind.",
+    "desktopF3": "Installiert und aktualisiert von unserem Team — mit 24/7-Support im Rücken.",
+    "detailTitle": "Was jede App leistet",
+    "detailBody": "Ein genauerer Blick auf die zehn Apps — wofür jede gedacht ist und was sie im Alltag übernimmt.",
+    "items": {
+      "alphalize": {
+        "tagline": "Das gesamte Odoo-Backoffice in einer App.",
+        "f1": "Rund vierzig Odoo-Workflows — Verkauf, Einkauf, Lager, Zahlungen und Freigaben — hinter einem einzigen Startbildschirm.",
+        "f2": "Aufträge und Angebote anlegen und die Rechnung direkt vom Telefon drucken.",
+        "f3": "Fahrten der Fahrer werden erfasst und automatisch in Außendienst-Anwesenheit umgewandelt."
+      },
+      "attendance": {
+        "tagline": "Ein- und ausstempeln und Urlaub direkt vom Telefon beantragen.",
+        "f1": "Ein- und Ausstempeln mit einem Fingertipp — direkt an Ihrem Odoo-Server.",
+        "f2": "Eine Monatsansicht, die mit jedem Arbeitstag Gestalt annimmt.",
+        "f3": "Urlaubsanträge werden in derselben App gestellt und verfolgt."
+      },
+      "chats": {
+        "tagline": "Ein Firmen-Messenger auf Odoo-Basis.",
+        "f1": "Threads, Gruppen, Medien, Umfragen und Reaktionen — alles auf Ihrem eigenen Server.",
+        "f2": "Identität über die Telefonnummer statt über eine E-Mail-Adresse.",
+        "f3": "Sprachnachrichten und Anrufe laufen über dasselbe Odoo-Backend."
+      },
+      "kraKpi": {
+        "tagline": "Arbeitstag- und Aufgabenverfolgung entlang von KRA/KPI-Zielen.",
+        "f1": "Mitarbeitende arbeiten ihren Tag entlang der ihnen zugewiesenen Ziele ab.",
+        "f2": "Administratoren konfigurieren Ziele und weisen Arbeit in derselben App zu.",
+        "f3": "Kunden reichen Anforderungen ein und begleichen Rechnungen an einem Ort."
+      },
+      "showroomCheck": {
+        "tagline": "Planmäßiger Nachweis, dass ein Showroom seinem vereinbarten Layout entspricht.",
+        "f1": "Administratoren legen fest, wie viele Rundgänge pro Tag stattfinden und in welchem Zeitfenster.",
+        "f2": "Mitarbeitende werden Foto für Foto durch einen gerichteten Rundgang durch den Raum geführt.",
+        "f3": "Der Server vergleicht jedes Foto mit der Referenz — ein versäumter Rundgang ist sichtbar."
+      },
+      "priceChecker": {
+        "tagline": "Werbedisplay, das zum Preisprüfer wird, sobald ein Barcode gescannt wird.",
+        "f1": "Banner laufen über den Bildschirm, bis jemand ein Produkt scannt.",
+        "f2": "Läuft auf einem Tablet mit dessen Kamera oder auf einem Kassenterminal mit USB-Scanner.",
+        "f3": "Ein Build deckt beide Hardware-Varianten ab."
+      },
+      "restaurant": {
+        "tagline": "Eine Restaurantkasse auf Odoo — Tische, Bestellungen und Küchenbons.",
+        "f1": "Tisch öffnen, Bestellung über das Kategorienraster zusammenstellen, Küchenbon abschicken.",
+        "f2": "Druckt auf echten Netzwerkdruckern — ohne Agent auf der Kasse.",
+        "f3": "Funktioniert auf Englisch und Arabisch, einschließlich Layout von rechts nach links."
+      },
+      "spa": {
+        "tagline": "Ein Empfangs-Kiosk für Laufkundschaft, der unbeaufsichtigt auf einem Tablet läuft.",
+        "f1": "Der Kunde wählt eine Leistung und beantwortet nur die Fragen, die dafür nötig sind.",
+        "f2": "Die Einverständniserklärung wird direkt auf dem Tablet unterschrieben.",
+        "f3": "Die Buchung landet in Odoo — zur Freigabe durch den Empfang."
+      },
+      "toolManagement": {
+        "tagline": "Werkzeuge und Geräte vom Telefon aus verleihen und zurücknehmen.",
+        "f1": "Preise pro Stunde, Tag, Woche oder Monat.",
+        "f2": "Ausgabe und Rücknahme mit laufender Zeiterfassung.",
+        "f3": "Die Mietkosten werden automatisch für Sie berechnet."
+      },
+      "vanSale": {
+        "tagline": "Eine Kasse für den Verkauf per Fahrzeug — direkt vom Wagen verkaufen, mit sauberer Buchführung.",
+        "f1": "Produkte auswählen, Zahlung entgegennehmen und einen Bon im eigenen Layout drucken.",
+        "f2": "Ware über dieselbe App wieder ankaufen.",
+        "f3": "Jeder Auftrag trägt die GPS-Position, an der er angelegt wurde."
+      }
+    },
+    "ctaTitle": "Sollen diese Apps auf den Telefonen Ihres Teams laufen?",
+    "ctaBody": "Sagen Sie uns, womit Sie heute arbeiten, und wir zeigen Ihnen die Apps mit Ihren eigenen Daten — unverbindlich."
+  },
   "shop": {
     "eyebrow": "Hardware",
     "title": "Hardware für Kasse, Druck, Scanning und Automatisierung",
@@ -458,18 +540,79 @@
     }
   },
   "faq": {
-    "q1": "Für welche Branchen entwickeln Sie?",
-    "a1": "Handel, Gastronomie und Hotellerie sind unsere Kernbranchen — daneben Lagerlogistik, Banken-Selbstbedienung und unbemannter Handel. Ob Sie eine Kasse, ein Lager oder eine Flotte von Automaten betreiben: Wir haben bereits etwas sehr Ähnliches umgesetzt.",
-    "q2": "Liefern Sie Hardware, Software oder beides?",
-    "a2": "Beides — und beides ist aufeinander abgestimmt. Sie können den kompletten 369AI-Stack nehmen — Kassenterminals, Drucker, Scanner und ERP — oder nur die Hardware, integriert in das System, das Sie bereits nutzen.",
-    "q3": "Kann sich 369AI in unser bestehendes ERP- oder Buchhaltungssystem integrieren?",
-    "a3": "Ja. Unsere Kassen- und Geräteplattformen bieten Standard-APIs, und wir integrieren uns routinemäßig in bestehende ERP-, Buchhaltungs- und Zahlungssysteme, statt Sie zu einem Austausch zu zwingen.",
-    "q4": "Welchen Support bieten Sie nach der Installation?",
-    "a4": "Technischer Support rund um die Uhr, ein engagiertes After-Sales-Technikerteam und standardmäßig 12 Monate Garantie mit Verlängerungsoptionen. Über unser kostenloses Fernmanagement-System überwachen, aktualisieren und warten wir Geräte ohne Vor-Ort-Termin.",
-    "q5": "In welchen Ländern sind Sie tätig?",
-    "a5": "Wir haben Büros in den USA, den VAE, Oman (Ruwi, Salalah und Sohar) und Indien und betreuen Projekte in der gesamten Region.",
-    "q6": "Wie erhalte ich Preise?",
-    "a6": "Legen Sie die gewünschte Hardware in Ihre Anfrageliste und senden Sie sie an uns — oder kontaktieren Sie direkt unser Vertriebsteam. Wir kalkulieren pro Konfiguration, sodass der Preis genau das abbildet, was Sie tatsächlich brauchen."
+    "categoriesLabel": "FAQ-Kategorien",
+    "cats": {
+      "general": {
+        "title": "Allgemein",
+        "q1": "Für welche Branchen entwickeln Sie?",
+        "a1": "Handel, Gastronomie und Hotellerie sind unsere Kernbranchen — daneben Lagerlogistik, Banken-Selbstbedienung und unbemannter Handel. Ob Sie eine Kasse, ein Lager oder eine Flotte von Automaten betreiben: Wir haben bereits etwas sehr Ähnliches umgesetzt.",
+        "q2": "Liefern Sie Hardware, Software oder beides?",
+        "a2": "Beides — und beides ist aufeinander abgestimmt. Sie können den kompletten 369AI-Stack nehmen — Kassenterminals, Drucker, Scanner und ERP — oder nur die Hardware, integriert in das System, das Sie bereits nutzen.",
+        "q3": "Kann sich 369AI in unser bestehendes ERP- oder Buchhaltungssystem integrieren?",
+        "a3": "Ja. Unsere Kassen- und Geräteplattformen bieten Standard-APIs, und wir integrieren uns routinemäßig in bestehende ERP-, Buchhaltungs- und Zahlungssysteme, statt Sie zu einem Austausch zu zwingen.",
+        "q4": "Welchen Support bieten Sie nach der Installation?",
+        "a4": "Technischer Support rund um die Uhr, ein engagiertes After-Sales-Technikerteam und standardmäßig 12 Monate Garantie mit Verlängerungsoptionen. Über unser kostenloses Fernmanagement-System überwachen, aktualisieren und warten wir Geräte ohne Vor-Ort-Termin.",
+        "q5": "In welchen Ländern sind Sie tätig?",
+        "a5": "Wir haben Büros in den USA, den VAE, Oman (Ruwi, Salalah und Sohar) und Indien und betreuen Projekte in der gesamten Region."
+      },
+      "apps": {
+        "title": "Mobile Apps",
+        "q1": "Auf welchen Plattformen laufen die Apps?",
+        "a1": "Alle zehn sind mit React Native entwickelt und erscheinen heute für Android — Zeiterfassung, Chat, KRA/KPI, Showroom-Kontrollen, Preisprüfung, Restaurantkasse, Spa-Empfang, Werkzeugverleih, Verkauf per Fahrzeug und das komplette Backoffice; iOS-Versionen sind auf Anfrage verfügbar.",
+        "q2": "Benötigen die Apps Odoo?",
+        "a2": "Ja — jede App meldet sich an Ihrem eigenen Odoo-Server an und arbeitet mit Live-Unternehmensdaten, sodass Verkäufe, Bestände und Anwesenheiten im selben ERP landen, das der Rest des Unternehmens nutzt.",
+        "q3": "Können die Apps an unsere Abläufe angepasst werden?",
+        "a3": "Ja. Wir entwickeln und pflegen sie im eigenen Haus — Masken, Felder und Freigabeprozesse lassen sich an die Arbeitsweise Ihres Teams anpassen.",
+        "q4": "Was passiert, wenn die Verbindung abbricht?",
+        "a4": "Die Verkaufs-Apps führen den Verkauf weiter und synchronisieren mit dem ERP, sobald Sie wieder online sind; Live-Funktionen wie der Chat verbinden sich automatisch neu.",
+        "q5": "Wie werden die Apps installiert?",
+        "a5": "Sie werden im Rahmen der Einrichtung von unserem Team privat auf Ihre Geräte ausgerollt — nicht über die öffentlichen App-Stores — und Updates übernehmen wir für Sie."
+      },
+      "desktop": {
+        "title": "Desktop-Software",
+        "q1": "Was ist die Desktop-Software?",
+        "a1": "Installierbare Windows-.exe-Anwendungen für Kassenplätze und Backoffice-Rechner, entwickelt für hohe Geschwindigkeit auf lokaler Hardware.",
+        "q2": "Funktioniert sie ohne Internet?",
+        "a2": "Ja — sie ist offline-first: Sie kassieren auch bei Verbindungsabbruch weiter, und alles synchronisiert mit dem ERP, sobald Sie wieder online sind.",
+        "q3": "Welche Systemanforderungen gelten?",
+        "a3": "Jeder aktuelle Windows-PC — die Software ist darauf ausgelegt, auch auf der bescheidenen Hardware echter Kassenplätze schnell zu laufen.",
+        "q4": "Wie laufen Updates ab?",
+        "a4": "Installation und Updates übernimmt unser Team, mit Support rund um die Uhr dahinter — Sie verwalten nie selbst Installationsdateien."
+      },
+      "erp": {
+        "title": "Odoo & ERP",
+        "q1": "Implementieren Sie Odoo von A bis Z?",
+        "a1": "Ja — Module, Konfiguration, individuelle Entwicklung, Schulung und Go-live, umgesetzt vom selben Inhouse-Team, das auch unsere Apps entwickelt.",
+        "q2": "Können wir unsere Daten beim Wechsel zu Odoo behalten?",
+        "a2": "Ja. Die Migration von Produkten, Kunden, Beständen und offenen Salden ist Teil der Implementierung.",
+        "q3": "Läuft Odoo auf unserem eigenen Server oder in der Cloud?",
+        "a3": "Beides ist möglich — wir installieren auf Ihrem eigenen Server oder auf einer verwalteten Cloud-Instanz; Ihre Daten gehören in beiden Fällen Ihnen.",
+        "q4": "Welche Module decken Sie ab?",
+        "a4": "Das komplette Backoffice — Verkauf, Einkauf, Lager, Buchhaltung, Personal und mehr; die Software-Seite listet die Module, die wir am häufigsten einführen."
+      },
+      "hardware": {
+        "title": "Hardware & Shop",
+        "q1": "Wie bestelle ich Hardware?",
+        "a1": "Durchstöbern Sie den Hardware-Katalog, legen Sie Artikel in Ihre Anfrageliste und senden Sie sie ab — unser Team antwortet mit Preisen und Verfügbarkeit.",
+        "q2": "Funktioniert die Hardware mit der Software?",
+        "a2": "Ja, genau das ist der Sinn des Sortiments: Terminals, Drucker, Scanner und Kioske sind dafür ausgewählt und getestet, unser POS, unser ERP und unsere Apps auszuführen.",
+        "q3": "Liefern und installieren Sie?",
+        "a3": "Ja — wir liefern, installieren und konfigurieren vor Ort, und unser Support-Team steht auch danach hinter der Installation.",
+        "q4": "Gibt es eine Garantie auf die Geräte?",
+        "a4": "Standardmäßig 12 Monate Garantie mit Verlängerungsoptionen, dazu unser kostenloses Fernmanagement-System für Überwachung und Updates."
+      },
+      "pricing": {
+        "title": "Preise & Pakete",
+        "q1": "Wie erhalte ich Preise?",
+        "a1": "Legen Sie die gewünschte Hardware in Ihre Anfrageliste und senden Sie sie an uns — oder kontaktieren Sie direkt unser Vertriebsteam. Wir kalkulieren pro Konfiguration, sodass der Preis genau das abbildet, was Sie tatsächlich brauchen.",
+        "q2": "Wovon hängt der Preis ab?",
+        "a2": "Von der Konfiguration — den Modulen, Apps, Geräten und der Zahl der Standorte, die Sie tatsächlich brauchen; wir kalkulieren pro Konfiguration statt in Pauschaltarifen.",
+        "q3": "Können wir das System vor dem Kauf in Aktion sehen?",
+        "a3": "Ja — sagen Sie uns, womit Sie heute arbeiten, und wir demonstrieren die exakte Konfiguration mit Ihren eigenen Daten, völlig unverbindlich.",
+        "q4": "Fallen laufende Gebühren an?",
+        "a4": "Das hängt von der Art der Bereitstellung ab; das Angebot weist einmalige und laufende Kosten klar aus, damit es keine Überraschungen gibt."
+      }
+    }
   },
   "assistant": {
     "launcherLabel": "369AI fragen",
@@ -489,6 +632,8 @@
     "pricingBody": "Wir kalkulieren pro Konfiguration — der Preis bildet genau ab, was Sie brauchen. Öffnen Sie ein Produkt und nutzen Sie „Anfrage zu diesem Produkt“, oder kontaktieren Sie unser Vertriebsteam — wir antworten innerhalb von 24 Stunden.",
     "hardwareTitle": "Hardware-Sortiment",
     "hardwareBody": "Wir liefern {count} Hardware-Produkte — Kassenterminals, Thermo- und Etikettendrucker, Barcodescanner, Kassenladen, Kundendisplays, Kioske, Verkaufsautomaten, Roboter und Bankausstattung.",
+    "appsTitle": "Unsere mobilen Apps",
+    "appsBody": "Wir entwickeln zehn Android-Apps, die auf Odoo laufen — von Zeiterfassung, Team-Chat, KRA/KPI-Verfolgung, Showroom-Kontrollen und Preisprüfung über Restaurantkasse, Spa-Empfang, Werkzeugverleih und Verkauf per Fahrzeug bis zum kompletten Backoffice — dazu Windows-Desktop-Software. Alle finden Sie auf unserer Apps-Seite.",
     "whatsappPrefill": "Hallo 369AI, ich habe eine Frage zu Ihren Produkten.",
     "readMore": "Mehr lesen"
   },

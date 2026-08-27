@@ -25,6 +25,8 @@
     "hardware": "Hardware",
     "softwareBlurb": "ERP modules, POS features, mobile apps and desktop software.",
     "hardwareBlurb": "POS terminals, printers, scanners, kiosks, vending machines and robots.",
+    "apps": "Our Apps",
+    "appsBlurb": "Ten mobile apps and Windows desktop software, all connected to Odoo.",
     "homeAria": "369ai.Biz home",
     "mainNav": "Main",
     "mobileNav": "Mobile"
@@ -199,30 +201,30 @@
     "visionTitle": "Our Vision",
     "visionBody": "369AI envisions becoming a global leader in advanced technological solutions, shaping a future where technology enhances every aspect of life. Through continuous innovation and adaptation, we strive to pioneer the digital landscape, exceed customer expectations and foster a culture of improvement. With a strong global presence, we aim to be a trusted symbol of reliability, driving societal progress and positive impact.",
     "everythingTitle": "Everything you need",
-    "everythingBody": "Two decades of hands-on experience, backed by manufacturing scale and a service team that answers.",
+    "everythingBody": "Software, apps, hardware and support — one team behind all of it.",
     "e1": {
-      "title": "20+ Years in Vending & Retail Automation",
-      "body": "Two decades of hands-on industry experience, from hardware to software."
+      "title": "In-house software for the whole business",
+      "body": "Odoo ERP, POS and ten mobile apps — designed, built and supported by our own team."
     },
     "e2": {
-      "title": "Professional After-Sales Service Team",
-      "body": "Dedicated engineers and support specialists for fast, reliable resolution."
+      "title": "Ten mobile apps on Odoo",
+      "body": "Attendance, chat, KRA/KPI, restaurant, spa, rentals, van sales and more — live on your own server."
     },
     "e3": {
-      "title": "Large-Scale Production Capacity",
-      "body": "Stable supply with strict QA — ready for pilots and nationwide rollouts."
+      "title": "Windows desktop software",
+      "body": "Installable .exe applications for billing counters and back-office machines."
     },
     "e4": {
-      "title": "International-Standard Assembly Line",
-      "body": "Built under rigorous processes to ensure quality and consistency."
+      "title": "Complete hardware catalog",
+      "body": "POS terminals, printers, scanners, kiosks and vending machines, matched to the software."
     },
     "e5": {
-      "title": "Free Remote Management System",
-      "body": "Monitor, update and control devices anywhere — no extra license fees."
+      "title": "One connected Odoo core",
+      "body": "Every app, till and device feeds the same ERP — one source of truth for the whole company."
     },
     "e6": {
-      "title": "Service Promise: 1-Year Warranty",
-      "body": "Standard 12-month coverage, with extended warranty options available."
+      "title": "24/7 support & warranty",
+      "body": "A service team that answers, with 12-month standard coverage."
     }
   },
   "products": {
@@ -387,6 +389,86 @@
     "ctaTitle": "Want a walkthrough of the modules you need?",
     "ctaBody": "We will demo the exact configuration for your business — nothing you do not need."
   },
+  "appsPage": {
+    "eyebrow": "Our Apps",
+    "title": "Ten apps. One connected back office.",
+    "body": "Every 369AI mobile app talks straight to Odoo — attendance, chat, sales, rentals and store operations all feed the same core your business already runs on. Built in-house, deployed on your own server, supported 24/7.",
+    "mobileChip": "10 Android apps · Odoo connected",
+    "mobileTitle": "Mobile apps",
+    "mobileBody": "Purpose-built Android apps for the people who do not sit at a desk — each one signs into your Odoo server and works with live company data.",
+    "desktopChip": "Windows · Offline-first",
+    "desktopTitle": "Desktop software",
+    "desktopBody": "Installable Windows .exe applications for billing counters and back-office machines, built for speed on local hardware.",
+    "desktopF1": "Runs natively on the counter PC — fast even on modest hardware.",
+    "desktopF2": "Keeps working through a dropped connection and syncs back to the ERP once you are online again.",
+    "desktopF3": "Installed and updated by our team, with 24/7 support behind it.",
+    "detailTitle": "What each app does",
+    "detailBody": "A closer look at the ten apps — what each one is for and what it handles day to day.",
+    "items": {
+      "alphalize": {
+        "tagline": "The whole Odoo back office in one app.",
+        "f1": "Around forty Odoo workflows — sales, purchase, inventory, payments and approvals — behind a single home screen.",
+        "f2": "Raise orders and estimates and print the invoice straight from the phone.",
+        "f3": "Driver trips are tracked and turned into field attendance automatically."
+      },
+      "attendance": {
+        "tagline": "Check in and out, and apply for leave from the phone.",
+        "f1": "One-tap check-in and check-out against your Odoo server.",
+        "f2": "A month view that takes shape as you work.",
+        "f3": "Leave requests raised and tracked in the same app."
+      },
+      "chats": {
+        "tagline": "A company messenger built on Odoo.",
+        "f1": "Threads, groups, media, polls and reactions — all held on your own server.",
+        "f2": "Identity tied to a phone number rather than an email address.",
+        "f3": "Voice notes and calls signalled through the same Odoo backend."
+      },
+      "kraKpi": {
+        "tagline": "Workday and task tracking against KRA/KPI targets.",
+        "f1": "Staff run their day against the targets assigned to them.",
+        "f2": "Admins configure targets and assign work from the same app.",
+        "f3": "Clients file requirements and settle invoices in one place."
+      },
+      "showroomCheck": {
+        "tagline": "Scheduled proof that a showroom matches its agreed layout.",
+        "f1": "Admins define how many rounds happen per day and the window for each.",
+        "f2": "Staff are guided through a directional sweep of the room, photo by photo.",
+        "f3": "The server compares each photo against the reference — a missed round is visible."
+      },
+      "priceChecker": {
+        "tagline": "Signage that becomes a price checker the moment a barcode is scanned.",
+        "f1": "Banners scroll on the screen until someone scans a product.",
+        "f2": "Runs on a tablet using its camera, or a POS terminal with a USB scanner.",
+        "f3": "One build covers both kinds of hardware."
+      },
+      "restaurant": {
+        "tagline": "A restaurant POS on Odoo — tables, orders and kitchen tickets.",
+        "f1": "Open a table, build the order from the category grid, fire the kitchen ticket.",
+        "f2": "Prints to real network printers without an agent on the till.",
+        "f3": "Works in English and Arabic, including right-to-left layout."
+      },
+      "spa": {
+        "tagline": "A walk-in kiosk for reception, running unattended on a tablet.",
+        "f1": "The customer picks a service and answers only the questions it requires.",
+        "f2": "The disclaimer is signed on the tablet itself.",
+        "f3": "The booking lands in Odoo for the receptionist to approve."
+      },
+      "toolManagement": {
+        "tagline": "Rent tools and equipment out and back in from a phone.",
+        "f1": "Pricing by hour, day, week or month.",
+        "f2": "Check-out and check-in with a running timesheet.",
+        "f3": "The rental cost is worked out for you."
+      },
+      "vanSale": {
+        "tagline": "A van-sales POS — sell off the vehicle and keep the books straight.",
+        "f1": "Pick products, take payment and print a receipt with your own layout.",
+        "f2": "Buy stock back in from the same app.",
+        "f3": "Every order carries the GPS location it was raised at."
+      }
+    },
+    "ctaTitle": "Want these running on your team's phones?",
+    "ctaBody": "Tell us what you run today and we will show you the apps on your own data — no obligation."
+  },
   "shop": {
     "eyebrow": "Hardware",
     "title": "POS, printing, scanning and automation hardware",
@@ -458,18 +540,79 @@
     }
   },
   "faq": {
-    "q1": "Which industries do you build for?",
-    "a1": "Retail, food service and hospitality are our core sectors, alongside warehousing, banking self-service and unmanned retail. If you run a counter, a stockroom or a fleet of machines, we have deployed something close to your setup.",
-    "q2": "Do you supply hardware, software, or both?",
-    "a2": "Both, and they are designed to work together. You can take the full 369AI stack — POS terminals, printers, scanners and ERP — or just the hardware, integrated with the system you already run.",
-    "q3": "Can 369AI integrate with our existing ERP or accounting system?",
-    "a3": "Yes. Our POS and device platforms expose standard APIs and we routinely integrate with existing ERP, accounting and payment systems rather than asking you to replace them.",
-    "q4": "What support do you provide after installation?",
-    "a4": "24/7 technical support, a dedicated after-sales engineering team, and a standard 12-month warranty with extended options. Our free remote management system lets us monitor, update and troubleshoot devices without a site visit.",
-    "q5": "Which countries do you operate in?",
-    "a5": "We have offices in the USA, UAE, Oman (Ruwi, Salalah and Sohar) and India, and we support deployments across the wider region.",
-    "q6": "How do I get pricing?",
-    "a6": "Add the hardware you are interested in to your inquiry basket and send it to us, or contact our sales team directly. We quote per configuration, so pricing reflects what you actually need."
+    "categoriesLabel": "FAQ categories",
+    "cats": {
+      "general": {
+        "title": "General",
+        "q1": "Which industries do you build for?",
+        "a1": "Retail, food service and hospitality are our core sectors, alongside warehousing, banking self-service and unmanned retail. If you run a counter, a stockroom or a fleet of machines, we have deployed something close to your setup.",
+        "q2": "Do you supply hardware, software, or both?",
+        "a2": "Both, and they are designed to work together. You can take the full 369AI stack — POS terminals, printers, scanners and ERP — or just the hardware, integrated with the system you already run.",
+        "q3": "Can 369AI integrate with our existing ERP or accounting system?",
+        "a3": "Yes. Our POS and device platforms expose standard APIs and we routinely integrate with existing ERP, accounting and payment systems rather than asking you to replace them.",
+        "q4": "What support do you provide after installation?",
+        "a4": "24/7 technical support, a dedicated after-sales engineering team, and a standard 12-month warranty with extended options. Our free remote management system lets us monitor, update and troubleshoot devices without a site visit.",
+        "q5": "Which countries do you operate in?",
+        "a5": "We have offices in the USA, UAE, Oman (Ruwi, Salalah and Sohar) and India, and we support deployments across the wider region."
+      },
+      "apps": {
+        "title": "Mobile Apps",
+        "q1": "Which platforms do the apps run on?",
+        "a1": "All ten are built with React Native and ship for Android today — attendance, chat, KRA/KPI, showroom checks, price checking, restaurant POS, spa reception, tool rentals, van sales and the full back office; iOS builds are available on request.",
+        "q2": "Do the apps need Odoo to work?",
+        "a2": "Yes — each app signs into your own Odoo server and works with live company data, so sales, stock and attendance land in the same ERP the rest of the business uses.",
+        "q3": "Can the apps be customized for our workflows?",
+        "a3": "Yes. We build and maintain them in-house, so screens, fields and approval flows can be adapted to the way your team works.",
+        "q4": "What happens when the connection drops?",
+        "a4": "The selling apps keep the sale moving and sync back to the ERP once you are online again; live features such as chat reconnect automatically.",
+        "q5": "How do we get the apps installed?",
+        "a5": "They are deployed privately to your devices by our team as part of setup — not through the public app stores — and updates are handled for you."
+      },
+      "desktop": {
+        "title": "Desktop Software",
+        "q1": "What is the desktop software?",
+        "a1": "Installable Windows .exe applications for billing counters and back-office machines, built for speed on local hardware.",
+        "q2": "Does it work without internet?",
+        "a2": "Yes — it is offline-first: you keep billing through a dropped connection and everything syncs back to the ERP once you are online again.",
+        "q3": "What are the system requirements?",
+        "a3": "Any recent Windows PC — the software is built to run fast on the modest hardware found at real billing counters.",
+        "q4": "How are updates handled?",
+        "a4": "Installed and updated by our team, with 24/7 support behind it — you never manage installers yourself."
+      },
+      "erp": {
+        "title": "Odoo & ERP",
+        "q1": "Do you implement Odoo end to end?",
+        "a1": "Yes — modules, configuration, custom development, training and go-live, run by the same in-house team that builds our apps.",
+        "q2": "Can we keep our data when moving to Odoo?",
+        "a2": "Yes. Migration of products, customers, stock and open balances is part of the implementation.",
+        "q3": "Does Odoo run on our own server or in the cloud?",
+        "a3": "Either — we deploy on your own server or on a managed cloud instance; your data stays yours in both cases.",
+        "q4": "Which modules do you cover?",
+        "a4": "The full back office — sales, purchase, inventory, accounting, HR and more; the Software page lists the modules we deploy most."
+      },
+      "hardware": {
+        "title": "Hardware & Shop",
+        "q1": "How do I order hardware?",
+        "a1": "Browse the Hardware catalog, add items to your inquiry basket and send it — our team replies with pricing and availability.",
+        "q2": "Will the hardware work with the software?",
+        "a2": "Yes, that is the point of the range: terminals, printers, scanners and kiosks are chosen and tested to run our POS, ERP and apps.",
+        "q3": "Do you deliver and install?",
+        "a3": "Yes — we deliver, install and configure on site, and our support team stays behind the deployment afterwards.",
+        "q4": "Is there a warranty on devices?",
+        "a4": "A standard 12-month warranty with extended options, plus our free remote management system for monitoring and updates."
+      },
+      "pricing": {
+        "title": "Pricing & Plans",
+        "q1": "How do I get pricing?",
+        "a1": "Add the hardware you are interested in to your inquiry basket and send it to us, or contact our sales team directly. We quote per configuration, so pricing reflects what you actually need.",
+        "q2": "What affects the price?",
+        "a2": "Configuration — the modules, apps, devices and number of sites you actually need; we quote per configuration rather than a flat tier.",
+        "q3": "Can we see it working before we buy?",
+        "a3": "Yes — tell us what you run today and we will demo the exact configuration on your own data, no obligation.",
+        "q4": "Are there recurring fees?",
+        "a4": "That depends on how you deploy; the quote spells out one-time and recurring costs so there are no surprises."
+      }
+    }
   },
   "assistant": {
     "launcherLabel": "Ask 369AI",
@@ -489,6 +632,8 @@
     "pricingBody": "We quote per configuration, so pricing reflects exactly what you need. Open any product and use \"Enquire about this product\", or contact our sales team — we respond within 24 hours.",
     "hardwareTitle": "Hardware range",
     "hardwareBody": "We supply {count} hardware products — POS terminals, thermal and label printers, barcode scanners, cash drawers, customer displays, kiosks, vending machines, robots and banking equipment.",
+    "appsTitle": "Our mobile apps",
+    "appsBody": "We build ten Android apps that run on Odoo — covering attendance, team chat, KRA/KPI tracking, showroom checks, price checking, restaurant POS, spa reception, tool rentals, van sales and the full back office — plus Windows desktop software. See them all on our Apps page.",
     "whatsappPrefill": "Hello 369AI, I have a question about your products.",
     "readMore": "Read more"
   },
