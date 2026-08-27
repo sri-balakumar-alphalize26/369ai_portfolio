@@ -15,6 +15,7 @@ import {
   Mail,
   MonitorCog,
   Cpu,
+  Smartphone,
 } from 'lucide-react'
 import { LocaleSwitcher } from './LocaleSwitcher'
 import { PhoneMenu } from './PhoneMenu'
@@ -211,6 +212,7 @@ export function Header() {
                 NAV_ITEM,
                 openMenu === 'products' ||
                   pathname === `${base}/products` ||
+                  pathname === `${base}/apps` ||
                   pathname.startsWith(`${base}/shop`)
                   ? NAV_ON
                   : NAV_OFF
@@ -387,6 +389,12 @@ function ProductsMenu({ base, onNavigate }: { base: string; onNavigate: () => vo
       blurb: t('hardwareBlurb'),
       Icon: Cpu,
     },
+    {
+      href: `${base}/apps`,
+      label: t('apps'),
+      blurb: t('appsBlurb'),
+      Icon: Smartphone,
+    },
   ]
 
   return (
@@ -503,6 +511,13 @@ function MobilePanel({
                 className="block rounded-xl px-3 py-3 text-base font-medium text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-700"
               >
                 {t('hardware')}
+              </Link>
+              <Link
+                href={`${base}/apps`}
+                onClick={onClose}
+                className="block rounded-xl px-3 py-3 text-base font-medium text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-700"
+              >
+                {t('apps')}
               </Link>
             </li>
           </ul>

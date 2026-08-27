@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { Section, SectionHeader } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { ButtonLink } from '@/components/ui/Button'
+import { Magnetic } from '@/components/ui/Magnetic'
 import { PageHero } from '@/components/ui/PageHero'
 import { RequirementsFlow } from '@/components/products/RequirementsFlow'
 import { locales } from '@/i18n/routing'
@@ -82,6 +83,7 @@ export default async function ProductsPage({
   const t = await getTranslations('products')
   const tc = await getTranslations('common')
   const tb = await getTranslations('builder')
+  const tNav = await getTranslations('nav')
   const base = `/${locale}`
 
   return (
@@ -165,6 +167,12 @@ export default async function ProductsPage({
             </Reveal>
           ))}
         </ul>
+        <div className="mt-10 text-center">
+          <ButtonLink href={`${base}/apps`} variant="outline" className="learn-more">
+            <span>{tNav('apps')}</span>
+            <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
+          </ButtonLink>
+        </div>
       </Section>
 
       {/* How it works */}
@@ -220,9 +228,11 @@ export default async function ProductsPage({
               {t('ctaBody')}
             </p>
           </div>
-          <ButtonLink href={`${base}/contact`} variant="accent" size="lg">
-            {tc('requestQuote')}
-          </ButtonLink>
+          <Magnetic>
+            <ButtonLink href={`${base}/contact`} variant="accent" size="lg">
+              {tc('requestQuote')}
+            </ButtonLink>
+          </Magnetic>
         </div>
       </Section>
     </>

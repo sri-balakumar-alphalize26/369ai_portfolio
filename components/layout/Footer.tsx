@@ -52,6 +52,7 @@ export async function Footer() {
     { href: `${base}/services`, label: tNav('services') },
     { href: `${base}/products`, label: tNav('products') },
     { href: `${base}/shop`, label: tNav('shop') },
+    { href: `${base}/apps`, label: tNav('apps') },
     { href: `${base}/contact`, label: tNav('contact') },
     { href: `${base}/privacy-policy`, label: t('privacy') },
   ]

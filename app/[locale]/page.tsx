@@ -13,6 +13,7 @@ import {
 import { Section, SectionHeader } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { ButtonLink } from '@/components/ui/Button'
+import { Magnetic } from '@/components/ui/Magnetic'
 import { TechMarquee } from '@/components/home/TechMarquee'
 import { StatsRow } from '@/components/home/StatsRow'
 import { Hero } from '@/components/home/Hero'
@@ -20,6 +21,8 @@ import { Faq } from '@/components/home/Faq'
 import { LeadershipVideos } from '@/components/home/LeadershipVideos'
 import { AppIntegrations } from '@/components/home/AppIntegrations'
 import { PRODUCTS, toCardData } from '@/lib/products'
+import { AppsStack } from '@/components/apps/AppsStack'
+import { appsWithIcons } from '@/lib/apps'
 import { ConnectedPillars } from '@/components/home/ConnectedPillars'
 import { ConnectedStage } from '@/components/ui/ConnectedStage'
 import { RotatingTitle } from '@/components/home/RotatingTitle'
@@ -51,7 +54,10 @@ export default async function HomePage({
   const tp = await getTranslations('pillars')
   const ts = await getTranslations('services')
   const tc = await getTranslations('common')
+  const ta = await getTranslations('appsPage')
+  const tNav = await getTranslations('nav')
   const base = `/${locale}`
+  const apps = appsWithIcons()
 
   return (
     <>
@@ -153,6 +159,20 @@ export default async function HomePage({
         </div>
       </Section>
 
+      {/* ------------------------------------------------------------ Our Apps */}
+      <Section>
+        <SectionHeader eyebrow={ta('eyebrow')} title={ta('title')} body={ta('body')} />
+        <div className="mt-14">
+          <AppsStack apps={apps} />
+        </div>
+        <div className="mt-10 text-center">
+          <ButtonLink href={`${base}/apps`} variant="outline" className="learn-more">
+            <span>{tNav('apps')}</span>
+            <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
+          </ButtonLink>
+        </div>
+      </Section>
+
       {/* ------------------------------------------------------------ Hardware */}
       <Section>
         <div className="flex flex-wrap items-end justify-between gap-6">
@@ -186,7 +206,7 @@ export default async function HomePage({
       {/* ----------------------------------------------------------------- FAQ */}
       <Section>
         <SectionHeader title={t('faqTitle')} body={t('faqBody')} />
-        <div className="mx-auto mt-12 max-w-3xl">
+        <div className="mx-auto mt-12 max-w-5xl">
           <Faq />
         </div>
       </Section>
@@ -199,9 +219,11 @@ export default async function HomePage({
             <p className="mt-3 text-slate-300">{t('ctaBody')}</p>
           </div>
           <div className="flex shrink-0 flex-wrap justify-center gap-3">
-            <ButtonLink href={`${base}/contact`} variant="accent" size="lg">
-              {t('ctaPrimary')}
-            </ButtonLink>
+            <Magnetic>
+              <ButtonLink href={`${base}/contact`} variant="accent" size="lg">
+                {t('ctaPrimary')}
+              </ButtonLink>
+            </Magnetic>
             <ButtonLink href={`${base}/shop`} variant="onDark" size="lg">
               {t('ctaSecondary')}
             </ButtonLink>
