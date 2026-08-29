@@ -20,6 +20,7 @@ import { cn } from '@/lib/cn'
 export function AmbientVideo({
   src,
   className,
+  managed = false,
   playLabel,
   pauseLabel,
   unmuteLabel,
@@ -27,6 +28,11 @@ export function AmbientVideo({
 }: {
   src: string
   className?: string
+  /**
+   * The parent decides when this clip plays (the card stack does, so only
+   * the front card ever loads). Skips this component's own in-view autoplay.
+   */
+  managed?: boolean
   playLabel: string
   pauseLabel: string
   unmuteLabel: string
@@ -60,8 +66,18 @@ export function AmbientVideo({
       }
     }
 
-    // Ambient loop only while on screen: the 8 MB file is neither fetched
-    // nor decoded for a card the visitor has not scrolled to.
+    // Managed clips are played by the parent — starting them here too would
+    // begin a fetch the stack immediately aborts when the card is covered.
+    if (managed) {
+      return () => {
+        v.removeEventListener('play', onPlay)
+        v.removeEventListener('pause', onPause)
+        v.removeEventListener('volumechange', onVolume)
+      }
+    }
+
+    // Ambient loop only while on screen: the file is neither fetched nor
+    // decoded for a card the visitor has not scrolled to.
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -81,7 +97,7 @@ export function AmbientVideo({
       v.removeEventListener('pause', onPause)
       v.removeEventListener('volumechange', onVolume)
     }
-  }, [])
+  }, [managed])
 
   function togglePlay() {
     const v = ref.current
@@ -108,7 +124,7 @@ export function AmbientVideo({
   const showPlay = paused || !started
 
   return (
-    <div className="group relative">
+    <div className="group relative h-full">
       <video
         ref={ref}
         src={src}

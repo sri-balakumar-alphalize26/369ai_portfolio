@@ -17,14 +17,20 @@ import { X } from 'lucide-react'
  */
 export function Lightbox({
   src,
+  full,
   alt,
   sizes,
+  fit = 'contain',
   openLabel,
   closeLabel,
 }: {
   src: string
+  /** Optional other picture for the overlay (e.g. the untouched original). */
+  full?: string
   alt: string
   sizes: string
+  /** Thumbnail fit. The overlay is always contained — enlarging must never crop. */
+  fit?: 'cover' | 'contain'
   openLabel: string
   closeLabel: string
 }) {
@@ -51,7 +57,13 @@ export function Lightbox({
         aria-label={openLabel}
         className="relative block h-full w-full cursor-zoom-in"
       >
-        <Image src={src} alt={alt} fill sizes={sizes} className="object-contain" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          className={fit === 'cover' ? 'object-cover' : 'object-contain'}
+        />
       </button>
 
       {open
@@ -77,7 +89,7 @@ export function Lightbox({
                 className="relative h-[85vh] w-[90vw] max-w-5xl"
                 onClick={(e) => e.stopPropagation()}
               >
-                <Image src={src} alt={alt} fill sizes="90vw" className="object-contain" priority />
+                <Image src={full ?? src} alt={alt} fill sizes="90vw" className="object-contain" priority />
               </div>
             </div>,
             document.body

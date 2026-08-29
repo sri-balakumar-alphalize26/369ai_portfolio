@@ -1,12 +1,13 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { MonitorCog, Check, Bot, Lock, Boxes, ArrowRight, type LucideIcon } from 'lucide-react'
 import { AppIcon, type AppIconData } from './AppIcon'
 import { SOLUTION_IMAGES } from '@/content/solutions'
+import { useCardStack } from '@/lib/use-card-stack'
 import { cn } from '@/lib/cn'
 
 type StackApp = AppIconData & { id: string }
@@ -59,78 +60,10 @@ export function AppsStack({
   const base = `/${useLocale()}`
   const rootRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const cards = Array.from(
-      rootRef.current?.querySelectorAll<HTMLElement>('.stack-card') ?? []
-    )
-    if (cards.length < 2) return
-
-    // Equal heights are layout, not motion, so this runs even under reduced
-    // motion. Only at lg: on phones the apps card is far taller than the rest
-    // and forcing every card to match it would leave holes.
-    function equalize() {
-      cards.forEach((c) => {
-        c.style.minHeight = ''
-      })
-      if (window.innerWidth < 1024) return
-      const max = Math.max(...cards.map((c) => c.offsetHeight))
-      cards.forEach((c) => {
-        c.style.minHeight = `${max}px`
-      })
-    }
-
-    // Same bail as the Header's scroll handler — under reduced motion the CSS
-    // zeroes the deck response anyway; skipping the listener keeps scroll cheap.
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    let frame = 0
-    let resizeFrame = 0
-
-    // depth_i = how far card i has been pushed back by everything stacked on
-    // top of it: the sum of how much each later card has covered its
-    // predecessor. CSS turns it into the step-up / shrink / dim of the deck.
-    // Depths are zeroed before measuring so the rects are the untransformed
-    // boxes — otherwise a card's own shift would feed back into its reading.
-    function measure() {
-      if (reduced) return
-      cards.forEach((c) => c.style.setProperty('--depth', '0'))
-      const rects = cards.map((c) => c.getBoundingClientRect())
-      let depth = 0
-      for (let i = cards.length - 1; i >= 0; i--) {
-        if (i < cards.length - 1) {
-          const a = rects[i]
-          const b = rects[i + 1]
-          depth += Math.min(1, Math.max(0, (a.bottom - b.top) / a.height))
-        }
-        cards[i].style.setProperty('--depth', depth.toFixed(3))
-      }
-    }
-
-    function onScroll() {
-      cancelAnimationFrame(frame)
-      frame = requestAnimationFrame(measure)
-    }
-    function onResize() {
-      cancelAnimationFrame(resizeFrame)
-      resizeFrame = requestAnimationFrame(() => {
-        equalize()
-        measure()
-      })
-    }
-
-    equalize()
-    measure()
-    window.addEventListener('resize', onResize, { passive: true })
-    if (!reduced) window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      cancelAnimationFrame(frame)
-      cancelAnimationFrame(resizeFrame)
-      window.removeEventListener('resize', onResize)
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [])
+  useCardStack(rootRef)
 
   return (
-    <div ref={rootRef} className="apps-stack">
+    <div ref={rootRef} className="card-stack">
       {/* Card 1 — the ten mobile apps */}
       <article className="stack-card flex flex-col justify-center rounded-panel border border-surface-line bg-white p-7 shadow-xl sm:p-10">
         <p className="inline-flex rounded-pill bg-brand-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-700">
