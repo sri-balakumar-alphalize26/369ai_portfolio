@@ -1513,10 +1513,13 @@
    inside a plain block container, so each new card slides up and
    fully covers the one pinned beneath it. The container must NOT be
    grid/flex — a sticky grid item's containing block is its own grid
-   area, which leaves it no room to pin at all. The covered card's
-   scale/brightness respond to --covered (0→1), measured in
-   AppsStack.tsx. Transform and filter only — GPU-friendly and
-   direction-agnostic, so RTL needs no overrides. Sticky stays on
+   area, which leaves it no room to pin at all. Cards are equalized
+   to one height (AppsStack.tsx) so nothing peeks out beneath a
+   shorter card, and each card's --depth (how many cards sit on top
+   of it, fractional while sliding) drives a 3D deck: covered cards
+   step up, shrink and dim behind the front one. translate/scale/
+   filter only — GPU-friendly and direction-agnostic, so RTL needs
+   no overrides. Sticky stays on
    under prefers-reduced-motion (it is scroll-anchored layout, not
    motion); only the scale/dim response is switched off, and the JS
    handler never attaches.
@@ -1524,17 +1527,23 @@
 .apps-stack{position:relative}
 .stack-card{
   position:sticky;
-  /* Same for ALL cards (full cover); 6.5rem clears the capsule header. */
-  top:6.5rem;
+  /* Same for ALL cards (full cover). 9rem leaves room for two peeking
+     layers (2 × 1.25rem) below the 5.75rem capsule header. */
+  top:9rem;
   transform-origin:center top;
-  transform:scale(calc(1 - 0.05 * var(--covered, 0)));
-  filter:brightness(calc(1 - 0.12 * var(--covered, 0)));
+  /* The deck: covered cards step up behind the front one, narrow so their
+     edges read as layers, dim with depth, and fade out past two layers so
+     the pile stays tidy. --depth is written per card by AppsStack.tsx. */
+  translate:0 calc(-1.25rem * min(var(--depth, 0), 2));
+  scale:calc(1 - 0.045 * min(var(--depth, 0), 2));
+  filter:brightness(calc(1 - 0.14 * min(var(--depth, 0), 2)));
+  opacity:calc(1 - max(0, var(--depth, 0) - 2));
 }
-/* Scroll runway: card 1 sits pinned alone for ~40vh before card 2 arrives. */
-.stack-card + .stack-card{margin-top:clamp(8rem, 40vh, 24rem)}
+/* Scroll runway: each card sits pinned alone for ~30vh before the next arrives (five cards). */
+.stack-card + .stack-card{margin-top:clamp(6rem, 30vh, 18rem)}
 
 @media (prefers-reduced-motion:reduce){
-  .stack-card{transform:none!important;filter:none!important}
+  .stack-card{translate:none!important;scale:none!important;filter:none!important;opacity:1!important}
 }
 
 /* ==================================================================
@@ -1686,4 +1695,72 @@
 
 @media (prefers-reduced-motion:reduce){
   .faq-swap{animation:none}
+}
+
+/* ==================================================================
+   ABOUT — Milestones cards.
+   Reveal: the media wipes open from the CENTRE (clip-path inset 50%
+   each side → 0) — it reads as the moment being uncovered, and is
+   deliberately different from the top-down flood on the apps tiles.
+   Then a four-beat cascade: media +120ms, date pill pops with
+   overshoot +380ms, title +460ms, body +540ms, link +620ms — all off
+   ONE --d per card (inline, 180ms apart), so no inline delays are
+   left behind.
+   "View on LinkedIn": a bare 18px LinkedIn mark that tilts (-8deg) and
+   grows (1.1) on hover/focus while the arrow nudges up-right — rotate,
+   scale and translate as separate properties.
+   Lightbox: the enlarged image fades/scales in over a blurred page.
+   ================================================================== */
+.ms-card .ms-media{
+  clip-path:inset(0 50% 0 50%);
+  transition:clip-path .8s cubic-bezier(.16,1,.3,1) calc(var(--d, 0ms) + 120ms);
+}
+.ms-card .ms-date{
+  opacity:0;scale:.6;
+  transition:opacity .3s ease calc(var(--d, 0ms) + 380ms),
+             scale .55s cubic-bezier(.34,1.56,.64,1) calc(var(--d, 0ms) + 380ms);
+}
+.ms-card .ms-title{
+  opacity:0;translate:0 10px;
+  transition:opacity .4s ease calc(var(--d, 0ms) + 460ms),
+             translate .55s cubic-bezier(.16,1,.3,1) calc(var(--d, 0ms) + 460ms);
+}
+.ms-card .ms-body{
+  opacity:0;translate:0 10px;
+  transition:opacity .4s ease calc(var(--d, 0ms) + 540ms),
+             translate .55s cubic-bezier(.16,1,.3,1) calc(var(--d, 0ms) + 540ms);
+}
+.ms-card .ms-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:#0a66c2;font-size:14px;font-weight:500;text-decoration:none;
+}
+.ms-link__mark,
+.ms-link__arrow{flex:none} /* stops the flex row from squeezing them */
+.ms-link__mark svg{display:block} /* kills the inline-baseline gap under the svg */
+.ms-link__mark{color:#0a66c2;transition:rotate .28s ease,scale .28s ease}
+.ms-link__arrow{display:inline-flex;transition:translate .28s ease}
+.ms-link:hover .ms-link__mark,
+.ms-link:focus-visible .ms-link__mark{rotate:-8deg;scale:1.1}
+.ms-link:hover .ms-link__arrow,
+.ms-link:focus-visible .ms-link__arrow{translate:3px -3px}
+/* Internal-page variant: brand colour, arrow slides straight ahead. */
+.ms-link--site{color:var(--color-brand-600)}
+.ms-link--site:hover .ms-link__arrow,
+.ms-link--site:focus-visible .ms-link__arrow{translate:3px 0}
+[dir='rtl'] .ms-link--site:hover .ms-link__arrow,
+[dir='rtl'] .ms-link--site:focus-visible .ms-link__arrow{translate:-3px 0}
+
+.lightbox-in{animation:lightbox-in .22s var(--ease-out-soft) both}
+@keyframes lightbox-in{
+  from{opacity:0;scale:.96}
+  to{opacity:1;scale:1}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ms-card .ms-media{clip-path:none!important;transition:none!important}
+  .ms-card :is(.ms-date,.ms-title,.ms-body,.ms-link){opacity:1!important;scale:1!important;translate:none!important;transition:none!important}
+  .ms-link__mark,.ms-link__arrow{transition:none!important}
+  .ms-link:hover .ms-link__mark,.ms-link:focus-visible .ms-link__mark{rotate:0deg!important;scale:1!important}
+  .ms-link:hover .ms-link__arrow,.ms-link:focus-visible .ms-link__arrow{translate:none!important}
+  .lightbox-in{animation:none}
 }

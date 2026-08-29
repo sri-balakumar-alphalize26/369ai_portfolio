@@ -27,6 +27,10 @@
     "hardwareBlurb": "Kassenterminals, Drucker, Scanner, Kioske, Automaten und Roboter.",
     "apps": "Unsere Apps",
     "appsBlurb": "Zehn mobile Apps und Windows-Desktop-Software, alle mit Odoo verbunden.",
+    "company": "Unternehmen",
+    "aboutBlurb": "Wer wir sind, was uns auszeichnet und unsere Meilensteine.",
+    "events": "Events",
+    "eventsBlurb": "Fachmessen, Auszeichnungen und die Momente, in denen wir unsere Arbeit persönlich gezeigt haben.",
     "homeAria": "369ai.Biz Startseite",
     "mainNav": "Hauptnavigation",
     "mobileNav": "Mobile Navigation"
@@ -225,6 +229,34 @@
     "e6": {
       "title": "24/7-Support & Garantie",
       "body": "Ein Serviceteam, das antwortet — mit 12 Monaten Standardgarantie."
+    },
+    "milestonesTitle": "Meilensteine",
+    "milestonesBody": "Aktuelle Momente aus dem Unternehmen — neu erschlossener Raum und Partnerschaften, die die Messlatte für das, was wir liefern, höher legen.",
+    "viewPost": "Auf LinkedIn ansehen",
+    "playVideo": "Video abspielen",
+    "pauseVideo": "Video pausieren",
+    "unmuteVideo": "Ton einschalten",
+    "muteVideo": "Ton ausschalten",
+    "milestones": {
+      "office": {
+        "date": "7. November 2025",
+        "title": "Neues Entwicklungsbüro eröffnet",
+        "body": "Wir haben ein neues Entwicklungsbüro eröffnet — mehr Platz für das Engineering-Team hinter unserer Odoo-Arbeit, unseren mobilen Apps und unserer Desktop-Software, und eine Basis für die nächste Wachstumsphase."
+      },
+      "partnership": {
+        "date": "Dezember 2025",
+        "title": "Offizieller Odoo-Partner",
+        "body": "Alphalize Technologies ist jetzt in das Odoo-Partnerprogramm aufgenommen. Das bringt unserem Team weiterführende Odoo-Schulungen, Zertifizierungen und Implementierungs-Know-how — damit jede ERP-Einführung, die wir liefern, von der Plattform selbst getragen wird.",
+        "f1": "Odoo-ERP-Einführung",
+        "f2": "Entwicklung individueller Module",
+        "f3": "Buchhaltung, CRM, Lager & HR",
+        "f4": "Support für KMU und Großunternehmen"
+      },
+      "expo": {
+        "date": "Dezember 2025",
+        "title": "Gulf Indian Global Trade Expo 2025",
+        "body": "Ein funktionierender vernetzter Laden an Stall A1, Kozhikode — Verkaufsautomat, Verkaufsroboter und smarte Schließfächer auf Odoo und unserer mobilen App."
+      }
     }
   },
   "products": {
@@ -469,6 +501,37 @@
     "ctaTitle": "Sollen diese Apps auf den Telefonen Ihres Teams laufen?",
     "ctaBody": "Sagen Sie uns, womit Sie heute arbeiten, und wir zeigen Ihnen die Apps mit Ihren eigenen Daten — unverbindlich."
   },
+  "events": {
+    "eyebrow": "Events",
+    "title": "Wo wir unsere Arbeit gezeigt haben",
+    "body": "Fachmessen und Branchenevents, bei denen Besucher unsere Roboter, Verkaufsautomaten und Odoo-basierten Apps persönlich erlebt haben.",
+    "viewPost": "Auf LinkedIn ansehen",
+    "post1": "Ankündigung",
+    "post2": "Live-Demos",
+    "post3": "Video",
+    "galleryTitle": "Galerie",
+    "videosTitle": "Direkt von der Messe",
+    "items": {
+      "expo2025": {
+        "date": "Dezember 2025 · Kozhikode",
+        "title": "Gulf Indian Global Trade Expo 2025",
+        "body": "An Stall A1 im Calicut Trade Centre haben wir einen funktionierenden Ausschnitt eines vernetzten Ladens aufgebaut — ein smarter Verkaufsautomat, ein Verkaufsroboter und smarte Schließfächer, alle auf Odoo und unserer mobilen App — sodass Besucher kaufen, abholen und den Bestand in Echtzeit wandern sehen konnten.",
+        "h1": "Verkaufsautomat mit Lagerbestand in Odoo — in der mobilen App bezahlen, am Automaten abholen.",
+        "h2": "Verkaufsroboter, der Besucher begrüßt und Produkte live vorführt.",
+        "h3": "Smarte Schließfächer und Odoo-gesteuerte Automatisierung für den unbemannten Handel."
+      },
+      "bizconnect2026": {
+        "date": "Februar 2026",
+        "title": "BizConnect 2026",
+        "body": "Wir haben praxisnahe Robotik und Odoo-gesteuerte Automatisierung mitgebracht, entwickelt für echte betriebliche Anforderungen — und sind mit dem Robotics Service Excellence Award der Insight Kerala Business Awards 2026 nach Hause gekommen.",
+        "h1": "Robotics Service Excellence Award — Insight Kerala Business Awards 2026, verliehen von Business Insight.",
+        "h2": "Live-Demos von Robotik und Automatisierung für den täglichen Betrieb in allen Branchen.",
+        "h3": "Anerkennung für verlässliche Innovation und langfristige Kundenbetreuung."
+      }
+    },
+    "ctaTitle": "Möchten Sie das in Ihrem Unternehmen im Einsatz sehen?",
+    "ctaBody": "Wir zeigen Ihnen dieselbe Demo mit Ihren eigenen Daten — unverbindlich."
+  },
   "shop": {
     "eyebrow": "Hardware",
     "title": "Hardware für Kasse, Druck, Scanning und Automatisierung",
@@ -634,6 +697,8 @@
     "hardwareBody": "Wir liefern {count} Hardware-Produkte — Kassenterminals, Thermo- und Etikettendrucker, Barcodescanner, Kassenladen, Kundendisplays, Kioske, Verkaufsautomaten, Roboter und Bankausstattung.",
     "appsTitle": "Unsere mobilen Apps",
     "appsBody": "Wir entwickeln zehn Android-Apps, die auf Odoo laufen — von Zeiterfassung, Team-Chat, KRA/KPI-Verfolgung, Showroom-Kontrollen und Preisprüfung über Restaurantkasse, Spa-Empfang, Werkzeugverleih und Verkauf per Fahrzeug bis zum kompletten Backoffice — dazu Windows-Desktop-Software. Alle finden Sie auf unserer Apps-Seite.",
+    "eventsTitle": "Events & Messen",
+    "eventsBody": "Wir haben auf der Gulf Indian Global Trade Expo 2025 in Kozhikode (Stall A1) mit einem smarten Verkaufsautomaten, einem Verkaufsroboter und smarten Schließfächern auf Odoo ausgestellt und bei BizConnect 2026 den Robotics Service Excellence Award erhalten. Fotos und Videos finden Sie auf der Events-Seite.",
     "whatsappPrefill": "Hallo 369AI, ich habe eine Frage zu Ihren Produkten.",
     "readMore": "Mehr lesen"
   },

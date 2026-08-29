@@ -87,6 +87,16 @@ export function Assistant() {
         body: t('appsBody'),
         href: `${base}/apps`,
       },
+      {
+        id: 'events',
+        keywords: [
+          'event', 'events', 'expo', 'exhibition', 'trade', 'kozhikode', 'calicut',
+          'stall', 'bizconnect', 'award', 'robot', 'vending',
+        ],
+        title: t('eventsTitle'),
+        body: t('eventsBody'),
+        href: `${base}/events`,
+      },
     ]
 
     return [...faq, ...services, ...solutions, ...extras]

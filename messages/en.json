@@ -27,6 +27,10 @@
     "hardwareBlurb": "POS terminals, printers, scanners, kiosks, vending machines and robots.",
     "apps": "Our Apps",
     "appsBlurb": "Ten mobile apps and Windows desktop software, all connected to Odoo.",
+    "company": "Company",
+    "aboutBlurb": "Who we are, what sets us apart, and our milestones.",
+    "events": "Events",
+    "eventsBlurb": "Trade expos, awards and the moments we showed our work in person.",
     "homeAria": "369ai.Biz home",
     "mainNav": "Main",
     "mobileNav": "Mobile"
@@ -225,6 +229,34 @@
     "e6": {
       "title": "24/7 support & warranty",
       "body": "A service team that answers, with 12-month standard coverage."
+    },
+    "milestonesTitle": "Milestones",
+    "milestonesBody": "Recent moments from the company — new ground opened, and partnerships that raise the bar for what we deliver.",
+    "viewPost": "View on LinkedIn",
+    "playVideo": "Play video",
+    "pauseVideo": "Pause video",
+    "unmuteVideo": "Turn sound on",
+    "muteVideo": "Turn sound off",
+    "milestones": {
+      "office": {
+        "date": "7 November 2025",
+        "title": "New development office inaugurated",
+        "body": "We opened a new development office — more room for the engineering team behind our Odoo work, mobile apps and desktop software, and a base built for the next stage of growth."
+      },
+      "partnership": {
+        "date": "December 2025",
+        "title": "Official Odoo Partner",
+        "body": "Alphalize Technologies is now enrolled in the Odoo Partnership Program. It brings our team advanced Odoo training, certifications and implementation expertise — so every ERP rollout we deliver is backed by the platform itself.",
+        "f1": "Odoo ERP implementation",
+        "f2": "Custom module development",
+        "f3": "Accounting, CRM, inventory & HR",
+        "f4": "Support for SMEs and enterprises"
+      },
+      "expo": {
+        "date": "December 2025",
+        "title": "Gulf Indian Global Trade Expo 2025",
+        "body": "A working connected store at Stall A1, Kozhikode — vending machine, sales robot and smart lockers running on Odoo and our mobile app."
+      }
     }
   },
   "products": {
@@ -469,6 +501,37 @@
     "ctaTitle": "Want these running on your team's phones?",
     "ctaBody": "Tell us what you run today and we will show you the apps on your own data — no obligation."
   },
+  "events": {
+    "eyebrow": "Events",
+    "title": "Where we showed our work",
+    "body": "Trade expos and industry events where visitors met our robots, vending machines and Odoo-driven apps in person.",
+    "viewPost": "View on LinkedIn",
+    "post1": "Announcement",
+    "post2": "Live demos",
+    "post3": "Video",
+    "galleryTitle": "Gallery",
+    "videosTitle": "From the floor",
+    "items": {
+      "expo2025": {
+        "date": "December 2025 · Kozhikode",
+        "title": "Gulf Indian Global Trade Expo 2025",
+        "body": "At Stall A1 of the Calicut Trade Centre we set up a working slice of a connected store — a smart vending machine, a sales-representative robot and smart lockers, all running on Odoo and our mobile app — so visitors could buy, collect and watch the stock move in real time.",
+        "h1": "Vending machine with inventory on Odoo — pay in the mobile app, collect from the machine.",
+        "h2": "Sales Representative Robot greeting visitors and demonstrating products live.",
+        "h3": "Smart lockers and Odoo-driven automation for unmanned retail."
+      },
+      "bizconnect2026": {
+        "date": "February 2026",
+        "title": "BizConnect 2026",
+        "body": "We brought practical robotics and Odoo-driven automation built for real operational needs — and came home with the Robotics Service Excellence Award at the Insight Kerala Business Awards 2026.",
+        "h1": "Robotics Service Excellence Award — Insight Kerala Business Awards 2026, presented by Business Insight.",
+        "h2": "Live demos of robotics and automation built for day-to-day operations across industries.",
+        "h3": "Recognition for dependable innovation and long-term customer support."
+      }
+    },
+    "ctaTitle": "Want to see it working for your business?",
+    "ctaBody": "We will bring the same demo to your own data — no obligation."
+  },
   "shop": {
     "eyebrow": "Hardware",
     "title": "POS, printing, scanning and automation hardware",
@@ -634,6 +697,8 @@
     "hardwareBody": "We supply {count} hardware products — POS terminals, thermal and label printers, barcode scanners, cash drawers, customer displays, kiosks, vending machines, robots and banking equipment.",
     "appsTitle": "Our mobile apps",
     "appsBody": "We build ten Android apps that run on Odoo — covering attendance, team chat, KRA/KPI tracking, showroom checks, price checking, restaurant POS, spa reception, tool rentals, van sales and the full back office — plus Windows desktop software. See them all on our Apps page.",
+    "eventsTitle": "Events & exhibitions",
+    "eventsBody": "We exhibited at the Gulf Indian Global Trade Expo 2025 in Kozhikode (Stall A1) with a smart vending machine, a sales-representative robot and smart lockers on Odoo, and received the Robotics Service Excellence Award at BizConnect 2026. See the Events page for photos and videos.",
     "whatsappPrefill": "Hello 369AI, I have a question about your products.",
     "readMore": "Read more"
   },

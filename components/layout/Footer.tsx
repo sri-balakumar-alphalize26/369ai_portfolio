@@ -48,6 +48,7 @@ export async function Footer() {
   const links = [
     { href: base, label: tNav('home') },
     { href: `${base}/about`, label: tNav('about') },
+    { href: `${base}/events`, label: tNav('events') },
     { href: `${base}/solutions`, label: tNav('solutions') },
     { href: `${base}/services`, label: tNav('services') },
     { href: `${base}/products`, label: tNav('products') },

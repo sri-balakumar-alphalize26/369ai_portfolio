@@ -16,6 +16,8 @@ import {
   MonitorCog,
   Cpu,
   Smartphone,
+  Info,
+  CalendarDays,
 } from 'lucide-react'
 import { LocaleSwitcher } from './LocaleSwitcher'
 import { PhoneMenu } from './PhoneMenu'
@@ -39,7 +41,7 @@ export function Header() {
   const locale = useLocale()
   const pathname = usePathname()
 
-  const [openMenu, setOpenMenu] = useState<'mega' | 'products' | null>(null)
+  const [openMenu, setOpenMenu] = useState<'mega' | 'products' | 'company' | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -112,7 +114,7 @@ export function Header() {
   }, [mobileOpen])
 
   // Hover intent — short delay in, longer out so the pointer can reach the panel.
-  function openOnHover(menu: 'mega' | 'products') {
+  function openOnHover(menu: 'mega' | 'products' | 'company') {
     if (hoverTimer.current) clearTimeout(hoverTimer.current)
     hoverTimer.current = setTimeout(() => setOpenMenu(menu), 80)
   }
@@ -122,10 +124,10 @@ export function Header() {
   }
 
   // Mirrors the old Odoo menu: Product is a parent holding Software + Hardware.
+  // About Us moved into the Company group (with Events) — see MobilePanel.
   const links = [
     { href: `${base}/solutions`, label: t('solutions') },
     { href: `${base}/services`, label: t('services') },
-    { href: `${base}/about`, label: t('about') },
   ]
 
   return (
@@ -233,12 +235,39 @@ export function Header() {
             ) : null}
           </div>
 
-          <Link
-            href={`${base}/about`}
-            className={cn(NAV_ITEM, pathname === `${base}/about` ? NAV_ON : NAV_OFF)}
+          {/* Company — About Us + Events, same small dropdown as Products. */}
+          <div
+            className="relative"
+            onMouseEnter={() => openOnHover('company')}
+            onMouseLeave={closeOnHover}
           >
-            {t('about')}
-          </Link>
+            <button
+              type="button"
+              onClick={() => setOpenMenu(openMenu === 'company' ? null : 'company')}
+              aria-expanded={openMenu === 'company'}
+              className={cn(
+                NAV_ITEM,
+                openMenu === 'company' ||
+                  pathname === `${base}/about` ||
+                  pathname === `${base}/events`
+                  ? NAV_ON
+                  : NAV_OFF
+              )}
+            >
+              {t('company')}
+              <ChevronDown
+                className={cn(
+                  'h-3.5 w-3.5 transition-transform',
+                  openMenu === 'company' && 'rotate-180'
+                )}
+                aria-hidden
+              />
+            </button>
+
+            {openMenu === 'company' ? (
+              <CompanyMenu base={base} onNavigate={() => setOpenMenu(null)} />
+            ) : null}
+          </div>
         </nav>
 
         {/* Right cluster: phone · search · language · contact. Entering it
@@ -427,6 +456,55 @@ function ProductsMenu({ base, onNavigate }: { base: string; onNavigate: () => vo
   )
 }
 
+/** Company → About Us | Events — the same card treatment as ProductsMenu. */
+function CompanyMenu({ base, onNavigate }: { base: string; onNavigate: () => void }) {
+  const t = useTranslations('nav')
+
+  const items = [
+    {
+      href: `${base}/about`,
+      label: t('about'),
+      blurb: t('aboutBlurb'),
+      Icon: Info,
+    },
+    {
+      href: `${base}/events`,
+      label: t('events'),
+      blurb: t('eventsBlurb'),
+      Icon: CalendarDays,
+    },
+  ]
+
+  return (
+    <div
+      className="glass-panel absolute start-1/2 top-[calc(100%+1.75rem)] z-50 w-[26rem] max-w-[calc(100vw-3rem)] -translate-x-1/2 rounded-2xl p-3 rtl:translate-x-1/2"
+      style={{ animation: 'glass-in .36s var(--ease-out-soft) both' }}
+    >
+      <ul className="space-y-1">
+        {items.map(({ href, label, blurb, Icon }) => (
+          <li key={href}>
+            <Link
+              href={href}
+              onClick={onNavigate}
+              className="flex gap-3.5 rounded-xl p-3.5 transition-colors hover:bg-white/75"
+            >
+              <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand-700 to-brand-500 text-white">
+                <Icon className="h-4 w-4" aria-hidden />
+              </span>
+              <span>
+                <span className="block text-sm font-semibold text-ink">{label}</span>
+                <span className="mt-0.5 block text-xs leading-relaxed text-slate-muted">
+                  {blurb}
+                </span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 function MobilePanel({
   base,
   links,
@@ -518,6 +596,27 @@ function MobilePanel({
                 className="block rounded-xl px-3 py-3 text-base font-medium text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-700"
               >
                 {t('apps')}
+              </Link>
+            </li>
+
+            {/* Company group — About Us + Events. */}
+            <li className="pt-3">
+              <p className="px-3 pb-1 text-xs font-bold uppercase tracking-wider text-slate-faint">
+                {t('company')}
+              </p>
+              <Link
+                href={`${base}/about`}
+                onClick={onClose}
+                className="block rounded-xl px-3 py-3 text-base font-medium text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-700"
+              >
+                {t('about')}
+              </Link>
+              <Link
+                href={`${base}/events`}
+                onClick={onClose}
+                className="block rounded-xl px-3 py-3 text-base font-medium text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-700"
+              >
+                {t('events')}
               </Link>
             </li>
           </ul>
