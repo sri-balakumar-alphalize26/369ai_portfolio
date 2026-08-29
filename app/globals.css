@@ -1508,7 +1508,8 @@
 
 
 /* ==================================================================
-   OUR APPS — scroll-stacking cards (/[locale]/apps)
+   SCROLL-STACKING CARDS — shared by the apps stack (/apps, home)
+   and the events video stack (/events "From the floor").
    The habsy.ai mechanic: every card is sticky at the SAME top offset
    inside a plain block container, so each new card slides up and
    fully covers the one pinned beneath it. The container must NOT be
@@ -1524,12 +1525,12 @@
    motion); only the scale/dim response is switched off, and the JS
    handler never attaches.
    ================================================================== */
-.apps-stack{position:relative}
+.card-stack{position:relative}
 .stack-card{
   position:sticky;
-  /* Same for ALL cards (full cover). 9rem leaves room for two peeking
-     layers (2 × 1.25rem) below the 5.75rem capsule header. */
-  top:9rem;
+  /* 9rem clears the capsule header; each later card pins 0.75rem lower
+     so the covered cards keep a visible edge above the front one. */
+  top:calc(9rem + var(--i, 0) * 0.75rem);
   transform-origin:center top;
   /* The deck: covered cards step up behind the front one, narrow so their
      edges read as layers, dim with depth, and fade out past two layers so
@@ -1542,8 +1543,19 @@
 /* Scroll runway: each card sits pinned alone for ~30vh before the next arrives (five cards). */
 .stack-card + .stack-card{margin-top:clamp(6rem, 30vh, 18rem)}
 
+/* The clip heading beside each stacking video: it reads at full strength
+   while its card is the front one and fades out as the next card slides
+   over it, so the heading you can read is always the clip playing.
+   Driven straight off the same --depth — no extra JS. */
+.clip-title{
+  opacity:calc(1 - var(--depth, 0));
+  translate:0 calc(var(--depth, 0) * -1rem);
+  transition:opacity .15s linear,translate .15s linear;
+}
+
 @media (prefers-reduced-motion:reduce){
   .stack-card{translate:none!important;scale:none!important;filter:none!important;opacity:1!important}
+  .clip-title{opacity:1!important;translate:none!important;transition:none!important}
 }
 
 /* ==================================================================
@@ -1731,6 +1743,18 @@
              translate .55s cubic-bezier(.16,1,.3,1) calc(var(--d, 0ms) + 540ms);
 }
 .ms-card .ms-link{
+  opacity:0;translate:0 10px;
+  transition:opacity .4s ease calc(var(--d, 0ms) + 620ms),
+             translate .55s cubic-bezier(.16,1,.3,1) calc(var(--d, 0ms) + 620ms);
+}
+.is-visible .ms-card .ms-media{clip-path:inset(0)}
+.is-visible .ms-card .ms-date{opacity:1;scale:1}
+.is-visible .ms-card :is(.ms-title,.ms-body,.ms-link){opacity:1;translate:0 0}
+
+/* "View on LinkedIn" — bare 18px mark that tilts and grows on hover/focus
+   while the arrow nudges up-right. Standalone rule: the link is also used
+   outside .ms-card (Events page). */
+.ms-link{
   display:inline-flex;align-items:center;gap:8px;
   color:#0a66c2;font-size:14px;font-weight:500;text-decoration:none;
 }
@@ -1763,4 +1787,415 @@
   .ms-link:hover .ms-link__mark,.ms-link:focus-visible .ms-link__mark{rotate:0deg!important;scale:1!important}
   .ms-link:hover .ms-link__arrow,.ms-link:focus-visible .ms-link__arrow{translate:none!important}
   .lightbox-in{animation:none}
+}
+
+/* ==================================================================
+   EVENTS — roadmap rail.
+   One node per event, laid out as a horizontal timeline on desktop
+   (columns from --n, set inline from EVENTS.length, so a third event
+   needs no CSS change) and a vertical one on phones. The rail is a
+   ::before on the list that DRAWS from its start edge on reveal, and
+   the dots pop 120ms apart off one --d per node. Logical properties
+   only, so RTL mirrors without overrides. The node whose section is
+   on screen gets [data-active] — the rail doubles as a position
+   indicator.
+   ================================================================== */
+.roadmap-title{
+  text-align:center;font-size:.8rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--color-brand-600);
+}
+.roadmap{
+  position:relative;list-style:none;
+  margin-top:2.25rem;padding:0;
+  display:grid;gap:1.5rem;
+  grid-template-columns:repeat(var(--n, 2), minmax(0, 1fr));
+}
+/* the rail */
+.roadmap::before{
+  content:"";position:absolute;z-index:0;
+  inset-inline:8%;top:5px;height:2px;
+  background:linear-gradient(90deg,var(--color-brand-300),var(--color-brand-500));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .7s cubic-bezier(.16,1,.3,1);
+}
+[dir='rtl'] .roadmap::before{transform-origin:right}
+.is-visible .roadmap::before{transform:scaleX(1)}
+
+.roadmap-link{
+  position:relative;z-index:1;
+  display:block;text-align:center;text-decoration:none;
+  padding-top:1.5rem;
+}
+.roadmap-dot{
+  position:absolute;top:0;inset-inline-start:50%;
+  translate:-50% 0;
+  width:12px;height:12px;border-radius:999px;
+  background:var(--brand-gradient);
+  box-shadow:0 0 0 4px #fff,0 0 0 5px var(--color-surface-line);
+  opacity:0;scale:.4;
+  transition:opacity .3s ease calc(var(--d, 0ms) + 260ms),
+             scale .5s cubic-bezier(.34,1.56,.64,1) calc(var(--d, 0ms) + 260ms),
+             box-shadow .3s ease;
+}
+[dir='rtl'] .roadmap-dot{translate:50% 0}
+.is-visible .roadmap-dot{opacity:1;scale:1}
+.roadmap-item[data-active] .roadmap-dot{
+  box-shadow:0 0 0 4px #fff,0 0 0 6px var(--color-brand-500);
+}
+.roadmap-date{
+  display:block;font-size:.7rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--color-slate-faint,#94a3b8);
+  transition:color .3s ease;
+}
+.roadmap-label{
+  display:block;margin-top:.25rem;font-weight:600;color:var(--color-ink);
+  transition:color .3s ease;
+}
+.roadmap-item[data-active] .roadmap-date,
+.roadmap-link:hover .roadmap-date{color:var(--color-brand-600)}
+.roadmap-link:hover .roadmap-label{color:var(--color-brand-600)}
+
+/* phones: the same rail, turned vertical */
+@media (max-width:640px){
+  .roadmap{grid-template-columns:1fr;gap:1.75rem;padding-inline-start:1.75rem}
+  .roadmap::before{
+    inset-inline:0 auto;inset-inline-start:5px;top:6px;bottom:6px;
+    width:2px;height:auto;
+    background:linear-gradient(180deg,var(--color-brand-300),var(--color-brand-500));
+    transform:scaleY(0);transform-origin:top;
+  }
+  .is-visible .roadmap::before{transform:scaleY(1)}
+  .roadmap-link{text-align:start;padding-top:0}
+  .roadmap-dot{top:5px;inset-inline-start:-1.75rem;translate:0 0}
+  [dir='rtl'] .roadmap-dot{translate:0 0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .roadmap::before{transform:none!important;transition:none!important}
+  .roadmap-dot{opacity:1!important;scale:1!important;transition:none!important}
+}
+
+/* ==================================================================
+   EVENTS — journey thread.
+   A thread drawn down a reserved lane beside the content, an arrow
+   riding its tip, a bead at each event, and a mini-map mirroring the
+   same progress. The wrapper carries position:relative and nothing
+   else — an overflow or perspective there would become a containing
+   block and break the sticky card stack inside these sections.
+   Geometry is measured in EventsJourney.tsx (RTL mirrors the lane).
+   ================================================================== */
+.jr{position:relative}
+.jr__svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:visible;
+  opacity:var(--thread-fade, 1);transition:opacity .2s linear}
+
+.jr__track{fill:none;stroke:var(--color-accent-500);stroke-width:2;stroke-linecap:round;stroke-dasharray:1 9;opacity:.3}
+.jr__glow{fill:none;stroke:var(--color-accent-500);stroke-width:9;stroke-linecap:round;opacity:.16;
+  stroke-dasharray:1;stroke-dashoffset:1;filter:blur(4px)}
+.jr__draw{fill:none;stroke:var(--color-accent-500);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1;stroke-dashoffset:1}
+
+.jr__arrow{opacity:0;transition:opacity .35s ease}
+.jr.is-live .jr__arrow{opacity:1}
+.jr__arrow .head{fill:var(--color-accent-500)}
+.jr__arrow .disc{fill:var(--color-accent-500);opacity:.18}
+.jr__arrow .ring{fill:none;stroke:var(--color-accent-500);stroke-width:1.5;opacity:.5}
+.jr.is-live .jr__arrow .ring{animation:jr-ping 2.1s ease-out infinite}
+@keyframes jr-ping{0%{r:12;opacity:.55}100%{r:26;opacity:0}}
+
+.jr__bead{fill:#fff;stroke:var(--color-accent-500);stroke-width:2.5;opacity:0;
+  transform-box:fill-box;transform-origin:center;scale:.2;
+  transition:opacity .4s ease,scale .5s cubic-bezier(.34,1.42,.64,1),fill .35s ease}
+.jr__bead.is-on{opacity:1;scale:1}
+.jr__bead.is-done{fill:var(--color-accent-500)}
+
+.jr__kick{margin:0 0 2rem;text-align:center;font-size:.65rem;font-weight:700;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--color-brand-700);
+  transition:letter-spacing .9s var(--ease-out-soft)}
+.jr.is-live .jr__kick{letter-spacing:.17em}
+
+/* mini-map */
+.rm{position:relative;height:78px;max-width:44rem;margin:0 auto 1rem;padding:0 26px}
+.rm__line{position:absolute;top:8px;inset-inline:26px;height:2px;border-radius:2px;background:var(--color-surface-line)}
+.jr--anim .rm__line{scale:0 1;transform-origin:left;transition:scale .85s var(--ease-out-soft) .15s}
+[dir="rtl"] .rm__line{transform-origin:right}
+.rm.is-in .rm__line{scale:1 1}
+.rm__dash{position:absolute;top:8px;inset-inline:26px;height:2px;border-radius:2px;opacity:.42;
+  transition:opacity .5s ease .7s;
+  background:repeating-linear-gradient(90deg,var(--color-accent-500) 0 3px,transparent 3px 11px)}
+.jr--anim .rm__dash{opacity:0}
+.jr--anim .rm.is-in .rm__dash{opacity:.42}
+.rm__fill{position:absolute;top:8px;inset-inline-start:26px;height:3px;width:0;border-radius:3px;
+  background:var(--color-accent-500);transition:width .35s ease}
+.rm__marker{position:absolute;top:9px;width:9px;height:9px;border-radius:50%;background:var(--color-accent-500);
+  translate:-50% -50%;opacity:0;box-shadow:0 0 0 5px rgb(255 120 0 / .2);
+  transition:opacity .3s ease,inset-inline-start .35s ease}
+.jr.is-live .rm__marker{opacity:1}
+
+.rm__node{position:absolute;translate:-50% 0;width:11rem;text-align:center}
+.rm__dot{position:relative;display:flex;width:19px;height:19px;margin:0 auto;border-radius:50%;
+  align-items:center;justify-content:center;background:#fff;border:2px solid #ffc180;
+  transition:opacity .4s ease,scale .5s cubic-bezier(.34,1.42,.64,1),background .35s ease,border-color .35s ease}
+.jr--anim .rm__dot{opacity:0;scale:.3}
+.rm.is-in .rm__dot{opacity:1;scale:1}
+.rm__dot svg{opacity:0;scale:.5;transition:opacity .3s ease .1s,scale .35s cubic-bezier(.34,1.42,.64,1) .1s}
+.rm__node.is-in .rm__dot{background:var(--color-accent-500);border-color:var(--color-accent-500)}
+.rm__node.is-in .rm__dot svg{opacity:1;scale:1}
+.rm__halo{position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--color-accent-500);opacity:0}
+.rm__node.is-in .rm__halo{animation:rm-bloom .7s ease-out 1}
+@keyframes rm-bloom{0%{scale:1;opacity:.7}100%{scale:2.6;opacity:0}}
+
+.rm__date{margin:12px 0 3px;font-size:.58rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--color-slate-faint);transition:opacity .55s ease,translate .55s ease,color .35s ease}
+.jr--anim .rm__date{opacity:0;translate:0 8px}
+.rm__name{margin:0;font-size:.8rem;font-weight:600;line-height:1.35;color:var(--color-slate-muted);
+  transition:opacity .55s ease,translate .55s ease,color .35s ease}
+.jr--anim .rm__name{opacity:0;translate:0 8px}
+.rm.is-in .rm__date,.rm.is-in .rm__name{opacity:1;translate:0 0}
+.rm__node.is-in .rm__date{color:var(--color-accent-600)}
+.rm__node.is-in .rm__name{color:var(--color-ink)}
+
+/* ==================================================================
+   EVENTS + CEO — hero photo: door swing + perimeter arrow.
+   The photo hinges open on the edge nearest the text. perspective()
+   lives in the element's OWN transform: on an ancestor it would
+   create a containing block and break the sticky stack below.
+   The arrow's direction is baked into the path (start edge + arc
+   sweep flag) in EventMedia.tsx, so one keyframe serves both ways
+   and the head, riding that same path, always points where it goes.
+   ================================================================== */
+.ev-door{transition:transform .9s var(--ease-out-soft),opacity .55s ease}
+.ev-media--armed .ev-door{opacity:0;transform:perspective(900px) rotateY(-14deg);transform-origin:left center}
+.ev-media.is-in .ev-door{opacity:1;transform:perspective(900px) rotateY(0deg)}
+.ev-media--armed[data-hinge="end"] .ev-door{transform:perspective(900px) rotateY(14deg);transform-origin:right center}
+.ev-media[data-hinge="end"].is-in .ev-door{transform:perspective(900px) rotateY(0deg)}
+[dir="rtl"] .ev-media--armed .ev-door{transform:perspective(900px) rotateY(14deg);transform-origin:right center}
+[dir="rtl"] .ev-media.is-in .ev-door{transform:perspective(900px) rotateY(0deg)}
+
+.ev-frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
+.ev-frame .rail{fill:none;stroke:var(--ev-arrow, var(--color-accent-500));stroke-width:3;opacity:.2}
+.ev-frame .comet{fill:none;stroke:var(--ev-arrow, var(--color-accent-500));stroke-width:4;stroke-linecap:round;
+  stroke-dasharray:.12 .88;stroke-dashoffset:0;
+  animation:ev-run 4s linear infinite;animation-play-state:paused}
+.ev-media.is-in .ev-frame .comet{animation-play-state:running}
+@keyframes ev-run{to{stroke-dashoffset:-1}}
+.ev-frame .head{fill:var(--ev-arrow, var(--color-accent-500))}
+
+/* ==================================================================
+   EVENTS + CEO — "From the floor" blinds (also the award clip).
+   Slats the colour of the section cover the clip and roll up in a
+   cascade. Built in JS (FloorVideo.tsx), so a blocked script leaves
+   the video plainly visible rather than hidden behind them.
+   ================================================================== */
+.floor__slat{position:absolute;inset-inline:-1px;z-index:2;pointer-events:none;
+  background:var(--color-surface-alt);transform-origin:top center;
+  transition:scale .72s var(--ease-out-soft) var(--d, 0ms)}
+.floor.is-in .floor__slat{scale:1 0}
+.floor__cap{opacity:0;translate:0 8px;transition:opacity .55s ease .95s,translate .55s ease .95s}
+.floor.is-in .floor__cap{opacity:1;translate:0 0}
+
+/* ==================================================================
+   CEO — award clip sweep. One panel the colour of the band covers the
+   video and slides off the trailing edge on a slight skew, an accent
+   edge running ahead of it. Both are oversized and the frame clips
+   (AwardVideo.tsx), so the skew can never expose a corner. The Events
+   page keeps its blinds; this reveal is the CEO page's own.
+   ================================================================== */
+.pres__swipe,
+.pres__edge{
+  position:absolute;top:-12%;bottom:-12%;inset-inline-start:-18%;z-index:2;
+  pointer-events:none;transform:skewX(-11deg);
+  transition:transform 1.05s cubic-bezier(.22,.61,.36,1)}
+.pres__swipe{width:135%;background:var(--color-surface-alt)}
+.pres__edge{width:5px;background:var(--color-accent-500);opacity:.9;z-index:3}
+.pres.is-in .pres__swipe,
+.pres.is-in .pres__edge{transform:skewX(-11deg) translateX(140%)}
+[dir="rtl"] .pres.is-in .pres__swipe,
+[dir="rtl"] .pres.is-in .pres__edge{transform:skewX(-11deg) translateX(-140%)}
+.pres__cap{opacity:0;translate:0 8px;transition:opacity .5s ease .85s,translate .5s ease .85s}
+.pres.is-in .pres__cap{opacity:1;translate:0 0}
+
+/* ==================================================================
+   CEO — hero entrance (CeoReveal.tsx, on="mount"). Above the fold, so it plays on
+   mount: the portrait rises from behind its frame, an accent ring
+   settles over the edge, the kicker's tracking tightens as it fades,
+   the name rolls out of the shared .ln mask, then copy and CTA.
+   Hidden states hang off .ceo.is-armed, added a frame before .is-in —
+   nothing is hidden until the script that shows it again has run.
+   ================================================================== */
+.ceo__portrait img{transition:translate 1s var(--ease-out-soft)}
+.ceo.is-armed .ceo__portrait img{translate:0 100%}
+.ceo.is-in .ceo__portrait img{translate:0 0}
+
+.ceo__ring{position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  border:2px solid var(--color-accent-500);opacity:.55;
+  transition:opacity .5s ease .75s,scale .6s var(--ease-out-soft) .75s}
+.ceo.is-armed .ceo__ring{opacity:0;scale:1.06}
+.ceo.is-in .ceo__ring{opacity:.55;scale:1}
+
+.ceo__kicker{letter-spacing:.14em;
+  transition:opacity .5s ease .22s,letter-spacing .9s var(--ease-out-soft) .22s}
+.ceo.is-armed .ceo__kicker{opacity:0;letter-spacing:.4em}
+.ceo.is-in .ceo__kicker{opacity:1;letter-spacing:.14em}
+
+.ceo__role,.ceo__text{transition:opacity .6s ease var(--d, 500ms),
+  translate .6s var(--ease-out-soft) var(--d, 500ms)}
+.ceo.is-armed .ceo__role,.ceo.is-armed .ceo__text{opacity:0;translate:0 14px}
+.ceo.is-in .ceo__role,.ceo.is-in .ceo__text{opacity:1;translate:0 0}
+
+/* The pop lives on the wrapper, so the button keeps its own hover. */
+.ceo__cta{transition:opacity .45s ease .85s,scale .5s cubic-bezier(.34,1.45,.64,1) .85s}
+.ceo.is-armed .ceo__cta{opacity:0;scale:.86}
+.ceo.is-in .ceo__cta{opacity:1;scale:1}
+.ceo__bloom{position:absolute;inset:0;border-radius:var(--radius-pill);opacity:0;pointer-events:none}
+.ceo.is-in .ceo__bloom{animation:ceo-bloom 1.1s ease-out .95s 1}
+@keyframes ceo-bloom{
+  from{box-shadow:0 0 0 0 rgba(255,120,0,.5);opacity:1}
+  to{box-shadow:0 0 0 20px rgba(255,120,0,0);opacity:0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ceo.is-armed .ceo__portrait img,.ceo.is-armed .ceo__ring,.ceo.is-armed .ceo__kicker,
+  .ceo.is-armed .ceo__role,.ceo.is-armed .ceo__text,.ceo.is-armed .ceo__cta{
+    opacity:1;translate:none;scale:1;letter-spacing:.14em;transition:none}
+  .ceo.is-armed .ceo__ring{opacity:.55}
+  .ceo.is-in .ceo__bloom{animation:none}
+}
+
+/* ==================================================================
+   CEO — the award block (CeoReveal.tsx, on="view"). The chip pops,
+   the title rolls out of the shared .ln mask, the copy lifts, then
+   the two photos rise in turn (--d per figure) and a single blurred
+   bar sweeps once across the trophy. Each frame carries its own
+   photo's aspect ratio, so nothing is cropped or letterboxed.
+   ================================================================== */
+.aw__chip{transition:opacity .4s ease 50ms,scale .5s cubic-bezier(.34,1.45,.64,1) 50ms}
+.aw.is-armed .aw__chip{opacity:0;scale:.7}
+.aw.is-in .aw__chip{opacity:1;scale:1}
+
+.aw__text{transition:opacity .6s ease .42s,translate .6s ease .42s}
+.aw.is-armed .aw__text{opacity:0;translate:0 12px}
+.aw.is-in .aw__text{opacity:1;translate:0 0}
+
+.aw__card{transition:opacity .65s ease var(--d, 0ms),
+  translate .7s var(--ease-out-soft) var(--d, 0ms)}
+.aw.is-armed .aw__card{opacity:0;translate:0 24px}
+.aw.is-in .aw__card{opacity:1;translate:0 0}
+
+/* A blurred solid bar, not a gradient mask — cheaper, and it survives
+   every browser we support. Sits above the photo but takes no clicks,
+   so the lightbox underneath still opens. */
+.aw__shine{position:absolute;top:-30%;bottom:-30%;inset-inline-start:-40%;width:38px;
+  z-index:2;pointer-events:none;opacity:0;background:rgb(255 255 255 / .55);
+  filter:blur(9px);transform:skewX(-16deg)}
+.aw.is-in .aw__shine{animation:aw-shine 1.15s cubic-bezier(.4,0,.3,1) 1.05s 1}
+@keyframes aw-shine{
+  0%{opacity:0;transform:skewX(-16deg) translateX(0)}
+  18%{opacity:1}
+  100%{opacity:0;transform:skewX(-16deg) translateX(420%)}
+}
+[dir="rtl"] .aw.is-in .aw__shine{animation-name:aw-shine-rtl}
+@keyframes aw-shine-rtl{
+  0%{opacity:0;transform:skewX(16deg) translateX(0)}
+  18%{opacity:1}
+  100%{opacity:0;transform:skewX(16deg) translateX(-420%)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .aw.is-armed .aw__chip,.aw.is-armed .aw__text,.aw.is-armed .aw__card{
+    opacity:1;translate:none;scale:1;transition:none}
+  .aw.is-in .aw__shine{animation:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .pres__swipe,.pres__edge{display:none}
+  .pres__cap{opacity:1!important;translate:none!important;transition:none!important}
+}
+
+/* ==================================================================
+   Masked-line headings — each line rolls up out of its own clip box,
+   90ms apart, split against the browser's real line boxes
+   (MaskedHeading.tsx). 105%, not 100%: at exactly 100% the
+   descenders on g, p and y poke below the mask and a row of tails
+   shows before the animation starts.
+   ================================================================== */
+.ln{display:block;overflow:hidden}
+.ln > i{display:block;font-style:normal;transition:translate .8s var(--ease-out-soft) var(--d, 0ms)}
+.ln--armed .ln > i{translate:0 105%}
+.is-in .ln > i{translate:0 0}
+
+@media (prefers-reduced-motion:reduce){
+  .jr__draw,.jr__glow{stroke-dashoffset:0!important}
+  .jr__arrow{display:none}
+  .jr__bead{opacity:1!important;scale:1!important;transition:none!important}
+  .rm__line{scale:1 1!important;transition:none!important}
+  .rm__dot,.rm__date,.rm__name{opacity:1!important;scale:1!important;translate:none!important;transition:none!important}
+  .rm__halo{animation:none!important}
+  .ev-door{opacity:1!important;transform:none!important;transition:none!important}
+  .ev-frame{display:none}
+  .floor__slat{display:none}
+  .floor__cap{opacity:1!important;translate:none!important;transition:none!important}
+  .ln > i{translate:0 0!important;transition:none!important}
+}
+
+/* ==================================================================
+   EVENTS — the award card on the floor clip.
+   A gutter beside the video gives the card somewhere to sit without
+   covering anyone on stage. It drops in from the side just after the
+   last blind clears, and rests at a slight tilt so it reads as a
+   print laid on the table rather than a UI panel.
+   ================================================================== */
+.floor__stage{position:relative;padding-inline-start:104px;padding-bottom:26px}
+
+.floor__award{
+  position:absolute;inset-inline-start:0;bottom:0;z-index:4;
+  width:172px;aspect-ratio:3/4;
+  border-radius:11px;overflow:hidden;
+  border:5px solid #fff;
+  /* White, because the picture is the trophy on a cleared background. */
+  background:#fff;
+  box-shadow:0 18px 38px -18px rgb(15 27 45 / .6);
+  transition:opacity .5s ease,translate .7s cubic-bezier(.34,1.4,.64,1),
+             rotate .7s cubic-bezier(.34,1.4,.64,1),scale .7s cubic-bezier(.34,1.4,.64,1),
+             box-shadow .3s ease;
+  transition-delay:var(--d-award, 640ms);
+}
+/* Hidden only once the blinds script is running (it sets --d-award), so a
+   dead script leaves the card plainly on screen. */
+.floor--armed .floor__award{opacity:0;translate:-26px 22px;rotate:-9deg;scale:.92}
+.floor--armed.is-in .floor__award{opacity:1;translate:0 0;rotate:-2.5deg;scale:1}
+.floor__award:hover{rotate:0deg;translate:0 -6px;box-shadow:0 24px 44px -18px rgb(15 27 45 / .68)}
+
+.floor__slide{position:absolute;inset:0;opacity:0;transition:opacity .4s ease}
+.floor__slide.is-on{opacity:1}
+
+.floor__award__tag{
+  position:absolute;inset-inline:0;bottom:0;z-index:3;
+  padding:16px 8px 7px;
+  background:linear-gradient(to top,rgb(9 20 38 / .86),transparent);
+  color:#fff;font-size:.6rem;font-weight:600;letter-spacing:.04em;text-align:center;
+  pointer-events:none;
+}
+
+.floor__arrow{
+  position:absolute;top:50%;translate:0 -50%;z-index:5;
+  display:flex;width:24px;height:24px;padding:0;border:0;border-radius:50%;
+  align-items:center;justify-content:center;
+  background:rgb(9 20 38 / .55);color:#fff;cursor:pointer;
+  transition:background .2s ease,scale .2s ease;
+}
+.floor__arrow:hover{background:rgb(9 20 38 / .85);scale:1.1}
+.floor__arrow--prev{inset-inline-start:5px}
+.floor__arrow--next{inset-inline-end:5px}
+
+/* Below this there is no gutter to overlap into. */
+@media (max-width:720px){
+  .floor__stage{padding-inline-start:0;padding-bottom:0}
+  .floor__award{position:relative;inset-inline-start:auto;bottom:auto;
+    width:130px;margin:-34px 0 0 14px;rotate:-3deg}
+  .floor--armed.is-in .floor__award{rotate:-3deg}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .floor--armed .floor__award{opacity:1!important;translate:none!important;rotate:-2.5deg!important;scale:1!important;transition:none!important}
+  .floor__slide{transition:none}
 }

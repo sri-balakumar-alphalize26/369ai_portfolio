@@ -145,7 +145,7 @@ export default async function AboutPage({
           "Everything you need" grid below. */}
       <Section tone="alt">
         <SectionHeader title={t('milestonesTitle')} body={t('milestonesBody')} />
-        <RevealGroup className="mt-14 grid gap-6 lg:grid-cols-3">
+        <RevealGroup className="mt-14 grid gap-6 lg:grid-cols-2">
           {MILESTONES.map(({ key, Icon, images, video, linkedin, href }, i) => (
             <li
               key={key}

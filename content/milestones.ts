@@ -1,14 +1,13 @@
-import { Building2, Handshake, Store, type LucideIcon } from 'lucide-react'
+import { Building2, Handshake, type LucideIcon } from 'lucide-react'
 
 /**
  * Company milestones shown on the About page. Copy lives in the `about`
  * namespace of the catalogs (about.milestones.<key>.*) — rewritten for the
  * site, not the LinkedIn captions. Media is filed one folder per page
- * (public/videos/about-us, public/images/about-us); the expo teaser borrows
- * its poster from the Events page's folder.
+ * (public/videos/about-us, public/images/about-us).
  */
 export type Milestone = {
-  key: 'office' | 'partnership' | 'expo'
+  key: 'office' | 'partnership'
   Icon: LucideIcon
   /** Video under public/videos — shown instead of photos when present. */
   video?: string
@@ -33,11 +32,5 @@ export const MILESTONES: Milestone[] = [
     Icon: Handshake,
     images: ['/images/about-us/odoo-partnership.jpg'],
     linkedin: 'https://www.linkedin.com/feed/update/urn:li:activity:7406920123594223616',
-  },
-  {
-    key: 'expo',
-    Icon: Store,
-    images: ['/images/events/expo-2025/poster.jpg'],
-    href: '/events#expo2025',
   },
 ]
