@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Database, ScanBarcode, Bot, Lock, Boxes, ArrowRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
@@ -6,6 +7,7 @@ import { Reveal } from '@/components/ui/Reveal'
 import { ButtonLink } from '@/components/ui/Button'
 import { Magnetic } from '@/components/ui/Magnetic'
 import { PageHero } from '@/components/ui/PageHero'
+import { SOLUTION_IMAGES } from '@/content/solutions'
 import { locales } from '@/i18n/routing'
 
 const SOLUTIONS = [
@@ -80,24 +82,39 @@ export default async function SolutionsPage({
                   </ButtonLink>
                 </div>
 
-                {/* Abstract brand panel rather than stock photography. */}
-                <div className="sol-panel relative aspect-[4/3] overflow-hidden rounded-panel bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
-                  <div
-                    aria-hidden
-                    className="aurora-blob aurora-a absolute h-72 w-72 opacity-40"
-                    style={{ top: '-4rem', insetInlineStart: '-3rem', background: '#30a8c0' }}
-                  />
-                  <div
-                    aria-hidden
-                    className="aurora-blob aurora-b absolute h-56 w-56 opacity-30"
-                    style={{ bottom: '-3rem', insetInlineEnd: '-2rem', background: '#ff7800' }}
-                  />
-                  <div aria-hidden className="dot-grid absolute inset-0 opacity-50" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Icon className="sol-ghost h-24 w-24 text-white/25" aria-hidden />
+                {SOLUTION_IMAGES[key] ? (
+                  /* Product photo where we have one (robotics, locks,
+                     vending) — same picture the stacking cards use. */
+                  <div className="sol-panel relative aspect-[4/3] overflow-hidden rounded-panel border border-surface-line bg-surface-alt">
+                    <Image
+                      src={SOLUTION_IMAGES[key]}
+                      alt={t(`${key}.title`)}
+                      fill
+                      sizes="(min-width: 1024px) 45vw, 100vw"
+                      className="object-contain p-6"
+                    />
+                    <span aria-hidden className="sol-sweep" />
                   </div>
-                  <span aria-hidden className="sol-sweep" />
-                </div>
+                ) : (
+                  /* Abstract brand panel for the rows without a photo. */
+                  <div className="sol-panel relative aspect-[4/3] overflow-hidden rounded-panel bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
+                    <div
+                      aria-hidden
+                      className="aurora-blob aurora-a absolute h-72 w-72 opacity-40"
+                      style={{ top: '-4rem', insetInlineStart: '-3rem', background: '#30a8c0' }}
+                    />
+                    <div
+                      aria-hidden
+                      className="aurora-blob aurora-b absolute h-56 w-56 opacity-30"
+                      style={{ bottom: '-3rem', insetInlineEnd: '-2rem', background: '#ff7800' }}
+                    />
+                    <div aria-hidden className="dot-grid absolute inset-0 opacity-50" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Icon className="sol-ghost h-24 w-24 text-white/25" aria-hidden />
+                    </div>
+                    <span aria-hidden className="sol-sweep" />
+                  </div>
+                )}
               </div>
             </Reveal>
           ))}

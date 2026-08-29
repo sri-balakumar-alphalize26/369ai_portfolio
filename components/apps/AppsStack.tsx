@@ -1,45 +1,107 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useTranslations } from 'next-intl'
-import { MonitorCog, Check } from 'lucide-react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { useLocale, useTranslations } from 'next-intl'
+import { MonitorCog, Check, Bot, Lock, Boxes, ArrowRight, type LucideIcon } from 'lucide-react'
 import { AppIcon, type AppIconData } from './AppIcon'
+import { SOLUTION_IMAGES } from '@/content/solutions'
+import { cn } from '@/lib/cn'
 
 type StackApp = AppIconData & { id: string }
+
+type SolutionCard = {
+  key: 'robotics' | 'locks' | 'vending'
+  Icon: LucideIcon
+  tone: 'light' | 'dark'
+  /** Photo under public/, or null to draw the brand-panel stand-in. */
+  image: string | null
+}
 
 const DESKTOP_POINTS = ['desktopF1', 'desktopF2', 'desktopF3'] as const
 
 /**
- * The two scroll-stacking cards: Mobile Apps, then Desktop software sliding
- * over it. Layout is pure CSS position:sticky (globals.css .stack-card); this
- * component only measures how much of a card the next one has covered and
- * writes it to the --covered custom property, which CSS turns into a small
- * scale/brightness response. Transform and filter only — direction-agnostic,
- * so RTL needs no overrides. With JS off or reduced motion the cards still
- * stack; they just don't respond.
+ * Solution cards reuse the `solutions` namespace copy (already in all seven
+ * locales) and, where the hardware catalogue has a matching product photo,
+ * that photo. Smart locks have no catalogue product yet, so that card draws
+ * the solutions-page brand panel instead — set `image` to a file under
+ * public/ (e.g. /images/apps/smart-lock.png) to swap a photo in.
  */
-export function AppsStack({ apps }: { apps: StackApp[] }) {
+const SOLUTION_CARDS: SolutionCard[] = [
+  { key: 'robotics', Icon: Bot, tone: 'light', image: SOLUTION_IMAGES.robotics ?? null },
+  { key: 'locks', Icon: Lock, tone: 'dark', image: SOLUTION_IMAGES.locks ?? null },
+  { key: 'vending', Icon: Boxes, tone: 'light', image: SOLUTION_IMAGES.vending ?? null },
+]
+
+/**
+ * Five scroll-stacking cards: Mobile Apps, Desktop software, then Robotics,
+ * Smart Locks and Vending — tones alternate light/dark so every slide-over
+ * reads. Layout is pure CSS position:sticky (globals.css .stack-card); this
+ * component equalizes the card heights (so no card peeks out beneath a
+ * shorter one) and measures how deep each card sits in the pile, written to
+ * the --depth custom property, which CSS turns into the deck: covered cards
+ * step up, shrink and dim behind the front one. translate/scale/filter only —
+ * direction-agnostic, so RTL needs no overrides. With JS off or reduced
+ * motion the cards still stack; they just don't respond.
+ */
+export function AppsStack({
+  apps,
+  cta,
+}: {
+  apps: StackApp[]
+  /** Optional link rendered inside the Mobile Apps card (home page → /apps). */
+  cta?: { href: string; label: string }
+}) {
   const t = useTranslations('appsPage')
+  const ts = useTranslations('solutions')
+  const tc = useTranslations('common')
+  const base = `/${useLocale()}`
   const rootRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Same bail as the Header's scroll handler — under reduced motion the CSS
-    // zeroes the response anyway; skipping the listener keeps scroll cheap.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-
     const cards = Array.from(
       rootRef.current?.querySelectorAll<HTMLElement>('.stack-card') ?? []
     )
     if (cards.length < 2) return
 
-    let frame = 0
+    // Equal heights are layout, not motion, so this runs even under reduced
+    // motion. Only at lg: on phones the apps card is far taller than the rest
+    // and forcing every card to match it would leave holes.
+    function equalize() {
+      cards.forEach((c) => {
+        c.style.minHeight = ''
+      })
+      if (window.innerWidth < 1024) return
+      const max = Math.max(...cards.map((c) => c.offsetHeight))
+      cards.forEach((c) => {
+        c.style.minHeight = `${max}px`
+      })
+    }
 
+    // Same bail as the Header's scroll handler — under reduced motion the CSS
+    // zeroes the deck response anyway; skipping the listener keeps scroll cheap.
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    let frame = 0
+    let resizeFrame = 0
+
+    // depth_i = how far card i has been pushed back by everything stacked on
+    // top of it: the sum of how much each later card has covered its
+    // predecessor. CSS turns it into the step-up / shrink / dim of the deck.
+    // Depths are zeroed before measuring so the rects are the untransformed
+    // boxes — otherwise a card's own shift would feed back into its reading.
     function measure() {
-      for (let i = 0; i < cards.length - 1; i++) {
-        const a = cards[i].getBoundingClientRect()
-        const b = cards[i + 1].getBoundingClientRect()
-        const covered = Math.min(1, Math.max(0, (a.bottom - b.top) / a.height))
-        cards[i].style.setProperty('--covered', covered.toFixed(3))
+      if (reduced) return
+      cards.forEach((c) => c.style.setProperty('--depth', '0'))
+      const rects = cards.map((c) => c.getBoundingClientRect())
+      let depth = 0
+      for (let i = cards.length - 1; i >= 0; i--) {
+        if (i < cards.length - 1) {
+          const a = rects[i]
+          const b = rects[i + 1]
+          depth += Math.min(1, Math.max(0, (a.bottom - b.top) / a.height))
+        }
+        cards[i].style.setProperty('--depth', depth.toFixed(3))
       }
     }
 
@@ -47,21 +109,30 @@ export function AppsStack({ apps }: { apps: StackApp[] }) {
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(measure)
     }
+    function onResize() {
+      cancelAnimationFrame(resizeFrame)
+      resizeFrame = requestAnimationFrame(() => {
+        equalize()
+        measure()
+      })
+    }
 
+    equalize()
     measure()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll, { passive: true })
+    window.addEventListener('resize', onResize, { passive: true })
+    if (!reduced) window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
       cancelAnimationFrame(frame)
+      cancelAnimationFrame(resizeFrame)
+      window.removeEventListener('resize', onResize)
       window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
     }
   }, [])
 
   return (
     <div ref={rootRef} className="apps-stack">
       {/* Card 1 — the ten mobile apps */}
-      <article className="stack-card rounded-panel border border-surface-line bg-white p-7 shadow-xl sm:p-10">
+      <article className="stack-card flex flex-col justify-center rounded-panel border border-surface-line bg-white p-7 shadow-xl sm:p-10">
         <p className="inline-flex rounded-pill bg-brand-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-700">
           {t('mobileChip')}
         </p>
@@ -81,10 +152,20 @@ export function AppsStack({ apps }: { apps: StackApp[] }) {
             </li>
           ))}
         </ul>
+
+        {cta ? (
+          <Link
+            href={cta.href}
+            className="learn-more mt-8 inline-flex items-center gap-1.5 self-start rounded-pill border border-surface-line px-5 py-2.5 font-semibold text-brand-600 transition-colors"
+          >
+            <span>{cta.label}</span>
+            <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
+          </Link>
+        ) : null}
       </article>
 
       {/* Card 2 — Windows desktop software, dark so the slide-over reads */}
-      <article className="stack-card relative overflow-hidden rounded-panel bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 p-7 text-brand-100 shadow-xl sm:p-10">
+      <article className="stack-card relative flex flex-col justify-center overflow-hidden rounded-panel bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 p-7 text-brand-100 shadow-xl sm:p-10">
         <div aria-hidden className="dot-grid pointer-events-none absolute inset-0 opacity-40" />
         <div className="relative">
           <p className="inline-flex rounded-pill border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-200">
@@ -108,6 +189,93 @@ export function AppsStack({ apps }: { apps: StackApp[] }) {
           </ul>
         </div>
       </article>
+
+      {/* Cards 3–5 — Robotics, Smart Locks, Vending: text beside a picture.
+          The image frame is height-capped on phones so the card stays short
+          enough to be covered by the next one. */}
+      {SOLUTION_CARDS.map(({ key, Icon, tone, image }) => {
+        const dark = tone === 'dark'
+        return (
+          <article
+            key={key}
+            className={cn(
+              'stack-card relative flex flex-col justify-center overflow-hidden rounded-panel p-7 shadow-xl sm:p-10',
+              dark
+                ? 'bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 text-brand-100'
+                : 'border border-surface-line bg-white'
+            )}
+          >
+            {dark ? (
+              <div aria-hidden className="dot-grid pointer-events-none absolute inset-0 opacity-40" />
+            ) : null}
+            <div className="relative grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+              <div>
+                <span
+                  className={cn(
+                    'flex h-12 w-12 items-center justify-center rounded-card text-white shadow-lg',
+                    dark
+                      ? 'bg-gradient-to-br from-accent-500 to-accent-400 shadow-orange-500/25'
+                      : 'bg-gradient-to-br from-brand-700 to-brand-500 shadow-cyan-900/20'
+                  )}
+                >
+                  <Icon className="h-6 w-6" aria-hidden />
+                </span>
+                <h2 className={cn('mt-4 text-2xl font-bold sm:text-3xl', dark && 'text-white')}>
+                  {ts(`${key}.title`)}
+                </h2>
+                <p className={cn('mt-2 text-lg font-semibold', dark ? 'text-accent-400' : 'text-accent-600')}>
+                  {ts(`${key}.tagline`)}
+                </p>
+                <p className={cn('mt-4 leading-relaxed', dark ? 'text-brand-100' : 'text-slate-muted')}>
+                  {ts(`${key}.body`)}
+                </p>
+                <Link
+                  href={`${base}/solutions#${key}`}
+                  className={cn(
+                    'mt-6 inline-flex items-center gap-1.5 rounded-pill border px-5 py-2.5 font-semibold transition-colors',
+                    dark
+                      ? 'border-white/20 text-white hover:bg-white/10'
+                      : 'learn-more border-surface-line text-brand-600'
+                  )}
+                >
+                  <span>{tc('learnMore')}</span>
+                  <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
+                </Link>
+              </div>
+
+              {image ? (
+                <div className="relative h-48 overflow-hidden rounded-panel bg-surface-alt sm:h-64 lg:aspect-[4/3] lg:h-auto">
+                  <Image
+                    src={image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-contain p-4"
+                  />
+                </div>
+              ) : (
+                /* Brand panel stand-in until a smart-lock photo is provided. */
+                <div className="relative h-48 overflow-hidden rounded-panel bg-gradient-to-br from-brand-800 via-brand-700 to-brand-600 sm:h-64 lg:aspect-[4/3] lg:h-auto">
+                  <div
+                    aria-hidden
+                    className="aurora-blob aurora-a absolute h-72 w-72 opacity-40"
+                    style={{ top: '-4rem', insetInlineStart: '-3rem', background: '#30a8c0' }}
+                  />
+                  <div
+                    aria-hidden
+                    className="aurora-blob aurora-b absolute h-56 w-56 opacity-30"
+                    style={{ bottom: '-3rem', insetInlineEnd: '-2rem', background: '#ff7800' }}
+                  />
+                  <div aria-hidden className="dot-grid absolute inset-0 opacity-50" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Icon className="h-24 w-24 text-white/25" aria-hidden />
+                  </div>
+                </div>
+              )}
+            </div>
+          </article>
+        )
+      })}
     </div>
   )
 }

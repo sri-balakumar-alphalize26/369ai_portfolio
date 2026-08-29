@@ -1,7 +1,10 @@
 /**
  * "Technologies We Work With" marquee — three rows, alternating direction.
- * This is 369AI's actual working stack: Odoo and Python on the backend,
- * React Native for the apps, and the device/cloud layer underneath.
+ * This is 369AI's actual working stack, audited against the ten app repos
+ * (every one an Expo / React Native project, three on TypeScript, three on
+ * NativeWind, three shipping Firebase config, one on WebRTC, BLE/GPS/barcode
+ * in the field apps, ESC/POS printing over TCP), the Odoo module work, and
+ * this Next.js site. Nothing is listed that the company does not use.
  *
  * Rendered as text chips so the section ships without vendor logo files.
  * Drop a file into /public/images/tech/ and set `logo` to swap any chip
@@ -19,34 +22,32 @@ export const TECH_ROWS: Tech[][] = [
     { name: 'Python' },
     { name: 'PostgreSQL' },
     { name: 'XML / QWeb' },
-    { name: 'Django' },
     { name: 'REST API' },
-    { name: 'Celery' },
-    { name: 'Redis' },
-    { name: 'GraphQL' },
+    { name: 'Firebase' },
+    { name: 'Linux' },
   ],
   // Apps & frontend
   [
     { name: 'React Native' },
+    { name: 'Expo' },
     { name: 'React' },
     { name: 'JavaScript' },
     { name: 'TypeScript' },
     { name: 'Next.js' },
-    { name: 'Android' },
-    { name: 'Flutter' },
-    { name: 'HTML5 / CSS3' },
     { name: 'Tailwind CSS' },
+    { name: 'HTML5 / CSS3' },
+    { name: 'Android' },
+    { name: 'Windows' },
   ],
-  // Devices, cloud & AI
+  // Devices & integrations
   [
-    { name: 'IoT / MQTT' },
     { name: 'ESC/POS' },
-    { name: 'RFID / NFC' },
     { name: 'Barcode 1D / 2D' },
-    { name: 'Docker' },
-    { name: 'Linux' },
-    { name: 'AWS' },
-    { name: 'AI / ML' },
+    { name: 'Bluetooth / BLE' },
+    { name: 'GPS / Maps' },
+    { name: 'WebRTC' },
+    { name: 'IoT devices' },
     { name: 'Payment Gateways' },
+    { name: 'AI / ML' },
   ],
 ]

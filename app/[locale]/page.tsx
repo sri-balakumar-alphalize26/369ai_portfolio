@@ -163,13 +163,7 @@ export default async function HomePage({
       <Section>
         <SectionHeader eyebrow={ta('eyebrow')} title={ta('title')} body={ta('body')} />
         <div className="mt-14">
-          <AppsStack apps={apps} />
-        </div>
-        <div className="mt-10 text-center">
-          <ButtonLink href={`${base}/apps`} variant="outline" className="learn-more">
-            <span>{tNav('apps')}</span>
-            <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
-          </ButtonLink>
+          <AppsStack apps={apps} cta={{ href: `${base}/apps`, label: tNav('apps') }} />
         </div>
       </Section>
 
