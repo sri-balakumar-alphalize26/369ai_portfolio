@@ -97,6 +97,16 @@ export function Assistant() {
         body: t('eventsBody'),
         href: `${base}/events`,
       },
+      {
+        id: 'ceo',
+        keywords: [
+          'ceo', 'founder', 'owner', 'director', 'managing', 'md', 'shan',
+          'sahib', 'leader', 'leadership', 'management', 'who', 'runs',
+        ],
+        title: t('ceoTitle'),
+        body: t('ceoBody'),
+        href: `${base}/ceo`,
+      },
     ]
 
     return [...faq, ...services, ...solutions, ...extras]

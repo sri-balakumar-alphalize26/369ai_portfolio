@@ -29,6 +29,8 @@
     "appsBlurb": "Dix applications mobiles et des logiciels de bureau Windows, tous connectés à Odoo.",
     "company": "Entreprise",
     "aboutBlurb": "Qui nous sommes, ce qui nous distingue et nos étapes clés.",
+    "ceo": "Notre PDG",
+    "ceoBlurb": "Le directeur général, sa distinction et ses interventions.",
     "events": "Événements",
     "eventsBlurb": "Salons, distinctions et les moments où nous avons présenté notre travail en personne.",
     "homeAria": "Accueil 369ai.Biz",
@@ -251,13 +253,27 @@
         "f2": "Développement de modules sur mesure",
         "f3": "Comptabilité, CRM, inventaire et RH",
         "f4": "Accompagnement des PME et des grandes entreprises"
-      },
-      "expo": {
-        "date": "Décembre 2025",
-        "title": "Gulf Indian Global Trade Expo 2025",
-        "body": "Un magasin connecté en fonctionnement au Stall A1, à Kozhikode — distributeur automatique, robot commercial et casiers intelligents tournant sur Odoo et notre application mobile."
       }
     }
+  },
+  "ceo": {
+    "eyebrow": "Direction",
+    "title": "Notre PDG",
+    "role": "Directeur général",
+    "intro1": "Shan Sahib dirige Alphalize Technologies, la société derrière 369AI, avec des bureaux en Inde, aux Émirats arabes unis, à Oman et aux États-Unis. Il se concentre sur une automatisation réellement exploitable : robots de service, commerce en libre-service et ERP basé sur Odoo, conçu autour du quotidien d'une boutique, d'un showroom ou d'un restaurant.",
+    "intro2": "Sous sa direction, l'entreprise a rejoint le programme de partenariat Odoo et ouvert un nouveau bureau de développement en 2025 ; en février 2026, son travail dans le service robotique a été distingué lors des Insight Kerala Business Awards.",
+    "portraitAlt": "Shan Sahib, directeur général d'Alphalize Technologies",
+    "momentAlt": "Shan Sahib accueillant des invités lors de l'ouverture d'un site de la société",
+    "awardEyebrow": "Distinction",
+    "awardTitle": "Robotics Service Excellence Award",
+    "awardBody": "Remis à Shan Sahib lors de BizConnect 2026, dans le cadre des Insight Kerala Business Awards 2026 du magazine Business Insight — pour des déploiements robotiques fiables et le support durable qui les maintient en service.",
+    "trophyAlt": "Le trophée du Robotics Service Excellence Award",
+    "awardVideoTitle": "La remise",
+    "awardCaption": "Réception du prix lors de BizConnect 2026.",
+    "talksTitle": "Sur scène",
+    "talksBody": "Des sessions de gestion mentale pour les équipes, publiées sur sa chaîne Shan on Tech.",
+    "ctaTitle": "Travaillez avec l'équipe qu'il dirige",
+    "ctaBody": "Robotique, POS et automatisation Odoo, livrés et accompagnés en Inde, dans le Golfe et aux États-Unis."
   },
   "products": {
     "eyebrow": "Produits",
@@ -511,26 +527,52 @@
     "post3": "Vidéo",
     "galleryTitle": "Galerie",
     "videosTitle": "En direct du salon",
+    "prevImage": "Image précédente",
+    "nextImage": "Image suivante",
+    "clipEyebrow": "Odoo avec",
+    "roadmapTitle": "Notre parcours événementiel",
     "items": {
       "expo2025": {
         "date": "Décembre 2025 · Kozhikode",
         "title": "Gulf Indian Global Trade Expo 2025",
-        "body": "Au Stall A1 du Calicut Trade Centre, nous avons installé une tranche fonctionnelle de magasin connecté — un distributeur automatique intelligent, un robot commercial et des casiers intelligents, le tout sur Odoo et notre application mobile — pour que les visiteurs puissent acheter, retirer leurs achats et voir le stock bouger en temps réel.",
-        "h1": "Distributeur automatique avec inventaire sur Odoo — payez dans l’application mobile, retirez à la machine.",
-        "h2": "Robot commercial accueillant les visiteurs et présentant les produits en direct.",
-        "h3": "Casiers intelligents et automatisation pilotée par Odoo pour le commerce sans personnel."
+        "body": "Nous avons tenu le Stall A1 au Calicut Trade Centre aux côtés de l’équipe Odoo — un robot commercial arpentant les allées, et nos applications et notre automatisation pilotées par Odoo présentées aux visiteurs tout au long du salon.",
+        "h1": "Un robot commercial qui accueille les visiteurs et présente les produits sur le stand.",
+        "h2": "L’ERP Odoo et nos propres applications mobiles présentés en direct aux dirigeants et à leurs équipes.",
+        "h3": "Installés au Stall A1, côte à côte avec l’équipe Odoo.",
+        "clips": {
+          "c1": {
+            "title": "Robot commercial",
+            "body": "Un robot commercial a sillonné le stand pendant toute la durée du salon — il accueillait les visiteurs, leur présentait la gamme de produits et passait le relais à l’équipe dès qu’une véritable conversation s’engageait."
+          },
+          "c2": {
+            "title": "Machine sans caisse",
+            "body": "Un encaissement en libre-service qui tourne directement sur Odoo POS. Les visiteurs choisissaient un article, payaient et repartaient sans le moindre comptoir en vue — exactement le parcours qu’un magasin utiliserait dès le premier jour."
+          },
+          "c3": {
+            "title": "Gestion des stocks",
+            "body": "Le stock évoluait en temps réel : chaque vente réalisée sur le stand était directement enregistrée dans Odoo, si bien que les chiffres à l’écran correspondaient à ce qu’il restait réellement dans la machine."
+          },
+          "c4": {
+            "title": "Gestion des stocks · produits à forte valeur",
+            "body": "Des casiers intelligents contenant téléphones et accessoires, chaque porte étant reliée à un mouvement de stock Odoo — rien ne quitte l’armoire sans que le système sache quelle unité, quand et pour qui."
+          }
+        }
       },
       "bizconnect2026": {
         "date": "Février 2026",
         "title": "BizConnect 2026",
-        "body": "Nous y avons présenté une robotique concrète et une automatisation pilotée par Odoo, conçues pour de vrais besoins opérationnels — et sommes repartis avec le prix Robotics Service Excellence aux Insight Kerala Business Awards 2026.",
-        "h1": "Prix Robotics Service Excellence — Insight Kerala Business Awards 2026, remis par Business Insight.",
-        "h2": "Démonstrations en direct de robotique et d’automatisation conçues pour les opérations quotidiennes, tous secteurs confondus.",
-        "h3": "Une reconnaissance pour une innovation fiable et un accompagnement client sur le long terme."
+        "body": "Nous y avons présenté une robotique concrète et une automatisation pilotée par Odoo, conçues pour de vrais besoins opérationnels, tous secteurs confondus — et sommes repartis avec le prix Robotics Service Excellence des Insight Kerala Business Awards 2026.",
+        "h1": "Prix Robotics Service Excellence (Insight Kerala Business Awards 2026) pour des solutions robotiques fiables et innovantes et un accompagnement client exceptionnel.",
+        "h2": "Un magasin connecté sur le stand — distributeur automatique intelligent, robot commercial et casiers intelligents, le tout sur Odoo.",
+        "h3": "Merci à toutes celles et ceux qui sont passés sur le stand et ont mis nos solutions à l’épreuve.",
+        "videoCaption": "Remise du prix lors de BizConnect 2026"
       }
     },
     "ctaTitle": "Envie de le voir fonctionner pour votre entreprise ?",
-    "ctaBody": "Nous rejouerons la même démonstration sur vos propres données — sans engagement."
+    "ctaBody": "Nous rejouerons la même démonstration sur vos propres données — sans engagement.",
+    "award": {
+      "a1": "Le prix"
+    }
   },
   "shop": {
     "eyebrow": "Matériel",
@@ -699,6 +741,8 @@
     "appsBody": "Nous développons dix applications Android qui fonctionnent sur Odoo — présence, messagerie d’équipe, suivi KRA/KPI, contrôles de showroom, vérification de prix, PDV restaurant, accueil spa, location d’outils, vente en tournée et tout le back-office — ainsi que des logiciels de bureau Windows. Retrouvez-les toutes sur notre page Applications.",
     "eventsTitle": "Événements et salons",
     "eventsBody": "Nous avons exposé au Gulf Indian Global Trade Expo 2025 à Kozhikode (Stall A1) avec un distributeur automatique intelligent, un robot commercial et des casiers intelligents sur Odoo, et avons reçu le prix Robotics Service Excellence à BizConnect 2026. Consultez la page Événements pour les photos et les vidéos.",
+    "ceoTitle": "Notre PDG",
+    "ceoBody": "369AI et Alphalize Technologies sont dirigés par Shan Sahib, directeur général, lauréat du Robotics Service Excellence Award 2026. Sa page présente son parcours, la distinction et ses interventions.",
     "whatsappPrefill": "Bonjour 369AI, j’ai une question sur vos produits.",
     "readMore": "Lire la suite"
   },

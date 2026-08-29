@@ -17,6 +17,7 @@ import {
   Cpu,
   Smartphone,
   Info,
+  UserRound,
   CalendarDays,
 } from 'lucide-react'
 import { LocaleSwitcher } from './LocaleSwitcher'
@@ -249,6 +250,7 @@ export function Header() {
                 NAV_ITEM,
                 openMenu === 'company' ||
                   pathname === `${base}/about` ||
+                  pathname === `${base}/ceo` ||
                   pathname === `${base}/events`
                   ? NAV_ON
                   : NAV_OFF
@@ -456,7 +458,7 @@ function ProductsMenu({ base, onNavigate }: { base: string; onNavigate: () => vo
   )
 }
 
-/** Company → About Us | Events — the same card treatment as ProductsMenu. */
+/** Company → About Us | Our CEO | Events — the ProductsMenu card treatment. */
 function CompanyMenu({ base, onNavigate }: { base: string; onNavigate: () => void }) {
   const t = useTranslations('nav')
 
@@ -466,6 +468,12 @@ function CompanyMenu({ base, onNavigate }: { base: string; onNavigate: () => voi
       label: t('about'),
       blurb: t('aboutBlurb'),
       Icon: Info,
+    },
+    {
+      href: `${base}/ceo`,
+      label: t('ceo'),
+      blurb: t('ceoBlurb'),
+      Icon: UserRound,
     },
     {
       href: `${base}/events`,
@@ -610,6 +618,13 @@ function MobilePanel({
                 className="block rounded-xl px-3 py-3 text-base font-medium text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-700"
               >
                 {t('about')}
+              </Link>
+              <Link
+                href={`${base}/ceo`}
+                onClick={onClose}
+                className="block rounded-xl px-3 py-3 text-base font-medium text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-700"
+              >
+                {t('ceo')}
               </Link>
               <Link
                 href={`${base}/events`}

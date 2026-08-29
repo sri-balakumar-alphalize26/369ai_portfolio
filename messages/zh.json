@@ -29,6 +29,8 @@
     "appsBlurb": "十款移动应用与 Windows 桌面软件，全部连接 Odoo。",
     "company": "公司",
     "aboutBlurb": "我们是谁、我们的独特之处，以及我们的里程碑。",
+    "ceo": "我们的首席执行官",
+    "ceoBlurb": "董事总经理、他的奖项与他的分享。",
     "events": "活动",
     "eventsBlurb": "贸易博览会、奖项，以及我们现场展示成果的精彩时刻。",
     "homeAria": "369ai.Biz 首页",
@@ -251,13 +253,27 @@
         "f2": "定制模块开发",
         "f3": "财务、CRM、库存与 HR",
         "f4": "为 SME 与大型企业提供支持"
-      },
-      "expo": {
-        "date": "2025年12月",
-        "title": "Gulf Indian Global Trade Expo 2025",
-        "body": "在科泽科德 Stall A1 搭建了一间可实际运行的互联门店——售货机、销售机器人与智能储物柜，全部运行在 Odoo 与我们的移动应用之上。"
       }
     }
+  },
+  "ceo": {
+    "eyebrow": "领导者",
+    "title": "我们的首席执行官",
+    "role": "董事总经理",
+    "intro1": "Shan Sahib 领导着 369AI 背后的公司 Alphalize Technologies，在印度、阿联酋、阿曼和美国设有办公室。他专注于真正能落地运行的自动化：服务机器人、自助零售，以及围绕门店、展厅或餐厅日常运作构建的 Odoo ERP。",
+    "intro2": "在他的带领下，公司加入了 Odoo 合作伙伴计划，并于 2025 年启用新的研发办公室；2026 年 2 月，他在机器人服务领域的工作在 Insight Kerala Business Awards 上获得表彰。",
+    "portraitAlt": "Alphalize Technologies 董事总经理 Shan Sahib",
+    "momentAlt": "Shan Sahib 在公司开业活动上迎接嘉宾",
+    "awardEyebrow": "奖项",
+    "awardTitle": "机器人服务卓越奖",
+    "awardBody": "由 Business Insight 杂志主办的 Insight Kerala Business Awards 2026 在 BizConnect 2026 颁发给 Shan Sahib——表彰稳定可靠的机器人部署，以及让它们持续运行的长期支持。",
+    "trophyAlt": "机器人服务卓越奖奖杯",
+    "awardVideoTitle": "颁奖时刻",
+    "awardCaption": "在 BizConnect 2026 上领奖。",
+    "talksTitle": "台上分享",
+    "talksBody": "面向企业团队的心智管理课程，发布于他的频道 Shan on Tech。",
+    "ctaTitle": "与他带领的团队合作",
+    "ctaBody": "机器人、POS 与 Odoo 自动化，在印度、海湾地区和美国交付并提供支持。"
   },
   "products": {
     "eyebrow": "产品",
@@ -511,26 +527,52 @@
     "post3": "视频",
     "galleryTitle": "图集",
     "videosTitle": "现场实录",
+    "prevImage": "上一张图片",
+    "nextImage": "下一张图片",
+    "clipEyebrow": "Odoo 搭配",
+    "roadmapTitle": "我们的活动历程",
     "items": {
       "expo2025": {
         "date": "2025年12月 · 科泽科德",
         "title": "Gulf Indian Global Trade Expo 2025",
-        "body": "在卡利卡特贸易中心的 Stall A1，我们搭建了一间可实际运行的互联门店缩影——智能售货机、销售代表机器人与智能储物柜，全部运行在 Odoo 与我们的移动应用之上——让来宾可以现场购买、取货，并实时看到库存变动。",
-        "h1": "库存接入 Odoo 的售货机——在移动应用中付款，到机器前取货。",
-        "h2": "销售代表机器人迎接来宾，并现场演示产品。",
-        "h3": "面向无人零售的智能储物柜与 Odoo 驱动的自动化。"
+        "body": "我们与 Odoo 团队并肩，在卡利卡特贸易中心的 Stall A1 设展——销售代表机器人在现场穿梭接待，我们基于 Odoo 的应用与自动化方案也在整个展期内持续向来宾演示。",
+        "h1": "销售代表机器人在展台迎接来宾，并现场介绍产品。",
+        "h2": "面向企业主及其团队，现场演示 Odoo ERP 与我们自研的移动应用。",
+        "h3": "展位设在 Stall A1，与 Odoo 团队并肩而立。",
+        "clips": {
+          "c1": {
+            "title": "机器人销售专员",
+            "body": "整场展会期间，一台销售代表机器人始终在展台巡场——迎接来宾、逐一介绍全线产品，一旦交流深入便交接给我们的团队。"
+          },
+          "c2": {
+            "title": "无人收银机",
+            "body": "直接运行在 Odoo POS 上的自助结账。来宾选好商品、完成付款即可离开，全程不见收银台——门店上线首日就能沿用同一套流程。"
+          },
+          "c3": {
+            "title": "库存管理",
+            "body": "库存实时流转：展台上的每一笔销售都会即时回写至 Odoo，屏幕上的数字与机器里的实际余量始终一致。"
+          },
+          "c4": {
+            "title": "库存管理 · 高价值商品",
+            "body": "存放手机与配件的智能储物柜，每一道柜门都对应一笔 Odoo 库存调拨——任何物品出柜，系统都清楚记录是哪一台、何时取走、交给了谁。"
+          }
+        }
       },
       "bizconnect2026": {
         "date": "2026年2月",
         "title": "BizConnect 2026",
-        "body": "我们带来了为真实运营需求打造的实用机器人与 Odoo 驱动的自动化方案——并在 Insight Kerala Business Awards 2026 上捧回机器人服务卓越奖。",
-        "h1": "机器人服务卓越奖——Insight Kerala Business Awards 2026，由 Business Insight 颁发。",
-        "h2": "面向各行业日常运营的机器人与自动化现场演示。",
-        "h3": "对可靠创新与长期客户支持的认可。"
+        "body": "我们展示了面向各行业真实运营需求打造的实用机器人与 Odoo 驱动的自动化方案——并在 Insight Kerala Business Awards 2026 上捧回机器人服务卓越奖。",
+        "h1": "机器人服务卓越奖（Insight Kerala Business Awards 2026）——表彰可靠、创新的机器人解决方案与出色的服务支持。",
+        "h2": "展台上的一间互联门店——智能售货机、销售代表机器人与智能储物柜，全部运行在 Odoo 之上。",
+        "h3": "感谢每一位到访展台、亲手试用并检验我们方案的朋友。",
+        "videoCaption": "BizConnect 2026 颁奖仪式"
       }
     },
     "ctaTitle": "想看看它如何为您的业务运转？",
-    "ctaBody": "我们会用您自己的数据带来同样的演示——无需任何承诺。"
+    "ctaBody": "我们会用您自己的数据带来同样的演示——无需任何承诺。",
+    "award": {
+      "a1": "奖杯"
+    }
   },
   "shop": {
     "eyebrow": "硬件",
@@ -699,6 +741,8 @@
     "appsBody": "我们打造了十款运行在 Odoo 上的 Android 应用——涵盖考勤、团队聊天、KRA/KPI 跟踪、展厅巡检、价格查询、餐厅 POS、水疗前台、工具租赁、车载销售以及完整的后台运营——另有 Windows 桌面软件。欢迎在我们的应用页面查看全部。",
     "eventsTitle": "活动与展会",
     "eventsBody": "我们参展了在科泽科德举办的 Gulf Indian Global Trade Expo 2025（Stall A1），展出了运行在 Odoo 上的智能售货机、销售代表机器人与智能储物柜，并在 BizConnect 2026 上荣获机器人服务卓越奖。欢迎前往活动页面查看照片与视频。",
+    "ceoTitle": "我们的首席执行官",
+    "ceoBody": "369AI 与 Alphalize Technologies 由董事总经理 Shan Sahib 领导，他荣获 2026 年机器人服务卓越奖。他的页面介绍了他的经历、奖项与分享。",
     "whatsappPrefill": "您好 369AI，我想咨询你们的产品。",
     "readMore": "阅读更多"
   },
