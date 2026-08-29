@@ -21,8 +21,11 @@ import { MarqueeInView } from '@/components/ui/MarqueeInView'
  *
  * Facade loading: only thumbnails ship with the page; the YouTube iframe mounts
  * when the lightbox opens, so no YouTube cookies are set unless someone watches.
+ *
+ * `videos` defaults to the full leadership rail; /ceo passes the narrower
+ * CEO_TALKS list.
  */
-export function LeadershipVideos() {
+export function LeadershipVideos({ videos = LEADERSHIP_VIDEOS }: { videos?: Video[] }) {
   const [active, setActive] = useState<Video | null>(null)
   const tv = useTranslations('videos')
 
@@ -76,12 +79,12 @@ export function LeadershipVideos() {
         >
           {/* Tripled so the -66.666% loop point is seamless; copies 2-3 are
               hidden from screen readers. */}
-          {LEADERSHIP_VIDEOS.map((video) => (
+          {videos.map((video) => (
             <VideoCard key={video.id} video={video} onOpen={() => setActive(video)} />
           ))}
           {[1, 2].map((copy) => (
             <div key={copy} aria-hidden className="contents">
-              {LEADERSHIP_VIDEOS.map((video) => (
+              {videos.map((video) => (
                 <VideoCard
                   key={`${video.id}-${copy}`}
                   video={video}

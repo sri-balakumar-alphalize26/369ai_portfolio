@@ -5,6 +5,10 @@
  * Titles here are cleaned-up versions of the source titles — the originals name
  * the speakers, and we deliberately do not assign names or job titles on the
  * site until the company confirms them.
+ *
+ * Two of the six are credited on YouTube to Mr. Sudheer Nair and Sandosh
+ * Abraham, so they belong to the company rail on the home page and stay off
+ * the Managing Director's own page — see CEO_TALKS below.
  */
 export type Video = {
   id: string
@@ -29,6 +33,15 @@ export const LEADERSHIP_VIDEOS: Video[] = [
   { id: 'RjaOCsnT5P4', title: 'Mind Management — Part 5', note: 'Corporate training', views: 1118 },
   { id: '10-iIL1DIpM', title: 'Mind Management — Part 6', note: 'Corporate training', views: 1037 },
 ]
+
+/**
+ * The /ceo rail: the Mind Management corporate-training series only. The two
+ * "Motivational Speech" parts are another speaker's, so naming them as his
+ * would be wrong — the home page still carries all six.
+ */
+export const CEO_TALKS: Video[] = LEADERSHIP_VIDEOS.filter((v) =>
+  v.title.startsWith('Mind Management')
+)
 
 /**
  * Compact view count: 2090 -> "2.1K". The word "views" is locale text and
