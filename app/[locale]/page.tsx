@@ -16,6 +16,10 @@ import { ButtonLink } from '@/components/ui/Button'
 import { Magnetic } from '@/components/ui/Magnetic'
 import { TechMarquee } from '@/components/home/TechMarquee'
 import { StatsRow } from '@/components/home/StatsRow'
+import { Testimonials } from '@/components/home/Testimonials'
+import { UnlockDialog } from '@/components/careers/UnlockDialog'
+import { readPublishedTestimonials, readTestimonials } from '@/lib/testimonials'
+import { isUnlocked, sessionHours } from '@/lib/careers-auth'
 import { Hero } from '@/components/home/Hero'
 import { Faq } from '@/components/home/Faq'
 import { LeadershipVideos } from '@/components/home/LeadershipVideos'
@@ -44,10 +48,13 @@ const EXTRA_SERVICES = [
 
 export default async function HomePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>
+  searchParams: Promise<{ manage?: string; review?: string; name?: string; product?: string }>
 }) {
   const { locale } = await params
+  const { manage, review, name, product } = await searchParams
   setRequestLocale(locale)
 
   const t = await getTranslations('home')
@@ -58,6 +65,18 @@ export default async function HomePage({
   const tNav = await getTranslations('nav')
   const base = `/${locale}`
   const apps = appsWithIcons()
+
+  // Reviews are managed here too, behind the same passcode as the job
+  // roles: a valid session saves re-typing it, but nothing is editable
+  // unless the URL asks for it.
+  const unlocked = await isUnlocked()
+  const managing = manage === '1'
+  const canEdit = unlocked && managing
+  // Hidden reviews are filtered HERE, not in the component: props are
+  // serialised into the page payload, so a browser filter would still ship
+  // unapproved text — spam and abuse included — to every visitor.
+  const testimonials = canEdit ? await readTestimonials() : await readPublishedTestimonials()
+  const hours = await sessionHours()
 
   return (
     <>
@@ -124,6 +143,22 @@ export default async function HomePage({
 
       {/* ---------------------------------------------------------------- Stats */}
       <StatsRow title={t('statsTitle')} />
+
+      {/* --------------------------------------------------------- Testimonials */}
+      {/* Straight after the numbers: the stats earn attention, the quotes
+          justify it. Renders nothing until there are real quotes. */}
+      <Section>
+        <SectionHeader title={t('clientsTitle')} body={t('clientsBody')} />
+        <div className="mt-12">
+          <Testimonials
+            entries={testimonials}
+            canEdit={canEdit}
+            openReview={review === '1'}
+            reviewName={name ?? ''}
+            reviewProduct={product ?? ''}
+          />
+        </div>
+      </Section>
 
       {/* ------------------------------------------------------------- Services */}
       <Section tone="alt">
@@ -224,6 +259,9 @@ export default async function HomePage({
           </div>
         </div>
       </Section>
+
+      {/* Same lock as the careers page — one passcode, one session. */}
+      {managing && !unlocked ? <UnlockDialog hours={hours} /> : null}
     </>
   )
 }
