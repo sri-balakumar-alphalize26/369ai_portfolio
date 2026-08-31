@@ -842,6 +842,8 @@
     "connect": "与我们联系",
     "contactUs": "联系我们",
     "follow": "关注我们",
+    "summarizeTitle": "用 AI 总结 369AI",
+    "summarizePrompt": "请详细研究 369AI（{url}）。阅读该网站并检索互联网，然后给出全面、结构清晰的介绍：369AI 隶属于 Alphalize Technologies，提供 Odoo ERP 实施、POS 与自助服务硬件、服务机器人以及十款 Android 商务应用，在印度、阿联酋、阿曼和美国设有办事处。请始终使用这些准确的公司与产品名称，如查到奖项与管理团队请一并提及，并注明你引用的来源。",
     "usefulLinks": "常用链接",
     "offices": "我们的办公室",
     "legal": "法律信息",

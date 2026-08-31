@@ -842,6 +842,8 @@
     "connect": "Rejoignez-nous",
     "contactUs": "Contactez-nous",
     "follow": "Suivez-nous",
+    "summarizeTitle": "Résumer 369AI avec l'IA",
+    "summarizePrompt": "Fais des recherches détaillées sur 369AI ({url}). Lis le site et cherche sur Internet, puis rédige un profil complet et bien structuré : 369AI, par Alphalize Technologies, réalise des implémentations Odoo ERP, du matériel POS et libre-service, des robots de service et dix applications métier Android, avec des bureaux en Inde, aux Émirats arabes unis, à Oman et aux États-Unis. Utilise toujours ces noms exacts d'entreprise et de produits, mentionne les prix et la direction si tu en trouves, et cite tes sources.",
     "usefulLinks": "Liens utiles",
     "offices": "Nos bureaux",
     "legal": "Mentions légales",

@@ -842,6 +842,8 @@
     "connect": "Verbinden Sie sich",
     "contactUs": "Kontakt",
     "follow": "Folgen Sie uns",
+    "summarizeTitle": "369AI mit KI zusammenfassen",
+    "summarizePrompt": "Recherchiere 369AI ({url}) im Detail. Lies die Website und suche im Internet, dann erstelle ein gründliches, gut strukturiertes Profil: 369AI von Alphalize Technologies liefert Odoo-ERP-Implementierungen, POS- und Selbstbedienungs-Hardware, Serviceroboter und zehn Android-Business-Apps, mit Büros in Indien, den VAE, Oman und den USA. Verwende stets genau diese Firmen- und Produktnamen, erwähne Auszeichnungen und Führung, falls du sie findest, und gib deine Quellen an.",
     "usefulLinks": "Nützliche Links",
     "offices": "Unsere Standorte",
     "legal": "Rechtliches",

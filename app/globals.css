@@ -2326,3 +2326,109 @@ dialog::backdrop{animation:careers-backdrop .28s ease both}
   .brochure:hover::before,.brochure:focus-visible::before{scale:1 1}
 }
 
+/* ==================================================================
+   FOOTER SOCIAL BLOCK — the contact details, the social accounts and
+   the AI assistants, arriving on one timeline (FooterSocial.tsx,
+   IconRow.tsx). A single observer spans all three, so the assistants
+   only start once the accounts have landed: one arrival rather than
+   two rows popping over each other. The stagger rides an inline --d
+   per mark rather than nth-child rules, so a fifth account or a
+   seventh assistant needs no new CSS.
+
+   Hidden states hang off .fsoc.is-armed, which the script adds itself
+   a frame before .is-in — a blocked script leaves the footer visible
+   rather than blank.
+   ================================================================== */
+.fsoc__kicker{
+  margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--color-slate-faint);
+  transition:opacity .5s ease var(--dk, 0ms),
+             translate .5s var(--ease-out-soft) var(--dk, 0ms)}
+.fsoc__kicker--1{--dk:100ms}
+.fsoc__kicker--2{--dk:500ms}
+
+.fsoc__row{
+  display:flex;flex-wrap:wrap;gap:16px;align-items:center;
+  list-style:none;margin:0;padding:0}
+
+/* Each account draws in currentColor and carries its own --c, so the pad
+   can take that colour on hover while the mark inverts to white. The
+   assistants keep their own palette and settle for a neutral pad. */
+.fsoc__ic{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:10px;
+  font-size:24px;line-height:1;color:var(--c, var(--color-ink));
+  transition:opacity .4s ease var(--d, 0ms),
+             scale .5s cubic-bezier(.34,1.5,.64,1) var(--d, 0ms),
+             translate .25s ease,
+             background .25s ease,
+             color .25s ease}
+.fsoc__ic > span{display:block}
+.fsoc__ic svg{display:block;width:24px;height:24px}
+
+.fsoc.is-armed .fsoc__kicker{opacity:0;translate:0 6px}
+.fsoc.is-armed .fsoc__ic{opacity:0;scale:.5}
+/* Arming happens after paint. Without this the one frame between armed
+   and in would animate the block out before it animates in — visible
+   only when the footer is already on screen, but visible. */
+.fsoc.is-armed:not(.is-in) .fsoc__kicker,
+.fsoc.is-armed:not(.is-in) .fsoc__ic{transition:none}
+.fsoc.is-in .fsoc__kicker{opacity:1;translate:0 0}
+.fsoc.is-in .fsoc__ic{opacity:1;scale:1}
+
+.fsoc__row--social .fsoc__ic:hover,
+.fsoc__row--social .fsoc__ic:focus-visible{
+  translate:0 -5px;background:var(--c);color:#fff}
+
+.fsoc__ic--ai:hover,
+.fsoc__ic--ai:focus-visible{translate:0 -5px;background:rgb(15 27 45 / .06)}
+.fsoc__ic:focus-visible{outline:2px solid var(--color-accent-500);outline-offset:2px}
+
+/* The assistant names itself above the mark. Logical inset so it mirrors
+   in Arabic. The accounts need no tooltip — the brand fill is the answer. */
+.fsoc__ic--ai::after{
+  content:attr(data-name);
+  position:absolute;bottom:calc(100% + 8px);inset-inline-start:50%;
+  translate:-50% 4px;padding:4px 9px;border-radius:6px;
+  background:var(--color-ink);color:#fff;
+  font-size:11px;font-weight:600;white-space:nowrap;
+  opacity:0;pointer-events:none;
+  transition:opacity .22s ease,translate .22s ease}
+.fsoc__ic--ai:hover::after,
+.fsoc__ic--ai:focus-visible::after{opacity:1;translate:-50% 0}
+[dir="rtl"] .fsoc__ic--ai::after{translate:50% 4px}
+[dir="rtl"] .fsoc__ic--ai:hover::after,
+[dir="rtl"] .fsoc__ic--ai:focus-visible::after{translate:50% 0}
+
+/* One sweep across the Hiring badge as the block lands, after the marks
+   have finished. Scoped to .fsoc: the header wears the same badge and
+   must not shine. The pill's own radius clips the sliver. */
+.fsoc .hiring-badge{position:relative;overflow:hidden}
+.fsoc .hiring-badge::after{
+  content:"";position:absolute;inset-block:-40%;inset-inline-start:-30%;
+  width:18px;background:rgb(255 255 255 / .6);filter:blur(6px);
+  transform:skewX(-18deg);opacity:0;pointer-events:none}
+.fsoc.is-in .hiring-badge::after{
+  animation:fsoc-shine 1.2s cubic-bezier(.4,0,.3,1) 1.5s 1}
+/* A percentage translate does not mirror on its own. */
+[dir="rtl"] .fsoc.is-in .hiring-badge::after{animation-name:fsoc-shine-rtl}
+
+@keyframes fsoc-shine{
+  0%{opacity:0;transform:skewX(-18deg) translateX(0)}
+  20%{opacity:1}
+  100%{opacity:0;transform:skewX(-18deg) translateX(700%)}
+}
+@keyframes fsoc-shine-rtl{
+  0%{opacity:0;transform:skewX(18deg) translateX(0)}
+  20%{opacity:1}
+  100%{opacity:0;transform:skewX(18deg) translateX(-700%)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fsoc__kicker,.fsoc__ic,
+  .fsoc.is-armed .fsoc__kicker,.fsoc.is-armed .fsoc__ic{
+    opacity:1;scale:1;translate:0 0;transition:none}
+  .fsoc__ic:hover,.fsoc__ic:focus-visible{translate:none}
+  .fsoc__ic--ai::after{transition:none}
+  .fsoc.is-in .hiring-badge::after{animation:none}
+}
