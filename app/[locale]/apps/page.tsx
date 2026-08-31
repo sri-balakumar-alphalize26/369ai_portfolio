@@ -56,7 +56,7 @@ export default async function AppsPage({
       {/* The stacking pair needs scroll runway below it so card 2 can finish
           sliding over card 1 before the next section arrives. */}
       <Section>
-        <AppsStack apps={apps} />
+        <AppsStack apps={apps} mobileOnly />
       </Section>
 
       {/* Per-app detail — the depth that can't fit on one sticky card.

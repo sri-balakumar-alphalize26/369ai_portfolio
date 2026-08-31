@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Database, ScanBarcode, Bot, Lock, Boxes, ArrowRight } from 'lucide-react'
+import { Database, ScanBarcode, Bot, Lock, Boxes, ArrowRight, FileText } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { ButtonLink } from '@/components/ui/Button'
@@ -49,7 +49,22 @@ export default async function SolutionsPage({
 
   return (
     <>
-      <PageHero eyebrow={t('eyebrow')} title={t('title')} body={t('body')} />
+      {/* The printed one-pager, served inline in a new tab. The label says
+          "view", never "download", deliberately — the viewer's own save button
+          is the browser's business, not ours. Lives on the hero because the
+          sweep-fill treatment (.brochure) is a white-on-dark design. */}
+      <PageHero
+        eyebrow={t('eyebrow')}
+        title={t('title')}
+        body={t('body')}
+        action={
+          <a className="brochure" href="/docs/369ai-brochure.pdf" target="_blank" rel="noopener">
+            <FileText className="brochure__icon h-[17px] w-[17px]" strokeWidth={1.8} aria-hidden />
+            <span>{t('brochureCta')}</span>
+            <span className="brochure__meta">{t('brochureMeta')}</span>
+          </a>
+        }
+      />
 
       <Section>
         <div className="space-y-20 lg:space-y-28">

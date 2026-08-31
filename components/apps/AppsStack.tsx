@@ -38,7 +38,8 @@ const SOLUTION_CARDS: SolutionCard[] = [
 /**
  * Five scroll-stacking cards: Mobile Apps, Desktop software, then Robotics,
  * Smart Locks and Vending — tones alternate light/dark so every slide-over
- * reads. Layout is pure CSS position:sticky (globals.css .stack-card); this
+ * reads. `mobileOnly` keeps just the first card: /apps is about the apps, so
+ * the desktop and solution slides are the home page's job, not that page's. Layout is pure CSS position:sticky (globals.css .stack-card); this
  * component equalizes the card heights (so no card peeks out beneath a
  * shorter one) and measures how deep each card sits in the pile, written to
  * the --depth custom property, which CSS turns into the deck: covered cards
@@ -49,10 +50,13 @@ const SOLUTION_CARDS: SolutionCard[] = [
 export function AppsStack({
   apps,
   cta,
+  mobileOnly = false,
 }: {
   apps: StackApp[]
   /** Optional link rendered inside the Mobile Apps card (home page → /apps). */
   cta?: { href: string; label: string }
+  /** Render only the Mobile Apps card, dropping desktop + the solution slides. */
+  mobileOnly?: boolean
 }) {
   const t = useTranslations('appsPage')
   const ts = useTranslations('solutions')
@@ -97,6 +101,8 @@ export function AppsStack({
         ) : null}
       </article>
 
+      {mobileOnly ? null : (
+        <>
       {/* Card 2 — Windows desktop software, dark so the slide-over reads */}
       <article className="stack-card relative flex flex-col justify-center overflow-hidden rounded-panel bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 p-7 text-brand-100 shadow-xl sm:p-10">
         <div aria-hidden className="dot-grid pointer-events-none absolute inset-0 opacity-40" />
@@ -209,6 +215,8 @@ export function AppsStack({
           </article>
         )
       })}
+        </>
+      )}
     </div>
   )
 }

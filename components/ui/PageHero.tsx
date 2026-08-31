@@ -6,10 +6,13 @@ export function PageHero({
   eyebrow,
   title,
   body,
+  action,
 }: {
   eyebrow?: string
   title: string
   body?: string
+  /** Optional CTA under the body — rendered on the dark hero field. */
+  action?: React.ReactNode
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-brand-950">
@@ -51,6 +54,14 @@ export function PageHero({
             >
               {body}
             </p>
+          ) : null}
+          {action ? (
+            <div
+              className="mt-8"
+              style={{ animation: 'word-rise 0.8s var(--ease-out-soft) 0.6s both' }}
+            >
+              {action}
+            </div>
           ) : null}
         </div>
       </div>
