@@ -10,6 +10,8 @@ import { readCareers } from '@/lib/careers'
 import { ScrollProgress } from '@/components/layout/ScrollProgress'
 import { RouteLoader } from '@/components/layout/RouteLoader'
 import { Assistant } from '@/components/assistant/Assistant'
+import { IdlePromo } from '@/components/promo/IdlePromo'
+import { promoApp } from '@/lib/apps'
 import { readContact } from '@/lib/contact-settings'
 import '../globals.css'
 
@@ -157,6 +159,10 @@ export default async function LocaleLayout({
             <main className="flex-1">{children}</main>
             <Footer hiring={hiring} />
             <Assistant contact={await readContact()} />
+            {/* Last in the DOM, so it is last in tab order. The app is
+                resolved here because lib/apps.ts checks the filesystem,
+                which a client component cannot do. */}
+            <IdlePromo app={promoApp()} />
           </NextIntlClientProvider>
         </div>
       </body>

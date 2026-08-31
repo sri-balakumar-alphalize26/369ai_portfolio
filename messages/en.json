@@ -867,6 +867,25 @@
     "whatsappPrefill": "Hello 369AI, I have a question about your products.",
     "readMore": "Read more"
   },
+  "promo": {
+    "label": "Suggestion",
+    "close": "Close",
+    "apps": {
+      "title": "Ten apps, built in-house",
+      "body": "Attendance, van sales, price checks and more — set up on your devices by our team, updates included.",
+      "cta": "See the apps"
+    },
+    "solutions": {
+      "title": "Seen something that fits?",
+      "body": "ERP, POS, robotics, smart locks and vending — the full range, and what each one replaces.",
+      "cta": "Explore solutions"
+    },
+    "brochure": {
+      "title": "Would you rather read it later?",
+      "body": "The one-pager covers what we build and where we run it.",
+      "cta": "View brochure"
+    }
+  },
   "footer": {
     "connect": "Connect with us",
     "contactUs": "Contact us",

@@ -72,6 +72,10 @@
     "clientsBody": "Boutiques, restaurants et showrooms qui utilisent nos logiciels, notre matériel, nos robots et nos casiers chaque jour.",
     "reviewLead": "Vous avez travaillé avec nous ? Dites-nous comment cela s’est passé.",
     "reviewCta": "Partager votre expérience",
+    "reviewSearchPh": "Rechercher un avis — nom, société, produit…",
+    "reviewSearchClear": "Effacer la recherche",
+    "reviewSearchCount": "{shown} sur {total}",
+    "reviewSearchEmpty": "Aucun avis ne correspond à cette recherche.",
     "reviewTitle": "Partager votre expérience",
     "reviewClose": "Fermer",
     "reviewName": "Votre nom",
@@ -87,7 +91,8 @@
       "hardware": "Matériel POS et bornes",
       "robotics": "Robots de service",
       "lockers": "Casiers connectés et distribution",
-      "erp": "Odoo ERP"
+      "erp": "Odoo ERP",
+      "other": "Autre"
     },
     "techTitle": "Les technologies que nous maîtrisons",
     "techBody": "Notre expertise couvre les plateformes, les équipements et les services cloud modernes.",
@@ -861,6 +866,25 @@
     "careersBody": "Nous recrutons — consultez les postes ouverts, lisez la description complète et postulez sur WhatsApp avec votre CV.",
     "whatsappPrefill": "Bonjour 369AI, j’ai une question sur vos produits.",
     "readMore": "Lire la suite"
+  },
+  "promo": {
+    "label": "Suggestion",
+    "close": "Fermer",
+    "apps": {
+      "title": "Dix applications conçues en interne",
+      "body": "Pointage, vente en tournée, vérification des prix et bien d'autres — installées sur vos appareils par notre équipe, mises à jour comprises.",
+      "cta": "Voir les applications"
+    },
+    "solutions": {
+      "title": "Quelque chose vous convient ?",
+      "body": "ERP, PDV, robotique, serrures connectées et distributeurs — la gamme complète, et ce que chacun remplace.",
+      "cta": "Explorer les solutions"
+    },
+    "brochure": {
+      "title": "Vous préférez lire plus tard ?",
+      "body": "La brochure résume ce que nous construisons et où nous l'exploitons.",
+      "cta": "Voir la brochure"
+    }
   },
   "footer": {
     "connect": "Rejoignez-nous",

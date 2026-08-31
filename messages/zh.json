@@ -72,6 +72,10 @@
     "clientsBody": "门店、餐厅和展厅每天都在使用我们的软件、硬件、机器人和智能储物柜。",
     "reviewLead": "与我们合作过？欢迎告诉我们体验如何。",
     "reviewCta": "分享您的体验",
+    "reviewSearchPh": "搜索评价 — 姓名、公司、产品…",
+    "reviewSearchClear": "清除搜索",
+    "reviewSearchCount": "{total} 条中的 {shown} 条",
+    "reviewSearchEmpty": "没有符合该搜索的评价。",
     "reviewTitle": "分享您的体验",
     "reviewClose": "关闭",
     "reviewName": "您的姓名",
@@ -87,7 +91,8 @@
       "hardware": "POS 与自助终端硬件",
       "robotics": "服务机器人",
       "lockers": "智能储物柜与售货机",
-      "erp": "Odoo ERP"
+      "erp": "Odoo ERP",
+      "other": "其他"
     },
     "techTitle": "我们使用的技术",
     "techBody": "我们的专长涵盖现代平台、设备与云服务。",
@@ -861,6 +866,25 @@
     "careersBody": "我们正在招聘 —— 查看空缺职位、阅读完整职位说明，并带上简历通过 WhatsApp 申请。",
     "whatsappPrefill": "您好 369AI，我想咨询你们的产品。",
     "readMore": "阅读更多"
+  },
+  "promo": {
+    "label": "推荐",
+    "close": "关闭",
+    "apps": {
+      "title": "十款自主开发的应用",
+      "body": "考勤、车销、价格查询等等——由我们的团队在您的设备上部署，更新也由我们负责。",
+      "cta": "查看应用"
+    },
+    "solutions": {
+      "title": "有合适的方案吗？",
+      "body": "ERP、POS、服务机器人、智能锁与自动售货——完整方案，以及各自能替代什么。",
+      "cta": "浏览解决方案"
+    },
+    "brochure": {
+      "title": "想稍后再看？",
+      "body": "这份单页介绍了我们做什么、在哪些地方运行。",
+      "cta": "查看宣传册"
+    }
   },
   "footer": {
     "connect": "与我们联系",

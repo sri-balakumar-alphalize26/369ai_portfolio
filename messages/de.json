@@ -72,6 +72,10 @@
     "clientsBody": "Läden, Restaurants und Showrooms, die unsere Software, Hardware, Roboter und Schließfächer täglich einsetzen.",
     "reviewLead": "Schon mit uns gearbeitet? Erzählen Sie uns davon.",
     "reviewCta": "Erfahrung teilen",
+    "reviewSearchPh": "Bewertungen durchsuchen — Name, Firma, Produkt…",
+    "reviewSearchClear": "Suche löschen",
+    "reviewSearchCount": "{shown} von {total}",
+    "reviewSearchEmpty": "Keine Bewertung passt zu dieser Suche.",
     "reviewTitle": "Erfahrung teilen",
     "reviewClose": "Schließen",
     "reviewName": "Ihr Name",
@@ -87,7 +91,8 @@
       "hardware": "POS- & Kiosk-Hardware",
       "robotics": "Serviceroboter",
       "lockers": "Smarte Schließfächer & Vending",
-      "erp": "Odoo ERP"
+      "erp": "Odoo ERP",
+      "other": "Sonstiges"
     },
     "techTitle": "Technologien, mit denen wir arbeiten",
     "techBody": "Unsere Expertise umfasst moderne Plattformen, Geräte und Cloud-Dienste.",
@@ -861,6 +866,25 @@
     "careersBody": "Wir stellen ein — offene Stellen ansehen, die vollständige Stellenbeschreibung lesen und per WhatsApp mit Lebenslauf bewerben.",
     "whatsappPrefill": "Hallo 369AI, ich habe eine Frage zu Ihren Produkten.",
     "readMore": "Mehr lesen"
+  },
+  "promo": {
+    "label": "Vorschlag",
+    "close": "Schließen",
+    "apps": {
+      "title": "Zehn Apps aus eigener Entwicklung",
+      "body": "Anwesenheit, Verkauf im Außendienst, Preisprüfung und mehr — von unserem Team auf Ihren Geräten eingerichtet, Updates inklusive.",
+      "cta": "Apps ansehen"
+    },
+    "solutions": {
+      "title": "Ist etwas Passendes dabei?",
+      "body": "ERP, Kassensysteme, Robotik, smarte Schlösser und Automaten — das ganze Spektrum und was es jeweils ersetzt.",
+      "cta": "Lösungen entdecken"
+    },
+    "brochure": {
+      "title": "Lieber später lesen?",
+      "body": "Die Broschüre zeigt, was wir bauen und wo es im Einsatz ist.",
+      "cta": "Broschüre ansehen"
+    }
   },
   "footer": {
     "connect": "Verbinden Sie sich",
