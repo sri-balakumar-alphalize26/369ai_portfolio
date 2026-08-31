@@ -22,13 +22,20 @@ export function AppIcon({ app, className }: { app: AppIconData; className?: stri
     // height, natural width, so the text never gets cropped. Callers pass
     // only a height class; w-auto keeps the aspect (and satisfies
     // next/image's both-dimensions-modified rule).
+    //
+    // The padding is load-bearing, not decoration: every delivered file is an
+    // opaque plate whose artwork fills 87% of the canvas, so at h-12 the ink
+    // sits three pixels from an edge that rounded-lg is already biting into,
+    // and the logo reads as cropped. box-border keeps the caller's height as
+    // the total height, so this shrinks the artwork rather than the box and
+    // nothing reflows. object-contain fits whatever aspect a future file has.
     return (
       <Image
         src={app.icon}
         alt=""
         width={384}
         height={256}
-        className={cn('w-auto rounded-lg', className)}
+        className={cn('box-border w-auto rounded-lg object-contain p-1', className)}
       />
     )
   }
