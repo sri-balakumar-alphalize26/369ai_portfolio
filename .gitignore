@@ -42,3 +42,7 @@ next-env.d.ts
 
 # scraper HTML cache (regenerable)
 /scripts/.cache/
+
+# Careers: roles written from the site, and applications with their CVs.
+# Personal data — never commit it.
+data/

@@ -37,7 +37,7 @@ const NAV_OFF = 'text-ink hover:bg-brand-50/70 hover:text-brand-700'
  * the viewport edges, hovering over the hero rather than sitting above it.
  * Logo, nav and the language picker all live inside that single bar.
  */
-export function Header() {
+export function Header({ hiring = false }: { hiring?: boolean }) {
   const t = useTranslations('nav')
   const locale = useLocale()
   const pathname = usePathname()
@@ -270,6 +270,16 @@ export function Header() {
               <CompanyMenu base={base} onNavigate={() => setOpenMenu(null)} />
             ) : null}
           </div>
+
+          {/* Careers sits at the top level rather than inside Company, so the
+              Hiring badge is visible without opening a menu. */}
+          <Link
+            href={`${base}/careers`}
+            className={cn(NAV_ITEM, pathname === `${base}/careers` ? NAV_ON : NAV_OFF)}
+          >
+            {t('careers')}
+            {hiring ? <span className="hiring-badge">{t('hiring')}</span> : null}
+          </Link>
         </nav>
 
         {/* Right cluster: phone · search · language · contact. Entering it
@@ -302,7 +312,7 @@ export function Header() {
       </div>
 
       {mobileOpen ? (
-        <MobilePanel base={base} links={links} onClose={() => setMobileOpen(false)} />
+        <MobilePanel base={base} links={links} hiring={hiring} onClose={() => setMobileOpen(false)} />
       ) : null}
     </header>
   )
@@ -516,10 +526,12 @@ function CompanyMenu({ base, onNavigate }: { base: string; onNavigate: () => voi
 function MobilePanel({
   base,
   links,
+  hiring,
   onClose,
 }: {
   base: string
   links: { href: string; label: string }[]
+  hiring: boolean
   onClose: () => void
 }) {
   const t = useTranslations('nav')
@@ -632,6 +644,18 @@ function MobilePanel({
                 className="block rounded-xl px-3 py-3 text-base font-medium text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-700"
               >
                 {t('events')}
+              </Link>
+            </li>
+
+            {/* Careers is top level here too, badge and all. */}
+            <li className="pt-3">
+              <Link
+                href={`${base}/careers`}
+                onClick={onClose}
+                className="flex items-center gap-2 rounded-xl px-3 py-3 text-base font-medium text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-700"
+              >
+                {t('careers')}
+                {hiring ? <span className="hiring-badge">{t('hiring')}</span> : null}
               </Link>
             </li>
           </ul>

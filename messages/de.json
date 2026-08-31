@@ -33,6 +33,8 @@
     "ceoBlurb": "Der Managing Director, seine Auszeichnung und seine Vorträge.",
     "events": "Events",
     "eventsBlurb": "Fachmessen, Auszeichnungen und die Momente, in denen wir unsere Arbeit persönlich gezeigt haben.",
+    "careers": "Karriere",
+    "hiring": "Wir stellen ein !!",
     "homeAria": "369ai.Biz Startseite",
     "mainNav": "Hauptnavigation",
     "mobileNav": "Mobile Navigation"
@@ -574,6 +576,71 @@
       "a1": "Die Auszeichnung"
     }
   },
+  "careers": {
+    "eyebrow": "Karriere",
+    "title": "Bauen Sie die Systeme, auf denen unsere Kunden arbeiten",
+    "body": "Wir entwickeln Robotik, Selbstbedienung im Handel und Odoo-Automatisierung für Unternehmen in Indien, am Golf und in den USA — und betreuen das alles rund um die Uhr. Klingt das nach Ihrer Arbeit? Hier ist, was offen ist.",
+    "whyTitle": "Warum bei uns",
+    "whyBody": "Kleine Teams, echte Produkte und Kunden, die schon in derselben Woche nutzen, was Sie bauen.",
+    "why": {
+      "w1": {
+        "title": "Produkte im Einsatz",
+        "body": "Zehn Mobile-Apps, POS-Software und Serviceroboter, die täglich in Läden, Restaurants und Showrooms laufen — keine Demos."
+      },
+      "w2": {
+        "title": "Odoo in der Tiefe",
+        "body": "Sie lernen das ERP richtig kennen: Module, Integrationen, Migrationen und die Kundengespräche dazu."
+      },
+      "w3": {
+        "title": "Vier Länder",
+        "body": "Standorte in Indien, den VAE, Oman und den USA — Ihre Arbeit reicht deutlich weiter als die Stadt, in der sie entstand."
+      },
+      "w4": {
+        "title": "Support, der zählt",
+        "body": "24/7 halten wir mit einer echten Rufbereitschaft, nicht mit einem Satz im Prospekt — und Sie gehören dazu."
+      }
+    },
+    "rolesTitle": "Offene Stellen",
+    "rolesBody": "Jede Stelle unten ist aktuell offen. Beschreibung lesen, dann per WhatsApp mit Lebenslauf bewerben.",
+    "noRolesTitle": "Derzeit keine offenen Stellen",
+    "noRolesBody": "Wir suchen im Moment niemanden, hören aber immer gern von guten Leuten. Senden Sie uns Ihren Lebenslauf, wir behalten ihn im Blick.",
+    "readMore": "Mehr lesen",
+    "applyOpen": "Bewerben",
+    "applyTitle": "Bewerbung — {role}",
+    "jd": {
+      "heading": "Stellenbeschreibung",
+      "responsibilities": "Aufgaben & Verantwortung",
+      "requirements": "Erforderliche Kenntnisse",
+      "eligibility": "Voraussetzungen",
+      "jobType": "Anstellungsart",
+      "experience": "Erfahrung",
+      "workLocation": "Arbeitsort",
+      "back": "Zurück zur Beschreibung",
+      "close": "Schließen"
+    },
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "job": "Beworbene Stelle",
+      "cv": "Lebenslauf",
+      "namePh": "Ihr vollständiger Name",
+      "emailPh": "sie@beispiel.de",
+      "phonePh": "Telefonnummer",
+      "jobPlaceholder": "Stelle auswählen",
+      "cvHint": "Nur PDF, bis 1 MB.",
+      "phoneError": "Bitte eine gültige Telefonnummer für das gewählte Land eingeben.",
+      "fileError": "Nur PDF. Bitte laden Sie Ihren Lebenslauf als PDF hoch.",
+      "generalOption": "Initiativbewerbung",
+      "submit": "Absenden",
+      "done": "Ihr Lebenslauf ist bei uns angekommen. WhatsApp ist mit Ihren Angaben geöffnet — senden Sie die Nachricht ab.",
+      "doneNoFile": "WhatsApp ist mit Ihren Angaben geöffnet. Die Datei hat uns nicht erreicht — bitte hängen Sie den Lebenslauf im Chat an.",
+      "openChat": "WhatsApp öffnen",
+      "waIntro": "Neue Bewerbung über die 369AI-Website."
+    },
+    "ctaTitle": "Fragen vor der Bewerbung?",
+    "ctaBody": "Fragen Sie uns zur Stelle, zum Team oder zu unserer Arbeitsweise."
+  },
   "shop": {
     "eyebrow": "Hardware",
     "title": "Hardware für Kasse, Druck, Scanning und Automatisierung",
@@ -743,6 +810,8 @@
     "eventsBody": "Wir haben auf der Gulf Indian Global Trade Expo 2025 in Kozhikode (Stall A1) mit einem smarten Verkaufsautomaten, einem Verkaufsroboter und smarten Schließfächern auf Odoo ausgestellt und bei BizConnect 2026 den Robotics Service Excellence Award erhalten. Fotos und Videos finden Sie auf der Events-Seite.",
     "ceoTitle": "Unser CEO",
     "ceoBody": "369AI und Alphalize Technologies werden von Managing Director Shan Sahib geführt, ausgezeichnet mit dem Robotics Service Excellence Award 2026. Seine Seite zeigt seinen Weg, die Auszeichnung und seine Sessions.",
+    "careersTitle": "Karriere",
+    "careersBody": "Wir stellen ein — offene Stellen ansehen, die vollständige Stellenbeschreibung lesen und per WhatsApp mit Lebenslauf bewerben.",
     "whatsappPrefill": "Hallo 369AI, ich habe eine Frage zu Ihren Produkten.",
     "readMore": "Mehr lesen"
   },

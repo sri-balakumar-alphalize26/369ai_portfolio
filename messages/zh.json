@@ -33,6 +33,8 @@
     "ceoBlurb": "董事总经理、他的奖项与他的分享。",
     "events": "活动",
     "eventsBlurb": "贸易博览会、奖项，以及我们现场展示成果的精彩时刻。",
+    "careers": "招聘",
+    "hiring": "正在招聘 !!",
     "homeAria": "369ai.Biz 首页",
     "mainNav": "主导航",
     "mobileNav": "移动端导航"
@@ -574,6 +576,71 @@
       "a1": "奖杯"
     }
   },
+  "careers": {
+    "eyebrow": "招聘",
+    "title": "打造客户赖以运转的系统",
+    "body": "我们为印度、海湾地区和美国的企业开发机器人、自助零售与 Odoo 自动化，并提供全天候支持。如果这是你想做的工作，以下是目前的空缺。",
+    "whyTitle": "为什么加入我们",
+    "whyBody": "小团队、真实的产品，你做出来的东西当周就有客户在用。",
+    "why": {
+      "w1": {
+        "title": "真正被使用的产品",
+        "body": "十款移动应用、POS 软件和服务机器人，每天运行在门店、餐厅和展厅里——不是演示。"
+      },
+      "w2": {
+        "title": "深入 Odoo",
+        "body": "你会真正学懂这套 ERP：模块、集成、迁移，以及围绕它们与客户的沟通。"
+      },
+      "w3": {
+        "title": "四个国家",
+        "body": "在印度、阿联酋、阿曼和美国设有办公室，你的工作会走得比它诞生的城市远得多。"
+      },
+      "w4": {
+        "title": "说到做到的支持",
+        "body": "7×24 靠的是真实的值班轮换，而不是宣传册上的一行字——你也会是其中一员。"
+      }
+    },
+    "rolesTitle": "空缺职位",
+    "rolesBody": "以下每个职位都在招聘中。阅读职位说明，然后带上简历通过 WhatsApp 申请。",
+    "noRolesTitle": "目前没有空缺",
+    "noRolesBody": "我们暂时没有招聘计划，但始终欢迎优秀的人来信。把简历发给我们，我们会保留。",
+    "readMore": "查看详情",
+    "applyOpen": "申请",
+    "applyTitle": "申请 — {role}",
+    "jd": {
+      "heading": "职位说明",
+      "responsibilities": "岗位职责",
+      "requirements": "任职要求",
+      "eligibility": "申请条件",
+      "jobType": "工作类型",
+      "experience": "经验要求",
+      "workLocation": "工作地点",
+      "back": "返回职位说明",
+      "close": "关闭"
+    },
+    "form": {
+      "name": "姓名",
+      "email": "邮箱",
+      "phone": "电话",
+      "job": "申请职位",
+      "cv": "简历",
+      "namePh": "您的姓名",
+      "emailPh": "you@example.com",
+      "phonePh": "电话号码",
+      "jobPlaceholder": "请选择职位",
+      "cvHint": "仅限 PDF，不超过 1 MB。",
+      "phoneError": "请输入所选国家/地区的有效电话号码。",
+      "fileError": "仅限 PDF。请以 PDF 格式上传您的简历。",
+      "generalOption": "通用申请",
+      "submit": "提交",
+      "done": "您的简历已送达。WhatsApp 已带着您的信息打开——发送该消息即可完成申请。",
+      "doneNoFile": "WhatsApp 已带着您的信息打开。文件未能送达，请在聊天中附上您的简历。",
+      "openChat": "打开 WhatsApp",
+      "waIntro": "来自 369AI 网站的新求职申请。"
+    },
+    "ctaTitle": "申请前还有疑问？",
+    "ctaBody": "关于职位、团队或我们的工作方式，欢迎随时询问。"
+  },
   "shop": {
     "eyebrow": "硬件",
     "title": "POS、打印、扫描与自动化硬件",
@@ -743,6 +810,8 @@
     "eventsBody": "我们参展了在科泽科德举办的 Gulf Indian Global Trade Expo 2025（Stall A1），展出了运行在 Odoo 上的智能售货机、销售代表机器人与智能储物柜，并在 BizConnect 2026 上荣获机器人服务卓越奖。欢迎前往活动页面查看照片与视频。",
     "ceoTitle": "我们的首席执行官",
     "ceoBody": "369AI 与 Alphalize Technologies 由董事总经理 Shan Sahib 领导，他荣获 2026 年机器人服务卓越奖。他的页面介绍了他的经历、奖项与分享。",
+    "careersTitle": "招聘",
+    "careersBody": "我们正在招聘 —— 查看空缺职位、阅读完整职位说明，并带上简历通过 WhatsApp 申请。",
     "whatsappPrefill": "您好 369AI，我想咨询你们的产品。",
     "readMore": "阅读更多"
   },

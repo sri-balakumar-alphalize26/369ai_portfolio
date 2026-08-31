@@ -107,6 +107,17 @@ export function Assistant() {
         body: t('ceoBody'),
         href: `${base}/ceo`,
       },
+      {
+        id: 'careers',
+        keywords: [
+          'career', 'careers', 'job', 'jobs', 'vacancy', 'vacancies', 'hiring',
+          'hire', 'apply', 'application', 'cv', 'resume', 'opening', 'openings',
+          'developer', 'odoo developer', 'frontend', 'sysadmin', 'walk in',
+        ],
+        title: t('careersTitle'),
+        body: t('careersBody'),
+        href: `${base}/careers`,
+      },
     ]
 
     return [...faq, ...services, ...solutions, ...extras]

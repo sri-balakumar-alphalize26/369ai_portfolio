@@ -33,6 +33,8 @@
     "ceoBlurb": "The Managing Director, his award and his leadership sessions.",
     "events": "Events",
     "eventsBlurb": "Trade expos, awards and the moments we showed our work in person.",
+    "careers": "Careers",
+    "hiring": "Hiring !!",
     "homeAria": "369ai.Biz home",
     "mainNav": "Main",
     "mobileNav": "Mobile"
@@ -574,6 +576,71 @@
       "a1": "The award"
     }
   },
+  "careers": {
+    "eyebrow": "Careers",
+    "title": "Build the systems our customers run on",
+    "body": "We build robotics, self-service retail and Odoo automation for businesses across India, the Gulf and the USA — and we support all of it around the clock. If that sounds like work you would enjoy, here is what is open.",
+    "whyTitle": "Why work here",
+    "whyBody": "Small teams, real products, and customers using what you build the week it ships.",
+    "why": {
+      "w1": {
+        "title": "Products people use",
+        "body": "Ten mobile apps, POS software and service robots running in shops, restaurants and showrooms every day — not demos."
+      },
+      "w2": {
+        "title": "Odoo depth",
+        "body": "You will learn the ERP properly: modules, integrations, migrations, and the customer conversations around them."
+      },
+      "w3": {
+        "title": "Four countries",
+        "body": "Offices in India, the UAE, Oman and the USA, so the work travels a good deal further than the town it was written in."
+      },
+      "w4": {
+        "title": "Support we mean",
+        "body": "24/7 is kept with a real on-call rota, not a line in a brochure — and you will be part of how it is kept."
+      }
+    },
+    "rolesTitle": "Open roles",
+    "rolesBody": "Every role below is open right now. Read the description, then apply on WhatsApp with your CV.",
+    "noRolesTitle": "No openings right now",
+    "noRolesBody": "We are not hiring at the moment, but we are always glad to hear from good people. Send your CV and we will keep it on file.",
+    "readMore": "Read more",
+    "applyOpen": "Apply",
+    "applyTitle": "Apply — {role}",
+    "jd": {
+      "heading": "Job Description",
+      "responsibilities": "Roles & Responsibilities",
+      "requirements": "Required Skills",
+      "eligibility": "Eligibility",
+      "jobType": "Job Type",
+      "experience": "Experience",
+      "workLocation": "Work Location",
+      "back": "Back to the description",
+      "close": "Close"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "job": "Job Applied",
+      "cv": "CV",
+      "namePh": "Your full name",
+      "emailPh": "you@example.com",
+      "phonePh": "Phone number",
+      "jobPlaceholder": "Select a role",
+      "cvHint": "PDF only, up to 1 MB.",
+      "phoneError": "Enter a valid phone number for the country you selected.",
+      "fileError": "PDF only. Please upload your CV as a PDF file.",
+      "generalOption": "General application",
+      "submit": "Submit",
+      "done": "Your CV has reached us. WhatsApp is open with your details — send the message to finish.",
+      "doneNoFile": "WhatsApp is open with your details. The file did not reach us, so please attach your CV in the chat.",
+      "openChat": "Open WhatsApp",
+      "waIntro": "New job application from the 369AI website."
+    },
+    "ctaTitle": "Questions before you apply?",
+    "ctaBody": "Ask us anything about the role, the team, or how we work."
+  },
   "shop": {
     "eyebrow": "Hardware",
     "title": "POS, printing, scanning and automation hardware",
@@ -743,6 +810,8 @@
     "eventsBody": "We exhibited at the Gulf Indian Global Trade Expo 2025 in Kozhikode (Stall A1) with a smart vending machine, a sales-representative robot and smart lockers on Odoo, and received the Robotics Service Excellence Award at BizConnect 2026. See the Events page for photos and videos.",
     "ceoTitle": "Our CEO",
     "ceoBody": "369AI and Alphalize Technologies are led by Managing Director Shan Sahib, winner of the Robotics Service Excellence Award 2026. His page has his story, the award and his sessions.",
+    "careersTitle": "Careers",
+    "careersBody": "We are hiring — see the open roles, read the full job description and apply on WhatsApp with your CV.",
     "whatsappPrefill": "Hello 369AI, I have a question about your products.",
     "readMore": "Read more"
   },

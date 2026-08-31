@@ -33,6 +33,8 @@
     "ceoBlurb": "Le directeur général, sa distinction et ses interventions.",
     "events": "Événements",
     "eventsBlurb": "Salons, distinctions et les moments où nous avons présenté notre travail en personne.",
+    "careers": "Carrières",
+    "hiring": "On recrute !!",
     "homeAria": "Accueil 369ai.Biz",
     "mainNav": "Principale",
     "mobileNav": "Mobile"
@@ -574,6 +576,71 @@
       "a1": "Le prix"
     }
   },
+  "careers": {
+    "eyebrow": "Carrières",
+    "title": "Construisez les systèmes sur lesquels nos clients travaillent",
+    "body": "Nous développons la robotique, le libre-service en magasin et l’automatisation Odoo pour des entreprises en Inde, dans le Golfe et aux États-Unis — et nous assurons le support en continu. Si ce travail vous parle, voici les postes ouverts.",
+    "whyTitle": "Pourquoi nous rejoindre",
+    "whyBody": "De petites équipes, de vrais produits, et des clients qui utilisent ce que vous construisez dès la semaine suivante.",
+    "why": {
+      "w1": {
+        "title": "Des produits utilisés",
+        "body": "Dix applications mobiles, des logiciels de caisse et des robots de service qui tournent chaque jour en boutique, en restaurant et en showroom — pas des démos."
+      },
+      "w2": {
+        "title": "Odoo en profondeur",
+        "body": "Vous apprendrez vraiment l’ERP : modules, intégrations, migrations, et les échanges clients autour de tout cela."
+      },
+      "w3": {
+        "title": "Quatre pays",
+        "body": "Des bureaux en Inde, aux Émirats arabes unis, à Oman et aux États-Unis : votre travail va bien plus loin que la ville où il a été écrit."
+      },
+      "w4": {
+        "title": "Un support tenu",
+        "body": "Le 24/7 tient grâce à une astreinte réelle, pas à une ligne dans une brochure — et vous en ferez partie."
+      }
+    },
+    "rolesTitle": "Postes ouverts",
+    "rolesBody": "Chaque poste ci-dessous est ouvert dès maintenant. Lisez la description, puis postulez sur WhatsApp avec votre CV.",
+    "noRolesTitle": "Aucun poste ouvert pour l’instant",
+    "noRolesBody": "Nous ne recrutons pas en ce moment, mais nous sommes toujours ravis d’échanger avec de bons profils. Envoyez votre CV, nous le conserverons.",
+    "readMore": "En savoir plus",
+    "applyOpen": "Postuler",
+    "applyTitle": "Candidature — {role}",
+    "jd": {
+      "heading": "Description du poste",
+      "responsibilities": "Missions et responsabilités",
+      "requirements": "Compétences requises",
+      "eligibility": "Profil recherché",
+      "jobType": "Type de contrat",
+      "experience": "Expérience",
+      "workLocation": "Lieu de travail",
+      "back": "Retour à la description",
+      "close": "Fermer"
+    },
+    "form": {
+      "name": "Nom",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "job": "Poste visé",
+      "cv": "CV",
+      "namePh": "Votre nom complet",
+      "emailPh": "vous@exemple.com",
+      "phonePh": "Numéro de téléphone",
+      "jobPlaceholder": "Choisissez un poste",
+      "cvHint": "PDF uniquement, 1 Mo maximum.",
+      "phoneError": "Saisissez un numéro valide pour le pays sélectionné.",
+      "fileError": "PDF uniquement. Merci d’envoyer votre CV au format PDF.",
+      "generalOption": "Candidature spontanée",
+      "submit": "Envoyer",
+      "done": "Votre CV nous est bien parvenu. WhatsApp est ouvert avec vos informations — envoyez le message pour terminer.",
+      "doneNoFile": "WhatsApp est ouvert avec vos informations. Le fichier ne nous est pas parvenu : joignez votre CV dans la conversation.",
+      "openChat": "Ouvrir WhatsApp",
+      "waIntro": "Nouvelle candidature depuis le site 369AI."
+    },
+    "ctaTitle": "Des questions avant de postuler ?",
+    "ctaBody": "Demandez-nous ce que vous voulez sur le poste, l’équipe ou notre façon de travailler."
+  },
   "shop": {
     "eyebrow": "Matériel",
     "title": "Matériel PDV, impression, lecture de codes-barres et automatisation",
@@ -743,6 +810,8 @@
     "eventsBody": "Nous avons exposé au Gulf Indian Global Trade Expo 2025 à Kozhikode (Stall A1) avec un distributeur automatique intelligent, un robot commercial et des casiers intelligents sur Odoo, et avons reçu le prix Robotics Service Excellence à BizConnect 2026. Consultez la page Événements pour les photos et les vidéos.",
     "ceoTitle": "Notre PDG",
     "ceoBody": "369AI et Alphalize Technologies sont dirigés par Shan Sahib, directeur général, lauréat du Robotics Service Excellence Award 2026. Sa page présente son parcours, la distinction et ses interventions.",
+    "careersTitle": "Carrières",
+    "careersBody": "Nous recrutons — consultez les postes ouverts, lisez la description complète et postulez sur WhatsApp avec votre CV.",
     "whatsappPrefill": "Bonjour 369AI, j’ai une question sur vos produits.",
     "readMore": "Lire la suite"
   },
