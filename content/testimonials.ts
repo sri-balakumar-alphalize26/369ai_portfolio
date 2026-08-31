@@ -11,7 +11,9 @@
  * wall can be judged at real volume — nine cards, two rows, mixed ratings,
  * the height a real review occupies. Every one renders with a "Layout sample ·
  * not shown live" chip, and lib/testimonials.ts drops them from a production
- * build, so they cannot be published by forgetting.
+ * build, so they cannot be published by forgetting. They are also unreachable
+ * while testimonials.seed.json carries the real reviews — only an empty seed
+ * and an empty data/ bring them back.
  *
  * They are NOT drafts to be adopted. Each is written as the BRIEF for the
  * person named: it says what to ask them for. Send them the review link

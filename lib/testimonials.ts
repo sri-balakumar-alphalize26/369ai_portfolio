@@ -2,13 +2,17 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { DATA_DIR, slugify } from './careers'
 import { SAMPLES, type Testimonial } from '@/content/testimonials'
+import seed from '@/content/testimonials.seed.json'
 
 /**
  * What clients say. Same storage shape as the careers roles, deliberately:
  * a JSON file the owner edits from the page, not from the codebase.
  *
- *   content/testimonials.ts    layout samples, development only
- *   <data>/testimonials.json   the real ones, written by the editor
+ *   content/testimonials.ts         layout samples, development only
+ *   content/testimonials.seed.json  the real ones, committed so a deploy
+ *                                   carries them without carrying data/
+ *   <data>/testimonials.json        the owner's own edits, which shadow
+ *                                   the seed once anything is saved
  *
  * THE RULE, unchanged: nothing invented. Entries are what a customer actually
  * sent — over WhatsApp from the review form — added by the owner in manage
@@ -53,7 +57,7 @@ function normalise(list: unknown): Testimonial[] {
  * exists, or it offers toggles over cards that cannot be toggled.
  */
 export async function readTestimonials(): Promise<Testimonial[]> {
-  return normalise((await readFileOr<{ testimonials?: unknown }>(FILE, {})).testimonials)
+  return normalise((await readFileOr<{ testimonials?: unknown }>(FILE, seed)).testimonials)
 }
 
 /**
