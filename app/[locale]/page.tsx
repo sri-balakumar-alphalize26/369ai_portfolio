@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import {
@@ -56,6 +57,13 @@ export default async function HomePage({
 }) {
   const { locale } = await params
   const { manage, review, name, product } = await searchParams
+
+  // ?manage=0 is the instant lock. Deleting the session cookie is not
+  // allowed during a page render, so hand off to the route handler that
+  // clears it and sends the visitor back here without the parameter.
+  if (manage === '0') {
+    redirect(`/api/manage/lock?next=${encodeURIComponent(`/${locale}`)}`)
+  }
   setRequestLocale(locale)
 
   const t = await getTranslations('home')

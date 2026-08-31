@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { Pencil, X } from 'lucide-react'
+import { useEffect, useRef, useState, useTransition } from 'react'
+import { Lock, Pencil, X } from 'lucide-react'
 import { saveContact } from '@/app/[locale]/contact/actions'
+import { lockCareers } from '@/app/[locale]/careers/actions'
 import type { ContactSettings as Settings } from '@/lib/contact-settings'
 
 /**
@@ -18,6 +19,7 @@ export function ContactSettings({ settings }: { settings: Settings }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDialogElement>(null)
   const [saving, setSaving] = useState(false)
+  const [, startTransition] = useTransition()
 
   useEffect(() => {
     const dialog = ref.current
@@ -31,6 +33,7 @@ export function ContactSettings({ settings }: { settings: Settings }) {
 
   return (
     <>
+      <div className="flex flex-wrap items-center gap-3">
       <button
         type="button"
         onClick={() => setOpen(true)}
@@ -39,6 +42,16 @@ export function ContactSettings({ settings }: { settings: Settings }) {
         <Pencil className="h-3.5 w-3.5" aria-hidden />
         Edit contact details
       </button>
+        {/* Ends the session everywhere, not just this page. */}
+        <button
+          type="button"
+          onClick={() => startTransition(() => void lockCareers())}
+          className="inline-flex items-center gap-2 rounded-pill border border-brand-200 bg-white px-4 py-2 text-sm font-medium text-brand-700 transition-colors hover:border-brand-400"
+        >
+          <Lock className="h-3.5 w-3.5" aria-hidden />
+          Lock
+        </button>
+      </div>
 
       <dialog
         ref={ref}

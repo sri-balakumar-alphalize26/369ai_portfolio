@@ -1,4 +1,5 @@
 import { createHmac, randomBytes, scryptSync, timingSafeEqual } from 'node:crypto'
+import { MANAGE_COOKIE as COOKIE } from '@/lib/manage-cookie'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { cookies, headers } from 'next/headers'
@@ -25,7 +26,7 @@ import { DATA_DIR } from './careers'
  * invalidates every open session everywhere, immediately and for free.
  */
 
-const COOKIE = 'careers_session'
+
 const AUTH_FILE = join(DATA_DIR, 'careers-passcode.json')
 
 const DEFAULT_SESSION_HOURS = 1

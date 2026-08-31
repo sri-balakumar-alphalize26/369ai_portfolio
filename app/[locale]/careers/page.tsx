@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Boxes, HeartHandshake, Globe2, GraduationCap } from 'lucide-react'
@@ -91,6 +92,13 @@ export default async function CareersPage({
 }) {
   const { locale } = await params
   const { manage } = await searchParams
+
+  // ?manage=0 is the instant lock. Deleting the session cookie is not
+  // allowed during a page render, so hand off to the route handler that
+  // clears it and sends the visitor back here without the parameter.
+  if (manage === '0') {
+    redirect(`/api/manage/lock?next=${encodeURIComponent(`/${locale}/careers`)}`)
+  }
   setRequestLocale(locale)
 
   const t = await getTranslations('careers')

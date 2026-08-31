@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { MapPin, Phone, Mail, MessageCircle, ScanLine } from 'lucide-react'
@@ -13,7 +14,8 @@ import {
   waHref,
   waNumber,
 } from '@/lib/contact-settings'
-import { isUnlocked } from '@/lib/careers-auth'
+import { isUnlocked, sessionHours } from '@/lib/careers-auth'
+import { UnlockDialog } from '@/components/careers/UnlockDialog'
 import { EnquiryForm } from '@/components/contact/EnquiryForm'
 import { ContactSettings } from '@/components/contact/ContactSettings'
 import { locales, localeLabels } from '@/i18n/routing'
@@ -44,10 +46,21 @@ export async function generateMetadata({
 
 export default async function ContactPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>
+  /** ?manage=1 reveals the owner controls — same switch as /careers. */
+  searchParams: Promise<{ manage?: string }>
 }) {
   const { locale } = await params
+  const { manage } = await searchParams
+
+  // ?manage=0 is the instant lock. Deleting the session cookie is not
+  // allowed during a page render, so hand off to the route handler that
+  // clears it and sends the visitor back here without the parameter.
+  if (manage === '0') {
+    redirect(`/api/manage/lock?next=${encodeURIComponent(`/${locale}/contact`)}`)
+  }
   setRequestLocale(locale)
 
   const t = await getTranslations('contact')
@@ -55,7 +68,12 @@ export default async function ContactPage({
 
   const tEnq = await getTranslations('contact.enquiry')
   const settings = await readContact()
-  const canManage = await isUnlocked()
+  // Both halves, exactly as /careers does it: the session alone does not
+  // clutter the page for a visitor, and ?manage=1 alone proves nothing.
+  const unlocked = await isUnlocked()
+  const managing = manage === '1'
+  const canManage = unlocked && managing
+  const hours = await sessionHours()
 
   /* tel: and mailto: are what hand the visitor to the dialer and the mail
      app; the hrefs are derived from the stored text so an edited number with
@@ -120,6 +138,8 @@ export default async function ContactPage({
           </div>
         ) : null}
       </Section>
+
+      {managing && !unlocked ? <UnlockDialog hours={hours} /> : null}
 
       {/* Offices — each with a QR code that opens it in Google Maps */}
       <Section tone="alt">

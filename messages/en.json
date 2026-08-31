@@ -72,6 +72,10 @@
     "clientsBody": "Shops, restaurants and showrooms running our software, hardware, robots and lockers every day.",
     "reviewLead": "Worked with us? Tell us how it went.",
     "reviewCta": "Share your experience",
+    "reviewSearchPh": "Search reviews — name, company, product…",
+    "reviewSearchClear": "Clear search",
+    "reviewSearchCount": "{shown} of {total}",
+    "reviewSearchEmpty": "No review matches that search.",
     "reviewTitle": "Share your experience",
     "reviewClose": "Close",
     "reviewName": "Your name",
@@ -83,11 +87,12 @@
     "reviewDone": "Thank you — your review has reached us. We publish reviews after a quick check.",
     "reviewError": "That did not save. Please check the fields and try again.",
     "products": {
-      "software": "Mobile & desktop software",
-      "hardware": "POS & kiosk hardware",
-      "robotics": "Service robots",
-      "lockers": "Smart lockers & vending",
-      "erp": "Odoo ERP"
+      "software": "Mobile & Desktop Software",
+      "hardware": "POS & Kiosk Hardware",
+      "robotics": "Service Robots",
+      "lockers": "Smart Lockers & Vending",
+      "erp": "Odoo ERP",
+      "other": "Other"
     },
     "techTitle": "Technologies We Work With",
     "techBody": "Our expertise spans modern platforms, devices and cloud services to deliver reliable, connected solutions.",

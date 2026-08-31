@@ -20,7 +20,7 @@
  * (/?review=1&name=…) and paste back what they write.
  */
 
-export type Product = 'software' | 'hardware' | 'robotics' | 'lockers' | 'erp'
+export type Product = 'software' | 'hardware' | 'robotics' | 'lockers' | 'erp' | 'other'
 
 export type Testimonial = {
   id: string
@@ -39,7 +39,10 @@ export type Testimonial = {
   sample?: true
 }
 
-export const PRODUCTS: Product[] = ['software', 'hardware', 'robotics', 'lockers', 'erp']
+/* 'other' sits last: it is the fallback when none of the named lines fit.
+   lib/testimonials-actions.ts validates against this array, so adding here is
+   all that is needed for the new option to be accepted on submit. */
+export const PRODUCTS: Product[] = ['software', 'hardware', 'robotics', 'lockers', 'erp', 'other']
 
 type Draft = Omit<Testimonial, 'active' | 'order' | 'sample'>
 
