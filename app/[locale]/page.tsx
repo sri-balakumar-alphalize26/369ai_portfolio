@@ -31,6 +31,7 @@ import { ConnectedPillars } from '@/components/home/ConnectedPillars'
 import { ConnectedStage } from '@/components/ui/ConnectedStage'
 import { RotatingTitle } from '@/components/home/RotatingTitle'
 import { HardwareStrip } from '@/components/home/HardwareStrip'
+import { TrustedPartners } from '@/components/home/TrustedPartners'
 
 const PILLARS = [
   { key: 'ai', Icon: BrainCircuit },
@@ -230,6 +231,14 @@ export default async function HomePage({
         <div className="mt-14">
           <TechMarquee />
         </div>
+      </Section>
+
+      {/* ------------------------------------------------------------ Partners */}
+      {/* Same tone as the marquee above deliberately: the two read as one
+          "who and what we work with" band rather than two stacked strips. */}
+      <Section tone="alt">
+        <SectionHeader title={t('partnersTitle')} />
+        <TrustedPartners />
       </Section>
 
       {/* ----------------------------------------------------------------- FAQ */}
