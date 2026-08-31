@@ -24,6 +24,7 @@ import { LocaleSwitcher } from './LocaleSwitcher'
 import { PhoneMenu } from './PhoneMenu'
 import { SearchMenu } from './SearchMenu'
 import { CONTACT } from '@/content/offices'
+import type { ContactSettings } from '@/lib/contact-settings'
 import { CATEGORIES, categoryLabel } from '@/lib/products'
 import { cn } from '@/lib/cn'
 
@@ -37,7 +38,14 @@ const NAV_OFF = 'text-ink hover:bg-brand-50/70 hover:text-brand-700'
  * the viewport edges, hovering over the hero rather than sitting above it.
  * Logo, nav and the language picker all live inside that single bar.
  */
-export function Header({ hiring = false }: { hiring?: boolean }) {
+export function Header({
+  hiring = false,
+  contact,
+}: {
+  hiring?: boolean
+  /** Live sales details; the header is a client component so they arrive as a prop. */
+  contact: ContactSettings
+}) {
   const t = useTranslations('nav')
   const locale = useLocale()
   const pathname = usePathname()
@@ -312,7 +320,13 @@ export function Header({ hiring = false }: { hiring?: boolean }) {
       </div>
 
       {mobileOpen ? (
-        <MobilePanel base={base} links={links} hiring={hiring} onClose={() => setMobileOpen(false)} />
+        <MobilePanel
+          base={base}
+          links={links}
+          hiring={hiring}
+          contact={contact}
+          onClose={() => setMobileOpen(false)}
+        />
       ) : null}
     </header>
   )
@@ -527,11 +541,13 @@ function MobilePanel({
   base,
   links,
   hiring,
+  contact,
   onClose,
 }: {
   base: string
   links: { href: string; label: string }[]
   hiring: boolean
+  contact: ContactSettings
   onClose: () => void
 }) {
   const t = useTranslations('nav')
@@ -670,18 +686,18 @@ function MobilePanel({
 
           <div className="mt-6 space-y-3 border-t border-surface-line pt-6 text-sm">
             <a
-              href={`tel:${CONTACT.phone}`}
+              href={`tel:${contact.phoneDisplay.replace(/[^\d+]/g, '')}`}
               className="flex items-center gap-2.5 text-slate-muted hover:text-brand-600"
             >
               <Phone className="h-4 w-4" aria-hidden />
-              {CONTACT.phoneDisplay}
+              {contact.phoneDisplay}
             </a>
             <a
-              href={`mailto:${CONTACT.email}`}
+              href={`mailto:${contact.email}`}
               className="flex items-center gap-2.5 text-slate-muted hover:text-brand-600"
             >
               <Mail className="h-4 w-4" aria-hidden />
-              {CONTACT.email}
+              {contact.email}
             </a>
           </div>
         </nav>

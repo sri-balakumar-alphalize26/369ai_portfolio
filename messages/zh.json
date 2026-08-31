@@ -717,6 +717,8 @@
     "officesBody": "横跨四个国家的六个办公地点。扫描办公室的二维码，即可直接在 Google 地图中打开位置。",
     "scanForAddress": "扫码获取路线",
     "openInMaps": "在 Google 地图中打开",
+    "callAria": "拨打",
+    "emailAria": "发送邮件至",
     "form": {
       "name": "您的姓名",
       "phone": "电话号码",
@@ -732,6 +734,28 @@
       "successBody": "感谢您的来信。我们会尽力在 24 小时内回复。",
       "errorTitle": "消息未发送",
       "errorBody": "出了点问题。请重试或直接与我们联系。"
+    },
+    "enquiry": {
+      "title": "发送咨询",
+      "body": "填写后将打开 WhatsApp，并已写好您的信息 — 在那里点击发送，我们的销售团队即可收到。",
+      "name": "姓名",
+      "namePh": "您的全名",
+      "company": "公司",
+      "companyPh": "公司名称（选填）",
+      "email": "邮箱",
+      "emailPh": "you@company.com",
+      "phone": "电话",
+      "phonePh": "您的号码",
+      "phoneInvalid": "请输入所选国家/地区的有效电话号码。",
+      "subject": "主题",
+      "subjectPh": "例如：三家门店零售连锁的 Odoo ERP",
+      "message": "留言",
+      "messagePh": "请说明您目前使用的系统与需求。",
+      "send": "通过 WhatsApp 发送",
+      "sentHint": "WhatsApp 应已在新标签页中打开。",
+      "waIntro": "来自 369AI 网站的咨询",
+      "demoSubject": "演示申请",
+      "mailSubject": "咨询 — 369AI"
     }
   },
   "faq": {

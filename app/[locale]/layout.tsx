@@ -10,6 +10,7 @@ import { readCareers } from '@/lib/careers'
 import { ScrollProgress } from '@/components/layout/ScrollProgress'
 import { RouteLoader } from '@/components/layout/RouteLoader'
 import { Assistant } from '@/components/assistant/Assistant'
+import { readContact } from '@/lib/contact-settings'
 import '../globals.css'
 
 const body = Instrument_Sans({
@@ -152,10 +153,10 @@ export default async function LocaleLayout({
           <NextIntlClientProvider>
             <ScrollProgress />
             <RouteLoader />
-            <Header hiring={hiring} />
+            <Header hiring={hiring} contact={await readContact()} />
             <main className="flex-1">{children}</main>
             <Footer hiring={hiring} />
-            <Assistant />
+            <Assistant contact={await readContact()} />
           </NextIntlClientProvider>
         </div>
       </body>

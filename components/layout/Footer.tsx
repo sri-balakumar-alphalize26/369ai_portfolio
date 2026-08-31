@@ -2,13 +2,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getTranslations, getLocale } from 'next-intl/server'
 import { Phone, Mail, MapPin, BriefcaseBusiness } from 'lucide-react'
-import { OFFICES, CONTACT, telHref, mapsUrl } from '@/content/offices'
+import { OFFICES, telHref, mapsUrl } from '@/content/offices'
+import { readContact, telHref as salesTelHref, mailtoHref } from '@/lib/contact-settings'
 import { QrReveal } from '@/components/ui/QrReveal'
 import { FooterSocial } from './FooterSocial'
 
 
 export async function Footer({ hiring = false }: { hiring?: boolean }) {
   const t = await getTranslations('footer')
+  const tEnq = await getTranslations('contact.enquiry')
+  const contact = await readContact()
   const tNav = await getTranslations('nav')
   const tContact = await getTranslations('contact')
   const tCommon = await getTranslations('common')
@@ -52,18 +55,18 @@ export async function Footer({ hiring = false }: { hiring?: boolean }) {
             <FooterSocial>
               <div className="mt-6 space-y-3 text-sm">
                 <a
-                  href={`tel:${CONTACT.phone}`}
+                  href={salesTelHref(contact.phoneDisplay)}
                   className="flex items-center gap-2.5 transition-colors hover:text-brand-600"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-brand-500" aria-hidden />
-                  {CONTACT.phoneDisplay}
+                  {contact.phoneDisplay}
                 </a>
                 <a
-                  href={`mailto:${CONTACT.email}`}
+                  href={mailtoHref(contact.email, tEnq('mailSubject'))}
                   className="flex items-center gap-2.5 transition-colors hover:text-brand-600"
                 >
                   <Mail className="h-4 w-4 shrink-0 text-brand-500" aria-hidden />
-                  {CONTACT.email}
+                  {contact.email}
                 </a>
                 {/* Careers sits with the contact details, not only in the link
                     list — it is a way to reach us, and the badge belongs here. */}

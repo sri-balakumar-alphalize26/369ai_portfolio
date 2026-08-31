@@ -5,7 +5,17 @@ import { Section, SectionHeader } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { PageHero } from '@/components/ui/PageHero'
 import { AddressQr } from '@/components/ui/AddressQr'
-import { OFFICES, CONTACT, mapsUrl, telHref } from '@/content/offices'
+import { OFFICES, mapsUrl, telHref } from '@/content/offices'
+import {
+  readContact,
+  telHref as salesTelHref,
+  mailtoHref,
+  waHref,
+  waNumber,
+} from '@/lib/contact-settings'
+import { isUnlocked } from '@/lib/careers-auth'
+import { EnquiryForm } from '@/components/contact/EnquiryForm'
+import { ContactSettings } from '@/components/contact/ContactSettings'
 import { locales, localeLabels } from '@/i18n/routing'
 
 export function generateStaticParams() {
@@ -43,14 +53,33 @@ export default async function ContactPage({
   const t = await getTranslations('contact')
   const tAssistant = await getTranslations('assistant')
 
+  const tEnq = await getTranslations('contact.enquiry')
+  const settings = await readContact()
+  const canManage = await isUnlocked()
+
+  /* tel: and mailto: are what hand the visitor to the dialer and the mail
+     app; the hrefs are derived from the stored text so an edited number with
+     spaces in it can never produce a dead link. The mail one carries a
+     subject so the draft does not open blank. */
   const directLinks = [
-    { Icon: Phone, label: CONTACT.phoneDisplay, href: `tel:${CONTACT.phone}` },
-    { Icon: Mail, label: CONTACT.email, href: `mailto:${CONTACT.email}` },
+    {
+      Icon: Phone,
+      label: settings.phoneDisplay,
+      href: salesTelHref(settings.phoneDisplay),
+      aria: `${t('callAria')} ${settings.phoneDisplay}`,
+    },
+    {
+      Icon: Mail,
+      label: settings.email,
+      href: mailtoHref(settings.email, tEnq('mailSubject')),
+      aria: `${t('emailAria')} ${settings.email}`,
+    },
     {
       Icon: MessageCircle,
       label: tAssistant('whatsapp'),
-      href: `https://wa.me/${CONTACT.whatsapp}`,
+      href: waHref(settings.whatsapp),
       external: true,
+      aria: tAssistant('whatsapp'),
     },
   ]
 
@@ -61,10 +90,11 @@ export default async function ContactPage({
       {/* Reach us directly */}
       <Section size="sm">
         <ul className="grid gap-4 sm:grid-cols-3">
-          {directLinks.map(({ Icon, label, href, external }, i) => (
+          {directLinks.map(({ Icon, label, href, external, aria }, i) => (
             <Reveal as="li" key={href} delay={i * 70}>
               <a
                 href={href}
+                aria-label={aria}
                 {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className="card-glow flex h-full items-center gap-4 rounded-panel border border-surface-line bg-white p-6 transition-colors hover:border-brand-400"
               >
@@ -76,6 +106,19 @@ export default async function ContactPage({
             </Reveal>
           ))}
         </ul>
+      </Section>
+
+      {/* The enquiry form. Nothing is posted to us: the answers are composed
+          into a WhatsApp message and the visitor is handed to WhatsApp with it
+          already written, the Global Seas Trust pattern. */}
+      <Section>
+        <SectionHeader title={tEnq('title')} body={tEnq('body')} />
+        <EnquiryForm number={waNumber(settings.whatsapp)} />
+        {canManage ? (
+          <div className="mt-8 border-t border-surface-line pt-6">
+            <ContactSettings settings={settings} />
+          </div>
+        ) : null}
       </Section>
 
       {/* Offices — each with a QR code that opens it in Google Maps */}

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { MessageCircle, X, Send, ArrowUpRight } from 'lucide-react'
 import { PRODUCTS } from '@/lib/products'
-import { CONTACT } from '@/content/offices'
+import type { ContactSettings } from '@/lib/contact-settings'
 import { FAQ_CATS } from '@/content/faq'
 import { findAnswer, type Entry, type Answer } from '@/lib/assistant-knowledge'
 import { cn } from '@/lib/cn'
@@ -14,7 +14,7 @@ const GREETING_KEY = '369ai:greeting-dismissed'
 
 type Message = { role: 'user' | 'bot'; text: string; answer?: Answer }
 
-export function Assistant() {
+export function Assistant({ contact }: { contact: ContactSettings }) {
   const t = useTranslations('assistant')
   const tFaq = useTranslations('faq')
   const tSrv = useTranslations('services')
@@ -59,7 +59,7 @@ export function Assistant() {
         id: 'contact',
         keywords: ['contact', 'phone', 'email', 'call', 'reach', 'address', 'office', 'location'],
         title: t('contactTitle'),
-        body: t('contactBody', { phone: CONTACT.phoneDisplay, email: CONTACT.email }),
+        body: t('contactBody', { phone: contact.phoneDisplay, email: contact.email }),
         href: `${base}/contact`,
       },
       {
@@ -185,7 +185,7 @@ export function Assistant() {
     setInput('')
   }
 
-  const whatsappHref = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(
+  const whatsappHref = `https://wa.me/${contact.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(
     t('whatsappPrefill')
   )}`
 
@@ -256,7 +256,7 @@ export function Assistant() {
                   {m.text}
                 </p>
               ) : (
-                <BotMessage key={i} answer={m.answer!} />
+                <BotMessage key={i} answer={m.answer!} wa={whatsappHref} />
               )
             )}
           </div>
@@ -297,9 +297,9 @@ export function Assistant() {
   )
 }
 
-function BotMessage({ answer }: { answer: Answer }) {
+function BotMessage({ answer, wa }: { answer: Answer; wa: string }) {
   const t = useTranslations('assistant')
-  const whatsappHref = `https://wa.me/${CONTACT.whatsapp}`
+  const whatsappHref = wa
 
   return (
     <div className="max-w-[92%] rounded-card bg-surface-alt p-3.5">

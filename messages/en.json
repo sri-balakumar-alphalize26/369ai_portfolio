@@ -717,6 +717,8 @@
     "officesBody": "Six locations across four countries. Scan an office's QR code to open it directly in Google Maps.",
     "scanForAddress": "Scan for directions",
     "openInMaps": "Open in Google Maps",
+    "callAria": "Call",
+    "emailAria": "Email",
     "form": {
       "name": "Your name",
       "phone": "Phone number",
@@ -732,6 +734,28 @@
       "successBody": "Thank you for getting in touch. We aim to respond within 24 hours.",
       "errorTitle": "Message not sent",
       "errorBody": "Something went wrong. Please try again or contact us directly."
+    },
+    "enquiry": {
+      "title": "Send us an enquiry",
+      "body": "Fill this in and it opens WhatsApp with your details already written — press send there and our sales team has it.",
+      "name": "Name",
+      "namePh": "Your full name",
+      "company": "Company",
+      "companyPh": "Company name (optional)",
+      "email": "Email",
+      "emailPh": "you@company.com",
+      "phone": "Phone",
+      "phonePh": "Your number",
+      "phoneInvalid": "Enter a valid phone number for the selected country.",
+      "subject": "Subject",
+      "subjectPh": "e.g. Odoo ERP for a 3-branch retail chain",
+      "message": "Message",
+      "messagePh": "Tell us what you run today and what you need.",
+      "send": "Send on WhatsApp",
+      "sentHint": "WhatsApp should have opened in a new tab.",
+      "waIntro": "Enquiry from the 369AI website",
+      "demoSubject": "Demo request",
+      "mailSubject": "Enquiry — 369AI"
     }
   },
   "faq": {

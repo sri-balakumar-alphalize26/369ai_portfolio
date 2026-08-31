@@ -5,6 +5,8 @@ import { Section, SectionHeader } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { ButtonLink } from '@/components/ui/Button'
 import { Magnetic } from '@/components/ui/Magnetic'
+import { readContact, waNumber } from '@/lib/contact-settings'
+import { EnquiryForm } from '@/components/contact/EnquiryForm'
 import { PageHero } from '@/components/ui/PageHero'
 import { RequirementsFlow } from '@/components/products/RequirementsFlow'
 import { locales } from '@/i18n/routing'
@@ -82,6 +84,8 @@ export default async function ProductsPage({
 
   const t = await getTranslations('products')
   const tc = await getTranslations('common')
+  const tEnq = await getTranslations('contact.enquiry')
+  const settings = await readContact()
   const tb = await getTranslations('builder')
   const tNav = await getTranslations('nav')
   const base = `/${locale}`
@@ -228,12 +232,15 @@ export default async function ProductsPage({
               {t('ctaBody')}
             </p>
           </div>
-          <Magnetic>
-            <ButtonLink href={`${base}/contact`} variant="accent" size="lg">
-              {tc('requestQuote')}
-            </ButtonLink>
-          </Magnetic>
         </div>
+      </Section>
+
+      {/* Demo request — the same enquiry form the contact page uses, with the
+          subject pre-filled, so nobody has to hop to another page first. It
+          sends to whatever sales number manage mode last saved. */}
+      <Section>
+        <SectionHeader title={tEnq('title')} body={tEnq('body')} />
+        <EnquiryForm number={waNumber(settings.whatsapp)} presetSubject={tEnq('demoSubject')} />
       </Section>
     </>
   )

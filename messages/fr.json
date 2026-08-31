@@ -717,6 +717,8 @@
     "officesBody": "Six sites répartis dans quatre pays. Scannez le QR code d’un bureau pour l’ouvrir directement dans Google Maps.",
     "scanForAddress": "Scanner pour l’itinéraire",
     "openInMaps": "Ouvrir dans Google Maps",
+    "callAria": "Appeler",
+    "emailAria": "Écrire à",
     "form": {
       "name": "Votre nom",
       "phone": "Numéro de téléphone",
@@ -732,6 +734,28 @@
       "successBody": "Merci de nous avoir contactés. Nous nous efforçons de répondre sous 24 heures.",
       "errorTitle": "Message non envoyé",
       "errorBody": "Une erreur est survenue. Réessayez ou contactez-nous directement."
+    },
+    "enquiry": {
+      "title": "Envoyez-nous une demande",
+      "body": "Remplissez ce formulaire : WhatsApp s’ouvre avec vos informations déjà rédigées — appuyez sur envoyer et notre équipe commerciale les reçoit.",
+      "name": "Nom",
+      "namePh": "Votre nom complet",
+      "company": "Société",
+      "companyPh": "Nom de la société (facultatif)",
+      "email": "E-mail",
+      "emailPh": "you@company.com",
+      "phone": "Téléphone",
+      "phonePh": "Votre numéro",
+      "phoneInvalid": "Saisissez un numéro valide pour le pays sélectionné.",
+      "subject": "Objet",
+      "subjectPh": "ex. : Odoo ERP pour une chaîne de 3 magasins",
+      "message": "Message",
+      "messagePh": "Dites-nous ce que vous utilisez aujourd’hui et ce dont vous avez besoin.",
+      "send": "Envoyer sur WhatsApp",
+      "sentHint": "WhatsApp devrait s’être ouvert dans un nouvel onglet.",
+      "waIntro": "Demande via le site 369AI",
+      "demoSubject": "Demande de démo",
+      "mailSubject": "Demande — 369AI"
     }
   },
   "faq": {
