@@ -6,6 +6,7 @@ import { Instrument_Sans, Space_Grotesk } from 'next/font/google'
 import { routing, isRtl, localeLabels, locales } from '@/i18n/routing'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { readCareers } from '@/lib/careers'
 import { ScrollProgress } from '@/components/layout/ScrollProgress'
 import { RouteLoader } from '@/components/layout/RouteLoader'
 import { Assistant } from '@/components/assistant/Assistant'
@@ -39,7 +40,7 @@ const SITE_URL = 'https://369ai.biz'
    updateProperties (identity compare, then unconditional innerHTML reset)
    never re-injects the island on re-renders within one RSC payload. */
 const LOADER_CSS =
-  '<style>#page-loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--color-surface-alt,#f4f9fc);transition:opacity .45s ease,visibility .45s;animation:pl-hide .45s ease 8s forwards}@keyframes pl-hide{to{opacity:0;visibility:hidden}}#page-loader.done{opacity:0;visibility:hidden}#page-loader .lp-wrap{position:relative;width:180px;height:170px}#page-loader .lp-wrap img{display:block;width:180px;height:170px}#page-loader .lp-ghost{filter:grayscale(1);opacity:.22}#page-loader .lp-water{position:absolute;left:0;right:0;bottom:0;height:0;overflow:hidden}#page-loader .lp-water img{position:absolute;left:0;bottom:0}#page-loader .lp-wave{position:absolute;left:0;top:-1px;width:200%;height:12px;animation:lp-drift 2.2s linear infinite}@keyframes lp-drift{to{transform:translateX(-50%)}}@media (max-width:767px){#page-loader .lp-wrap,#page-loader .lp-wrap img{width:140px;height:132px}}@media (prefers-reduced-motion:reduce){#page-loader{transition-duration:1ms;animation-duration:1ms}#page-loader .lp-wave{animation:none}}</style>'
+  '<style>#page-loader{--lp-wave:7px;position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--color-surface-alt,#f4f9fc);transition:opacity .45s ease,visibility .45s;animation:pl-hide .45s ease 8s forwards}@keyframes pl-hide{to{opacity:0;visibility:hidden}}#page-loader.done{opacity:0;visibility:hidden}#page-loader .lp-wrap{position:relative;width:180px;height:170px}#page-loader .lp-wrap img{display:block;width:180px;height:170px}#page-loader .lp-ghost{filter:grayscale(1);opacity:.22}#page-loader .lp-water{position:absolute;left:0;right:0;bottom:0;height:0;overflow:hidden}#page-loader .lp-water img{position:absolute;left:0;bottom:0}#page-loader .lp-wave{position:absolute;left:0;top:-1px;width:200%;height:12px;animation:lp-drift 2.2s linear infinite}@keyframes lp-drift{to{transform:translateX(-50%)}}@media (max-width:767px){#page-loader .lp-wrap,#page-loader .lp-wrap img{width:140px;height:132px}}@media (prefers-reduced-motion:reduce){#page-loader{transition-duration:1ms;animation-duration:1ms}#page-loader .lp-wave{animation:none}}</style>'
 
 /* Water-fill: two copies of the logo stacked. The ghost (grey, faint) is
    always fully visible; the colour copy sits bottom-anchored inside
@@ -52,14 +53,28 @@ const LOADER_CSS =
 const LOADER_MARKUP =
   '<div id="page-loader" role="status" aria-live="polite" aria-label="Loading"><div class="lp-wrap"><img class="lp-ghost" src="/images/brand/logo-369ai.png" alt="" width="353" height="334"><div class="lp-water"><img src="/images/brand/logo-369ai.png" alt="" width="353" height="334"><svg class="lp-wave" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 Q7.5 0 15 6 T30 6 T45 6 T60 6 T75 6 T90 6 T105 6 T120 6 V0 H0 Z" fill="var(--color-surface-alt,#f4f9fc)"></path></svg></div></div></div>'
 
-/* Fill timing: eases to 88% on its own so a slow page still looks like it
+/* Fill timing: eases to 94% on its own so a slow page still looks like it
    is making progress, completes only when window.load fires, holds the
-   full-colour logo for 1s, then fades. The 7s failsafe dismisses it
-   regardless — a hung asset must never trap anyone behind the animation
-   (the CSS pl-hide animation above backstops even that at 8s, for the
-   no-JS case). */
+   full-colour logo for 1s, then fades.
+
+   The completed level overshoots 100%, and has to. .lp-water is bottom-
+   anchored, so going past full lifts its top edge — and with it the .lp-wave
+   strip, which rides at top:-1px painted in the backdrop colour — clear above
+   the logo. Stopping level with the top leaves that strip repainting the mark:
+   the wave path troughs at y=8px in a 12px strip offset -1px, so it eats 7px
+   below the waterline, and the orange arrow's point sits at y≈0.5px. A "full"
+   fill used to chop the arrowhead flat every time.
+
+   Hence --lp-wave (7px, that measured reach) + 4px margin. Expressed as a
+   length rather than a percentage so the clearance is identical at both
+   .lp-wrap sizes; re-measure it if the wave path or its 12px height changes.
+
+   The 7s failsafe finishes the fill before dismissing rather than fading out
+   mid-rise — a hung asset must never trap anyone behind the animation, but it
+   must not leave the arrow half-coloured either. Worst case ~7.34s, still under
+   the 8s CSS pl-hide backstop (which covers the no-JS case). */
 const LOADER_SCRIPT =
-  '<script>(function(){var d=document,l=d.getElementById("page-loader");if(!l)return;function shield(){if(!d.getElementById("pl-shield")){var s=d.createElement("style");s.id="pl-shield";s.textContent="#page-loader{display:none!important}";d.head.appendChild(s)}}function drop(){var n=d.getElementById("page-loader");if(n&&n.parentNode)n.parentNode.removeChild(n);if(l.parentNode)l.parentNode.removeChild(l)}var seen=false;try{seen=!!sessionStorage.getItem("369:seen")}catch(e){}if(seen){shield();drop();return}var rmo=false;try{rmo=window.matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}var w=l.querySelector(".lp-water");function lvl(p,ms){if(!w)return;w.style.transition=rmo||!ms?"none":"height "+ms+"ms cubic-bezier(.22,1,.36,1)";w.style.height=p+"%"}requestAnimationFrame(function(){requestAnimationFrame(function(){lvl(88,2600)})});var done=false;function dismiss(){if(done)return;done=true;try{sessionStorage.setItem("369:seen","1")}catch(e){}var n=d.getElementById("page-loader")||l;n.classList.add("done");var removed=false;function rm(){if(removed)return;removed=true;shield();drop()}n.addEventListener("transitionend",rm);setTimeout(rm,600)}function finish(){lvl(100,rmo?0:450);setTimeout(dismiss,rmo?0:1450)}if(d.readyState==="complete"){finish()}else{window.addEventListener("load",finish)}setTimeout(dismiss,7000)})();</script>'
+  '<script>(function(){var d=document,l=d.getElementById("page-loader");if(!l)return;function shield(){if(!d.getElementById("pl-shield")){var s=d.createElement("style");s.id="pl-shield";s.textContent="#page-loader{display:none!important}";d.head.appendChild(s)}}function drop(){var n=d.getElementById("page-loader");if(n&&n.parentNode)n.parentNode.removeChild(n);if(l.parentNode)l.parentNode.removeChild(l)}var seen=false;try{seen=!!sessionStorage.getItem("369:seen")}catch(e){}if(seen){shield();drop();return}var rmo=false;try{rmo=window.matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}var w=l.querySelector(".lp-water");function lvl(p,ms){if(!w)return;w.style.transition=rmo||!ms?"none":"height "+ms+"ms cubic-bezier(.22,1,.36,1)";w.style.height=typeof p=="number"?p+"%":p}requestAnimationFrame(function(){requestAnimationFrame(function(){lvl(94,2600)})});var BRIM="calc(100% + var(--lp-wave) + 4px)";var done=false;function dismiss(){if(done)return;done=true;try{sessionStorage.setItem("369:seen","1")}catch(e){}var n=d.getElementById("page-loader")||l;n.classList.add("done");var removed=false;function rm(){if(removed)return;removed=true;shield();drop()}n.addEventListener("transitionend",rm);setTimeout(rm,600)}function finish(){lvl(BRIM,rmo?0:450);setTimeout(dismiss,rmo?0:1450)}if(d.readyState==="complete"){finish()}else{window.addEventListener("load",finish)}setTimeout(function(){if(!done){lvl(BRIM,rmo?0:300);setTimeout(dismiss,rmo?0:340)}},7000)})();</script>'
 
 const LOADER_ISLAND = { __html: LOADER_CSS + LOADER_MARKUP + LOADER_SCRIPT }
 
@@ -113,6 +128,12 @@ export default async function LocaleLayout({
   // Required for static rendering of every locale.
   setRequestLocale(locale)
 
+  // Drives the Hiring badge in the header and footer — derived from the
+  // roles themselves, so the nav can never advertise a vacancy that is not
+  // actually open.
+  const { roles } = await readCareers()
+  const hiring = roles.some((role) => role.active)
+
   return (
     <html
       lang={locale}
@@ -131,9 +152,9 @@ export default async function LocaleLayout({
           <NextIntlClientProvider>
             <ScrollProgress />
             <RouteLoader />
-            <Header />
+            <Header hiring={hiring} />
             <main className="flex-1">{children}</main>
-            <Footer />
+            <Footer hiring={hiring} />
             <Assistant />
           </NextIntlClientProvider>
         </div>

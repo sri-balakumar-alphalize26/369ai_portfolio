@@ -695,7 +695,12 @@
     ll-ripple 1.2s ease-in-out infinite alternate;
 }
 .logo-loader .ll-water img { position: absolute; left: 0; bottom: 0; }
-@keyframes ll-fill { 0%, 100% { height: 12%; } 55% { height: 88%; } }
+/* Peaks past 100%: .ll-water is bottom-anchored and its clip-path ripple bites
+   5% off the box's own top, so a 100% peak still leaves the orange arrow's
+   point grey (it sits at y≈0.3px of 91). Needs ≥105.3%; 115% leaves margin.
+   Overshoot above .logo-loader is harmless — an ancestor clipping it just
+   yields the fully-coloured logo, which is the intent. */
+@keyframes ll-fill { 0%, 100% { height: 12%; } 55% { height: 115%; } }
 @keyframes ll-ripple {
   to { clip-path: polygon(0 0, 12% 5%, 25% 0, 37% 5%, 50% 0, 62% 5%, 75% 0, 87% 5%, 100% 0, 100% 100%, 0 100%); }
 }
