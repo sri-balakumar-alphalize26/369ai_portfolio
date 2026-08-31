@@ -23,7 +23,10 @@ export const CEO = {
      */
     images: [
       {
-        src: '/images/events/bizconnect-2026/trophy.jpg',
+        // Renamed rather than overwritten: the old trophy.jpg URL still had
+        // the with-background photo cached in browsers and in Next's image
+        // cache. Same file the Events page ships (content/events.ts).
+        src: '/images/events/bizconnect-2026/award-trophy.jpg',
         alt: 'trophyAlt',
         ratio: '800 / 1200',
         shine: true,
