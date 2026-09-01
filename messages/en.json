@@ -315,93 +315,65 @@
     "howBody": "Get started in four easy steps.",
     "modulesTitle": "ERP Modules",
     "modules": {
-      "m1": {
-        "t": "Online Sales Order",
-        "b": "Simplify online shopping with an intuitive order management system: product catalogs, customer registration, cart management, secure payments and automatic invoicing."
+      "posScale": {
+        "t": "POS Weighing Scale & VFD Display",
+        "b": "The weight goes straight into the bill with no manual typing, and the customer-facing display shows what is being weighed and what it costs as it happens."
       },
-      "m2": {
-        "t": "Service Management",
-        "b": "Let customers schedule and manage repairs and installations, track service history, handle invoicing and automate scheduling based on technician availability."
+      "toolsRental": {
+        "t": "Tools Rental Management",
+        "b": "Every tool that goes out and comes back, with rental periods, customer details, timesheets and automatic cost calculation."
       },
-      "m3": {
-        "t": "Customer Relationship Management",
-        "b": "Manage customer interactions, track leads, automate follow-ups and segment customers for targeted marketing — boosting sales and satisfaction."
+      "mobileRepair": {
+        "t": "Mobile & IT Repair",
+        "b": "Job intake through to delivery: device and fault details, spare parts, technician assignment, repair status and invoicing."
       },
-      "m4": {
+      "posInvoice": {
+        "t": "POS Dynamic Invoice",
+        "b": "Branded, editable POS invoices — logo, company details, tax lines and footer — configured from the back office rather than in code."
+      },
+      "posLoyalty": {
+        "t": "POS Loyalty Card",
+        "b": "Points earned and redeemed at the counter, with the customer's balance and available rewards in front of the cashier during checkout."
+      },
+      "kraKpi": {
+        "t": "KRA/KPI Management",
+        "b": "Set role objectives and score them on a purpose-built board, with results rolling up from the individual to the department."
+      },
+      "privilege": {
+        "t": "User Privilege Manager",
+        "b": "Control what each user sees and does, field by field — hide menus, lock fields, and grant create, read, write and delete per person rather than per group."
+      },
+      "attendance": {
+        "t": "Attendance Suite",
+        "b": "Late tracking with automatic deductions, leave and work-from-home requests, device management and reports, in one place."
+      },
+      "showroom": {
+        "t": "Showroom Check",
+        "b": "Scheduled photo checks that a showroom still matches its agreed layout, with the evidence stored against every visit."
+      },
+      "signage": {
+        "t": "Signage Scan",
+        "b": "Full-screen promotional signage on in-store displays, doubling as a barcode price checker customers can use themselves."
+      },
+      "pharmacy": {
+        "t": "PharmaCare Pharmacy POS",
+        "b": "A pharmacy counter with batch and expiry tracking, so short-dated stock is caught before it reaches a customer."
+      },
+      "credit": {
+        "t": "Credit Management",
+        "b": "Customer credit limits with an approval step, so an order beyond the limit stops and waits for a decision instead of shipping."
+      },
+      "intercompany": {
+        "t": "Inter-Company Stock Transfer",
+        "b": "Move stock and its value between companies with a request and approval flow, keeping both sets of books straight."
+      },
+      "offlineSync": {
+        "t": "Offline Sync",
+        "b": "Keep billing when the connection drops — the counter switches to local data and syncs back afterwards, with a cross-check so nothing is duplicated or lost."
+      },
+      "vehicleTracking": {
         "t": "Vehicle Tracking",
-        "b": "Real-time GPS tracking for your fleet with geofencing, vehicle history and maintenance alerts, helping you optimise routes."
-      },
-      "m5": {
-        "t": "Asset Tracking",
-        "b": "Monitor machinery, office equipment and supplies with lifecycle management, location tracking, depreciation and maintenance scheduling."
-      },
-      "m6": {
-        "t": "Vehicle Maintenance",
-        "b": "Manage fleet maintenance schedules, service records, parts usage and upcoming service alerts to minimise downtime."
-      },
-      "m7": {
-        "t": "Attendance Management",
-        "b": "Track attendance with clock-in/clock-out, manage leave requests and absenteeism, and generate detailed payroll reports."
-      },
-      "m8": {
-        "t": "Product Enquiry & Market Updates",
-        "b": "Track customer inquiries, manage product details and stay responsive to market trends and competitor analysis."
-      },
-      "m9": {
-        "t": "Feedback and Complaints",
-        "b": "Manage feedback and complaints through a ticketing system that resolves issues and tracks progress."
-      },
-      "m10": {
-        "t": "Auto Auditing & Cash Collection",
-        "b": "Automate cash transaction recording with a full audit trail, cash-flow tracking and reporting for error-free cash management."
-      },
-      "m11": {
-        "t": "Purchase Requisition & Logistics",
-        "b": "Streamline procurement across requisitions, approvals, logistics and supplier tracking."
-      },
-      "m12": {
-        "t": "Supplier App",
-        "b": "Manage supplier information, track orders, handle payments and streamline communication."
-      },
-      "m13": {
-        "t": "Currency Profit",
-        "b": "Analyse currency fluctuations, calculate profit and loss from exchange-rate changes and manage foreign-exchange risk."
-      },
-      "m14": {
-        "t": "Stock Transactions",
-        "b": "Track inventory movements — goods received, shipped and adjusted — keeping stock levels accurate."
-      },
-      "m15": {
-        "t": "Return Merchandise Authorization",
-        "b": "Manage returns and exchanges with a process that tracks returns, adjusts inventory and enforces return policies."
-      },
-      "m16": {
-        "t": "Credit Manager",
-        "b": "Track customer credit limits, monitor overdue payments and keep sales orders within approved limits."
-      },
-      "m17": {
-        "t": "Dismantle",
-        "b": "Manage dismantling of products and machinery into parts for resale or disposal, with full tracking and documentation."
-      },
-      "m18": {
-        "t": "Task Management",
-        "b": "Assign responsibilities, track progress and keep projects on time with organised workflows."
-      },
-      "m19": {
-        "t": "Stock Analysis Reports",
-        "b": "Detailed insight into inventory levels, stock turnover and product sales to optimise stock management."
-      },
-      "m20": {
-        "t": "Min & Max Quantity Management",
-        "b": "Set minimum and maximum stock levels to automate reordering and avoid overstocking."
-      },
-      "m21": {
-        "t": "Invoice Import & Export",
-        "b": "Import and export invoices in bulk via CSV and XML, integrating cleanly with accounting systems."
-      },
-      "m22": {
-        "t": "Business Intelligence",
-        "b": "Turn operational data into dashboards and forecasts your team can act on."
+        "b": "Trips, driver logs and vehicle movement in one place, with automatic checks that flag journeys which do not add up."
       }
     },
     "pos": {
@@ -712,7 +684,12 @@
     "errorBody": "We could not send your inquiry. Please try again, or reach us directly.",
     "dialogTitle": "Enquire about this product",
     "close": "Close",
-    "replyNote": "We reply to every enquiry within 24 hours."
+    "replyNote": "We reply to every enquiry within 24 hours.",
+    "waIntro": "Product enquiry from the 369AI website.",
+    "productLabel": "Product",
+    "openedTitle": "WhatsApp is open",
+    "sentHint": "Your details are already written — press send in the chat to finish.",
+    "phoneInvalid": "Enter a valid phone number for the selected country."
   },
   "contact": {
     "eyebrow": "Contact Us",

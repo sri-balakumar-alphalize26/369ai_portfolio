@@ -10,7 +10,7 @@ import { EnquiryDialog } from '@/components/shop/EnquiryDialog'
  * Owns the open/closed state for a product's EnquiryDialog, so the product
  * page itself can stay a server component.
  */
-export function EnquiryButton({ product }: { product: string }) {
+export function EnquiryButton({ product, number }: { product: string; number: string }) {
   const t = useTranslations('common')
   const [open, setOpen] = useState(false)
 
@@ -20,7 +20,12 @@ export function EnquiryButton({ product }: { product: string }) {
         <MessageSquareText className="h-4 w-4" aria-hidden />
         {t('requestQuote')}
       </Button>
-      <EnquiryDialog product={product} open={open} onClose={() => setOpen(false)} />
+      <EnquiryDialog
+        product={product}
+        number={number}
+        open={open}
+        onClose={() => setOpen(false)}
+      />
     </>
   )
 }

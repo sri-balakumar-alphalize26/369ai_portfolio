@@ -11,7 +11,11 @@ import { PageHero } from '@/components/ui/PageHero'
 import { RequirementsFlow } from '@/components/products/RequirementsFlow'
 import { locales } from '@/i18n/routing'
 
-const MODULES = Array.from({ length: 22 }, (_, i) => `m${i + 1}`)
+const MODULES = [
+  'posScale', 'toolsRental', 'mobileRepair', 'posInvoice', 'posLoyalty',
+  'kraKpi', 'privilege', 'attendance', 'showroom', 'signage',
+  'pharmacy', 'credit', 'intercompany', 'offlineSync', 'vehicleTracking',
+]
 const POS_FEATURES = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6']
 const STEPS = ['s1', 's2', 's3', 's4']
 

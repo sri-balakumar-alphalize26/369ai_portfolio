@@ -2,23 +2,36 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { X, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
-import { submitInquiry, validateInquiry, type InquiryPayload } from '@/lib/submit-inquiry'
-import { cn } from '@/lib/cn'
-
-type Errors = Partial<Record<keyof InquiryPayload, string>>
+import { X, CheckCircle2 } from 'lucide-react'
+import { PhoneField } from '@/components/careers/PhoneField'
 
 /**
  * "Enquire about this product" — asks the visitor for their details with the
  * product pre-filled. There is deliberately no quantity control and no basket:
  * one product, one enquiry.
+ *
+ * Delivery is the contact form's, deliberately: nothing is posted to us, the
+ * answers are composed into a plain-text WhatsApp message and the visitor is
+ * handed to WhatsApp with it already written. This replaced a server action
+ * that validated the payload and then dropped it — the visitor was told the
+ * enquiry had been received when nothing had been sent anywhere.
+ *
+ * The one line the contact form does not send: the product name, at the top,
+ * so sales know what it is about before reading the rest.
+ *
+ * Validation is native (`noValidate` + `reportValidity()`), which is what
+ * makes PhoneField's per-country rule bite — it reports through the input's
+ * own setCustomValidity and needs the form to ask.
  */
 export function EnquiryDialog({
   product,
+  number,
   open,
   onClose,
 }: {
   product: string
+  /** Digits-only WhatsApp number, already normalised by waNumber(). */
+  number: string
   open: boolean
   onClose: () => void
 }) {
@@ -27,8 +40,7 @@ export function EnquiryDialog({
   const panelRef = useRef<HTMLDivElement>(null)
   const firstFieldRef = useRef<HTMLInputElement>(null)
 
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
-  const [errors, setErrors] = useState<Errors>({})
+  const [sent, setSent] = useState(false)
 
   // Escape to close, and lock the page behind the dialog.
   useEffect(() => {
@@ -51,33 +63,39 @@ export function EnquiryDialog({
   const [prevKey, setPrevKey] = useState<string | null>(dialogKey)
   if (prevKey !== dialogKey) {
     setPrevKey(dialogKey)
-    if (open) {
-      setStatus('idle')
-      setErrors({})
-    }
+    if (open) setSent(false)
   }
 
   if (!open) return null
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    const data = new FormData(e.currentTarget)
-    const payload: InquiryPayload = {
-      product,
-      name: String(data.get('name') ?? ''),
-      email: String(data.get('email') ?? ''),
-      phone: String(data.get('phone') ?? ''),
-      company: String(data.get('company') ?? ''),
-      message: String(data.get('message') ?? ''),
+  function send(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const form = event.currentTarget
+    if (!form.reportValidity()) return
+
+    const data = new FormData(form)
+    const get = (key: string) => String(data.get(key) ?? '').trim()
+
+    // Blank optional fields are dropped so sales never receives empty lines.
+    const lines: string[] = [ti('waIntro'), '', `${ti('productLabel')}: ${product}`]
+    for (const [key, label] of [
+      ['name', t('name')],
+      ['company', t('company')],
+      ['email', t('email')],
+      ['phone', t('phone')],
+    ] as const) {
+      const value = get(key)
+      if (value) lines.push(`${label}: ${value}`)
     }
+    const body = get('message')
+    if (body) lines.push('', `${t('message')}:`, body)
 
-    const found = validateInquiry(payload)
-    setErrors(found)
-    if (Object.keys(found).length) return
-
-    setStatus('sending')
-    const result = await submitInquiry(payload)
-    setStatus(result.ok ? 'sent' : 'error')
+    window.open(
+      `https://wa.me/${number}?text=${encodeURIComponent(lines.join('\n'))}`,
+      '_blank',
+      'noopener,noreferrer'
+    )
+    setSent(true)
   }
 
   return (
@@ -111,11 +129,13 @@ export function EnquiryDialog({
           </button>
         </div>
 
-        {status === 'sent' ? (
+        {sent ? (
+          /* Not "received" — the enquiry only reaches us when they press send
+             in WhatsApp, so the panel says what actually happened. */
           <div className="px-6 py-12 text-center">
             <CheckCircle2 className="mx-auto h-12 w-12 text-brand-500" aria-hidden />
-            <h3 className="mt-4 text-xl font-bold">{ti('successTitle')}</h3>
-            <p className="mt-2 text-slate-muted">{ti('successBody')}</p>
+            <h3 className="mt-4 text-xl font-bold">{ti('openedTitle')}</h3>
+            <p className="mt-2 text-slate-muted">{ti('sentHint')}</p>
             <button
               type="button"
               onClick={onClose}
@@ -125,29 +145,23 @@ export function EnquiryDialog({
             </button>
           </div>
         ) : (
-          <form onSubmit={onSubmit} className="flex-1 space-y-4 overflow-y-auto px-6 py-6">
-            <Field
-              ref={firstFieldRef}
-              name="name"
-              label={t('name')}
-              required
-              error={errors.name ? t('required') : undefined}
-            />
-            <Field
-              name="email"
-              type="email"
-              label={t('email')}
-              required
-              error={
-                errors.email === 'invalid'
-                  ? t('invalidEmail')
-                  : errors.email
-                    ? t('required')
-                    : undefined
-              }
-            />
+          <form
+            onSubmit={send}
+            noValidate
+            className="flex-1 space-y-4 overflow-y-auto px-6 py-6"
+          >
+            <Field ref={firstFieldRef} name="name" label={t('name')} required />
+            <Field name="email" type="email" label={t('email')} required />
+
             <div className="grid gap-4 sm:grid-cols-2">
-              <Field name="phone" type="tel" label={t('phone')} />
+              {/* Country dropdown + per-country validity; submits +E.164 in a
+                  hidden input, so a +91 and a +968 enquiry cannot be confused. */}
+              <PhoneField
+                name="phone"
+                label={t('phone')}
+                invalidMessage={ti('phoneInvalid')}
+                required={false}
+              />
               <Field name="company" label={t('company')} />
             </div>
 
@@ -159,43 +173,19 @@ export function EnquiryDialog({
                 id="enq-message"
                 name="message"
                 rows={4}
-                className={cn(
-                  'w-full rounded-card border px-4 py-2.5 text-sm outline-none transition-colors',
-                  errors.message
-                    ? 'border-red-400 focus:border-red-500'
-                    : 'border-surface-line focus:border-brand-400'
-                )}
+                required
+                className="w-full rounded-card border border-surface-line px-4 py-2.5 text-sm outline-none transition-colors focus:border-brand-400"
               />
-              {errors.message ? (
-                <p className="mt-1.5 text-xs text-red-600">{t('required')}</p>
-              ) : null}
             </div>
-
-            {status === 'error' ? (
-              <p className="flex items-start gap-2 rounded-card bg-red-50 p-3 text-sm text-red-700">
-                <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
-                {ti('errorBody')}
-              </p>
-            ) : null}
 
             <button
               type="submit"
-              disabled={status === 'sending'}
-              className="flex w-full items-center justify-center gap-2 rounded-pill bg-gradient-to-r from-accent-500 to-accent-400 px-6 py-3 font-semibold text-white shadow-lg shadow-orange-500/25 transition-transform hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
+              className="flex w-full items-center justify-center gap-2 rounded-pill bg-gradient-to-r from-accent-500 to-accent-400 px-6 py-3 font-semibold text-white shadow-lg shadow-orange-500/25 transition-transform hover:scale-[1.02]"
             >
-              {status === 'sending' ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
-                  {ti('submitting')}
-                </>
-              ) : (
-                ti('submit')
-              )}
+              {ti('submit')}
             </button>
 
-            <p className="text-center text-xs text-slate-faint">
-              {ti('replyNote')}
-            </p>
+            <p className="text-center text-xs text-slate-faint">{ti('replyNote')}</p>
           </form>
         )}
       </div>
@@ -209,14 +199,12 @@ function Field({
   label,
   type = 'text',
   required,
-  error,
 }: {
   ref?: React.Ref<HTMLInputElement>
   name: string
   label: string
   type?: string
   required?: boolean
-  error?: string
 }) {
   const id = `enq-${name}`
   return (
@@ -224,17 +212,16 @@ function Field({
       <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-ink">
         {label} {required ? <span className="text-accent-600">*</span> : null}
       </label>
+      {/* `required` reaches the input, not just the asterisk — the old version
+          drew the star and left the field optional to the browser. */}
       <input
         ref={ref}
         id={id}
         name={name}
         type={type}
-        className={cn(
-          'h-11 w-full rounded-card border px-4 text-sm outline-none transition-colors',
-          error ? 'border-red-400 focus:border-red-500' : 'border-surface-line focus:border-brand-400'
-        )}
+        required={required}
+        className="h-11 w-full rounded-card border border-surface-line px-4 text-sm outline-none transition-colors focus:border-brand-400"
       />
-      {error ? <p className="mt-1.5 text-xs text-red-600">{error}</p> : null}
     </div>
   )
 }

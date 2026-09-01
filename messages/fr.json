@@ -315,93 +315,65 @@
     "howBody": "Démarrez en quatre étapes simples.",
     "modulesTitle": "Modules ERP",
     "modules": {
-      "m1": {
-        "t": "Commandes de vente en ligne",
-        "b": "Simplifiez les achats en ligne avec une gestion des commandes intuitive : catalogues produits, inscription des clients, gestion du panier, paiements sécurisés et facturation automatique."
+      "posScale": {
+        "t": "POS Weighing Scale & VFD Display",
+        "b": "Le poids passe directement sur le ticket, sans saisie manuelle, et l'afficheur client montre ce qui est pesé et le montant, en direct."
       },
-      "m2": {
-        "t": "Gestion des interventions",
-        "b": "Laissez vos clients planifier et suivre réparations et installations, consultez l’historique de service, gérez la facturation et automatisez la planification selon la disponibilité des techniciens."
+      "toolsRental": {
+        "t": "Tools Rental Management",
+        "b": "Chaque outil qui sort et qui revient, avec la durée de location, les coordonnées du client, les temps passés et le calcul automatique du coût."
       },
-      "m3": {
-        "t": "Gestion de la relation client",
-        "b": "Gérez les interactions clients, suivez les prospects, automatisez les relances et segmentez la clientèle pour un marketing ciblé — au bénéfice des ventes et de la satisfaction."
+      "mobileRepair": {
+        "t": "Mobile & IT Repair",
+        "b": "De la prise en charge à la restitution : appareil et panne, pièces détachées, affectation du technicien, statut de la réparation et facturation."
       },
-      "m4": {
-        "t": "Suivi des véhicules",
-        "b": "Géolocalisation GPS en temps réel de votre flotte avec géorepérage, historique des véhicules et alertes d’entretien, pour optimiser vos tournées."
+      "posInvoice": {
+        "t": "POS Dynamic Invoice",
+        "b": "Des tickets de caisse à vos couleurs et modifiables — logo, coordonnées, lignes de taxe et pied de page — réglés depuis l'administration, pas dans le code."
       },
-      "m5": {
-        "t": "Suivi des actifs",
-        "b": "Suivez machines, équipements de bureau et fournitures : cycle de vie, localisation, amortissement et planification de la maintenance."
+      "posLoyalty": {
+        "t": "POS Loyalty Card",
+        "b": "Points cumulés et utilisés en caisse, avec le solde du client et ses récompenses disponibles sous les yeux du caissier."
       },
-      "m6": {
-        "t": "Entretien des véhicules",
-        "b": "Gérez les calendriers d’entretien de la flotte, les carnets d’intervention, les pièces utilisées et les alertes de prochaine révision pour limiter les immobilisations."
+      "kraKpi": {
+        "t": "KRA/KPI Management",
+        "b": "Fixez les objectifs de chaque poste et notez-les sur un tableau dédié, les résultats remontant de la personne au service."
       },
-      "m7": {
-        "t": "Gestion des présences",
-        "b": "Suivez les présences avec pointage à l’arrivée et au départ, gérez congés et absentéisme et générez des rapports de paie détaillés."
+      "privilege": {
+        "t": "User Privilege Manager",
+        "b": "Décidez champ par champ ce que chaque utilisateur voit et fait — masquer des menus, verrouiller des champs, accorder création, lecture, écriture et suppression par personne plutôt que par groupe."
       },
-      "m8": {
-        "t": "Demandes produits et veille marché",
-        "b": "Suivez les demandes clients, gérez les fiches produits et restez réactif face aux tendances du marché et à la concurrence."
+      "attendance": {
+        "t": "Attendance Suite",
+        "b": "Suivi des retards avec retenues automatiques, demandes de congés et de télétravail, gestion des appareils et rapports, au même endroit."
       },
-      "m9": {
-        "t": "Avis et réclamations",
-        "b": "Gérez avis et réclamations via un système de tickets qui résout les problèmes et suit leur avancement."
+      "showroom": {
+        "t": "Showroom Check",
+        "b": "Contrôles photo programmés attestant que le magasin correspond toujours à l'agencement convenu, avec la preuve conservée à chaque visite."
       },
-      "m10": {
-        "t": "Audit automatique et collecte d’espèces",
-        "b": "Automatisez l’enregistrement des transactions en espèces avec une piste d’audit complète, un suivi de trésorerie et des rapports pour une gestion sans erreur."
+      "signage": {
+        "t": "Signage Scan",
+        "b": "Affichage promotionnel plein écran en magasin, qui sert aussi de borne de vérification des prix par code-barres."
       },
-      "m11": {
-        "t": "Demandes d’achat et logistique",
-        "b": "Fluidifiez les achats : demandes, validations, logistique et suivi des fournisseurs."
+      "pharmacy": {
+        "t": "PharmaCare Pharmacy POS",
+        "b": "Un comptoir de pharmacie avec suivi des lots et des péremptions, pour retirer les produits proches de la date avant qu'ils n'arrivent au client."
       },
-      "m12": {
-        "t": "Application fournisseurs",
-        "b": "Gérez les informations fournisseurs, suivez les commandes, traitez les paiements et simplifiez la communication."
+      "credit": {
+        "t": "Credit Management",
+        "b": "Encours clients avec étape de validation : une commande au-delà de la limite s'arrête et attend une décision au lieu de partir."
       },
-      "m13": {
-        "t": "Gains de change",
-        "b": "Analysez les fluctuations des devises, calculez les gains et pertes liés aux taux de change et gérez le risque de change."
+      "intercompany": {
+        "t": "Inter-Company Stock Transfer",
+        "b": "Transférez le stock et sa valeur entre sociétés avec demande et validation, en gardant les deux comptabilités justes."
       },
-      "m14": {
-        "t": "Mouvements de stock",
-        "b": "Suivez les mouvements d’inventaire — réceptions, expéditions et ajustements — pour des niveaux de stock toujours exacts."
+      "offlineSync": {
+        "t": "Offline Sync",
+        "b": "Continuez à encaisser quand la connexion tombe : la caisse bascule sur les données locales puis se synchronise, avec un contrôle croisé pour ne rien perdre ni dupliquer."
       },
-      "m15": {
-        "t": "Autorisation de retour de marchandise",
-        "b": "Gérez retours et échanges avec un processus qui suit les retours, ajuste les stocks et applique vos politiques de retour."
-      },
-      "m16": {
-        "t": "Gestion du crédit",
-        "b": "Suivez les plafonds de crédit clients, surveillez les impayés et maintenez les commandes dans les limites approuvées."
-      },
-      "m17": {
-        "t": "Démontage",
-        "b": "Gérez le démontage de produits et de machines en pièces destinées à la revente ou à la mise au rebut, avec un suivi et une documentation complets."
-      },
-      "m18": {
-        "t": "Gestion des tâches",
-        "b": "Attribuez les responsabilités, suivez l’avancement et tenez les délais grâce à des flux de travail organisés."
-      },
-      "m19": {
-        "t": "Rapports d’analyse des stocks",
-        "b": "Une vision détaillée des niveaux d’inventaire, de la rotation des stocks et des ventes pour optimiser la gestion des stocks."
-      },
-      "m20": {
-        "t": "Gestion des quantités min et max",
-        "b": "Définissez des niveaux de stock minimum et maximum pour automatiser le réapprovisionnement et éviter le surstockage."
-      },
-      "m21": {
-        "t": "Import et export de factures",
-        "b": "Importez et exportez des factures en masse via CSV et XML, en intégration propre avec vos systèmes comptables."
-      },
-      "m22": {
-        "t": "Informatique décisionnelle",
-        "b": "Transformez vos données opérationnelles en tableaux de bord et prévisions exploitables par vos équipes."
+      "vehicleTracking": {
+        "t": "Vehicle Tracking",
+        "b": "Trajets, carnets de conduite et déplacements des véhicules au même endroit, avec des contrôles automatiques qui signalent les trajets incohérents."
       }
     },
     "pos": {
@@ -712,7 +684,12 @@
     "errorBody": "Votre demande n’a pas pu être envoyée. Réessayez ou contactez-nous directement.",
     "dialogTitle": "Demander des informations sur ce produit",
     "close": "Fermer",
-    "replyNote": "Nous répondons à chaque demande sous 24 heures."
+    "replyNote": "Nous répondons à chaque demande sous 24 heures.",
+    "waIntro": "Demande produit depuis le site 369AI.",
+    "productLabel": "Produit",
+    "openedTitle": "WhatsApp est ouvert",
+    "sentHint": "Vos informations sont déjà rédigées — appuyez sur envoyer dans la conversation pour terminer.",
+    "phoneInvalid": "Saisissez un numéro valide pour le pays sélectionné."
   },
   "contact": {
     "eyebrow": "Contactez-nous",

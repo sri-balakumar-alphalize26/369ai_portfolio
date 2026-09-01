@@ -8,6 +8,7 @@ import { Reveal } from '@/components/ui/Reveal'
 import { ProductGallery } from '@/components/shop/ProductGallery'
 import { ProductCard } from '@/components/shop/ProductCard'
 import { EnquiryButton } from '@/components/shop/EnquiryButton'
+import { readContact, waNumber } from '@/lib/contact-settings'
 import {
   PRODUCTS,
   getProduct,
@@ -101,7 +102,12 @@ export default async function ProductPage({
             ) : null}
 
             <div className="mt-8">
-              <EnquiryButton product={product.name} />
+              {/* The sales line comes from data/contact.json, so the enquiry
+                  opens whatever number manage mode last saved. */}
+              <EnquiryButton
+                product={product.name}
+                number={waNumber((await readContact()).whatsapp)}
+              />
             </div>
 
             {product.features.length ? (

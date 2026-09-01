@@ -315,93 +315,65 @@
     "howBody": "In vier einfachen Schritten startklar.",
     "modulesTitle": "ERP-Module",
     "modules": {
-      "m1": {
-        "t": "Online-Verkaufsaufträge",
-        "b": "Vereinfachen Sie das Online-Shopping mit einem intuitiven Auftragsmanagement: Produktkataloge, Kundenregistrierung, Warenkorbverwaltung, sichere Zahlungen und automatische Rechnungsstellung."
+      "posScale": {
+        "t": "POS Weighing Scale & VFD Display",
+        "b": "Das Gewicht geht direkt in den Bon, ohne Abtippen, und das Kundendisplay zeigt live, was gewogen wird und was es kostet."
       },
-      "m2": {
-        "t": "Servicemanagement",
-        "b": "Lassen Sie Kunden Reparaturen und Installationen planen und verwalten, verfolgen Sie die Servicehistorie, wickeln Sie Rechnungen ab und automatisieren Sie die Terminplanung nach Technikerverfügbarkeit."
+      "toolsRental": {
+        "t": "Tools Rental Management",
+        "b": "Jedes Werkzeug, das rausgeht und zurückkommt — mit Mietdauer, Kundendaten, Zeiterfassung und automatischer Kostenberechnung."
       },
-      "m3": {
-        "t": "Kundenbeziehungsmanagement",
-        "b": "Verwalten Sie Kundeninteraktionen, verfolgen Sie Leads, automatisieren Sie Follow-ups und segmentieren Sie Kunden für gezieltes Marketing — für mehr Umsatz und Zufriedenheit."
+      "mobileRepair": {
+        "t": "Mobile & IT Repair",
+        "b": "Von der Annahme bis zur Übergabe: Gerät und Fehler, Ersatzteile, Technikerzuweisung, Reparaturstatus und Rechnung."
       },
-      "m4": {
-        "t": "Fahrzeugortung",
-        "b": "GPS-Ortung Ihrer Flotte in Echtzeit mit Geofencing, Fahrzeughistorie und Wartungsalarmen — für optimierte Routen."
+      "posInvoice": {
+        "t": "POS Dynamic Invoice",
+        "b": "Kassenbelege im eigenen Auftritt und frei anpassbar — Logo, Firmendaten, Steuerzeilen und Fußzeile — eingestellt im Backoffice statt im Code."
       },
-      "m5": {
-        "t": "Anlagenverfolgung",
-        "b": "Überwachen Sie Maschinen, Büroausstattung und Verbrauchsmaterial — mit Lebenszyklusverwaltung, Standortverfolgung, Abschreibung und Wartungsplanung."
+      "posLoyalty": {
+        "t": "POS Loyalty Card",
+        "b": "Punkte sammeln und einlösen direkt an der Kasse, mit Guthaben und verfügbaren Prämien vor den Augen des Kassierers."
       },
-      "m6": {
-        "t": "Fahrzeugwartung",
-        "b": "Verwalten Sie Wartungspläne, Serviceberichte, Teileverbrauch und anstehende Servicetermine Ihrer Flotte, um Ausfallzeiten zu minimieren."
+      "kraKpi": {
+        "t": "KRA/KPI Management",
+        "b": "Ziele je Rolle festlegen und auf einem eigens gebauten Board bewerten — die Ergebnisse laufen von der Person zur Abteilung zusammen."
       },
-      "m7": {
-        "t": "Anwesenheitsverwaltung",
-        "b": "Erfassen Sie Anwesenheiten per Ein- und Ausstempeln, verwalten Sie Urlaubsanträge und Fehlzeiten und erstellen Sie detaillierte Lohnberichte."
+      "privilege": {
+        "t": "User Privilege Manager",
+        "b": "Feld für Feld steuern, was jeder Benutzer sieht und darf — Menüs ausblenden, Felder sperren und Anlegen, Lesen, Ändern und Löschen pro Person statt pro Gruppe vergeben."
       },
-      "m8": {
-        "t": "Produktanfragen und Marktupdates",
-        "b": "Verfolgen Sie Kundenanfragen, verwalten Sie Produktdetails und reagieren Sie schnell auf Markttrends und Wettbewerbsanalysen."
+      "attendance": {
+        "t": "Attendance Suite",
+        "b": "Verspätungen mit automatischem Abzug, Urlaubs- und Homeoffice-Anträge, Geräteverwaltung und Auswertungen an einer Stelle."
       },
-      "m9": {
-        "t": "Feedback und Beschwerden",
-        "b": "Verwalten Sie Feedback und Beschwerden über ein Ticketsystem, das Anliegen löst und den Fortschritt verfolgt."
+      "showroom": {
+        "t": "Showroom Check",
+        "b": "Geplante Foto-Kontrollen, dass der Showroom noch dem vereinbarten Layout entspricht — der Nachweis bleibt zu jedem Besuch gespeichert."
       },
-      "m10": {
-        "t": "Automatische Prüfung und Kassenabrechnung",
-        "b": "Automatisieren Sie die Erfassung von Bargeldtransaktionen — mit vollständigem Prüfpfad, Cashflow-Verfolgung und Berichten für fehlerfreies Kassenmanagement."
+      "signage": {
+        "t": "Signage Scan",
+        "b": "Bildschirmfüllende Werbung im Laden, die zugleich als Barcode-Preisprüfer für Kunden dient."
       },
-      "m11": {
-        "t": "Bestellanforderung und Logistik",
-        "b": "Verschlanken Sie die Beschaffung — von Anforderungen und Freigaben bis zu Logistik und Lieferantenverfolgung."
+      "pharmacy": {
+        "t": "PharmaCare Pharmacy POS",
+        "b": "Apothekenkasse mit Chargen- und Verfallsverfolgung, damit kurz datierte Ware auffällt, bevor sie den Kunden erreicht."
       },
-      "m12": {
-        "t": "Lieferanten-App",
-        "b": "Verwalten Sie Lieferantendaten, verfolgen Sie Bestellungen, wickeln Sie Zahlungen ab und vereinfachen Sie die Kommunikation."
+      "credit": {
+        "t": "Credit Management",
+        "b": "Kreditlimits mit Freigabeschritt: Eine Bestellung über dem Limit bleibt stehen und wartet auf die Entscheidung, statt rauszugehen."
       },
-      "m13": {
-        "t": "Währungsgewinn",
-        "b": "Analysieren Sie Währungsschwankungen, berechnen Sie Gewinne und Verluste aus Wechselkursänderungen und steuern Sie Ihr Devisenrisiko."
+      "intercompany": {
+        "t": "Inter-Company Stock Transfer",
+        "b": "Bestand und Wert zwischen Gesellschaften umbuchen — mit Antrag und Freigabe, sodass beide Bücher stimmen."
       },
-      "m14": {
-        "t": "Lagerbewegungen",
-        "b": "Verfolgen Sie Bestandsbewegungen — Wareneingang, Versand und Korrekturen — für stets genaue Bestände."
+      "offlineSync": {
+        "t": "Offline Sync",
+        "b": "Weiter kassieren, wenn die Verbindung abreißt: Die Kasse wechselt auf lokale Daten und gleicht später ab — mit Gegenprüfung, damit nichts doppelt erfasst wird oder verloren geht."
       },
-      "m15": {
-        "t": "Retourenabwicklung (RMA)",
-        "b": "Verwalten Sie Rückgaben und Umtausch mit einem Prozess, der Retouren verfolgt, Bestände anpasst und Rückgaberichtlinien durchsetzt."
-      },
-      "m16": {
-        "t": "Kreditmanager",
-        "b": "Verfolgen Sie die Kreditlimits Ihrer Kunden, überwachen Sie überfällige Zahlungen und halten Sie Aufträge innerhalb der genehmigten Limits."
-      },
-      "m17": {
-        "t": "Demontage",
-        "b": "Verwalten Sie die Zerlegung von Produkten und Maschinen in Teile für Weiterverkauf oder Entsorgung — mit vollständiger Verfolgung und Dokumentation."
-      },
-      "m18": {
-        "t": "Aufgabenmanagement",
-        "b": "Weisen Sie Verantwortlichkeiten zu, verfolgen Sie Fortschritte und halten Sie Projekte mit strukturierten Workflows im Zeitplan."
-      },
-      "m19": {
-        "t": "Bestandsanalyse-Berichte",
-        "b": "Detaillierte Einblicke in Bestände, Lagerumschlag und Produktverkäufe zur Optimierung Ihres Bestandsmanagements."
-      },
-      "m20": {
-        "t": "Mindest- und Höchstmengenverwaltung",
-        "b": "Legen Sie Mindest- und Höchstbestände fest, um Nachbestellungen zu automatisieren und Überbestände zu vermeiden."
-      },
-      "m21": {
-        "t": "Rechnungsimport und -export",
-        "b": "Importieren und exportieren Sie Rechnungen massenhaft per CSV und XML — sauber integriert mit Buchhaltungssystemen."
-      },
-      "m22": {
-        "t": "Business Intelligence",
-        "b": "Verwandeln Sie Betriebsdaten in Dashboards und Prognosen, mit denen Ihr Team arbeiten kann."
+      "vehicleTracking": {
+        "t": "Vehicle Tracking",
+        "b": "Fahrten, Fahrerprotokolle und Fahrzeugbewegungen an einer Stelle, mit automatischen Prüfungen, die unstimmige Fahrten melden."
       }
     },
     "pos": {
@@ -712,7 +684,12 @@
     "errorBody": "Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.",
     "dialogTitle": "Anfrage zu diesem Produkt",
     "close": "Schließen",
-    "replyNote": "Wir beantworten jede Anfrage innerhalb von 24 Stunden."
+    "replyNote": "Wir beantworten jede Anfrage innerhalb von 24 Stunden.",
+    "waIntro": "Produktanfrage über die 369AI-Website.",
+    "productLabel": "Produkt",
+    "openedTitle": "WhatsApp ist geöffnet",
+    "sentHint": "Ihre Angaben stehen bereits im Text — zum Abschluss im Chat auf Senden tippen.",
+    "phoneInvalid": "Bitte eine gültige Telefonnummer für das gewählte Land eingeben."
   },
   "contact": {
     "eyebrow": "Kontakt",
