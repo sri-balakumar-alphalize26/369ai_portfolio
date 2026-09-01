@@ -842,6 +842,9 @@
     "careersTitle": "Karriere",
     "careersBody": "Wir stellen ein — offene Stellen ansehen, die vollständige Stellenbeschreibung lesen und per WhatsApp mit Lebenslauf bewerben.",
     "whatsappPrefill": "Hallo 369AI, ich habe eine Frage zu Ihren Produkten.",
+    "productsFound": "{count, plural, =1 {Ein Artikel könnte passen} other {# Artikel könnten passen}}:",
+    "techTitle": "Technologien, mit denen wir arbeiten",
+    "techBody": "Wir setzen auf {stack} — den Stack hinter unseren Apps, unserer Odoo-Arbeit und dieser Website.",
     "readMore": "Mehr lesen"
   },
   "promo": {

@@ -842,6 +842,9 @@
     "careersTitle": "Careers",
     "careersBody": "We are hiring — see the open roles, read the full job description and apply on WhatsApp with your CV.",
     "whatsappPrefill": "Hello 369AI, I have a question about your products.",
+    "productsFound": "{count, plural, =1 {One item may match} other {# items may match}}:",
+    "techTitle": "Technologies we work with",
+    "techBody": "We build on {stack} — the stack behind our mobile apps, our Odoo work and this website.",
     "readMore": "Read more"
   },
   "promo": {

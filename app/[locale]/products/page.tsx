@@ -10,14 +10,7 @@ import { EnquiryForm } from '@/components/contact/EnquiryForm'
 import { PageHero } from '@/components/ui/PageHero'
 import { RequirementsFlow } from '@/components/products/RequirementsFlow'
 import { locales } from '@/i18n/routing'
-
-const MODULES = [
-  'posScale', 'toolsRental', 'mobileRepair', 'posInvoice', 'posLoyalty',
-  'kraKpi', 'privilege', 'attendance', 'showroom', 'signage',
-  'pharmacy', 'credit', 'intercompany', 'offlineSync', 'vehicleTracking',
-]
-const POS_FEATURES = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6']
-const STEPS = ['s1', 's2', 's3', 's4']
+import { ERP_MODULES, POS_FEATURES, STEPS } from '@/content/modules'
 
 /* Apps & desktop software icons — hand-drawn inline SVG, not lucide:
    each hover animates a SUB-PART of the glyph (home dot press, falling
@@ -102,7 +95,7 @@ export default async function ProductsPage({
       <Section>
         <SectionHeader title={t('modulesTitle')} />
         <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {MODULES.map((key, i) => (
+          {ERP_MODULES.map((key, i) => (
             // Deterministic scatter (hash, not Math.random): looks random,
             // stays identical on every visit. Sequential order would double
             // down on a numbering progression that is not real.

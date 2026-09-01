@@ -4,13 +4,35 @@ import { useState, useRef, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { MessageCircle, X, Send, ArrowUpRight } from 'lucide-react'
-import { PRODUCTS } from '@/lib/products'
+import { PRODUCTS, hasDetail } from '@/lib/products'
 import type { ContactSettings } from '@/lib/contact-settings'
 import { FAQ_CATS } from '@/content/faq'
-import { findAnswer, type Entry, type Answer } from '@/lib/assistant-knowledge'
+import { APPS } from '@/content/apps'
+import { ERP_MODULES, POS_FEATURES } from '@/content/modules'
+import { TECH_ROWS } from '@/content/technologies'
+import {
+  findAnswer,
+  tokenSet,
+  type Entry,
+  type Answer,
+  type ProductEntry,
+} from '@/lib/assistant-knowledge'
 import { cn } from '@/lib/cn'
 
 const GREETING_KEY = '369ai:greeting-dismissed'
+
+/**
+ * 'showroomCheck' and '369 Showroom Check' both become ['showroom', 'check'].
+ * App ids are camelCase and their names carry the brand, but a visitor types
+ * neither — they type the words inside them.
+ */
+function words(value: string) {
+  return value
+    .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean)
+}
 
 type Message = { role: 'user' | 'bot'; text: string; answer?: Answer }
 
@@ -19,6 +41,8 @@ export function Assistant({ contact }: { contact: ContactSettings }) {
   const tFaq = useTranslations('faq')
   const tSrv = useTranslations('services')
   const tSol = useTranslations('solutions')
+  const tApps = useTranslations('appsPage')
+  const tProd = useTranslations('products')
   const locale = useLocale()
 
   const [open, setOpen] = useState(false)
@@ -54,10 +78,59 @@ export function Assistant({ contact }: { contact: ContactSettings }) {
       href: `${base}/solutions#${k}`,
     }))
 
+    // One entry per app, from the copy the /apps page already renders. 'app'
+    // is a keyword on every one so "attendance app" beats the Attendance Suite
+    // ERP module, which shares the word but not the subject.
+    const apps = APPS.map((app) => ({
+      id: `app-${app.id}`,
+      keywords: ['app', 'apps', ...words(app.id), ...words(app.name)],
+      title: app.name,
+      body: [
+        tApps(`items.${app.id}.tagline`),
+        tApps(`items.${app.id}.f1`),
+        tApps(`items.${app.id}.f2`),
+        tApps(`items.${app.id}.f3`),
+      ].join(' '),
+      href: `${base}/apps`,
+    }))
+
+    // ERP modules and POS features carry no keywords on purpose. Their titles
+    // are already the words a visitor types — "loyalty card", "vehicle
+    // tracking" — and a generic one like 'pos' would pull fifteen modules
+    // level with the POS solution page.
+    const modules = ERP_MODULES.map((key) => ({
+      id: `module-${key}`,
+      title: tProd(`modules.${key}.t`),
+      body: tProd(`modules.${key}.b`),
+      href: `${base}/products`,
+    }))
+
+    const posFeatures = POS_FEATURES.map((key) => ({
+      id: `pos-${key}`,
+      title: tProd(`pos.${key}.t`),
+      body: tProd(`pos.${key}.b`),
+      href: `${base}/products`,
+    }))
+
+    const stack = TECH_ROWS.flat().map((tech) => tech.name)
+    const technologies: Entry = {
+      id: 'technologies',
+      // Multi-word and slashed names ('React Native', 'ESC/POS') can never
+      // match a single query token, so they cost nothing to carry; the
+      // one-word names — odoo, python, expo, firebase — do the work.
+      keywords: stack.map((name) => name.toLowerCase()),
+      title: t('techTitle'),
+      body: t('techBody', { stack: stack.join(', ') }),
+    }
+
     const extras: Entry[] = [
       {
         id: 'contact',
-        keywords: ['contact', 'phone', 'email', 'call', 'reach', 'address', 'office', 'location'],
+        // 'located' as well as 'location': the stemmer strips plurals, not -ed.
+        keywords: [
+          'contact', 'phone', 'email', 'call', 'reach',
+          'address', 'office', 'location', 'located',
+        ],
         title: t('contactTitle'),
         body: t('contactBody', { phone: contact.phoneDisplay, email: contact.email }),
         href: `${base}/contact`,
@@ -78,11 +151,9 @@ export function Assistant({ contact }: { contact: ContactSettings }) {
       },
       {
         id: 'apps',
-        keywords: [
-          'app', 'apps', 'mobile', 'android', 'apk', 'application',
-          'attendance', 'chat', 'chats', 'restaurant', 'spa', 'van', 'rental',
-          'tools', 'price', 'checker', 'showroom', 'kpi', 'kra', 'alphalize',
-        ],
+        // The per-app words moved to the ten entries above. Left here, this
+        // generic entry would outscore the specific one every time.
+        keywords: ['app', 'apps', 'mobile', 'android', 'apk', 'application'],
         title: t('appsTitle'),
         body: t('appsBody'),
         href: `${base}/apps`,
@@ -120,15 +191,34 @@ export function Assistant({ contact }: { contact: ContactSettings }) {
       },
     ]
 
-    return [...faq, ...services, ...solutions, ...extras]
-  }, [t, tFaq, tSrv, tSol, base])
+    // Apps before modules: the two tie on shared words like "attendance", and
+    // a stable sort then hands the question to the app, which is what someone
+    // typing a product name almost always means.
+    return [
+      ...faq,
+      ...services,
+      ...solutions,
+      ...apps,
+      ...modules,
+      ...posFeatures,
+      ...extras,
+      technologies,
+    ]
+  }, [t, tFaq, tSrv, tSol, tApps, tProd, base, contact])
 
-  const productIndex = useMemo(
+  const productIndex = useMemo<ProductEntry[]>(
     () =>
       PRODUCTS.map((p) => ({
         name: p.name,
         href: `${base}/shop/${p.slug}`,
-        haystack: `${p.name} ${p.categories.join(' ')}`.toLowerCase(),
+        label: tokenSet(`${p.name} ${p.categories.join(' ')}`),
+        // Only 37 of the 75 carry any detail; hasDetail keeps the rest empty
+        // rather than tokenizing three empty strings apiece.
+        detail: hasDetail(p)
+          ? tokenSet(
+              `${p.description} ${p.features.join(' ')} ${Object.values(p.specs).join(' ')}`
+            )
+          : new Set<string>(),
       })),
     [base]
   )
@@ -180,7 +270,10 @@ export function Assistant({ contact }: { contact: ContactSettings }) {
     e.preventDefault()
     const question = input.trim()
     if (!question) return
-    const answer = findAnswer(question, knowledge, productIndex, t('offline'))
+    const answer = findAnswer(question, knowledge, productIndex, {
+      fallback: t('offline'),
+      productsFound: (count) => t('productsFound', { count }),
+    })
     setMessages((m) => [...m, { role: 'user', text: question }, { role: 'bot', text: '', answer }])
     setInput('')
   }

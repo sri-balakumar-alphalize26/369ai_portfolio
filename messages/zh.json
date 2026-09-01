@@ -842,6 +842,9 @@
     "careersTitle": "招聘",
     "careersBody": "我们正在招聘 —— 查看空缺职位、阅读完整职位说明，并带上简历通过 WhatsApp 申请。",
     "whatsappPrefill": "您好 369AI，我想咨询你们的产品。",
+    "productsFound": "{count, plural, other {有 # 件产品可能符合}}:",
+    "techTitle": "我们使用的技术",
+    "techBody": "我们使用 {stack} — 这是我们的移动应用、Odoo 开发和本网站背后的技术栈。",
     "readMore": "阅读更多"
   },
   "promo": {
