@@ -147,8 +147,35 @@ export async function Footer({ hiring = false }: { hiring?: boolean }) {
           </ul>
         </div>
 
-        <div className="mt-12 border-t border-surface-line pt-6 text-xs text-slate-faint">
-          © {new Date().getFullYear()} 369AI. {t('rights')}
+        {/* Copyright on one edge, the build credit on the other. justify-between
+            does the flip for Arabic by itself — a flex row in an RTL document
+            puts the first child on the right, so the copyright stays on the
+            reading-start edge without any logical-property work. Stacked below
+            sm: the two do not share a 390px line. */}
+        <div className="mt-12 flex flex-col gap-3 border-t border-surface-line pt-6 text-xs text-slate-faint sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} 369AI. {t('rights')}
+          </p>
+
+          {/* The wordmark carries the name, so the translated string stops
+              where the logo starts — see the note on footer.developedBy. The
+              alt text is what gives this link its accessible name. */}
+          <a
+            href="https://www.alphalize.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 transition-opacity hover:opacity-75"
+          >
+            {t('developedBy')}
+            <Image
+              src="/images/alphalize-wordmark.png"
+              alt="Alphalize"
+              width={600}
+              height={139}
+              sizes="80px"
+              className="h-4 w-auto"
+            />
+          </a>
         </div>
       </div>
     </footer>
