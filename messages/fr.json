@@ -880,8 +880,126 @@
     "tagline": "PDV, ERP et automatisation intelligents pour le commerce, l’hôtellerie et les opérations sans personnel."
   },
   "privacy": {
+    "eyebrow": "Mentions légales",
     "title": "Politique de confidentialité",
-    "body": "Cette page explique comment 369AI collecte, utilise et protège vos informations."
+    "lead": "Ce que nous recueillons via ce site, pourquoi nous le recueillons, et ce que vous pouvez nous demander d'en faire.",
+    "updatedLabel": "Dernière mise à jour",
+    "who": {
+      "title": "Qui nous sommes",
+      "body": "Ce site est exploité par 369AI, une marque d'Alphalize Technologies, avec des bureaux en Inde, aux Émirats arabes unis, à Oman et aux États-Unis. Pour les informations décrites ici, nous sommes le responsable du traitement : nous décidons pourquoi elles sont recueillies et ce qu'elles deviennent ensuite. Vous pouvez nous joindre avec les coordonnées de la dernière section."
+    },
+    "scope": {
+      "title": "Ce que couvre cette politique",
+      "body": "Cette politique couvre ce site et les formulaires qui s'y trouvent. Elle ne couvre pas les systèmes que nous concevons et installons chez nos clients : lorsque nous déployons Odoo, une caisse POS ou une application mobile au sein d'une autre entreprise, c'est cette entreprise qui contrôle les données qui s'y trouvent, et c'est sa propre politique de confidentialité qui s'applique, non la nôtre."
+    },
+    "collect": {
+      "title": "Ce que nous recueillons",
+      "lead": "Très peu de choses, et uniquement ce que vous nous confiez volontairement. Ce site ne comporte aucun compte visiteur et rien à créer.",
+      "apps": {
+        "title": "Candidatures",
+        "body": "Si vous postulez à un poste, nous recevons et conservons ce que vous saisissez dans le formulaire ainsi que le CV que vous téléversez :",
+        "i1": "Votre nom",
+        "i2": "Votre adresse e-mail",
+        "i3": "Votre numéro de téléphone",
+        "i4": "Le poste auquel vous avez postulé",
+        "i5": "Votre CV au format PDF, son nom de fichier d'origine, ainsi que la date et l'heure d'envoi"
+      },
+      "enquiries": {
+        "title": "Demandes",
+        "body": "Les formulaires de contact, de produit et de candidature n'envoient rien à nos serveurs. Ils composent un message à partir de ce que vous avez saisi et ouvrent WhatsApp, le message prêt à partir : rien ne nous parvient tant que vous n'appuyez pas sur envoyer. Ce point est détaillé plus bas."
+      },
+      "reviews": {
+        "title": "Avis",
+        "body": "Si vous rédigez un avis, nous conservons le nom que vous donnez, l'entreprise que vous citez, le produit concerné, votre note et vos mots. Les avis restent invisibles jusqu'à ce que quelqu'un chez nous les approuve. Une fois approuvé, votre avis est publié sur ce site sous ce nom, où chacun peut le lire. Demandez-le-nous et nous retirerons le vôtre."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "body": "Ce site dépose un seul cookie, et uniquement pour notre propre personnel : un cookie de session signé pour la page où notre équipe modifie les offres d'emploi et les coordonnées. Il n'existe aucun cookie de mesure d'audience, de publicité ou de suivi, d'aucune sorte. Nous n'utilisons ni Google Analytics, ni Tag Manager, ni pixels publicitaires, ni enregistrement de session."
+      },
+      "storage": {
+        "title": "Stockage dans votre navigateur",
+        "body": "Le site retient trois petites choses sur votre propre appareil : que vous avez vu l'animation d'ouverture, que vous avez fermé le message d'accueil de notre assistant, et que vous avez masqué le message promotionnel. Elles restent dans votre navigateur, ne nous sont jamais transmises, et effacer vos données de navigation les supprime."
+      },
+      "technical": {
+        "title": "Votre adresse IP",
+        "body": "Lorsque vous envoyez un formulaire ou un avis, notre serveur lit l'adresse IP d'origine afin de limiter la fréquence des envois venant d'une même source et d'écarter les abus. Elle n'est gardée en mémoire que pour cette vérification — jamais inscrite dans un journal, jamais utilisée pour compter ou profiler les visiteurs, et jamais rattachée à ce que vous avez envoyé."
+      },
+      "none": {
+        "title": "Ce que nous ne recueillons pas",
+        "body": "Nous ne constituons pas de profils de visiteurs, nous ne vous suivons pas d'un site à l'autre, nous n'achetons pas de données personnelles vous concernant, et nous ne vendons ni ne louons jamais ce que vous nous confiez."
+      }
+    },
+    "use": {
+      "title": "Pourquoi nous l'utilisons",
+      "lead": "Nous utilisons ce que vous nous confiez pour le motif dans lequel vous nous l'avez confié, et pour rien d'autre :",
+      "u1": "Pour répondre à votre demande et établir un devis pour ce que vous avez demandé",
+      "u2": "Pour étudier votre candidature et vous contacter au sujet du poste",
+      "u3": "Pour que ce site reste fonctionnel, sûr et disponible",
+      "u4": "Pour respecter nos obligations légales et comptables"
+    },
+    "basis": {
+      "title": "Notre base légale",
+      "body": "Au titre du RGPD, nous nous appuyons sur votre consentement lorsque vous nous adressez une candidature ou une demande : vous choisissez de remplir le formulaire et d'appuyer sur envoyer. Nous nous appuyons sur notre intérêt légitime à exploiter et sécuriser ce site pour le cookie de session du personnel. Au titre du Digital Personal Data Protection Act 2023 en Inde, nous traitons vos informations sur la base du consentement que vous donnez en soumettant un formulaire.",
+      "withdraw": "Vous pouvez retirer votre consentement à tout moment en nous demandant de supprimer ce que vous avez envoyé. Ce retrait n'affecte pas ce que nous avons fait avant votre demande."
+    },
+    "whatsapp": {
+      "title": "Comment vos demandes nous parviennent",
+      "body": "Nos formulaires de demande passent le relais à WhatsApp plutôt que d'écrire sur l'un de nos serveurs. Lorsque vous appuyez sur envoyer dans WhatsApp, votre message et votre numéro de téléphone sont traités par WhatsApp et sa société mère, Meta, selon leur politique de confidentialité et non selon celle-ci. Si vous préférez ne pas utiliser WhatsApp, écrivez-nous ou téléphonez-nous avec les coordonnées de la dernière section."
+    },
+    "thirdParty": {
+      "title": "Contenus chargés depuis d'autres sociétés",
+      "lead": "Une petite partie de ce site est servie par des tiers, que votre navigateur contacte directement :",
+      "t1": "YouTube — les vignettes de notre carrousel vidéo sont servies depuis ce site, donc Google n'est pas contacté pendant votre simple lecture de la page. Appuyer sur lecture charge la vidéo depuis youtube-nocookie.com, ce qui est le premier moment où YouTube apprend votre visite ; aucun cookie n'est déposé avant cela.",
+      "t2": "Google Maps — les fiches de nos bureaux renvoient vers Maps par lien et par QR code. Rien n'est intégré à la page : Google n'est contacté que si vous suivez le lien.",
+      "t3": "Les polices de caractères sont servies depuis nos propres serveurs ; aucune requête n'est donc adressée à Google Fonts pendant votre lecture.",
+      "t4": "Assistants IA — le pied de page propose des boutons qui ouvrent ChatGPT, Claude, Grok, Perplexity ou Mistral avec une courte question sur 369AI déjà rédigée. Rien n'est envoyé tant que vous n'en choisissez pas un ; suivre l'un de ces liens confie cette question à l'entreprise choisie, selon ses conditions et non les nôtres."
+    },
+    "sharing": {
+      "title": "Qui d'autre voit vos informations",
+      "body": "Les candidatures restent chez nous. Nous ne les transmettons ni à des cabinets de recrutement, ni à des régies publicitaires, ni à des courtiers en données, et nous ne vendons pas d'informations personnelles. Nous ne divulguerions des informations que si la loi l'exige, ou pour protéger nos droits et la sécurité d'autrui. Si notre activité venait à être cédée ou réorganisée, nous préviendrions les candidats avant tout transfert de leurs informations."
+    },
+    "transfers": {
+      "title": "Où vont vos informations",
+      "body": "Nous travaillons entre l'Inde, les Émirats arabes unis, Oman et les États-Unis : notre propre personnel peut donc consulter votre candidature depuis l'un de ces pays. WhatsApp et Google, décrits plus haut, se situent en dehors de ceux-ci et traitent les données selon leurs propres conditions. Si vous vous trouvez dans l'Espace économique européen, cela signifie que ce que vous nous envoyez est traité en dehors de celui-ci — vous pouvez à tout moment nous demander ce que nous détenons à votre sujet et le faire supprimer."
+    },
+    "security": {
+      "title": "Comment nous protégeons les candidatures",
+      "lead": "Les candidatures sont conservées sur notre propre serveur sous forme de fichiers ordinaires, et non dans un service de recrutement tiers. L'accès à un CV est délibérément restreint :",
+      "s1": "Le lien de téléchargement que nous transmettons à notre équipe de recrutement est signé individuellement et cesse de fonctionner au bout de 30 jours.",
+      "s2": "La boîte de réception des candidatures est protégée par une session à code d'accès, distincte de ce lien.",
+      "s3": "Les CV ne sont jamais publiés comme fichiers statiques, et sont transmis avec l'instruction de ne pas les mettre en cache ni les stocker.",
+      "s4": "Aucun mot de passe vous appartenant n'entre en jeu, puisque le site n'a pas de compte visiteur pour en détenir un."
+    },
+    "retention": {
+      "title": "Combien de temps nous le conservons",
+      "body": "Nous conservons ce dont nous avons besoin aussi longtemps que cela sert le motif pour lequel vous nous l'avez confié, puis nous le supprimons :",
+      "r1": "Candidatures et CV : conservés tant qu'ils nous sont utiles, et supprimés par notre équipe lorsque vous le demandez. Nous ne les supprimons pas à échéance fixe : si vous souhaitez que le vôtre disparaisse, écrivez-nous et nous supprimerons la candidature et le CV ensemble.",
+      "r2": "Demandes envoyées via WhatsApp : conservées dans cette conversation, et soumises aux règles de conservation de WhatsApp autant qu'aux nôtres.",
+      "r3": "Stockage dans votre navigateur : jusqu'à ce que vous effaciez vos données de navigation. Le cookie de session du personnel expire de lui-même."
+    },
+    "rights": {
+      "title": "Vos droits",
+      "lead": "Où que vous soyez, vous pouvez nous demander l'une des actions suivantes, sans frais :",
+      "r1": "Consulter une copie de ce que nous détenons à votre sujet",
+      "r2": "Corriger tout élément erroné ou obsolète",
+      "r3": "Supprimer ce que nous détenons — nous pouvons effacer entièrement une candidature et son CV",
+      "r4": "Retirer un consentement donné précédemment",
+      "r5": "Vous opposer à ce que nous en faisons, ou nous demander d'en limiter l'usage",
+      "r6": "Recevoir ce que vous nous avez envoyé dans un format portable",
+      "how": "Écrivez-nous avec les coordonnées de la dernière section en indiquant ce que vous souhaitez. Nous répondons sous 30 jours. Si vous vous trouvez dans l'Espace économique européen ou au Royaume-Uni, vous pouvez également saisir votre autorité nationale de protection des données ; si vous êtes en Inde, vous pouvez saisir le Data Protection Board of India."
+    },
+    "children": {
+      "title": "Enfants",
+      "body": "Ce site s'adresse aux entreprises et non aux enfants. Nous ne recueillons pas sciemment d'informations auprès de personnes de moins de 16 ans. Si vous pensez qu'un enfant nous a transmis quelque chose, dites-le-nous et nous le supprimerons."
+    },
+    "changes": {
+      "title": "Modifications de cette politique",
+      "body": "Si ce que nous faisons de vos informations change, nous mettrons cette page à jour et modifierons la date en haut. Lorsqu'un changement est important et que nous disposons de vos coordonnées, nous vous en informerons directement plutôt que de compter sur le fait que vous le remarquiez."
+    },
+    "contact": {
+      "title": "Comment nous contacter",
+      "body": "Pour tout ce qui concerne cette politique — une question, une correction, ou une demande de suppression de ce que nous détenons — écrivez à {email} ou appelez le {phone}. Nos bureaux sont listés sur la page Contact."
+    }
   },
   "notFound": {
     "title": "Page introuvable",

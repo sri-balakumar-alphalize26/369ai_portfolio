@@ -880,8 +880,126 @@
     "tagline": "Intelligente Kassensysteme, ERP und Automatisierung für Handel, Gastgewerbe und unbemannten Betrieb."
   },
   "privacy": {
+    "eyebrow": "Rechtliches",
     "title": "Datenschutzerklärung",
-    "body": "Diese Seite beschreibt, wie 369AI Ihre Daten erhebt, nutzt und schützt."
+    "lead": "Was wir über diese Website erheben, warum wir es erheben und worum Sie uns dabei bitten können.",
+    "updatedLabel": "Zuletzt aktualisiert",
+    "who": {
+      "title": "Wer wir sind",
+      "body": "Diese Website wird betrieben von 369AI, einer Marke von Alphalize Technologies, mit Büros in Indien, den VAE, Oman und den Vereinigten Staaten. Für die hier beschriebenen Daten sind wir der Verantwortliche — wir entscheiden, warum sie erhoben werden und was anschließend mit ihnen geschieht. Sie erreichen uns über die Angaben im letzten Abschnitt."
+    },
+    "scope": {
+      "title": "Wofür diese Erklärung gilt",
+      "body": "Diese Erklärung gilt für diese Website und die Formulare darauf. Sie gilt nicht für die Systeme, die wir für unsere Kunden bauen und installieren: Wenn wir Odoo, eine POS-Kasse oder eine mobile App in einem anderen Unternehmen einführen, kontrolliert dieses Unternehmen die darin enthaltenen Daten, und es gilt dessen eigene Datenschutzerklärung, nicht unsere."
+    },
+    "collect": {
+      "title": "Was wir erheben",
+      "lead": "Sehr wenig, und nur das, was Sie uns bewusst geben. Diese Website hat kein Besucherkonto und nichts, wofür man sich anmelden müsste.",
+      "apps": {
+        "title": "Bewerbungen",
+        "body": "Wenn Sie sich auf eine Stelle bewerben, erhalten und speichern wir Ihre Eingaben im Formular zusammen mit dem hochgeladenen Lebenslauf:",
+        "i1": "Ihren Namen",
+        "i2": "Ihre E-Mail-Adresse",
+        "i3": "Ihre Telefonnummer",
+        "i4": "Die Stelle, auf die Sie sich beworben haben",
+        "i5": "Ihren Lebenslauf als PDF, dessen ursprünglichen Dateinamen sowie Datum und Uhrzeit des Versands"
+      },
+      "enquiries": {
+        "title": "Anfragen",
+        "body": "Die Formulare für Kontakt, Produkte und Bewerbungen senden nichts an unsere Server. Sie stellen aus Ihren Eingaben eine Nachricht zusammen und öffnen WhatsApp mit der fertigen Nachricht — bei uns kommt nichts an, bevor Sie dort auf Senden tippen. Näheres dazu weiter unten."
+      },
+      "reviews": {
+        "title": "Bewertungen",
+        "body": "Wenn Sie eine Bewertung schreiben, speichern wir den Namen, den Sie angeben, das genannte Unternehmen, das bewertete Produkt, Ihre Note und Ihren Text. Bewertungen bleiben unsichtbar, bis jemand bei uns sie freigibt. Nach der Freigabe wird Ihre Bewertung unter diesem Namen auf dieser Website veröffentlicht, wo jeder sie lesen kann. Sagen Sie uns Bescheid, und wir nehmen Ihre wieder herunter."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "body": "Diese Website setzt genau ein Cookie, und zwar nur für unsere eigenen Mitarbeitenden: ein signiertes Sitzungs-Cookie für die Seite, auf der unser Team Stellenanzeigen und Kontaktdaten bearbeitet. Es gibt keinerlei Analyse-, Werbe- oder Tracking-Cookies. Wir setzen weder Google Analytics noch Tag Manager, Werbepixel oder Sitzungsaufzeichnung ein."
+      },
+      "storage": {
+        "title": "Speicher in Ihrem Browser",
+        "body": "Die Website merkt sich drei Kleinigkeiten auf Ihrem eigenen Gerät: dass Sie die Startanimation gesehen haben, dass Sie die Begrüßung unseres Assistenten geschlossen haben und dass Sie den Hinweis auf unser Angebot ausgeblendet haben. Das bleibt in Ihrem Browser, wird nie an uns übertragen, und das Löschen Ihrer Browserdaten entfernt es."
+      },
+      "technical": {
+        "title": "Ihre IP-Adresse",
+        "body": "Wenn Sie ein Formular oder eine Bewertung absenden, liest unser Server die IP-Adresse, von der es kam, um zu begrenzen, wie oft dieselbe Quelle absendet, und um Missbrauch abzuweisen. Sie bleibt nur für diese Prüfung im Arbeitsspeicher — sie wird nicht protokolliert, nicht zum Zählen oder Profilieren von Besuchern genutzt und nicht mit dem verknüpft, was Sie gesendet haben."
+      },
+      "none": {
+        "title": "Was wir nicht erheben",
+        "body": "Wir erstellen keine Besucherprofile, wir verfolgen Sie nicht über andere Websites hinweg, wir kaufen keine personenbezogenen Daten über Sie, und wir verkaufen oder vermieten niemals, was Sie uns geben."
+      }
+    },
+    "use": {
+      "title": "Wozu wir es verwenden",
+      "lead": "Wir verwenden das, was Sie uns geben, für den Zweck, zu dem Sie es gegeben haben, und für nichts anderes:",
+      "u1": "Um Ihre Anfrage zu beantworten und ein Angebot für das Gefragte zu erstellen",
+      "u2": "Um Ihre Bewerbung zu prüfen und Sie zur Stelle zu kontaktieren",
+      "u3": "Um diese Website funktionsfähig, sicher und erreichbar zu halten",
+      "u4": "Um unseren rechtlichen und buchhalterischen Pflichten nachzukommen"
+    },
+    "basis": {
+      "title": "Unsere Rechtsgrundlage",
+      "body": "Nach der DSGVO stützen wir uns auf Ihre Einwilligung, wenn Sie uns eine Bewerbung oder eine Anfrage senden — Sie entscheiden sich, das Formular auszufüllen und abzuschicken. Für das Sitzungs-Cookie der Mitarbeitenden stützen wir uns auf unser berechtigtes Interesse am Betrieb und an der Sicherheit dieser Website. Nach dem Digital Personal Data Protection Act 2023 in Indien verarbeiten wir Ihre Daten auf Grundlage der Einwilligung, die Sie mit dem Absenden eines Formulars erteilen.",
+      "withdraw": "Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie uns bitten, das Gesendete zu löschen. Der Widerruf berührt nicht, was wir vor Ihrer Bitte getan haben."
+    },
+    "whatsapp": {
+      "title": "Wie Anfragen uns erreichen",
+      "body": "Unsere Anfrageformulare übergeben an WhatsApp, statt auf einen unserer Server zu schreiben. Wenn Sie in WhatsApp auf Senden tippen, werden Ihre Nachricht und Ihre Telefonnummer von WhatsApp und dessen Mutterkonzern Meta nach deren Datenschutzerklärung verarbeitet, nicht nach dieser. Wenn Sie WhatsApp lieber nicht nutzen möchten, schreiben oder telefonieren Sie uns über die Angaben im letzten Abschnitt."
+    },
+    "thirdParty": {
+      "title": "Inhalte, die von anderen Unternehmen geladen werden",
+      "lead": "Ein kleiner Teil dieser Website wird von Dritten ausgeliefert, die Ihr Browser direkt kontaktiert:",
+      "t1": "YouTube — die Vorschaubilder unserer Videoleiste werden von dieser Website ausgeliefert, Google wird also nicht kontaktiert, während Sie die Seite nur lesen. Ein Druck auf Wiedergabe lädt das Video von youtube-nocookie.com; das ist der erste Moment, in dem YouTube von Ihrem Besuch erfährt, und davor werden keine Cookies gesetzt.",
+      "t2": "Google Maps — unsere Bürokarten verweisen per Link und QR-Code auf Maps. Es ist nichts in die Seite eingebettet; Google wird nur kontaktiert, wenn Sie dem Link folgen.",
+      "t3": "Schriftarten werden von unseren eigenen Servern ausgeliefert, es geht also beim Lesen keine Anfrage an Google Fonts.",
+      "t4": "KI-Assistenten — die Fußzeile bietet Schaltflächen, die ChatGPT, Claude, Grok, Perplexity oder Mistral mit einer bereits formulierten kurzen Frage zu 369AI öffnen. Es wird nichts gesendet, solange Sie keine davon wählen; einem solchen Link zu folgen übergibt diese Frage dem gewählten Unternehmen, zu dessen Bedingungen und nicht zu unseren."
+    },
+    "sharing": {
+      "title": "Wer Ihre Daten sonst noch sieht",
+      "body": "Bewerbungen bleiben bei uns. Wir geben sie weder an Personalvermittlungen noch an Werbenetzwerke oder Datenhändler weiter, und wir verkaufen keine personenbezogenen Daten. Wir würden Daten nur offenlegen, wo das Gesetz es verlangt, oder um unsere Rechte und die Sicherheit anderer zu schützen. Sollte unser Unternehmen jemals verkauft oder umstrukturiert werden, würden wir Bewerberinnen und Bewerber informieren, bevor ihre Daten übergehen."
+    },
+    "transfers": {
+      "title": "Wohin Ihre Daten gehen",
+      "body": "Wir arbeiten über Indien, die VAE, Oman und die Vereinigten Staaten hinweg, sodass unsere eigenen Mitarbeitenden Ihre Bewerbung aus jedem dieser Länder lesen können. WhatsApp und Google, oben beschrieben, liegen außerhalb davon und verarbeiten Daten nach ihren eigenen Bedingungen. Wenn Sie sich im Europäischen Wirtschaftsraum befinden, heißt das: Was Sie uns senden, wird außerhalb davon bearbeitet — Sie können uns jederzeit fragen, was wir über Sie gespeichert haben, und es löschen lassen."
+    },
+    "security": {
+      "title": "Wie wir Bewerbungen schützen",
+      "lead": "Bewerbungen liegen als gewöhnliche Dateien auf unserem eigenen Server, nicht in einem fremden Recruiting-Dienst. Der Zugang zu einem Lebenslauf ist bewusst eng gehalten:",
+      "s1": "Der Download-Link, den wir unserem Recruiting-Team schicken, ist einzeln signiert und funktioniert nach 30 Tagen nicht mehr.",
+      "s2": "Der Bewerbungseingang liegt hinter einer Sitzung mit Zugangscode, getrennt von diesem Link.",
+      "s3": "Lebensläufe werden nie als statische Dateien veröffentlicht und mit der Anweisung ausgeliefert, sie weder zwischenzuspeichern noch abzulegen.",
+      "s4": "Kein Passwort von Ihnen ist im Spiel, denn die Website hat kein Besucherkonto, das eines halten könnte."
+    },
+    "retention": {
+      "title": "Wie lange wir es aufbewahren",
+      "body": "Wir bewahren auf, was wir brauchen, solange es dem Zweck dient, zu dem Sie es gegeben haben, und löschen es dann:",
+      "r1": "Bewerbungen und Lebensläufe: aufbewahrt, solange sie uns von Nutzen sind, und von unserem Team gelöscht, wenn Sie darum bitten. Wir löschen sie nicht nach einer festen Frist — möchten Sie Ihre entfernt haben, schreiben Sie uns, und wir löschen Bewerbung und Lebenslauf zusammen.",
+      "r2": "Über WhatsApp gesendete Anfragen: verbleiben in diesem Chatverlauf und unterliegen ebenso den Aufbewahrungsregeln von WhatsApp wie unseren eigenen.",
+      "r3": "Speicher in Ihrem Browser: bis Sie Ihre Browserdaten löschen. Das Sitzungs-Cookie der Mitarbeitenden läuft von selbst ab."
+    },
+    "rights": {
+      "title": "Ihre Rechte",
+      "lead": "Wo Sie auch sind, Sie können uns um jedes der folgenden Dinge bitten, und wir berechnen Ihnen dafür nichts:",
+      "r1": "Eine Kopie dessen einsehen, was wir über Sie gespeichert haben",
+      "r2": "Alles berichtigen, was falsch oder veraltet ist",
+      "r3": "Löschen, was wir gespeichert haben — wir können eine Bewerbung samt Lebenslauf vollständig entfernen",
+      "r4": "Eine früher erteilte Einwilligung widerrufen",
+      "r5": "Der Verarbeitung widersprechen oder uns bitten, sie einzuschränken",
+      "r6": "Das, was Sie uns gesendet haben, in einem übertragbaren Format erhalten",
+      "how": "Schreiben Sie uns über die Angaben im letzten Abschnitt und sagen Sie uns, was Sie möchten. Wir antworten innerhalb von 30 Tagen. Wenn Sie sich im Europäischen Wirtschaftsraum oder im Vereinigten Königreich befinden, können Sie sich auch bei Ihrer nationalen Datenschutzbehörde beschweren; in Indien beim Data Protection Board of India."
+    },
+    "children": {
+      "title": "Kinder",
+      "body": "Dies ist eine Website für Unternehmen und richtet sich nicht an Kinder. Wir erheben wissentlich keine Daten von Personen unter 16 Jahren. Wenn Sie glauben, dass ein Kind uns etwas gesendet hat, sagen Sie uns Bescheid, und wir löschen es."
+    },
+    "changes": {
+      "title": "Änderungen dieser Erklärung",
+      "body": "Wenn sich ändert, was wir mit Ihren Daten tun, aktualisieren wir diese Seite und passen das Datum oben an. Ist eine Änderung wesentlich und liegen uns Ihre Kontaktdaten vor, informieren wir Sie direkt, statt darauf zu bauen, dass Sie es bemerken."
+    },
+    "contact": {
+      "title": "So erreichen Sie uns",
+      "body": "Für alles in dieser Erklärung — eine Frage, eine Berichtigung oder die Bitte, Gespeichertes zu löschen — schreiben Sie an {email} oder rufen Sie {phone} an. Unsere Büros finden Sie auf der Kontaktseite."
+    }
   },
   "notFound": {
     "title": "Seite nicht gefunden",

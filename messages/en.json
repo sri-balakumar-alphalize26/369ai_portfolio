@@ -880,8 +880,126 @@
     "tagline": "Intelligent POS, ERP and automation for retail, hospitality and unmanned operations."
   },
   "privacy": {
+    "eyebrow": "Legal",
     "title": "Privacy Policy",
-    "body": "This page describes how 369AI collects, uses and protects the information you share with us."
+    "lead": "What we collect through this website, why we collect it, and what you can ask us to do with it.",
+    "updatedLabel": "Last updated",
+    "who": {
+      "title": "Who we are",
+      "body": "This website is operated by 369AI, a brand of Alphalize Technologies, with offices in India, the UAE, Oman and the United States. For the information described here we are the data controller — we decide why it is collected and what happens to it afterwards. You can reach us using the details in the last section."
+    },
+    "scope": {
+      "title": "What this policy covers",
+      "body": "This policy covers this website and the forms on it. It does not cover the systems we build and install for our clients: when we implement Odoo, a POS counter or a mobile app inside another company, that company controls the data held in it and its own privacy policy applies, not ours."
+    },
+    "collect": {
+      "title": "What we collect",
+      "lead": "Very little, and only where you hand it to us on purpose. There is no visitor account on this site and nothing to sign up for.",
+      "apps": {
+        "title": "Job applications",
+        "body": "If you apply for a role, we receive and store what you type into the form together with the CV you upload:",
+        "i1": "Your name",
+        "i2": "Your email address",
+        "i3": "Your phone number",
+        "i4": "The role you applied for",
+        "i5": "Your CV as a PDF, its original filename, and the date and time you sent it"
+      },
+      "enquiries": {
+        "title": "Enquiries",
+        "body": "The contact, product and careers enquiry forms send nothing to our servers. They compose a message from what you have typed and open WhatsApp with it ready to go — nothing reaches us until you press send there. This is described further below."
+      },
+      "reviews": {
+        "title": "Reviews",
+        "body": "If you write a review, we store the name you give, the company you name, the product you are reviewing, your rating and your words. Reviews are held out of sight until someone here approves them. Once approved, your review is published on this website under that name, where anyone can read it. Ask us and we will take yours down."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "body": "This site sets one cookie, and only for our own staff: a signed session cookie for the page where our team edits job listings and contact details. There are no analytics, advertising or tracking cookies of any kind. We do not use Google Analytics, Tag Manager, advertising pixels or session recording."
+      },
+      "storage": {
+        "title": "Storage in your browser",
+        "body": "The site remembers three small things on your own device: that you have seen the opening animation, that you have dismissed the greeting from our assistant, and that you have hidden the promotional message. These stay in your browser, are never sent to us, and clearing your browsing data removes them."
+      },
+      "technical": {
+        "title": "Your IP address",
+        "body": "When you send a form or a review, our server reads the IP address it arrived from so it can limit how often the same source submits and turn away abuse. It is held in memory for that check only — not written to a log, not used to count or profile visitors, and not attached to what you sent."
+      },
+      "none": {
+        "title": "What we do not collect",
+        "body": "We do not build visitor profiles, we do not track you across other websites, we do not buy personal data about you, and we never sell or rent anything you give us."
+      }
+    },
+    "use": {
+      "title": "Why we use it",
+      "lead": "We use what you give us for the reason you gave it, and for nothing else:",
+      "u1": "To reply to your enquiry and to quote for what you asked about",
+      "u2": "To assess your application and to contact you about the role",
+      "u3": "To keep this website working, secure and available",
+      "u4": "To meet our legal and accounting obligations"
+    },
+    "basis": {
+      "title": "Our lawful basis",
+      "body": "Under the GDPR we rely on your consent when you send us an application or an enquiry — you choose to fill in the form and press send. We rely on our legitimate interest in operating and securing this website for the staff session cookie. Under the Digital Personal Data Protection Act 2023 in India, we process your information on the basis of the consent you give when you submit a form.",
+      "withdraw": "You can withdraw your consent at any time by asking us to delete what you sent. Withdrawing it does not affect anything we did before you asked."
+    },
+    "whatsapp": {
+      "title": "How enquiries reach us",
+      "body": "Our enquiry forms hand off to WhatsApp rather than posting to a server of ours. When you press send in WhatsApp, your message and your phone number are processed by WhatsApp and its parent company, Meta, under their privacy policy rather than this one. If you would prefer not to use WhatsApp, email or telephone us using the details in the last section."
+    },
+    "thirdParty": {
+      "title": "Content loaded from other companies",
+      "lead": "A small part of this site is served by others, and your browser contacts them directly:",
+      "t1": "YouTube — the preview images on our video rail are served from this site, so Google is not contacted while you are simply reading the page. Pressing play loads the video from youtube-nocookie.com, which is the first time YouTube learns of your visit, and it sets no cookies before that.",
+      "t2": "Google Maps — our office cards link and QR-code through to Maps. Nothing is embedded in the page, so Google is contacted only if you follow the link.",
+      "t3": "Fonts are served from our own servers, so no request is made to Google Fonts as you read this.",
+      "t4": "AI assistants — the footer offers buttons that open ChatGPT, Claude, Grok, Perplexity or Mistral with a short prompt about 369AI already written out. Nothing is sent unless you pick one; following a link hands that prompt to the company you picked, under their terms rather than ours."
+    },
+    "sharing": {
+      "title": "Who else sees your information",
+      "body": "Applications stay with us. We do not pass them to recruitment agencies, advertising networks or data brokers, and we do not sell personal information. We would disclose information only where the law requires it, or to protect our rights and the safety of others. If our business were ever sold or reorganised, we would tell applicants before their information moved."
+    },
+    "transfers": {
+      "title": "Where your information goes",
+      "body": "We work across India, the UAE, Oman and the United States, so our own staff may read your application from any of those countries. WhatsApp and Google, described above, sit outside them and handle data under their own terms. If you are in the European Economic Area, that means what you send us is dealt with outside it — you can ask us at any point what we hold about you and have it deleted."
+    },
+    "security": {
+      "title": "How we protect applications",
+      "lead": "Applications are held on our own server as ordinary files, not in a third-party recruitment service. Access to a CV is deliberately narrow:",
+      "s1": "The download link we send to our hiring team is individually signed and stops working after 30 days.",
+      "s2": "The applications inbox sits behind a passcode session, separate from that link.",
+      "s3": "CVs are never published as static files, and are sent with instructions not to cache or store them.",
+      "s4": "No password of yours is involved, because the site has no visitor accounts to hold one."
+    },
+    "retention": {
+      "title": "How long we keep it",
+      "body": "We keep what we need for as long as it serves the reason you gave it, and then we delete it:",
+      "r1": "Job applications and CVs: kept while they are still of use to us, and deleted by our team when you ask. We do not remove them on a fixed schedule, so if you would like yours gone, write to us and we will delete the application and the CV together.",
+      "r2": "Enquiries you send over WhatsApp: held in that conversation, and subject to the retention rules of WhatsApp as well as our own.",
+      "r3": "Storage in your browser: until you clear your browsing data. The staff session cookie expires on its own."
+    },
+    "rights": {
+      "title": "Your rights",
+      "lead": "Wherever you are, you may ask us to do any of the following, and we will not charge you for it:",
+      "r1": "See a copy of what we hold about you",
+      "r2": "Correct anything that is wrong or out of date",
+      "r3": "Delete what we hold — we can remove an application and its CV completely",
+      "r4": "Withdraw a consent you gave earlier",
+      "r5": "Object to what we are doing with it, or ask us to restrict it",
+      "r6": "Receive what you sent us in a portable form",
+      "how": "Write to us with the details in the last section and tell us what you would like done. We answer within 30 days. If you are in the European Economic Area or the United Kingdom you may also complain to your national data protection authority; if you are in India you may complain to the Data Protection Board of India."
+    },
+    "children": {
+      "title": "Children",
+      "body": "This is a business website and it is not directed at children. We do not knowingly collect information from anyone under 16. If you believe a child has sent us something, tell us and we will delete it."
+    },
+    "changes": {
+      "title": "Changes to this policy",
+      "body": "If what we do with your information changes, we will update this page and move the date at the top. Where a change is significant and we hold your contact details, we will tell you directly rather than rely on you noticing."
+    },
+    "contact": {
+      "title": "How to contact us",
+      "body": "For anything in this policy — a question, a correction, or a request to delete what we hold — write to {email} or call {phone}. Our offices are listed on the Contact page."
+    }
   },
   "notFound": {
     "title": "Page not found",
