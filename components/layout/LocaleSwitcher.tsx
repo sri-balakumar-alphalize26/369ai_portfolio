@@ -15,6 +15,29 @@ import { cn } from '@/lib/cn'
  * "Oman & UAE — العربية", not a bare two-letter code.
  * Switching preserves the current path.
  */
+/**
+ * The locales grouped by their region label, in `locales` order.
+ *
+ * India has three languages, so its region is printed once as a heading with
+ * the flag beside it and the languages sit underneath. The flat alternative
+ * put the word "India" on three consecutive rows, each with an identical
+ * flag, which reads as a bug rather than a choice.
+ *
+ * Grouping is positional, not a lookup: a region breaks when the label
+ * changes, so `locales` has to keep same-region entries adjacent — see the
+ * note on that array in i18n/routing.ts.
+ */
+const REGIONS = locales.reduce<{ region: string; flag: Locale; items: Locale[] }[]>(
+  (groups, l) => {
+    const { region } = localeLabels[l]
+    const last = groups[groups.length - 1]
+    if (last?.region === region) last.items.push(l)
+    else groups.push({ region, flag: l, items: [l] })
+    return groups
+  },
+  []
+)
+
 export function LocaleSwitcher({
   tone = 'light',
   compact = false,
@@ -108,40 +131,47 @@ export function LocaleSwitcher({
       {open ? (
         <ul
           role="listbox"
-          className="glass-panel absolute end-0 top-[calc(100%+1.75rem)] z-50 w-64 overflow-hidden rounded-2xl py-2"
+          /* max-h + scroll, not overflow-hidden: nine locales are taller than
+             the gap between the header and the bottom of a phone viewport, and
+             a clipped absolute panel cannot be scrolled to. Same treatment as
+             SearchMenu. */
+          className="glass-panel absolute end-0 top-[calc(100%+1.75rem)] z-50 max-h-[24rem] w-64 overflow-y-auto rounded-2xl py-2"
           style={{ animation: 'glass-in .36s var(--ease-out-soft) both' }}
         >
-          {locales.map((l) => {
-            const label = localeLabels[l]
-            const active = l === locale
-            return (
-              <li key={l}>
-                <button
-                  type="button"
-                  role="option"
-                  aria-selected={active}
-                  onClick={() => switchTo(l)}
-                  className={cn(
-                    'flex w-full items-center justify-between gap-3 px-4 py-2.5 text-start text-sm transition-colors',
-                    active
-                      ? 'bg-brand-50/80 font-medium text-brand-700'
-                      : 'text-slate-body hover:bg-white/70 hover:text-brand-700'
-                  )}
-                >
-                  <span className="flex items-center gap-3">
-                    <Flag locale={l} />
-                    <span>
-                      <span className="block text-[0.7rem] uppercase tracking-wide text-slate-faint">
-                        {label.region}
-                      </span>
-                      <span>{label.language}</span>
-                    </span>
-                  </span>
-                  {active ? <Check className="h-4 w-4 shrink-0" aria-hidden /> : null}
-                </button>
-              </li>
-            )
-          })}
+          {REGIONS.map((group) => (
+            <li key={group.region} role="group" aria-label={group.region}>
+              <p className="flex items-center gap-3 px-4 pb-1 pt-2.5 text-[0.7rem] uppercase tracking-wide text-slate-faint">
+                <Flag locale={group.flag} />
+                {group.region}
+              </p>
+              <ul role="none">
+                {group.items.map((l) => {
+                  const active = l === locale
+                  return (
+                    <li key={l} role="none">
+                      <button
+                        type="button"
+                        role="option"
+                        aria-selected={active}
+                        onClick={() => switchTo(l)}
+                        /* ps-[3.25rem] = px-4 + the flag's w-6 + gap-3, so the
+                           language lines up under the region text above it. */
+                        className={cn(
+                          'flex w-full items-center justify-between gap-3 py-2 pe-4 ps-[3.25rem] text-start text-sm transition-colors',
+                          active
+                            ? 'bg-brand-50/80 font-medium text-brand-700'
+                            : 'text-slate-body hover:bg-white/70 hover:text-brand-700'
+                        )}
+                      >
+                        {localeLabels[l].language}
+                        {active ? <Check className="h-4 w-4 shrink-0" aria-hidden /> : null}
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+            </li>
+          ))}
         </ul>
       ) : null}
 

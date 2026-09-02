@@ -42,8 +42,13 @@
   --color-surface-line: #dce8ef;
 
   /* type */
-  --font-sans: var(--font-body), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: var(--font-display), var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  /* --font-indic is set only on ta/ml (see app/[locale]/layout.tsx) and sits
+     after the latin face, so Instrument Sans still draws "369AI" and "Odoo"
+     and only Tamil/Malayalam characters fall through to Noto. The fallback
+     keeps the declaration valid on the other seven locales, where the
+     variable is undefined. */
+  --font-sans: var(--font-body), var(--font-indic, ui-sans-serif), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-display), var(--font-body), var(--font-indic, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
 
   --radius-card: 12px;
   --radius-panel: 22px;
@@ -90,6 +95,13 @@
     font-family: var(--font-display);
     letter-spacing: -0.025em;
     text-wrap: balance;
+  }
+
+  /* Tamil and Malayalam stack matras and conjuncts above and below the base
+     glyph; pulling the tracking negative crowds them into their neighbours. */
+  html[lang='ta'] :is(h1, h2, h3, h4),
+  html[lang='ml'] :is(h1, h2, h3, h4) {
+    letter-spacing: 0;
   }
 
   p {

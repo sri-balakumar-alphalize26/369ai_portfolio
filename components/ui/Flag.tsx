@@ -85,8 +85,11 @@ export function Flag({ locale, className = 'h-4 w-6' }: { locale: Locale; classN
         </svg>
       )
 
-    // India — saffron / white / green with the Ashoka chakra.
+    // India — saffron / white / green with the Ashoka chakra. One flag for
+    // all three Indian languages; the picker draws it once per region anyway.
     case 'hi':
+    case 'ta':
+    case 'ml':
       return (
         <svg {...common}>
           <rect width="24" height="5.34" fill="#ff9933" />
@@ -96,5 +99,15 @@ export function Flag({ locale, className = 'h-4 w-6' }: { locale: Locale; classN
           <circle cx="12" cy="8" r="0.5" fill="#000080" />
         </svg>
       )
+
+    // Falling off the end used to return undefined, which React renders as
+    // nothing — a new locale lost its flag with no build error and no lint
+    // warning. This turns that into a compile error instead: `locale` is only
+    // `never` here while every locale above is handled.
+    default: {
+      const unhandled: never = locale
+      void unhandled
+      return null
+    }
   }
 }

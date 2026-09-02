@@ -2,7 +2,12 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Instrument_Sans, Space_Grotesk } from 'next/font/google'
+import {
+  Instrument_Sans,
+  Space_Grotesk,
+  Noto_Sans_Tamil,
+  Noto_Sans_Malayalam,
+} from 'next/font/google'
 import { routing, isRtl, localeLabels, locales } from '@/i18n/routing'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -24,6 +29,31 @@ const body = Instrument_Sans({
 const display = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display',
+  display: 'swap',
+})
+
+/**
+ * Tamil and Malayalam glyphs.
+ *
+ * Instrument Sans and Space Grotesk ship latin only — they have no Tamil or
+ * Malayalam subset at all, so those scripts would fall through to whatever the
+ * visitor's OS happens to provide (as ar/bn/zh/hi still do).
+ *
+ * Both faces deliberately expose the SAME variable, and only the one matching
+ * the locale is attached to <html> below, so the other seven locales download
+ * nothing and there is never a collision. In globals.css the variable sits
+ * AFTER the latin face, so brand names keep Instrument Sans and only Indic
+ * characters fall through to Noto.
+ */
+const tamil = Noto_Sans_Tamil({
+  subsets: ['tamil'],
+  variable: '--font-indic',
+  display: 'swap',
+})
+
+const malayalam = Noto_Sans_Malayalam({
+  subsets: ['malayalam'],
+  variable: '--font-indic',
   display: 'swap',
 })
 
@@ -137,11 +167,14 @@ export default async function LocaleLayout({
   const { roles } = await readCareers()
   const hiring = roles.some((role) => role.active)
 
+  // Empty for the seven locales that need no Indic face — see the note above.
+  const indic = locale === 'ta' ? tamil.variable : locale === 'ml' ? malayalam.variable : ''
+
   return (
     <html
       lang={locale}
       dir={isRtl(locale) ? 'rtl' : 'ltr'}
-      className={`${body.variable} ${display.variable} h-full antialiased`}
+      className={`${body.variable} ${display.variable} ${indic} h-full antialiased`}
     >
       <body className="min-h-full">
         {/* First-visit loading screen island — see LOADER_* constants above.
