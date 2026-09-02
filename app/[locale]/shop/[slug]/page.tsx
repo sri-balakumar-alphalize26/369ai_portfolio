@@ -106,7 +106,7 @@ export default async function ProductPage({
                   opens whatever number manage mode last saved. */}
               <EnquiryButton
                 product={product.name}
-                number={waNumber((await readContact()).whatsapp)}
+                number={waNumber((await readContact()).phoneDisplay)}
               />
             </div>
 

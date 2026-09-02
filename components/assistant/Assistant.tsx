@@ -278,7 +278,7 @@ export function Assistant({ contact }: { contact: ContactSettings }) {
     setInput('')
   }
 
-  const whatsappHref = `https://wa.me/${contact.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(
+  const whatsappHref = `https://wa.me/${contact.phoneDisplay.replace(/\D/g, '')}?text=${encodeURIComponent(
     t('whatsappPrefill')
   )}`
 

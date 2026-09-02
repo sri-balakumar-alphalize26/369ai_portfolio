@@ -103,12 +103,16 @@ export const OFFICES: Office[] = [
   },
 ]
 
-/** Site-wide contact. Call and WhatsApp both use the India number. */
+/**
+ * Site-wide contact, as shipped — the seed behind lib/contact-settings.ts,
+ * which manage mode may override. Calls and WhatsApp are the same India
+ * number, so there is no separate WhatsApp entry: waNumber() derives it from
+ * phoneDisplay.
+ */
 export const CONTACT = {
   phone: '+917025205503',
   phoneDisplay: '+91 70252 05503',
   email: 'hr@alphalize.com',
-  whatsapp: '917025205503',
 } as const
 
 /** Google Maps deep link — the payload behind each office QR code. */

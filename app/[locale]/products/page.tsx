@@ -237,7 +237,7 @@ export default async function ProductsPage({
           sends to whatever sales number manage mode last saved. */}
       <Section>
         <SectionHeader title={tEnq('title')} body={tEnq('body')} />
-        <EnquiryForm number={waNumber(settings.whatsapp)} presetSubject={tEnq('demoSubject')} />
+        <EnquiryForm number={waNumber(settings.phoneDisplay)} presetSubject={tEnq('demoSubject')} />
       </Section>
     </>
   )

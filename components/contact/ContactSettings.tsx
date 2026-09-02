@@ -5,6 +5,7 @@ import { Lock, Pencil, X } from 'lucide-react'
 import { saveContact } from '@/app/[locale]/contact/actions'
 import { lockCareers } from '@/app/[locale]/careers/actions'
 import type { ContactSettings as Settings } from '@/lib/contact-settings'
+import { emailProblem, EMAIL_MESSAGE } from '@/lib/email'
 
 /**
  * Manage-mode editor for the sales contact details. Rendered only when the
@@ -19,6 +20,10 @@ export function ContactSettings({ settings }: { settings: Settings }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDialogElement>(null)
   const [saving, setSaving] = useState(false)
+  /* What the server refused, if it did. The browser catches these first, so
+     this only shows when something got past it — but it must never close as
+     though the save worked. */
+  const [error, setError] = useState<string | null>(null)
   const [, startTransition] = useTransition()
 
   useEffect(() => {
@@ -62,9 +67,11 @@ export function ContactSettings({ settings }: { settings: Settings }) {
         <form
           action={async (formData) => {
             setSaving(true)
+            setError(null)
             try {
-              await saveContact(formData)
-              ref.current?.close()
+              const result = await saveContact(formData)
+              if (result.ok) ref.current?.close()
+              else setError(result.error)
             } finally {
               setSaving(false)
             }
@@ -87,17 +94,31 @@ export function ContactSettings({ settings }: { settings: Settings }) {
             <Row
               name="phoneDisplay"
               label="Phone"
-              hint="Shown as typed. The dialer link strips the spaces."
+              hint="Shown as typed, and used for calls and WhatsApp alike. The dialer and wa.me links strip the spaces themselves."
               defaultValue={settings.phoneDisplay}
             />
-            <Row name="email" label="Email" hint="Used for the mailto: link." defaultValue={settings.email} />
             <Row
-              name="whatsapp"
-              label="Sales WhatsApp"
-              hint="Where the enquiry and demo forms send. Country code, no +."
-              defaultValue={settings.whatsapp}
+              name="email"
+              label="Email"
+              type="email"
+              required
+              /* No `pattern`: an attribute cannot express a list of real domain
+                 endings, and it was the reason .comm sailed through. The
+                 callback runs the same emailProblem() the server does. */
+              validate={(value) => {
+                const problem = emailProblem(value)
+                return problem ? EMAIL_MESSAGE[problem] : ''
+              }}
+              hint="Used for the mailto: link. Must be a full address with a real ending, like abc@gmail.com."
+              defaultValue={settings.email}
             />
           </div>
+
+          {error ? (
+            <p role="alert" className="mt-4 text-sm text-red-600">
+              {error}
+            </p>
+          ) : null}
 
           <div className="mt-8 flex justify-end gap-3">
             <button
@@ -121,17 +142,41 @@ export function ContactSettings({ settings }: { settings: Settings }) {
   )
 }
 
+/**
+ * One labelled field.
+ *
+ * Validation is the browser's: an invalid value blocks the submit and shows
+ * `title` as the message, the same way the enquiry and careers forms work.
+ * saveContact re-checks on the server regardless — this only means a typo is
+ * caught while the dialog is still open, rather than being silently discarded
+ * on save and leaving the old address in place with no explanation.
+ */
 function Row({
   name,
   label,
   hint,
   defaultValue,
+  type = 'text',
+  required,
+  validate,
 }: {
   name: string
   label: string
   hint: string
   defaultValue: string
+  type?: string
+  required?: boolean
+  /** Returns a message to block the save with, or '' when the value is fine. */
+  validate?: (value: string) => string
 }) {
+  /* setCustomValidity is what makes the browser refuse the submit and show the
+     message. Re-run on every keystroke so the field clears itself as soon as
+     the typo is corrected, rather than staying red until the next attempt. */
+  const check = validate
+    ? (event: { currentTarget: HTMLInputElement }) =>
+        event.currentTarget.setCustomValidity(validate(event.currentTarget.value))
+    : undefined
+
   return (
     <div>
       <label htmlFor={`cs-${name}`} className="mb-1.5 block text-sm font-medium text-ink-soft">
@@ -140,9 +185,12 @@ function Row({
       <input
         id={`cs-${name}`}
         name={name}
+        type={type}
+        required={required}
         defaultValue={defaultValue}
+        onInput={check}
         dir="ltr"
-        className="h-11 w-full rounded-xl border border-surface-line bg-white px-3.5 text-[0.95rem] outline-none transition-colors focus:border-brand-400"
+        className="h-11 w-full rounded-xl border border-surface-line bg-white px-3.5 text-[0.95rem] outline-none transition-colors focus:border-brand-400 user-invalid:border-red-400"
       />
       <p className="mt-1.5 text-xs text-slate-faint">{hint}</p>
     </div>

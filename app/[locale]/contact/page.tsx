@@ -95,7 +95,7 @@ export default async function ContactPage({
     {
       Icon: MessageCircle,
       label: tAssistant('whatsapp'),
-      href: waHref(settings.whatsapp),
+      href: waHref(settings.phoneDisplay),
       external: true,
       aria: tAssistant('whatsapp'),
     },
@@ -124,6 +124,15 @@ export default async function ContactPage({
             </Reveal>
           ))}
         </ul>
+
+        {/* The editor sits with the cards it edits. It used to render under the
+            enquiry form, a screen further down, where someone looking at the
+            number had no way to tell it was editable at all. */}
+        {canManage ? (
+          <div className="mt-6">
+            <ContactSettings settings={settings} />
+          </div>
+        ) : null}
       </Section>
 
       {/* The enquiry form. Nothing is posted to us: the answers are composed
@@ -131,12 +140,7 @@ export default async function ContactPage({
           already written, the Global Seas Trust pattern. */}
       <Section>
         <SectionHeader title={tEnq('title')} body={tEnq('body')} />
-        <EnquiryForm number={waNumber(settings.whatsapp)} />
-        {canManage ? (
-          <div className="mt-8 border-t border-surface-line pt-6">
-            <ContactSettings settings={settings} />
-          </div>
-        ) : null}
+        <EnquiryForm number={waNumber(settings.phoneDisplay)} />
       </Section>
 
       {managing && !unlocked ? <UnlockDialog hours={hours} /> : null}
