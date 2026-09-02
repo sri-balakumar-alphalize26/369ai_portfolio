@@ -6,7 +6,7 @@ import { Reveal } from '@/components/ui/Reveal'
  * The partner logo row.
  *
  * Each mark sits in a fixed fit-box and is contained rather than sized by
- * height alone: the four range from 0.89 to 5.61 in aspect ratio, so tall
+ * height alone: the four range from 0.73 to 5.61 in aspect ratio, so tall
  * marks land on the box's height and wide ones on its width, which is the
  * only way they read at a similar weight. A few then take a `scale` nudge
  * (see content/partners.ts) — that transform deliberately overflows the box
