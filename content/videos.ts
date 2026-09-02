@@ -62,8 +62,21 @@ export const COMPANY_VIDEOS: Video[] = [
   { id: 'i8MUQI6uivE', title: 'Free Course — First Batch Placed', note: 'Training & placement' },
 ]
 
+/**
+ * Served from our own origin, not i.ytimg.com.
+ *
+ * Fetching a thumbnail from Google means the browser connects to Google, which
+ * hands over the visitor's IP and user agent — on page load, before anyone has
+ * asked to watch anything. Self-hosting keeps that request on our domain, so
+ * Google is only reached when someone presses play, which `embedUrl` below
+ * already handles without cookies.
+ *
+ * The files are `hqdefault.jpg` copies under public/images/videos, one per id in
+ * this file. They are a snapshot: re-download if a video's thumbnail changes on
+ * YouTube, and add one whenever a video is added here or the card renders a 404.
+ */
 export function thumbnailUrl(id: string) {
-  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
+  return `/images/videos/${id}.jpg`
 }
 
 /** Privacy-preserving embed host — no cookies until the visitor presses play. */
