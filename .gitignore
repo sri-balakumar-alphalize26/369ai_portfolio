@@ -46,3 +46,9 @@ next-env.d.ts
 # Careers: roles written from the site, and applications with their CVs.
 # Personal data — never commit it.
 data/
+
+# Local Netlify folder
+.netlify
+
+# Netlify CLI edge-function lockfile
+deno.lock
