@@ -4,6 +4,12 @@
     "region": "Deutschland",
     "siteTitle": "369AI — Intelligente Kassensysteme, ERP & Automatisierung"
   },
+  "brand": {
+    "switchLabel": "Produkt wechseln",
+    "ai369Tagline": "Intelligente Geräte und Robotik",
+    "alphalizeTagline": "ERP und Business Intelligence",
+    "newTab": "wird in einem neuen Tab geöffnet"
+  },
   "nav": {
     "home": "Startseite",
     "whatWeDo": "Was wir tun",

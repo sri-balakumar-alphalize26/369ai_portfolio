@@ -20,6 +20,8 @@ import {
   UserRound,
   CalendarDays,
 } from 'lucide-react'
+import { BrandLogo } from './BrandLogo'
+import { BrandSwitcher } from './BrandSwitcher'
 import { LocaleSwitcher } from './LocaleSwitcher'
 import { PhoneMenu } from './PhoneMenu'
 import { SearchMenu } from './SearchMenu'
@@ -50,11 +52,15 @@ export function Header({
   const locale = useLocale()
   const pathname = usePathname()
 
-  const [openMenu, setOpenMenu] = useState<'mega' | 'products' | 'company' | null>(null)
+  const [openMenu, setOpenMenu] = useState<'brand' | 'mega' | 'products' | 'company' | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const megaRef = useRef<HTMLDivElement>(null)
+  // The brand switcher wraps the logo, which sits outside <nav> and so outside
+  // megaRef. Without its own ref the handler below would read a click inside
+  // its panel as an outside click and close it before the link fired.
+  const brandRef = useRef<HTMLDivElement>(null)
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const base = `/${locale}`
@@ -77,7 +83,9 @@ export function Header({
       }
     }
     function onPointerDown(e: MouseEvent) {
-      if (openMenu && !megaRef.current?.contains(e.target as Node)) setOpenMenu(null)
+      const target = e.target as Node
+      if (openMenu && !megaRef.current?.contains(target) && !brandRef.current?.contains(target))
+        setOpenMenu(null)
     }
     document.addEventListener('keydown', onKey)
     document.addEventListener('mousedown', onPointerDown)
@@ -123,7 +131,7 @@ export function Header({
   }, [mobileOpen])
 
   // Hover intent — short delay in, longer out so the pointer can reach the panel.
-  function openOnHover(menu: 'mega' | 'products' | 'company') {
+  function openOnHover(menu: 'brand' | 'mega' | 'products' | 'company') {
     if (hoverTimer.current) clearTimeout(hoverTimer.current)
     hoverTimer.current = setTimeout(() => setOpenMenu(menu), 80)
   }
@@ -151,16 +159,23 @@ export function Header({
         )}
         data-scrolled={scrolled}
       >
-        <Link href={base} className="flex shrink-0 items-center" aria-label={t('homeAria')}>
-          <Image
-            src="/images/brand/logo-369ai.png"
-            alt="369ai.Biz"
-            width={353}
-            height={334}
-            priority
-            className="h-10 w-auto sm:h-12"
-          />
-        </Link>
+        {/* The logo goes through BrandSwitcher rather than beside it: the
+            switcher's root is the hover target, and hovering the logo is the
+            whole feature. shrink-0 moves onto that root — the wrapper, unlike
+            the bare link, is otherwise shrinkable and the logo would compress
+            at 320px. */}
+        <BrandSwitcher
+          ref={brandRef}
+          base={base}
+          open={openMenu === 'brand'}
+          onToggle={() => setOpenMenu((m) => (m === 'brand' ? null : 'brand'))}
+          onOpenHover={() => openOnHover('brand')}
+          onCloseHover={closeOnHover}
+        >
+          <Link href={base} className="flex items-center" aria-label={t('homeAria')}>
+            <BrandLogo alt="369ai.Biz" />
+          </Link>
+        </BrandSwitcher>
 
         {/* Desktop nav */}
         <nav

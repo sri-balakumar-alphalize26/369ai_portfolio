@@ -4,6 +4,12 @@
     "region": "France",
     "siteTitle": "369AI — PDV, ERP et automatisation intelligents"
   },
+  "brand": {
+    "switchLabel": "Changer de produit",
+    "ai369Tagline": "Appareils intelligents et robotique",
+    "alphalizeTagline": "ERP et informatique décisionnelle",
+    "newTab": "ouvre dans un nouvel onglet"
+  },
   "nav": {
     "home": "Accueil",
     "whatWeDo": "Ce que nous faisons",

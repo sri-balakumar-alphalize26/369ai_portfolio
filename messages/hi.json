@@ -4,6 +4,12 @@
     "region": "भारत",
     "siteTitle": "369AI — बुद्धिमान POS, ERP और ऑटोमेशन"
   },
+  "brand": {
+    "switchLabel": "उत्पाद बदलें",
+    "ai369Tagline": "स्मार्ट डिवाइस और रोबोटिक्स",
+    "alphalizeTagline": "ईआरपी और बिज़नेस इंटेलिजेंस",
+    "newTab": "नए टैब में खुलता है"
+  },
   "nav": {
     "home": "होम",
     "whatWeDo": "हम क्या करते हैं",

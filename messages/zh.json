@@ -4,6 +4,12 @@
     "region": "中国",
     "siteTitle": "369AI — 智能 POS、ERP 与自动化"
   },
+  "brand": {
+    "switchLabel": "切换产品",
+    "ai369Tagline": "智能设备与机器人",
+    "alphalizeTagline": "ERP 与商业智能",
+    "newTab": "在新标签页中打开"
+  },
   "nav": {
     "home": "首页",
     "whatWeDo": "业务范围",

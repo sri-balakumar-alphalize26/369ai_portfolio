@@ -4,6 +4,12 @@
     "region": "Global",
     "siteTitle": "369AI — Intelligent POS, ERP & Automation"
   },
+  "brand": {
+    "switchLabel": "Switch product",
+    "ai369Tagline": "Smart devices and robotics",
+    "alphalizeTagline": "ERP and business intelligence",
+    "newTab": "opens in a new tab"
+  },
   "nav": {
     "home": "Home",
     "whatWeDo": "What We Do",
