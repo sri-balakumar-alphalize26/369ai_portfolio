@@ -4,11 +4,17 @@ import { defineRouting } from 'next-intl/routing'
  * The seven locales the old Odoo site offered, kept identical so existing
  * links and search rankings carry over, plus Tamil and Malayalam.
  *
- * ta and ml sit directly after hi on purpose: the picker groups by region, and
- * India's three languages have to be contiguous for that grouping to read as
- * one block.
+ * ORDER IS LOAD-BEARING — this array is the display order of the picker.
+ * India sits second, straight after Global: this is an Indian company and its
+ * home market should not be last in its own language menu.
+ *
+ * The picker groups by region positionally — a group breaks when the region
+ * label changes — so same-region entries have to stay adjacent. India's three
+ * languages (hi, ta, ml) are contiguous on purpose; split them and the picker
+ * prints "India" three times with three identical flags. Reordering this array
+ * is a UI change, and nothing else reads it in order.
  */
-export const locales = ['en', 'ar', 'bn', 'zh', 'fr', 'de', 'hi', 'ta', 'ml'] as const
+export const locales = ['en', 'hi', 'ta', 'ml', 'ar', 'bn', 'zh', 'fr', 'de'] as const
 export type Locale = (typeof locales)[number]
 
 export const defaultLocale: Locale = 'en'
