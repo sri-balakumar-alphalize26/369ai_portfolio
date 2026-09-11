@@ -322,6 +322,100 @@
 }
 [dir="rtl"] .scroll-progress { transform-origin: right center; }
 
+/* ---- Back to top --------------------------------------------------- */
+/* Parked beside the Assistant launcher, and it slides out from UNDERNEATH
+   it — which is why the button is z-[59] and the launcher z-[60]. It used to
+   sit above the launcher and hide itself whenever the greeting bubble or the
+   chat panel took that slot, which meant it vanished for the first few
+   seconds of every visit, exactly when a reader is most likely to want it.
+
+   Position, size and colour are Tailwind utilities on the element. Only what
+   Tailwind cannot say lives here: the sideways entrance and the two-chevron
+   choreography, which needs nth-child and a parent :hover. */
+.btt {
+  /* Hidden, the button is translated on top of the launcher. Without this the
+     chat button cannot be clicked at all. */
+  pointer-events: none;
+  opacity: 0;
+  /* A logical slide: in Arabic the launcher is on the left and this button on
+     its right, so it has to retreat the other way or it emerges from open
+     space instead of from behind the launcher. */
+  --btt-slide: 44px;
+  translate: var(--btt-slide) 0;
+  scale: 0.65;
+  transition:
+    opacity 0.3s ease,
+    translate 0.45s cubic-bezier(0.34, 1.45, 0.64, 1),
+    scale 0.45s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+[dir="rtl"] .btt { --btt-slide: -44px; }
+
+.btt.is-visible {
+  pointer-events: auto;
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+}
+
+.btt-disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  /* The growth-arrow orange from the logo, not the brand blue: it sets this
+     apart from the Assistant launcher beside it, so the two stop reading as
+     halves of one control. The shadow stays neutral — a warm one on a circle
+     this small reads as a smudge. */
+  background: var(--color-accent-500);
+  box-shadow: 0 6px 18px rgb(15 30 46 / 0.18);
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.25s ease,
+    box-shadow 0.3s ease;
+}
+.btt:hover .btt-disc {
+  transform: scale(1.07);
+  background: var(--color-accent-400);
+  box-shadow: 0 10px 24px rgb(15 30 46 / 0.24);
+}
+.btt:active .btt-disc { transform: scale(0.97); }
+
+/* The chevrons are clipped to the disc so they can leave the frame. */
+.btt-glyph {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.btt-glyph svg {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  transition:
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.22s ease;
+}
+
+/* The second chevron waits below, invisible, and arrives on hover — the pair
+   reads as 'up, and further'. */
+.btt-glyph svg:nth-child(2) { opacity: 0; transform: translateY(9px) scale(0.7); }
+.btt:hover .btt-glyph svg:nth-child(1) { transform: translateY(-6px) scale(0.88); }
+.btt:hover .btt-glyph svg:nth-child(2) { opacity: 1; transform: translateY(4px) scale(0.88); }
+
+/* On click both leave through the top, chasing the page. */
+.btt.is-firing .btt-glyph svg:nth-child(1) { transform: translateY(-26px) scale(0.8); }
+.btt.is-firing .btt-glyph svg:nth-child(2) { transform: translateY(-16px) scale(0.8); opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btt,
+  .btt-disc,
+  .btt-glyph svg {
+    transition-duration: 0.01ms;
+  }
+  .btt-glyph svg:nth-child(2) { display: none; }
+}
+
 /* ---- Scroll reveal ------------------------------------------------- */
 [data-reveal] {
   opacity: 0;

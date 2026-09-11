@@ -14,6 +14,7 @@ import { Footer } from '@/components/layout/Footer'
 import { readCareers } from '@/lib/careers'
 import { ScrollProgress } from '@/components/layout/ScrollProgress'
 import { RouteLoader } from '@/components/layout/RouteLoader'
+import { BackToTop } from '@/components/ui/BackToTop'
 import { Assistant } from '@/components/assistant/Assistant'
 import { IdlePromo } from '@/components/promo/IdlePromo'
 import { promoApp } from '@/lib/apps'
@@ -192,6 +193,7 @@ export default async function LocaleLayout({
             <main className="flex-1">{children}</main>
             <Footer hiring={hiring} />
             <Assistant contact={await readContact()} />
+            <BackToTop />
             {/* Last in the DOM, so it is last in tab order. The app is
                 resolved here because lib/apps.ts checks the filesystem,
                 which a client component cannot do. */}
