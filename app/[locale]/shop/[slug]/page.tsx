@@ -17,6 +17,7 @@ import {
   toCardData,
 } from '@/lib/products'
 import { locales, localeLabels } from '@/i18n/routing'
+import { breadcrumbJsonLd, productJsonLd } from '@/lib/structured-data'
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => PRODUCTS.map((p) => ({ locale, slug: p.slug })))
@@ -73,8 +74,31 @@ export default async function ProductPage({
   const specs = Object.entries(product.specs)
   const related = relatedProducts(product)
 
+  /**
+   * Product and BreadcrumbList, server-rendered from content/products.json —
+   * nothing here is user input. Same pattern as the JobPosting block on the
+   * careers page. Both carry `locale`, so the Arabic page advertises the
+   * Arabic URL rather than the English one.
+   */
+  const jsonLd = [
+    productJsonLd(product, locale),
+    breadcrumbJsonLd(locale, [
+      { name: '369AI', path: '' },
+      { name: t('title'), path: '/shop' },
+      { name: product.name, path: `/shop/${product.slug}` },
+    ]),
+  ]
+
   return (
     <>
+      {jsonLd.map((node) => (
+        <script
+          key={node['@type']}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(node) }}
+        />
+      ))}
+
       <Section className="pt-28 sm:pt-32" size="sm">
         <Link
           href={`${base}/shop`}

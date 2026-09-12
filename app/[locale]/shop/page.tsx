@@ -6,6 +6,7 @@ import { PageHero } from '@/components/ui/PageHero'
 import { ShopBrowser } from '@/components/shop/ShopBrowser'
 import { PRODUCTS, CATEGORIES, toCardData } from '@/lib/products'
 import { locales, localeLabels } from '@/i18n/routing'
+import { breadcrumbJsonLd, shopItemListJsonLd } from '@/lib/structured-data'
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -48,8 +49,29 @@ export default async function ShopPage({
   const products = PRODUCTS.map(toCardData)
   const categories = CATEGORIES.map((c) => ({ name: c.name, count: c.count }))
 
+  /**
+   * The listing published nothing before this. PRODUCTS rather than the
+   * `products` card data above: the list describes the catalogue, not whatever
+   * the browser is currently filtered to.
+   */
+  const jsonLd = [
+    shopItemListJsonLd(locale, PRODUCTS),
+    breadcrumbJsonLd(locale, [
+      { name: '369AI', path: '' },
+      { name: t('title'), path: '/shop' },
+    ]),
+  ]
+
   return (
     <>
+      {jsonLd.map((node) => (
+        <script
+          key={node['@type']}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(node) }}
+        />
+      ))}
+
       <PageHero eyebrow={t('eyebrow')} title={t('title')} body={t('body')} />
 
       <Section>

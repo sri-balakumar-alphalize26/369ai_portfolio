@@ -1,5 +1,6 @@
 import { CONTACT, OFFICES, mapsUrl, type Office } from '@/content/offices'
 import { SOCIALS } from '@/content/socials'
+import { primaryCategory, type Product } from '@/lib/products'
 import { SITE_URL } from '@/lib/site'
 
 /**
@@ -92,5 +93,113 @@ export function organizationJsonLd(description: string) {
      * entity signal, not a link for visitors.
      */
     sameAs: [...SOCIALS.map((s) => s.href), 'https://www.youtube.com/@369AIbiz'],
+  }
+}
+
+/**
+ * Product JSON-LD for the shop detail pages.
+ *
+ * These 75 pages published nothing at all before this — no structured data of
+ * any kind — which is the largest gap on the site: they carry real model codes,
+ * spec tables and photos, and a model number like NGP-MC720-S is a query this
+ * site can actually win. The brand name cannot be: "369 AI" is shared with
+ * 369ai.cloud and five other companies.
+ *
+ * NO `price`. content/products.json has no price field, so the merchant
+ * rich result (price + availability) is out of reach until one exists, and
+ * inventing a number to unlock it would be a lie to both Google and the
+ * visitor. Everything else here is real, and the day prices land this node
+ * becomes merchant-eligible with one addition.
+ */
+export function productJsonLd(product: Product, locale: string) {
+  const url = `${SITE_URL}/${locale}/shop/${product.slug}`
+  const category = primaryCategory(product)
+  const specs = Object.entries(product.specs)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    '@id': `${url}#product`,
+    name: product.name,
+    description: product.description || undefined,
+    // Relative in the JSON, absolute here: schema.org consumers do not resolve
+    // against <base> or metadataBase the way the HTML metadata does.
+    image: product.images.map((src) => `${SITE_URL}${src}`),
+    /**
+     * The model code is the identifier a buyer actually searches, and it is
+     * embedded in the name rather than held as a field — `id` is the old Odoo
+     * row number, which identifies nothing outside that export.
+     */
+    sku: product.id,
+    mpn: product.id,
+    ...(category ? { category } : {}),
+    brand: { '@type': 'Brand', name: '369AI' },
+    url,
+    /** The spec table, which is already structured content in all but name. */
+    ...(specs.length
+      ? {
+          additionalProperty: specs.map(([name, value]) => ({
+            '@type': 'PropertyValue',
+            name,
+            value,
+          })),
+        }
+      : {}),
+    offers: {
+      '@type': 'Offer',
+      url,
+      availability: 'https://schema.org/InStock',
+      // Points at the Organization node the home page defines, so the whole
+      // site describes one company rather than 75 unrelated sellers.
+      seller: { '@id': `${SITE_URL}/#organization` },
+    },
+  }
+}
+
+/**
+ * BreadcrumbList — the one node here that Google renders visibly, replacing the
+ * raw URL in the result with a readable trail.
+ *
+ * `trail` is ordered root-first and each `path` is locale-relative (''
+ * for the locale home), so callers cannot accidentally emit the English URL on
+ * a translated page — the mistake that is live on the Alphalize site, where the
+ * services ItemList drops the locale and all nine locales advertise /en.
+ */
+export function breadcrumbJsonLd(locale: string, trail: { name: string; path: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: trail.map((crumb, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: crumb.name,
+      item: `${SITE_URL}/${locale}${crumb.path}`,
+    })),
+  }
+}
+
+/**
+ * ItemList for the shop listing.
+ *
+ * `locale` is a required parameter and every URL is built from it, which is the
+ * whole point: the equivalent list on the Alphalize site hardcodes the origin
+ * and omits the locale, so all nine of its locales publish the English URL. The
+ * signature here makes that mistake impossible to repeat by accident.
+ */
+export function shopItemListJsonLd(
+  locale: string,
+  products: { slug: string; name: string }[]
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: '369AI hardware',
+    numberOfItems: products.length,
+    itemListElement: products.map((product, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: product.name,
+      url: `${SITE_URL}/${locale}/shop/${product.slug}`,
+    })),
   }
 }
