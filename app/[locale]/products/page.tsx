@@ -9,7 +9,7 @@ import { readContact, waNumber } from '@/lib/contact-settings'
 import { EnquiryForm } from '@/components/contact/EnquiryForm'
 import { PageHero } from '@/components/ui/PageHero'
 import { RequirementsFlow } from '@/components/products/RequirementsFlow'
-import { locales } from '@/i18n/routing'
+import { locales, localeLabels } from '@/i18n/routing'
 import { ERP_MODULES, POS_FEATURES, STEPS } from '@/content/modules'
 
 /* Apps & desktop software icons — hand-drawn inline SVG, not lucide:
@@ -68,7 +68,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'products' })
-  return { title: t('title'), description: t('body').slice(0, 155) }
+  return {
+    title: t('title'),
+    description: t('body').slice(0, 155),
+    alternates: {
+      canonical: `/${locale}/products`,
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [localeLabels[l].hreflang, `/${l}/products`])
+        ),
+        // Anyone matching none of the nine lands on English.
+        'x-default': `/en/products`,
+      },
+    },
+  }
 }
 
 export default async function ProductsPage({

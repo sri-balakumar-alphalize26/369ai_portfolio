@@ -51,7 +51,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'privacy' })
-  return { title: t('title'), description: t('lead').slice(0, 155) }
+  return {
+    title: t('title'),
+    description: t('lead').slice(0, 155),
+    alternates: {
+      canonical: `/${locale}/privacy-policy`,
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [localeLabels[l].hreflang, `/${l}/privacy-policy`])
+        ),
+        // Anyone matching none of the nine lands on English.
+        'x-default': `/en/privacy-policy`,
+      },
+    },
+  }
 }
 
 /** A bulleted list. `ps-5` rather than `pl-5` so Arabic indents on the right. */

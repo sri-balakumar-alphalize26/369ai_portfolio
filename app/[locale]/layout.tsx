@@ -134,9 +134,13 @@ export async function generateMetadata({
     description: t('heroBody'),
     alternates: {
       canonical: `/${locale}`,
-      languages: Object.fromEntries(
-        locales.map((l) => [localeLabels[l].hreflang, `/${l}`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [localeLabels[l].hreflang, `/${l}`])
+        ),
+        // Anyone matching none of the nine lands on English.
+        'x-default': `/en`,
+      },
     },
     openGraph: {
       type: 'website',

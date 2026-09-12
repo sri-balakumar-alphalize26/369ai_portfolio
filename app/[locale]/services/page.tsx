@@ -6,7 +6,7 @@ import { Reveal } from '@/components/ui/Reveal'
 import { ButtonLink } from '@/components/ui/Button'
 import { Magnetic } from '@/components/ui/Magnetic'
 import { PageHero } from '@/components/ui/PageHero'
-import { locales } from '@/i18n/routing'
+import { locales, localeLabels } from '@/i18n/routing'
 
 const SERVICES = [
   { key: 'pos', Icon: ScanBarcode },
@@ -28,7 +28,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'services' })
-  return { title: t('title'), description: t('body').slice(0, 155) }
+  return {
+    title: t('title'),
+    description: t('body').slice(0, 155),
+    alternates: {
+      canonical: `/${locale}/services`,
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [localeLabels[l].hreflang, `/${l}/services`])
+        ),
+        // Anyone matching none of the nine lands on English.
+        'x-default': `/en/services`,
+      },
+    },
+  }
 }
 
 export default async function ServicesPage({

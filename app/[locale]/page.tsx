@@ -28,6 +28,7 @@ import { AppIntegrations } from '@/components/home/AppIntegrations'
 import { PRODUCTS, toCardData } from '@/lib/products'
 import { AppsStack } from '@/components/apps/AppsStack'
 import { appsWithIcons } from '@/lib/apps'
+import { organizationJsonLd } from '@/lib/structured-data'
 import { ConnectedPillars } from '@/components/home/ConnectedPillars'
 import { ConnectedStage } from '@/components/ui/ConnectedStage'
 import { RotatingTitle } from '@/components/home/RotatingTitle'
@@ -89,6 +90,14 @@ export default async function HomePage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        // Server-rendered from our own content files; nothing here is user input.
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationJsonLd(t('heroBody'))),
+        }}
+      />
+
       <Hero base={base} />
 
       {/* ------------------------------------------------------------- Pillars */}

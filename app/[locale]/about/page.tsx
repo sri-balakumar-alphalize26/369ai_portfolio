@@ -26,7 +26,7 @@ import { AmbientVideo } from '@/components/ui/AmbientVideo'
 import { Lightbox } from '@/components/ui/Lightbox'
 import { PageHero } from '@/components/ui/PageHero'
 import { StatsRow } from '@/components/home/StatsRow'
-import { locales } from '@/i18n/routing'
+import { locales, localeLabels } from '@/i18n/routing'
 
 const DIFFERENTIATORS = [
   { key: 'innovation', Icon: Lightbulb },
@@ -57,7 +57,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'about' })
-  return { title: t('eyebrow'), description: t('intro').slice(0, 155) }
+  return {
+    title: t('eyebrow'),
+    description: t('intro').slice(0, 155),
+    alternates: {
+      canonical: `/${locale}/about`,
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [localeLabels[l].hreflang, `/${l}/about`])
+        ),
+        // Anyone matching none of the nine lands on English.
+        'x-default': `/en/about`,
+      },
+    },
+  }
 }
 
 export default async function AboutPage({

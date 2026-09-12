@@ -8,7 +8,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import { Magnetic } from '@/components/ui/Magnetic'
 import { PageHero } from '@/components/ui/PageHero'
 import { SOLUTION_IMAGES } from '@/content/solutions'
-import { locales } from '@/i18n/routing'
+import { locales, localeLabels } from '@/i18n/routing'
 
 const SOLUTIONS = [
   { key: 'erp', Icon: Database },
@@ -32,6 +32,16 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('body').slice(0, 155),
+    alternates: {
+      canonical: `/${locale}/solutions`,
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [localeLabels[l].hreflang, `/${l}/solutions`])
+        ),
+        // Anyone matching none of the nine lands on English.
+        'x-default': `/en/solutions`,
+      },
+    },
   }
 }
 

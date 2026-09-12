@@ -39,9 +39,13 @@ export async function generateMetadata({
     description: t('body').slice(0, 155),
     alternates: {
       canonical: `/${locale}/careers`,
-      languages: Object.fromEntries(
-        locales.map((l) => [localeLabels[l].hreflang, `/${l}/careers`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [localeLabels[l].hreflang, `/${l}/careers`])
+        ),
+        // Anyone matching none of the nine lands on English.
+        'x-default': `/en/careers`,
+      },
     },
   }
 }

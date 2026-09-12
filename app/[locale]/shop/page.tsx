@@ -24,9 +24,13 @@ export async function generateMetadata({
     description: t('body').slice(0, 155),
     alternates: {
       canonical: `/${locale}/shop`,
-      languages: Object.fromEntries(
-        locales.map((l) => [localeLabels[l].hreflang, `/${l}/shop`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [localeLabels[l].hreflang, `/${l}/shop`])
+        ),
+        // Anyone matching none of the nine lands on English.
+        'x-default': `/en/shop`,
+      },
     },
   }
 }
