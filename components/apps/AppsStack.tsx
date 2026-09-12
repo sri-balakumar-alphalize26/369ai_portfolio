@@ -177,7 +177,18 @@ export function AppsStack({
                       : 'learn-more border-surface-line text-brand-600'
                   )}
                 >
-                  <span>{tc('learnMore')}</span>
+                  {/* Three of these sit on the home page, all reading "Learn
+                      more" and pointing at three different targets. The
+                      destination is appended out of sight rather than as an
+                      aria-label: aria-label does not change the link's text
+                      content, which is what both Lighthouse and a screen
+                      reader's link list actually read. Built from the card's
+                      own <h2> so no new catalogue key needs translating into
+                      nine locales. */}
+                  <span>
+                    {tc('learnMore')}
+                    <span className="sr-only">: {ts(`${key}.title`)}</span>
+                  </span>
                   <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
                 </Link>
               </div>

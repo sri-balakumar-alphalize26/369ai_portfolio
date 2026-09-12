@@ -142,8 +142,14 @@ export default async function HomePage({
                 className="learn-more inline-flex items-center gap-1.5 rounded-pill border border-surface-line px-5 py-2.5 font-semibold text-brand-600"
               >
                 {/* span, not a bare text node — the sweep ::before is
-                    positioned, so it paints above unwrapped text */}
-                <span>{tc('learnMore')}</span>
+                    positioned, so it paints above unwrapped text.
+                    The destination is appended out of sight: this is one of
+                    four "Learn more" links on the page, and the text content
+                    is what a screen reader's link list reads. */}
+                <span>
+                  {tc('learnMore')}
+                  <span className="sr-only">: {tNav('about')}</span>
+                </span>
                 <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
               </Link>
             </div>
