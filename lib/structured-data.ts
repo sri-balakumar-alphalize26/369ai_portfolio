@@ -54,6 +54,16 @@ export function organizationJsonLd(description: string) {
     '@type': 'Organization',
     '@id': `${SITE_URL}/#organization`,
     name: '369AI',
+    /**
+     * The brand name is contested — 369ai.cloud, 369 AI Ventures, 369 Studio
+     * and several others all rank for "369 AI", and a search for "369 ai biz"
+     * returns every one of them before this site.
+     *
+     * `name` alone is the closed-up form, so the spaced and domain forms people
+     * actually type are not matched to this entity. These are the query
+     * variants, not marketing copy — do not extend this into a keyword list.
+     */
+    alternateName: ['369 AI', '369AIbiz', '369AI Biz', '369 AI Biz', '369ai.biz'],
     url: SITE_URL,
     logo: `${SITE_URL}/images/brand/logo-369ai.png`,
     image: `${SITE_URL}/opengraph-image`,
@@ -69,6 +79,18 @@ export function organizationJsonLd(description: string) {
       email: CONTACT.email,
       areaServed: [...new Set(OFFICES.map((o) => o.countryCode.toUpperCase()))],
     },
-    sameAs: SOCIALS.map((s) => s.href),
+    /**
+     * The footer accounts, plus the company's second YouTube channel.
+     *
+     * SOCIALS carries "Shan on Tech", which hosts the six videos the site
+     * embeds. @369AIbiz is the other channel, and it is currently the top
+     * result for the brand name — the strongest property pointing at this
+     * entity, so leaving it out of sameAs threw that signal away.
+     *
+     * Added here rather than in content/socials.ts on purpose: that list draws
+     * the footer, and two YouTube icons side by side would be wrong. This is an
+     * entity signal, not a link for visitors.
+     */
+    sameAs: [...SOCIALS.map((s) => s.href), 'https://www.youtube.com/@369AIbiz'],
   }
 }
