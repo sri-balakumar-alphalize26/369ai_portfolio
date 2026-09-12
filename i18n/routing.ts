@@ -48,4 +48,16 @@ export const routing = defineRouting({
   locales,
   defaultLocale,
   localePrefix: 'always',
+  /**
+   * No NEXT_LOCALE cookie. Cloudflare never caches a response that carries
+   * Set-Cookie, and the middleware was stamping one on every page — so the
+   * edge cache rule matched all 86 prerendered pages and cached none of them.
+   *
+   * Nothing depends on the cookie: with localePrefix 'always' every internal
+   * link already names its locale, and the switcher navigates to a prefixed
+   * URL rather than reading it. Its only job was steering the bare `/`
+   * redirect for a returning visitor, which now falls back to Accept-Language
+   * and then English — the same thing a first visit always got.
+   */
+  localeCookie: false,
 })
